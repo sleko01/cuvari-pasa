@@ -1,0 +1,15 @@
+Dnevnik sastajanja:
+1. sastanak
+datum: 20.10.2022.
+prisustvovali: svi
+teme sastanka:
+	- sastanak s asistentom i demonstratorom
+	- diskusija o radu na projektu
+	- odabir tehnologije
+2.
+datum: 23.10.2022.
+prisustvovali: svi
+teme sastnaka:
+	- sastavljanje svih ekrana
+	- općeniti izgled
+	- razradba baze podataka
