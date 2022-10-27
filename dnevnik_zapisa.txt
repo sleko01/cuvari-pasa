@@ -12,4 +12,9 @@ prisustvovali: svi
 teme sastnaka:
 	- sastavljanje svih ekrana
 	- općeniti izgled
-	- razradba baze podataka
+3.
+datum: 27.10.2022.
+prisustvovali: Mario Petek, Antonio Lukić, Lovro Malojčić
+teme sastanka:
+	- pojašnjenje zadataka
+	- poboljšanje baze
