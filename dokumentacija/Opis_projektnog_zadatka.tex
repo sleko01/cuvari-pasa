@@ -1,20 +1,63 @@
 \chapter{Opis projektnog zadatka}
 		
-		\textbf{\textit{dio 1. revizije}}\\
+		%\textbf{\textit{dio 1. revizije}}\\
 		
-		\textit{Na osnovi projektnog zadatka detaljno opisati korisničke zahtjeve. Što jasnije opisati cilj projektnog zadatka, razraditi problematiku zadatka, dodati nove aspekte problema i potencijalnih rješenja. Očekuje se minimalno 3, a poželjno 4-5 stranica opisa.	Teme koje treba dodatno razraditi u ovom poglavlju su:}
+		%\textit{Na osnovi projektnog zadatka detaljno opisati korisničke zahtjeve. Što jasnije opisati cilj projektnog zadatka, razraditi problematiku zadatka, dodati nove aspekte problema i potencijalnih rješenja. Očekuje se minimalno 3, a poželjno 4-5 stranica opisa.	Teme koje treba dodatno razraditi u ovom poglavlju su:}
+		%\begin{packed_item}
+		%	\item \textit{potencijalna korist ovog projekta}
+		%	\item \textit{postojeća slična rješenja (istražiti i ukratko opisati razlike u odnosu na zadani zadatak). Dodajte slike koja predočavaju slična rješenja.}
+		%	\item \textit{skup korisnika koji bi mogao biti zainteresiran za ostvareno rješenje.}
+		%	\item \textit{mogućnost prilagodbe rješenja }
+		%	\item \textit{opseg projektnog zadatka}
+		%	\item \textit{moguće nadogradnje projektnog zadatka}
+		%\end{packed_item}
+		
+		%\textit{Za pomoć pogledati reference navedene u poglavlju „Popis literature“, a po potrebi konzultirati sadržaj na internetu koji nudi dobre smjernice u tom pogledu.}
+		%\eject
+		
+		U današnje vrijeme veliki broj ljudi za svog ljubimca odabire psa, koji većinu vremena provodi uz svog vlasnika. No, što ako vlasnik ima neodgodivu obavezu na koju nikako ne može povesti svog psa i treba biti odsutan neko vrijeme? Kome se obratiti za pomoć, ako mu je nitko koga zna nije u mogućnosti ponuditi? Negdje u blizini se sigurno krije osoba koja bi rado preuzela privremenu brigu, no kako do nje? 
+		
+		Kako bi vlasnici mogli obavljati svoje obaveze bezbrižno znajući da je njihov pas zbrinut, a s druge strane ljudi koji bi rado prošetali ili nahranili psa i privremeno se igrali s njim mogli ispuniti vrijeme na koristan i zabavan način, potrebna je aplikacija preko koje bi se oni mogli povezati i pronaći rješenje za svoje brige. 
+		
+		Glavni cilj ovog projekta je stvaranje aplikacije \textit{"Čuvari pasa"} koja će vlasniku psa/pasa pomoći u pronalasku osobe koja najbolje odgovara za privremenu brigu (od nekoliko sati do nekoliko tjedana ili mjeseci) o njegovom ljubimcu. 
+		
+		Ukratko, ideja je da vlasnik psa u aplikaciji predaje zahtjev kojim traži osobu za privremenu brigu o njegovom psu. S druge strane, osobe koje su voljne čuvati nekog psa na određeno vrijeme u aplikaciji predaju oglas u kojem navode uvjete čuvanja/brige. Na temelju zahtjeva vlasnika i uvjeta čuvara, aplikacija pronalazi najbolji odabir, koji su obje strane u mogućnosti prihvatiti ili odbiti, pa pretražujući  ostale zahtjeve/oglase pronaći drugi odabir. 
+		
+		Prilikom pokretanja aplikacije prikazuje se početna stranica na kojoj su svi trenutno aktivni zahtjevi i oglasi s pripadajućim podacima. Pregledavanje tih oglasa omogućeno je i neregistriranim korisnicima, ali za korištenje ostalih funkcionalnosti, kao što su objava vlastitih zahtjeva/oglasa te stupanje u kontakt s objavljivačima, potrebna je registracija ili u slučaju već postojećeg računa, prijava. Registrirati se može bilo tko na način da unese osnovne podatke koji su potrebni za korištenje aplikacije, a to su: ime, prezime, e-mail adresa, korisničko ime, lozinka, broj telefona i uloga (\textit{vlasnik/čuvar/oboje}). 
+		
+		S druge strane, korisnik koji je već registriran može se prijaviti u sustav unoseći korisničko ime i lozinku. Registracijom u sustav korisniku se dodjeljuje odabrana uloga (\textit{vlasnik/čuvar/oboje}). On u tom slučaju može vidjeti i mijenjati svoje osobne podatke, a u nastavku su opisane funkcionalnosti i mogućnosti za pojedinu ulogu korisnika. 
+		
+		\textit{Korisnik (vlasnik psa):}
+		
+		U slučaju da je korisnik odabrao opciju vlasnika psa, on ima mogućnost kreiranja zahtjeva za čuvanje psa u aplikaciji. Pri kreiranju zahtjeva potrebno je unijeti osnovne podatke vezane za psa i čuvanje, a to su: pasmina, dob psa, potrebni period čuvanja, potrebne aktivnosti (npr. šetnja, istrčavanje, hranjenje – koliko često, potrebna količina ako se radi o hrani itd.), lokacija i broj pasa za koje je potrebno čuvanje. Osim osnovnih podataka, vlasnik može objaviti i fotografiju svog psa, kao i poželjne karakteristike čuvara (ima li iskustva u svom poslu, ima li vlastitog psa). Sve zahtjeve koje je korisnik kreirao može pregledati, urediti i brisati na pregledu \textit{Moji zahtjevi}. Također, korisnik na pregledu \textit{Oglasi} ima mogućnost pregleda svih oglasa koje su objavili potencijalni čuvari.
+		
+		\textit{Korisnik (čuvar psa):}
+		
+		U slučaju da je korisnik odabrao opciju čuvara pasa, on ima mogućnost kreiranja oglasa u aplikaciji kojim nudi uslugu čuvanja. Pri kreiranju oglasa potrebno je unijeti osnovne podatke relevantne za oglas, a to su: pasmina koju želi čuvati (uz oznaku mora li nužno biti samo ta pasmina), preferirana dob psa, mogući period čuvanja (fiksno ili fleksibilno), lokacija i broj pasa koje može čuvati (fiksno ili fleksibilno). Uz osnovne podatke, korisnik može navesti i dodatne karakteristike kao što su: imam vlastitog psa i imam iskustva u ovom poslu. Sve oglase koje je korisnik kreirao može pregledati, urediti i brisati na pregledu \textit{Moji oglasi}. Također, korisnik na pregledu \textit{Zahtjevi} ima mogućnost pregleda svih zahtjeva koje su objavili vlasnici pasa. Čuvar psa ima dodatnu mogućnost naspram vlasnika psa, a to je da u slučaju dogovaranja točnog termina, on može urediti svoje podatke unoseći termin kada je dogovoreno čuvanje i kojeg psa u svoj kalendar. Potom te podatke sprema tako da na detaljima svog računa može vidjeti kalendar s terminima i voditi organizaciju vremena.
+		
+		Uz ulogu korisnika, postoji i uloga administratora.
+		
+		\textit{Administrator} sustava, uz funkcionalnosti ranije opisanih korisnika, ima i neke dodatne mogućnosti kao što su: upravljanje zahtjevima/oglasima koje su kreirali vlasnik/čuvar psa, blokiranje korisnika koji narušavaju pravila sustava te dodjeljivanje administratorskih ovlasti drugom korisniku. Osobni podaci registriranog korisnika bit će vidljivi samo administratoru i koristit će se u svrhu ostvarenja kontakta između uparenih vlasnika i čuvara psa. Prije javne objave bilo kojeg zahtjeva/oglasa, on se šalje administratoru na uvid u posebnoj kartici koja je vidljiva samo korisnicima s administratorskim ovlastima u aplikaciji, a koji potom odlučuje hoće li taj zahtjev/oglas biti javno dostupan.
+		
+		Nakon što administrator odobri stvoreni zahtjev/oglas, on postaje javno dostupan te potom korisnik ima dvije mogućnosti za pronalazak najboljeg odgovarajućeg čuvara psa/psa za čuvanje:
+		
 		\begin{packed_item}
-			\item \textit{potencijalna korist ovog projekta}
-			\item \textit{postojeća slična rješenja (istražiti i ukratko opisati razlike u odnosu na zadani zadatak). Dodajte slike koja predočavaju slična rješenja.}
-			\item \textit{skup korisnika koji bi mogao biti zainteresiran za ostvareno rješenje.}
-			\item \textit{mogućnost prilagodbe rješenja }
-			\item \textit{opseg projektnog zadatka}
-			\item \textit{moguće nadogradnje projektnog zadatka}
+			
+			\item Odabir \textit{"Pronađi najbolji odabir"} kojim aplikacija na temelju pojedinih karakteristika (pasmina, dob psa, period čuvanja, udaljenost lokacija vlasnika i čuvara mora biti manja od 5 kilometara) pronalazi najpogodnijeg čuvara/psa. Ukoliko se pronađe takva osoba, korisniku s ulogom vlasnika psa dolazi obavijest u aplikaciji s najpogodnijim oglasom, a ukoliko korisnik ima ulogu čuvara psa, dolazi mu obavijest u aplikaciji s najpogodnijim zahtjevom. Korisnici imaju mogućnost prihvaćanja pronađenog odabira i ako oba korisnika prihvate odabir tada im se na pregledu zahtjeva/oglasa prikazuje i kontakt drugog korisnika te se mogu dogovoriti za detalje. Ako barem jedan korisnik odbije odabir, tada se smatra da nije poželjna daljnja suradnja.
+			\item Korisnik ručno pregledava sve zahtjeve/oglase u aplikaciji, pronalazi onaj koji mu se najviše sviđa i odabirom istog šalje obavijest čuvaru/vlasniku psa da bi ga htio odabrati. Čuvar/vlasnik psa taj odabir prihvaća te se potom prikazuje kontakt za daljnji dogovor oko detalja, ili odbija što bi značilo da jedna od strana ne želi ostvariti suradnju.
+			
 		\end{packed_item}
 		
-		\textit{Za pomoć pogledati reference navedene u poglavlju „Popis literature“, a po potrebi konzultirati sadržaj na internetu koji nudi dobre smjernice u tom pogledu.}
-		\eject
+		Nakon završene suradnje  vlasnik psa može ocijeniti koliko je zadovoljan uslugom čuvanja. S druge strane, čuvar isto tako može ocijeniti kakav je bio pas za čuvanje. Prosječna ocjena kojom je ocjenjen čuvar pasa prikazuje se na svakom oglasu tog čuvara kako bi vlasnik psa mogao na temelju tuđih mišljenja procijeniti je li baš taj čuvar pogodan za njegovog ljubimca. Isto tako, prosječna ocjena psa biti će vidljiva na svakom zahtjevu za čuvanje kako bi potencijalni čuvar mogao procjeniti je li taj pas pogodan za čuvanje na temelju tuđih iskustava.
 		
+		Aplikacija treba biti izvedena kao web aplikacija prilagođena mobilnom uređaju i tabletu kojoj će registrirani korisnici pristupati uz pomoć korisničkog imena i lozinke. Također, sustav treba podržavati rad više korisnika u stvarnom vremenu.\newline
+		
+		
+		
+		Aplikacija ima puno prostora za nadogradnju u budućnosti. Neke od početnih ideja nadogradnje bile bi 
+		dodavanje mogućnosti pregledavanja korisničkih računa korisnika (uz to bi se i nadogradile mogućnosti uređivanja samog korisničkog računa - npr. moguće objavljivanje fotografija svojih ljubimaca) i slanja zahtjeva za prijateljstvo, kako bi osobe mogle ostati povezane za potencijalnu buduću suradnju. Također, moguće proširenje aplikacije bila bi implementacija sustava kojim se oglašavaju psi za udomljvanje i zbrinjavanje.\newline
+		
+		Neke funkcionalnosti ove aplikacije mogle bi se usporediti s funkcionalnostima aplikacije za pružanje usluga prijevoza pod nazivom \textit{"Uber"}. Aplikacija \textit{"Uber"} ima funkcionalnost pronalaska najboljeg odabira, koja radi na način da uparuje vozače i korisnike s najpogodnijom lokacijskom udaljenosti, tako da korisniku u što kraćem roku bude pružena željena usluga. Po završetku vožnje korisnik također ima opciju ocijeniti koliko je bio zadovoljan vožnjom. Navedene funkcionalnosti su vrlo slične funkcionalnostima aplikacije kojom se bavi ovaj projekt.
 		%ostatak teksta je zakomentiran
 		\iffalse
 		\section{Primjeri u \LaTeX u}
