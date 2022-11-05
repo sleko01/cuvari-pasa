@@ -5,21 +5,24 @@ import com.sun.istack.NotNull;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 @Entity
-public class Role {
+public class Breed {
+
     @Id
     @GeneratedValue
-    private Long roleId;
+    private Long breedId;
 
     @NotNull
     private String name;
 
-    public Long getRoleId() {
-        return roleId;
+
+    public Long getBreedId() {
+        return breedId;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setBreedId(Long breedId) {
+        this.breedId = breedId;
     }
 
     public String getName() {

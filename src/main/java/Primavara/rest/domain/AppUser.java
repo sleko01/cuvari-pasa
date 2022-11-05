@@ -1,5 +1,7 @@
 package Primavara.rest.domain;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,12 +15,24 @@ public class AppUser {
     @JoinColumn(name="role_id")
     private Role role;
 
+    @NotNull
     private String username;
+
+    @NotNull
     private String firstName;
+
+    @NotNull
     private String lastName;
+
+    @NotNull
     private String password;
+
+    @NotNull
     private Long ratingSum;
+
+    @NotNull
     private Long ratingCount;
+
     private String email;
 
     public Long getUserId() {
