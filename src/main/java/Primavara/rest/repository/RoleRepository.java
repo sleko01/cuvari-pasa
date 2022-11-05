@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
     Role findByRoleId(Long role_id);
+    Integer countByRoleId(Long role_id);
 }

@@ -5,8 +5,7 @@ public class RegisterUser {
     private String firstName;
     private String lastName;
     private String password;
-    private String contact;
-
+    private String email;
     private Long roleId;
     public String getUsername() {
         return username;
@@ -40,12 +39,12 @@ public class RegisterUser {
         this.password = password;
     }
 
-    public String getContact() {
-        return contact;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Long getRoleId() {

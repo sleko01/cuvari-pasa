@@ -19,7 +19,7 @@ public class AppUser {
     private String password;
     private Long ratingSum;
     private Long ratingCount;
-    private String contact;
+    private String email;
 
     public Long getUserId() {
         return userId;
@@ -85,11 +85,11 @@ public class AppUser {
         this.ratingCount = ratingCount;
     }
 
-    public String getContact() {
-        return contact;
+    public String getEmail() {
+        return email;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
