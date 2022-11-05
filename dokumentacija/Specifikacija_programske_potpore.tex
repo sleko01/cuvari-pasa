@@ -79,7 +79,7 @@
 				
 				\subsubsection{Opis obrazaca uporabe}					
 
-					\noindent \underbar{\textbf{UC1 - Pregledavanje zahtjeva/oglasa}}
+					\noindent \underbar{\textbf{UC01 - Pregledavanje zahtjeva/oglasa}}
 					\begin{packed_item}
 	
 						\item \textbf{Glavni sudionik: } Neregistrirani korisnik 
@@ -91,13 +91,12 @@
 						\item[] \begin{packed_enum}
 	
 							\item Prilikom učitavanja aplikacije prikazuje se lista zahtjeva i lista oglasa
-							\item Prilikom učitavanja aplikacije prikazuje se lista zahtjeva i lista oglasa
 							\item Klikom na zahtjev/oglas prikazuju se dodatne informacije o tom zahtjevu/oglasu
 				
 						\end{packed_enum}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC2 - Registracija}}
+					\noindent \underbar{\textbf{UC02 - Registracija}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Neregistrirani korisnik 
@@ -131,7 +130,7 @@
 						\end{packed_item}
 					\end{packed_item}
 				
-					\noindent \underbar{\textbf{UC3 - Prijava}}
+					\noindent \underbar{\textbf{UC03 - Prijava}}
 					\begin{packed_item}
 					
 						\item \textbf{Glavni sudionik: } Korisnik 
@@ -142,7 +141,7 @@
 					
 						\item[] \begin{packed_enum}
 						
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za registraciju 
+							\item Korisnik pristupa padajućem izborniku i odabire opciju za prijavu 
 							\item Korisnik unosi korisničko ime i lozinku te potvrđuje upis
 							\item Korisnik dobiva povratnu informaciju o uspješnoj prijavi i preusmjerava se na početnu stranicu
 						
@@ -162,7 +161,7 @@
 						\end{packed_item}
 					\end{packed_item}
 				
-					\noindent \underbar{\textbf{UC4 - Odjava iz sustava}}
+					\noindent \underbar{\textbf{UC04 - Odjava iz sustava}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik 
@@ -180,7 +179,7 @@
 						\end{packed_enum}
 					\end{packed_item}
 				
-					\noindent \underbar{\textbf{UC5 - Pregled osobnih podataka}}
+					\noindent \underbar{\textbf{UC05 - Pregled osobnih podataka}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik 
@@ -198,7 +197,7 @@
 					\end{packed_item}
 					
 					\iffalse
-					\noindent \underbar{\textbf{UC6 - Promjena osobnih podataka}}
+					\noindent \underbar{\textbf{UC06 - Promjena osobnih podataka}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik 
@@ -231,7 +230,7 @@
 					\end{packed_item}
 					\fi
 					
-					\noindent \underbar{\textbf{UC6 – Pregledavanje tuđih zahtjeva}}
+					\noindent \underbar{\textbf{UC06 – Pregledavanje tuđih zahtjeva}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik (čuvar pasa)
@@ -249,7 +248,7 @@
 						\end{packed_enum}
 					\end{packed_item}
 				
-					\noindent \underbar{\textbf{UC7 – Pregledavanje tuđih oglasa}}
+					\noindent \underbar{\textbf{UC07 – Pregledavanje tuđih oglasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik (vlasnik pasa)
@@ -267,7 +266,7 @@
 						\end{packed_enum}
 					\end{packed_item}
 
-					\noindent \underbar{\textbf{UC8 – Pregledavanje vlastitih zahtjeva}}
+					\noindent \underbar{\textbf{UC08 – Pregledavanje vlastitih zahtjeva}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik (vlasnik pasa)
@@ -296,7 +295,7 @@
 						\end{packed_item}
 					\end{packed_item}	
 				
-					\noindent \underbar{\textbf{UC9 – Pregledavanje vlastitih oglasa}}
+					\noindent \underbar{\textbf{UC09 – Pregledavanje vlastitih oglasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Korisnik (čuvar pasa)
@@ -554,18 +553,167 @@
 					\noindent \underbar{\textbf{Mozda brisanje zahtjeva/oglasa}}
 					
 					\noindent \underbar{\textbf{UC17 - Unos dogovorenih termina u kalendar od strane čuvara}}	
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Korisnik (čuvar pasa)
+						\item  \textbf{Cilj:} Popunjavanje kalendara radi bolje organizacije vremena
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik(vlasnik pasa) i korisnik(čuvar pasa) su dogovorili termin 
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Korisnik u padajućem izborniku odabire opciju 'Moj račun'   
+							\item Korisnik pohranjuje dogovoreni termin u kalendar
+							\item Korisnik sprema kalendar
+							
+						\end{packed_enum}
+						
+						\item  \textbf{Opis mogućih odstupanja:}
+						
+						\item[] \begin{packed_item}
+							
+							\item[3.a] Korisniku ne sprema kalendar
+							\item[] \begin{packed_enum}
+								
+								\item Promjene se ne spremaju
+								
+							\end{packed_enum}
+							
+						\end{packed_item}
+					\end{packed_item}	
 					
 					\noindent \underbar{\textbf{UC18 - Ocjenjivanje usluge čuvanja}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Korisnik (vlasnik pasa)
+						\item  \textbf{Cilj:} Pružiti informaciju vlasnicima pasa kakav je čuvar
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik(vlasnik pasa) i korisnik(čuvar pasa) imali su poslovni odnos 
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item To figure out
+							
+						\end{packed_enum}
+					\end{packed_item}	
 					
 					\noindent \underbar{\textbf{UC19 - Ocjenjivanje ponašanja psa}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Korisnik (čuvar pasa)
+						\item  \textbf{Cilj:} Pružiti informaciju čuvarima pasa kakav je pas
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik(vlasnik pasa) i korisnik(čuvar pasa) imali su poslovni odnos 
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item To figure out
+							
+						\end{packed_enum}
+					\end{packed_item}	
 					
 					\noindent \underbar{\textbf{UC20 - Dodjeljivanje administratorske uloge korisniku}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Administrator
+						\item  \textbf{Cilj:} Pružiti korisniku administratorsku ulogu
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} -
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator u listi korisnika pronalazi željenog korisnika
+							\item Administrator odabranom korisniku dodjeljuje administratorsku ulogu
+							
+						\end{packed_enum}
+					\end{packed_item}	
 					
 					\noindent \underbar{\textbf{UC21 - Potvrđivanje stvorenog zahtjeva}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Administrator
+						\item  \textbf{Cilj:} Potvrditi stvoreni zahtjev da se može objaviti
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik(vlasnik pasa) je stvorio zahtjev
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator u listi 'Zahtjevi u tijeku' pronalazi željeni zahtjev
+							\item Administrator pritiskom na gumb 'Potvrdi' potvrđuje zahtjev
+							\item Zahtjev se objavljuje
+							
+						\end{packed_enum}
+						\item  \textbf{Opis mogućih odstupanja:}
+						
+						\item[] \begin{packed_item}
+							
+							\item[3.a] Administrator smatra zahtjev nevaljanim
+							\item[] \begin{packed_enum}
+								
+								\item Administrator pritiskom na gumb 'Odbij' odbija zahtjev
+								\item Zahtjev se briše 
+								
+							\end{packed_enum}
+							
+						\end{packed_item}
+					\end{packed_item}
 					
 					\noindent \underbar{\textbf{UC22 - Potvrđivanje stvorenog oglasa}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Administrator
+						\item  \textbf{Cilj:} Potvrditi stvoreni oglas da se može objaviti
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik(čuvar pasa) je stvorio oglas
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator u listi 'Oglasi u tijeku' pronalazi željeni oglas
+							\item Administrator pritiskom na gumb 'Potvrdi' potvrđuje oglas
+							\item Oglas se objavljuje
+							
+						\end{packed_enum}
+						\item  \textbf{Opis mogućih odstupanja:}
+						
+						\item[] \begin{packed_item}
+							
+							\item[3.a] Administrator smatra oglas nevaljanim
+							\item[] \begin{packed_enum}
+								
+								\item Administrator pritiskom na gumb 'Odbij' odbija oglas
+								\item Oglas se briše 
+								
+							\end{packed_enum}
+							
+						\end{packed_item}
+					\end{packed_item}
 					
 					\noindent \underbar{\textbf{UC23 - Blokiranje korisnika koji narušava pravila sustava}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Administrator
+						\item  \textbf{Cilj:} Blokirati korisnika radi narušavanja pravila sustava
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik je narušio pravila sustava
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator u listi korisnika pronalazi željenog korisnika
+							\item Administrator blokira odabranog korisnika
+							
+						\end{packed_enum}
+					\end{packed_item}	
 								
 				\subsubsection{Dijagrami obrazaca uporabe}
 					
