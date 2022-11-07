@@ -1,13 +1,258 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --color-peach: #fc9d01;
+  --color-nectarine: #feb236;
+  --color-olive: #005351;
+  --color-darkolive: #113d3c;
+  --color-blackolive: #081e27;
+  --color-apricot: #ec9620;
+  --color-citrus: #ffe9b4;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Lexend Regular";
+  src: url("/public/fonts/Lexend-Regular.ttf");
+}
+
+
+/* PAGE */
+body{
+  font-family: "Lexend Regular";
+  margin: 0%
+}
+
+.page-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.max-width {
+  width: 100%;
+  display: flex;
+  max-width: 85%;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  justify-content: space-between;
+}
+
+
+
+
+/* BACKGROUNDS */
+.background-blackolive {
+  background-color: var(--color-blackolive);
+}
+
+.background-darkolive {
+  background-color: var(--color-darkolive);
+}
+
+.background-olive {
+  background-color: var(--color-olive);
+}
+
+.background-citrus {
+  background-color: var(--color-citrus);
+}
+
+
+
+
+/* TEXT */
+.text-apricot {
+  color: var(--color-apricot);
+}
+
+
+
+
+/* BORDERS */
+.border-blackolive{
+  width: 40%;
+  border-style: solid;
+  border-color: var(--color-blackolive);
+  border-width: 0.2em;
+  border-radius: 50px;
+  padding: 2em;
+  padding-top: 0em;
+  margin-left: -2em;
+  background-color: white;
+}
+
+
+
+
+/* BUTTONS */
+.button {
+  font-family: "Lexend Regular";
+  font-size: 1em;
+  transition: 1s;
+  cursor: pointer;
+  display: inline-block;
+  border-width: 0.12em;
+  border-radius: 10em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em; 
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.button-primary {
+  color: white;
+  border-color: var(--color-blackolive);
+  background-color: var(--color-blackolive);
+  padding-top: 0.6em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  padding-bottom: 0.6em;
+}
+
+.button-primary:hover {
+  color: var(--color-blackolive);
+  background-color: var(--color-nectarine);
+}
+
+.button-secondary {
+  color: var(--color-blackolive);
+  border-style: solid;
+  border-color: var(--color-blackolive);
+  background-color: white;
+  padding-top: 0.6em;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  padding-bottom: 0.6em;
+  margin-right: 1em;
+}
+
+.button-secondary:hover {
+  color: var(--color-apricot);
+  border-left-width: 0.16em;
+  border-right-width: 0.16em;
+}
+
+.button-gradient {
+  display: flex;
+  background: linear-gradient(90deg, #e2b06b 0%, #eb9f34 100%);
+  align-items: center;
+  border-color: transparent;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 1em;
+  margin-right: 1em;
+}
+
+.button-gradient:hover {
+  color: var(--color-blackolive);
+  background: white;
+  border-color: var(--color-blackolive);
+}
+
+.button-transparent {
+  display: flex;
+  color: white;
+  background-color: transparent;
+  align-items: center;
+  border-color: transparent;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 1em;
+}
+
+.button-transparent:hover {
+  border-style: solid;
+  border-color: white;
+}
+
+
+
+
+/* HEADER */
+.navbar-container {
+  top: 0;
+  width: 100%;
+  display: flex;
+  position: sticky;
+  z-index: 1000;
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+  justify-content: center;
+  background-color: white;
+}
+
+.navbar-logo-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  height: 2.5em;
+  object-fit: fill;
+  margin-right: 1em;
+}
+
+.navbar-logo-text {
+  font-family: "Lexend Regular";
+  color: var(--color-blackolive);
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.navbar-burger-menu {
+  display: none;
+}
+
+.navbar-text{
+  font-family: "Lexend Regular";
+  color: var(--color-blackolive);
+  margin-right: 2em;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+
+}
+
+
+
+/* FOOTER */
+.footer {
+  width: 100%;
+  color:var(--color-blackolive);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-top: var(--color-blackolive);
+  border-bottom: white;
+  border-style: solid;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 0em;
+  margin-bottom: 0em; 
+}
+
+
+
+
+
+/* RESPONSIVENESS */
+@media(max-width: 720px) {
+  .navbar-burger-menu {
+    display: flex;
+  }
+  .section-container {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
 }
