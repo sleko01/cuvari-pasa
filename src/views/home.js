@@ -31,8 +31,8 @@ function Home() {
               Što čekate, pridružite nam se odmah!
             </span>
             <div className="home-button-container">
-              <button className="button button-gradient">Pridruži se</button>
-              <button className="button button-transparent">Prijava</button>
+              <a href="/users/register"><button className="button button-gradient">Pridruži se</button></a>
+              <a href="/users/login"><button className="button button-transparent">Prijava</button></a>
             </div>
           </div>
           <div className="home-main-image-container">

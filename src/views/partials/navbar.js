@@ -10,8 +10,8 @@ function Navbar(){
             <a href="/" className="navbar-text navbar-link">Kontakt</a>
             <a href="/" className="navbar-text navbar-link">Zahtjevi</a>
             <a href="/" className="navbar-text navbar-link">Oglasi</a>
-            <button className="button-secondary button">Prijava</button>
-            <button className="button button-primary">Pridruži se</button>
+            <a href="/users/login"><button className="button-secondary button">Prijava</button></a>
+            <a href="/users/register"><button className="button button-primary">Pridruži se</button></a>
           </div>
         </div>
       </div>
