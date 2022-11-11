@@ -25,6 +25,7 @@ body{
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 100%;
 }
 
 .max-width {
@@ -36,6 +37,7 @@ body{
   padding-right: 1em;
   justify-content: space-between;
 }
+
 
 
 
@@ -56,6 +58,29 @@ body{
 .background-citrus {
   background-color: var(--color-citrus);
 }
+
+/* FORM */
+.form-container {
+  max-width: 20%;
+  padding-bottom: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
+  border-radius: 50px;
+  border-style: solid;
+  margin-top: 6em;
+}
+
+
+.form-button-container {
+  text-align: center;
+  width: 100%
+}
+
+.form-footer{
+  position: absolute;
+  bottom: 0;
+}
+
 
 
 
@@ -233,15 +258,13 @@ body{
   text-align: center;
   align-items: center;
   justify-content: center;
-  border-top: var(--color-blackolive);
-  border-bottom: white;
-  border-style: solid;
+
   padding-top: 1em;
   padding-bottom: 1em;
   margin-top: 0em;
-  margin-bottom: 0em; 
-}
+  margin-bottom: 0em;
 
+}
 
 
 

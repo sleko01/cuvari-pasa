@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 import './home.css'
-import './register.css'
+import '../index.css'
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -47,8 +47,7 @@ function Login(){
             <Navbar/>
 
 
-            <div className="main-container section-container background-citrus">
-                <CssBaseline />
+            <div className="main-container form-container background-citrus">
                 <Box
                     sx={{
                         marginTop: 4,
@@ -85,14 +84,16 @@ function Login(){
                             </Grid>
 
                             <Grid item xs={12}>
+                                <div className="form-button-container">
                                 <button
                                     type="submit"
                                     fullWidth
-                                    className="button button-primary bigButton"
+                                    className="button button-primary"
                                     variant="contained"
                                 >
                                     Prijava
                                 </button>
+                                </div>
                             </Grid>
 
                         </Grid>
@@ -104,8 +105,9 @@ function Login(){
 
 
 
-
+            <div className="form-footer">
             <Footer/>
+            </div>
         </div>
     );
 }

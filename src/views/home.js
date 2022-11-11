@@ -8,6 +8,7 @@ import './home.css'
 
 function Home() {
   return (
+
     <div className="page-container">
       <Helmet>
         <title>DOGWATCH | Naslovnica</title>
@@ -86,10 +87,12 @@ function Home() {
           </div>
         </div>
       </div>
-
       <Footer/>
-
     </div>
+
+
+
+
   )
 }
 
