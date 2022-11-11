@@ -62,12 +62,12 @@ body{
 /* FORM */
 .form-container {
   max-width: 20%;
-  padding-bottom: 4em;
+  padding-bottom: 2em;
   padding-left: 2em;
   padding-right: 2em;
   border-radius: 50px;
   border-style: solid;
-  margin-top: 6em;
+  margin-top: 4em;
 }
 
 
@@ -138,6 +138,16 @@ body{
   color: var(--color-blackolive);
   background-color: var(--color-nectarine);
 }
+
+.button-primary:disabled {
+  color: var(--color-blackolive);
+  background-color: white;
+}
+.button-primary:disabled:hover {
+  color: white;
+  background-color: red;
+}
+
 
 .button-secondary {
   color: var(--color-blackolive);

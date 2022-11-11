@@ -37,6 +37,24 @@ const StyledTextField = styled(TextField)({
 });
 
 function Login(){
+
+    const [form, setForm] = React.useState({email: '', password: ''});
+
+    function onChange(event) {
+        const {name, value} = event.target;
+        setForm(oldForm => ({...oldForm, [name]: value}))
+    }
+
+    function isValid() {
+        const {email, password} = form;
+        return password.length >= 8 && /\S+@\S+\.\S+/.test(email);
+    }
+
+    function onSubmit(e) {
+        e.preventDefault()
+        alert("Tu trebas implementirat vezu frontenda i bekenda")
+    }
+
     return(
 
         <div className="page-container">
@@ -69,7 +87,8 @@ function Login(){
                                     id="email"
                                     label="Email Adresa"
                                     name="email"
-
+                                    onChange={onChange}
+                                    value={form.email}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -80,6 +99,8 @@ function Login(){
                                     label="Lozinka"
                                     type="password"
                                     id="password"
+                                    onChange={onChange}
+                                    value={form.password}
                                 />
                             </Grid>
 
@@ -90,6 +111,8 @@ function Login(){
                                     fullWidth
                                     className="button button-primary"
                                     variant="contained"
+                                    onClick={onSubmit}
+                                    disabled={!isValid()}
                                 >
                                     Prijava
                                 </button>
