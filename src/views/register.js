@@ -60,17 +60,17 @@ function Register(){
     return (
             <div className="page-container">
                 <Helmet>
-                    <title>DOGWATCH | Registracija</title>
+                    <title>CuvariPasa | Registracija</title>
                 </Helmet>
 
                 <Navbar/>
 
-                <div className="main-container section-container ">
+                <div className="form-section-container ">
                     <div className="form-container background-citrus">
 
                         <Box
                             sx={{
-                                marginTop: 4,
+                                padding: 5,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
@@ -200,12 +200,6 @@ function Register(){
                         </Box>
                     </div>
                 </div>
-
-                <div className="form-footer">
-                    <Footer/>
-                </div>
-
-
             </div>
 
         );

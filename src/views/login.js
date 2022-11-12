@@ -59,71 +59,74 @@ function Login(){
 
         <div className="page-container">
             <Helmet>
-                <title>DOGWATCH | Registracija</title>
+                <title>CuvariPasa | Registracija</title>
             </Helmet>
 
             <Navbar/>
 
 
-            <div className="main-container form-container background-citrus">
-                <Box
-                    sx={{
-                        marginTop: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Typography component="h1" variant="h5" className="text-blackolive">
-                        Prijavi se!
-                    </Typography>
-                    <Box component="form" noValidate sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
+            <div className="form-section-container">
+                <div className='form-container background-citrus'>
+                    <Box
+                        sx={{
+                            padding: 5,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Typography component="h1" variant="h5" className="text-blackolive">
+                            Prijavi se!
+                        </Typography>
+                        <Box component="form" noValidate sx={{ mt: 3 }}>
+                            <Grid container spacing={2}>
 
-                            <Grid item xs={12}>
-                                <StyledTextField
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Adresa"
-                                    name="email"
-                                    onChange={onChange}
-                                    value={form.email}
-                                />
+                                <Grid item xs={12}>
+                                    <StyledTextField
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Adresa"
+                                        name="email"
+                                        onChange={onChange}
+                                        value={form.email}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <StyledTextField
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Lozinka"
+                                        type="password"
+                                        id="password"
+                                        onChange={onChange}
+                                        value={form.password}
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                    <div className="form-button-container">
+                                    <button
+                                        type="submit"
+                                        fullWidth
+                                        className="button button-primary"
+                                        variant="contained"
+                                        onClick={onSubmit}
+                                        disabled={!isValid()}
+                                    >
+                                        Prijava
+                                    </button>
+                                    </div>
+                                </Grid>
+
                             </Grid>
-                            <Grid item xs={12}>
-                                <StyledTextField
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Lozinka"
-                                    type="password"
-                                    id="password"
-                                    onChange={onChange}
-                                    value={form.password}
-                                />
-                            </Grid>
-
-                            <Grid item xs={12}>
-                                <div className="form-button-container">
-                                <button
-                                    type="submit"
-                                    fullWidth
-                                    className="button button-primary"
-                                    variant="contained"
-                                    onClick={onSubmit}
-                                    disabled={!isValid()}
-                                >
-                                    Prijava
-                                </button>
-                                </div>
-                            </Grid>
-
-                        </Grid>
 
 
+                        </Box>
                     </Box>
-                </Box>
+                </div>
+                
             </div>
 
 

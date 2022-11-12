@@ -9,21 +9,20 @@ import './home.css'
 function Home() {
   return (
 
-    <div className="page-container">
+    <div className="page-container mandatory-scroll-snapping">
       <Helmet>
-        <title>DOGWATCH | Naslovnica</title>
+        <title>CuvariPasa | Naslovnica</title>
       </Helmet>
 
       <Navbar/>
 
-      <div className="main-container section-container background-blackolive">
-        <div className="max-width">
+      <div className="section-container background-blackolive">
           <div className="home-text-content">
             <span className="home-subtitle">
-              DogWatch, samo najbolje za Vašeg ljubimca
+              samo najbolje za Vašeg ljubimca
             </span>
             <h1 className="home-title">
-              <span>Cijelodnevno čuvanje ili kratka šetnja,</span><br/>
+              <span>Cjelodnevno čuvanje ili kratka šetnja,</span><br/>
               <span className="text-apricot">Vi birate</span>
             </h1>
             <span className="home-description">
@@ -32,22 +31,21 @@ function Home() {
               Što čekate, pridružite nam se odmah!
             </span>
             <div className="home-button-container">
-              <a href="/users/register"><button className="button button-gradient">Pridruži se</button></a>
-              <a href="/users/login"><button className="button button-transparent">Prijava</button></a>
+              <a href="/users/register" className='button-href'><button className="button button-gradient">Pridruži se</button></a>
+              <a href="/users/login" className='button-href'><button className="button button-transparent">Prijava</button></a>
             </div>
           </div>
           <div className="home-main-image-container">
             <img src="/images/home01.jpg" className="home-main-image"/>
           </div>
-        </div>
       </div>
 
 
       <div className="section-container">
-        <div className="max-width">
-          <div className="home-image-container">
+          <div className="home-second-image-container">
             <img src="/images/home02.jpg" className="home-second-image"/>
           </div>
+
           <div className="home-text-content">
             <span className="home-subtitle">Zabava ili zarada?</span>
             <h1 className="home-secondary-title">Tko kaže da ne može oboje!</h1>
@@ -60,14 +58,13 @@ function Home() {
                 Dodaj svoj oglas
               </button>
             </div>
-          </div>
         </div>
       </div>
 
       
       <div className="section-container background-citrus">
-        <div className="max-width">
-          <div className="home-text-content border-blackolive">
+        <div className="home-text-content">
+          <div className='home-background-border-blackolive'>
             <span className="home-subtitle">Imate pitanja?</span><br/>
             <h1 className="home-secondary-title">Obratite nam se!</h1>
             <span className="home-secondary-text">
@@ -82,11 +79,13 @@ function Home() {
               </button>
             </div>
           </div>
-          <div className="home-image-container">
-            <img src="/images/home03.jpg" className="home-third-image"/>
-          </div>
+        </div>
+
+        <div className="home-third-image-container">
+          <img src="/images/home03.jpg" className="home-third-image"/>
         </div>
       </div>
+
       <Footer/>
     </div>
 
