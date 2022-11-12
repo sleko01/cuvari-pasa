@@ -1,7 +1,7 @@
 function Footer(){
     return(
         <footer className="footer">
-            DogWatch 2022, all rights reserved
+            Cuvari Pasa 2022, title lorem ipsum
       </footer>
     );
 }
