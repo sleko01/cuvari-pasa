@@ -3,4 +3,9 @@ target/
 .DS_Store
 mvnw
 mvnw.cmd
-rest.iml
+rest.imlnode_modules/
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea/
+target/
