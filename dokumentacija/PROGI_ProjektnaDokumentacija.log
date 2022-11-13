@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  12 NOV 2022 17:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 NOV 2022 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1887,10 +1887,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `Dodatak.aux'.
 
  (./Dodatak.tex
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -1903,7 +1899,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.19202pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.19202pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
@@ -1919,8 +1924,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--42
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -1934,8 +1939,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -1949,8 +1954,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -1964,8 +1969,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -1979,8 +1984,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -1994,8 +1999,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -2009,8 +2014,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -2024,8 +2029,8 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.90 			\end
-            {longtblr}
+l.114 			\end
+             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
 
@@ -2043,7 +2048,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[37]
+[38]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -2052,8 +2057,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[38]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
@@ -2066,7 +2071,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[39] 
+[40] 
 AED: lastpage setting LastPage
 (./PROGI_ProjektnaDokumentacija.aux (./Dnevnik_promjena_dokumentacije.aux)
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
@@ -2077,9 +2082,9 @@ anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
  ) 
 Here is how much of TeX's memory you used:
- 17764 strings out of 475066
- 314497 string characters out of 5782772
- 806572 words of memory out of 5000000
+ 17767 strings out of 475066
+ 314520 string characters out of 5782772
+ 806322 words of memory out of 5000000
  38607 multiletter control sequences out of 15000+600000
  524327 words of font info for 142 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2094,10 +2099,10 @@ type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmi.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmi
 t8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/
 texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (40 pages, 137877 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (41 pages, 138889 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 223 named destinations out of 1000 (max. 500000)
+ 605 PDF objects out of 1000 (max. 8388607)
+ 544 compressed objects within 6 object streams
+ 226 named destinations out of 1000 (max. 500000)
  209 words of extra memory for PDF output out of 10000 (max. 10000000)
 
