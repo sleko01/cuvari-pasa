@@ -1,4 +1,24 @@
 function Navbar(){
+    let isLoggedIn = true;
+
+
+    if (localStorage.getItem("username") == null) {
+        isLoggedIn = false;
+    }
+
+    function logout() {
+        localStorage.removeItem("username");
+        window.location.href = "/";
+    }
+
+    if (isLoggedIn) {
+        var welcomeText = <span className = "welcome-text">Pozdrav, {localStorage.getItem("username")}</span>
+        var logoutButton = <button className="button-secondary button" onClick={logout}>Odjava</button>
+    } else {
+        var loginButton = <a href="/users/login"><button className="button-secondary button">Prijava</button></a>
+        var registerButton = <a href="/users/register"><button className="button button-primary">Pridruži se</button></a>
+    }
+
     return(
       <div className="navbar-container">
           <div className="navbar-logo-container">
@@ -6,11 +26,13 @@ function Navbar(){
               <span className="navbar-logo-text">Cuvari Pasa</span>
           </div>
           <div className="navbar-links">
+              {welcomeText}
             <a href="/" className="navbar-text navbar-link">Kontakt</a>
             <a href="/" className="navbar-text navbar-link">Zahtjevi</a>
             <a href="/" className="navbar-text navbar-link">Oglasi</a>
-            <a href="/users/login"><button className="button-secondary button">Prijava</button></a>
-            <a href="/users/register"><button className="button button-primary">Pridruži se</button></a>
+              {logoutButton}
+              {loginButton}
+              {registerButton}
           </div>
       </div>
     );

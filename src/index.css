@@ -82,10 +82,11 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
-  scroll-snap-align: start;
 }
 
-
+.snap-center {
+  scroll-snap-align: start;
+}
 
 /* TEXT */
 .text-apricot {
@@ -238,6 +239,13 @@ body {
   font-family: "Lexend Regular";
   font-size: 2vmin;
   color: var(--color-blackolive);
+  padding-right: 2vw;
+}
+
+.welcome-text{
+  font-family: "Lexend Regular";
+  font-size: 2vmin;
+  color: var(--color-apricot);
   padding-right: 2vw;
 }
 
