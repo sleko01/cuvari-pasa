@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  14 NOV 2022 12:19
-=======
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 NOV 2022 16:04
->>>>>>> ed9fb270cf9675b3ed4bb772d5b929e6a4bc31a5
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  14 NOV 2022 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1782,8 +1778,9 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.814 				\eject
                 	 <./slike/UC23 - Blokiranje korisnika - sekvencijski.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 818--819
-
+Overfull \hbox (13.79959pt too wide) in paragraph at lines 820--821
+[]\OT1/jkp/m/n/12 Aplikacija treba biti iz-ve-dena kao web apli-ka-cija prilago
+[]dena mo-bil-nom ure[]daju
  []
 
 )
@@ -1806,19 +1803,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
  []
 
 
-Overfull \hbox (25.95198pt too wide) in paragraph at lines 5--6
-\OT1/jkp/m/it/12 radnu plat-formu, spremi[]sta po-da-taka, mre[]zne pro-to-kole
-, glo-balni uprav-lja[]cki tok i sklopovsko-
+Overfull \hbox (29.55275pt too wide) in paragraph at lines 5--9
+\OT1/jkp/m/n/12 jenti (ko-ris-nici) []salju zah-tjeve za ne-kom us-lu-gom poslu
+[]zitelju (web apli-ka-ciji). Poslu[]zitelj
  []
 
 
-Overfull \hbox (4.51157pt too wide) in paragraph at lines 7--8
-[]\OT1/jkp/m/it/12 izbor ar-hi-tek-ture te-me-ljem prin-cipa obli-ko-va-nja po-
-ka-za-nih na pre-da-va-njima (objas-
+Underfull \hbox (badness 10000) in paragraph at lines 5--9
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
@@ -1834,7 +1830,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--21
 Type <return> to continue.
  ...                                              
                                                   
-l.44 				\end
+l.43 				\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -1845,7 +1841,7 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (1.8249pt too wide) in paragraph at lines 44--44
+Overfull \hbox (1.8249pt too wide) in paragraph at lines 43--43
 []\OT1/jkp/m/n/12 korisnickoIme  
  []
 
@@ -1864,7 +1860,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Overfull \hbox (1.8249pt too wide) in paragraph at lines 44--44
+Overfull \hbox (1.8249pt too wide) in paragraph at lines 43--43
 []\OT1/jkp/m/n/12 korisnickoIme  
  []
 
@@ -1877,22 +1873,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [29]
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
@@ -1905,7 +1901,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
@@ -1918,7 +1914,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [31]
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
@@ -1931,7 +1927,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
@@ -2110,7 +2106,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[37]
+[42]
 Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
@@ -2251,11 +2247,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-<<<<<<< HEAD
-[42]
-=======
-[38]
->>>>>>> ed9fb270cf9675b3ed4bb772d5b929e6a4bc31a5
+[43]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -2264,13 +2256,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-<<<<<<< HEAD
-[43]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
-=======
-[39]
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
->>>>>>> ed9fb270cf9675b3ed4bb772d5b929e6a4bc31a5
 
  []
 
@@ -2283,11 +2270,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-<<<<<<< HEAD
-[44] 
-=======
-[40] 
->>>>>>> ed9fb270cf9675b3ed4bb772d5b929e6a4bc31a5
+[45] 
 AED: lastpage setting LastPage
 (./PROGI_ProjektnaDokumentacija.aux (./Dnevnik_promjena_dokumentacije.aux)
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
@@ -2298,19 +2281,11 @@ anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 17854 strings out of 475066
- 317884 string characters out of 5782772
- 806705 words of memory out of 5000000
+ 17857 strings out of 475066
+ 317907 string characters out of 5782772
+ 806455 words of memory out of 5000000
  38677 multiletter control sequences out of 15000+600000
  524392 words of font info for 142 fonts, out of 8000000 for 9000
-=======
- 17767 strings out of 475066
- 314520 string characters out of 5782772
- 806322 words of memory out of 5000000
- 38607 multiletter control sequences out of 15000+600000
- 524327 words of font info for 142 fonts, out of 8000000 for 9000
->>>>>>> ed9fb270cf9675b3ed4bb772d5b929e6a4bc31a5
  1141 hyphenation exceptions out of 8191
  84i,12n,116p,1211b,1044s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -2323,19 +2298,10 @@ type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmi.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmi
 t8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/
 texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-<<<<<<< HEAD
-Output written on PROGI_ProjektnaDokumentacija.pdf (45 pages, 788674 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (46 pages, 789989 bytes).
 PDF statistics:
- 650 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
- 234 named destinations out of 1000 (max. 500000)
+ 658 PDF objects out of 1000 (max. 8388607)
+ 581 compressed objects within 6 object streams
+ 237 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
-Output written on PROGI_ProjektnaDokumentacija.pdf (41 pages, 138889 bytes).
-PDF statistics:
- 605 PDF objects out of 1000 (max. 8388607)
- 544 compressed objects within 6 object streams
- 226 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> ed9fb270cf9675b3ed4bb772d5b929e6a4bc31a5
 
