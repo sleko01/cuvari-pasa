@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  16 NOV 2022 13:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  16 NOV 2022 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1119,7 +1119,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...: Prikaz aktivnosti grupe}{51}{chapter*.6}
+l.29 ...: Prikaz aktivnosti grupe}{50}{chapter*.6}
                                                   % [1
 
 ])
@@ -1270,6 +1270,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--31
 
 Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
 []\OT1/jkp/m/n/12 14.11.2022. 
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 31--31
+[]\OT1/jkp/m/n/12 Dodavanje os-ta-lih zah-tjeva, ar-hi-tek-ture i
  []
 
 
@@ -1427,6 +1432,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--31
 
 Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
 []\OT1/jkp/m/n/12 14.11.2022. 
+ []
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 31--31
+[]\OT1/jkp/m/n/12 Dodavanje os-ta-lih zah-tjeva, ar-hi-tek-ture i
  []
 
 
@@ -2752,6 +2762,9 @@ AED: lastpage setting LastPage
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
 (./Arhitektura.aux) (./Implementacija.aux) (./Zakljucak.aux) (./Literatura.aux)
 (./Dodatak.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
@@ -2759,7 +2772,7 @@ anged.
 Here is how much of TeX's memory you used:
  17889 strings out of 475066
  318002 string characters out of 5782772
- 842301 words of memory out of 5000000
+ 841301 words of memory out of 5000000
  38695 multiletter control sequences out of 15000+600000
  537703 words of font info for 175 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2774,7 +2787,7 @@ type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmi.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmi
 t8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/
 texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (56 pages, 1064948 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (56 pages, 1064811 bytes).
 PDF statistics:
  721 PDF objects out of 1000 (max. 8388607)
  629 compressed objects within 7 object streams

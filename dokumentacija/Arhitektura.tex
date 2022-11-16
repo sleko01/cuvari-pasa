@@ -14,7 +14,7 @@
 		\textbf{View} predstavlja prikaz podataka, a \textbf{Controller} prima zahtjeve i prosljeđuje ih gdje su dalje potrebni. MVC je implementiran u našu web aplikaciju tako da su Model i Controller komponente sadržane u back-end dijelu, a view u front-end dijelu. \textbf{Front-end} (prezentacijski sloj) je dio aplikacije zaslužan za grafičko korisničko sučelje dok se \textbf{back-end} (sloj pristupa podacima) može poistovjetiti sa web poslužiteljem. U njemu se opisuju funkcionalnosti web aplikacije odnosno on upravlja web aplikacijom.\\
 		Backend je osim na model (repository) i controller komponente podijeljen i na service komponentu. U njoj se nalazi implementacija poslovne logike.
 		\newline
-		Front-end smo odlučili raditi u programskom jeziku JavaScriptu u radnom okviru React, a back-end u programskom jeziku Javi u radnom okviru Spring Boot. Razvojna okruženja u kojima radimo su Visual Studio Code i IntelliJ.
+		Front-end smo odlučili raditi u programskom jeziku JavaScript koristeći radni okvir React, a back-end u programskom jeziku Java s radnoim okvirom Spring Boot. Razvojna okruženja u kojima radimo su Visual Studio Code i IntelliJ.
 		
 		
 		
@@ -27,7 +27,7 @@
 				
 		\section{Baza podataka}
 			
-			Sustav koristi relacijsku bazu podataka koja će biti implementirana u PostgreSQLu. Relacijsku bazu podataka koristimo radi lakšeg oblikovanja sustava kao stvarnog svijeta, a PostgresSQl jer smo najbolje upoznati sa njime. U njoj se entiteti modeliraju kao tablice koje imaju vlastito ime i skup atributa.\\
+			Sustav koristi relacijsku bazu podataka koja će biti implementirana u PostgreSQLu. Relacijsku bazu podataka koristimo radi lakšeg oblikovanja sustava kao stvarnog svijeta, a PostgresSQL jer smo najbolje upoznati s njim. U njemu se entiteti modeliraju kao tablice koje imaju vlastito ime i skup atributa.\\
 			Baza podataka nam je potrebna zbog njezine sigurnosti podataka, ali i brzog dohvata, pohrane i izmijene podataka koje sustav koristi za daljnje akcije.
 			Baza podataka ovog sustava korisit sjedeće entitete:
 			\begin{packed_item}
@@ -69,7 +69,7 @@
 			 
 			\end{longtblr}
 			
-			\textbf{App User} je entitet koji sadržava sve važne informacije o korisniku aplikacije. Povezan je vezom Many-To-One s tablicom Role preko vlastitog atributa userId.Tablica Owner je specifikacija ove tablice pa je povezana s njom vezom Many-To-One preko userIda. Isto vrijedi i za tablicu Guardian. S tablicom Dog ima vezu Many-To-One koja je isto povezana preko atributa userId. Isto vrijedi za tablice Request Dog, Request Guardian i Agreed Request. Vlastiti atributi su: userId, roleId, username, firstName, lastName, password, ratingSum, ratingCount i email.
+			\textbf{App User} je entitet koji sadrži sve važne informacije o korisniku aplikacije. Povezan je vezom Many-To-One s tablicom Role preko vlastitog atributa userId. Tablica Owner je specifikacija ove tablice pa je povezana s njom vezom Many-To-One preko userIda. Isto vrijedi i za tablicu Guardian. S tablicom Dog ima vezu Many-To-One koja je isto povezana preko atributa userId. Isto vrijedi za tablice Request Dog, Request Guardian i Agreed Request. Vlastiti atributi su: userId, roleId, username, firstName, lastName, password, ratingSum, ratingCount i email.
 
 				
 				
@@ -314,7 +314,7 @@
 			\end{figure}
 		
 			Model razredi preslikavaju strukturu baze podataka u aplikaciji. Implementirane metode direktno komuniciraju s bazom podataka te vraćaju tražene podatke.\\
-			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unoseći potrebne informacije. Odabravši pritom rolu (razred Role), on se priključuje web aplikaciji kao vlasnik pasa (razred Owner) i/ili kao čuvar pasa (razred Guardian). Administrator je korisnik aplikacije koji ima sve mogućnosti App Usera. Vlasnik pasa može dodati vlastitog pasa u sustav (razred Dog). Vlasnik i čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može još pregledati ima li čuvar pasa (razred RequestGuardiansDog) i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest.
+			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unoseći potrebne informacije. Odabravši pritom ulogu (razred Role), on se priključuje web aplikaciji kao vlasnik pasa (razred Owner) i/ili kao čuvar pasa (razred Guardian). Administrator je korisnik aplikacije koji ima sve mogućnosti App Usera. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik i čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može još pregledati ima li čuvar pasa (razred RequestGuardiansDog) i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest.
 			
 			\eject
 			
