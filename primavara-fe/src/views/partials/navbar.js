@@ -22,7 +22,7 @@ function Navbar(){
     return(
       <div className="navbar-container">
           <div className="navbar-logo-container">
-            <img src="/Images/logo.jpg" className="navbar-logo"/>
+            <img src="/images/logo.jpg" className="navbar-logo"/>
               <span className="navbar-logo-text">Cuvari Pasa</span>
           </div>
           <div className="navbar-links">
