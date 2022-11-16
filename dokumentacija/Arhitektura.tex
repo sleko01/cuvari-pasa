@@ -11,10 +11,10 @@
 		\newline
 		\newline
 		Web aplikacija koristi arhitekturu MVC (Model-View-Controller). \textbf{Model} predstavlja dinamičke strukture podataka. U njemu se izravno upravlja podacima.
-		\textbf{View} predstavlja prikaz podataka, a \textbf{Controller} prima zahtjeve i prosljeđuje ih gdje su dalje potrebni. MVC je implementiran u našu web aplikaciju tako da su Model i Controller komponente sadržane u back-end dijelu, a view u front-end dijelu. Front-end (prezentacijski sloj) je dio aplikacije zaslužan za grafičko korisničko sučelje dok se back-end (sloj pristupa podacima) može poistovjetiti sa web poslužiteljem. U njemu se opisuju funkcionalnosti web aplikacije odnosno on upravlja web aplikacijom.\\
+		\textbf{View} predstavlja prikaz podataka, a \textbf{Controller} prima zahtjeve i prosljeđuje ih gdje su dalje potrebni. MVC je implementiran u našu web aplikaciju tako da su Model i Controller komponente sadržane u back-end dijelu, a view u front-end dijelu. \textbf{Front-end} (prezentacijski sloj) je dio aplikacije zaslužan za grafičko korisničko sučelje dok se \textbf{back-end} (sloj pristupa podacima) može poistovjetiti sa web poslužiteljem. U njemu se opisuju funkcionalnosti web aplikacije odnosno on upravlja web aplikacijom.\\
 		Backend je osim na model (repository) i controller komponente podijeljen i na service komponentu. U njoj se nalazi implementacija poslovne logike.
 		\newline
-		Front-end smo odlučili raditi u programskom jeziku JavaScriptu u radnom okviru React, a back-end u programskom jeziku Javi u radnom okviru Spring Boot. Razvojno okruženje u kojima radimo su Visual Studio Code i IntelliJ-
+		Front-end smo odlučili raditi u programskom jeziku JavaScriptu u radnom okviru React, a back-end u programskom jeziku Javi u radnom okviru Spring Boot. Razvojna okruženja u kojima radimo su Visual Studio Code i IntelliJ.
 		
 		
 		
@@ -294,7 +294,7 @@
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=18cm]{slike/dijagramASCP}
+				\includegraphics[width=16cm]{slike/dijagramASCP}
 				\caption{E-R dijagram baze podataka} 
 				\label{fig:E-Rdijagram}
 			\end{figure}
@@ -304,11 +304,19 @@
 			
 		\section{Dijagram razreda}
 		
-			\textit{Potrebno je priložiti dijagram razreda s pripadajućim opisom. Zbog preglednosti je moguće dijagram razlomiti na više njih, ali moraju biti grupirani prema sličnim razinama apstrakcije i srodnim funkcionalnostima.}\\
+			Na slici 4.2 prikazani su razredi koji pripadaju backend dijelu MVC arhitekture.  Zbog lakše organizacije, razredi su podijeljeni logički po pravu pristupa metodama određenih aktora, kako bi se smanjila prenapučenost unutar dijagrama, prikazane su samo ovisnosti između razreda koji pripadaju istom dijelu dijagrama. Iz naziva i tipova atributa u razredima može se zaključiti vrsta ovisnosti među različitim razredima.
 			
-			\textbf{\textit{dio 1. revizije}}\\
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=16cm]{slike/Class Diagram}
+				\caption{Dijagram razreda - dio Models} 
+				\label{fig:Class-Diagram}
+			\end{figure}
+		
+			Model razredi preslikavaju strukturu baze podataka u aplikaciji. Implementirane metode direktno komuniciraju s bazom podataka te vraćaju tražene podatke.\\
+			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unoseći potrebne informacije. Odabravši pritom rolu (razred Role), on se priključuje web aplikaciji kao vlasnik pasa (razred Owner) i/ili kao čuvar pasa (razred Guardian). Administrator je korisnik aplikacije koji ima sve mogućnosti App Usera. Vlasnik pasa može dodati vlastitog pasa u sustav (razred Dog). Vlasnik i čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može još pregledati ima li čuvar pasa (razred RequestGuardiansDog) i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest.
 			
-			\textit{Prilikom prve predaje projekta, potrebno je priložiti potpuno razrađen dijagram razreda vezan uz \textbf{generičku funkcionalnost} sustava. Ostale funkcionalnosti trebaju biti idejno razrađene u dijagramu sa sljedećim komponentama: nazivi razreda, nazivi metoda i vrste pristupa metodama (npr. javni, zaštićeni), nazivi atributa razreda, veze i odnosi između razreda.}\\
+			\eject
 			
 			\textbf{\textit{dio 2. revizije}}\\			
 			
