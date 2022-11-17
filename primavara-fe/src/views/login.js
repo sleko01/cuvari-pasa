@@ -61,7 +61,7 @@ function Login(){
         bodyFormData.append("password", form.password)
         axios({
             method: "post",
-            url: "/api/login",
+            url: "/login",
             data: bodyFormData,
             headers: { "Content-Type": "multipart/form-data" },
         }).then(response => {

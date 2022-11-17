@@ -56,7 +56,7 @@ function Register(){
     function onSubmit(e) {
         e.preventDefault()
         // alert("Tu trebas implementirat vezu frontenda i bekenda")
-        axios.post('/api/users/register', {
+        axios.post('/users/register', {
             "username": form.username,
             "firstName": form.firstName,
             "lastName": form.lastName,
