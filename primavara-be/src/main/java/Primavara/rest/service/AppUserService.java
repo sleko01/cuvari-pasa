@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AppUserService {
     List<AppUser> getAllUsers();
-    void addAppUser(RegisterUser appUser);
+    String addAppUser(RegisterUser appUser);
 }
