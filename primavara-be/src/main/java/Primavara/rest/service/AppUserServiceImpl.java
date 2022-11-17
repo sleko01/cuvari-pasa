@@ -32,9 +32,10 @@ public class AppUserServiceImpl implements AppUserService{
 
     @Override
     public String addAppUser(RegisterUser registerUser) {
+
+        validate(registerUser);
         return "doso";
-        /*validate(registerUser);
-        if (appUserRepository.countByUsername(registerUser.getUsername()) > 0)
+        /*if (appUserRepository.countByUsername(registerUser.getUsername()) > 0)
             throw new RequestDeniedException(
                     "AppUser with username " + registerUser.getUsername() + " already exists"
             );
