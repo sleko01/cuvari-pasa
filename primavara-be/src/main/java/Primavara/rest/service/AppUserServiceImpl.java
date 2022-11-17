@@ -61,10 +61,10 @@ public class AppUserServiceImpl implements AppUserService{
         Assert.notNull(registerUser, "RegisterUser object must be given");
         Assert.hasText(registerUser.getUsername(), "RegisterUser username must be given");
         Assert.hasText(registerUser.getEmail(), "RegisterUser email must be given");
-        if (roleRepository.countByRoleId(registerUser.getRoleId()) == 0)
+        /*if (roleRepository.countByRoleId(registerUser.getRoleId()) == 0)
             throw new RequestDeniedException(
                     "Role with id " + registerUser.getRoleId() + " does not exist"
-            );
+            );*/
         Assert.isTrue(registerUser.getEmail().matches(EMAIL_FORMAT), "Email in wrong format");
     }
 }
