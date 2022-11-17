@@ -34,8 +34,8 @@ public class AppUserServiceImpl implements AppUserService{
     public String addAppUser(RegisterUser registerUser) {
 
         validate(registerUser);
-        return "doso";
-        /*if (appUserRepository.countByUsername(registerUser.getUsername()) > 0)
+
+        if (appUserRepository.countByUsername(registerUser.getUsername()) > 0)
             throw new RequestDeniedException(
                     "AppUser with username " + registerUser.getUsername() + " already exists"
             );
@@ -54,7 +54,8 @@ public class AppUserServiceImpl implements AppUserService{
         appUser.setRatingSum(Long.valueOf(0));
         Role role = roleRepository.findByRoleId(registerUser.getRoleId());
         appUser.setRole(role);
-        appUserRepository.save(appUser);*/
+        appUserRepository.save(appUser);
+        return "doso";
     }
 
     private void validate(RegisterUser registerUser) {
