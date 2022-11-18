@@ -40,6 +40,7 @@ const StyledTextField = styled(TextField)({
 
 function Register(){
     const [password, setPassword] = useState("")
+    const [isDisabled, setIsDisabled] = useState(false)
     const [passwordAgain, setPasswordAgain] = useState("")
     const [form, setForm] = React.useState({firstName: '', lastName: '', username: '', email: '', role: '', password: '', confirmPassword: ''});
 
@@ -56,6 +57,7 @@ function Register(){
     function onSubmit(e) {
         e.preventDefault()
         // alert("Tu trebas implementirat vezu frontenda i bekenda")
+        setIsDisabled(true);
         axios.post('/api/users/register', {
             "username": form.username,
             "firstName": form.firstName,
@@ -63,9 +65,10 @@ function Register(){
             "password": form.password,
             "email": form.email,
             "roleId": form.role
-        }).then(response => {
+        }).then(async response => {
             console.log(response)
             window.location.href = "/";
+            setIsDisabled(false);
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
@@ -211,7 +214,7 @@ function Register(){
 
                                                 className="button button-primary"
                                                 variant="contained"
-                                                disabled={!isValid()}
+                                                disabled={!isValid() || isDisabled}
                                                 onClick={onSubmit}
                                             >
                                                 Registracija
