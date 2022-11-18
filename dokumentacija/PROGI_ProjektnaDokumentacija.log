@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  18 NOV 2022 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  18 NOV 2022 20:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,39 +1073,41 @@ Package hyperref Info: Link coloring ON on input line 85.
 \@outlinefile=\write3
 \openout3 = `PROGI_ProjektnaDokumentacija.out'.
 
+
+[1
+
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./PROGI_ProjektnaDokumentacija.toc
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
-107.
+5.
 
 (c:/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
-107.
+5.
 
 (c:/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 1
-07.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 5
+.
 
 (c:/texlive/2022/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
-107.
+5.
 
 (c:/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
-107.
+5.
 
 (c:/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
-) [1
-
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./PROGI_ProjektnaDokumentacija.toc
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -1682,7 +1684,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [20]
-<slike/korisnikExport.png, id=396, 1144.275pt x 1178.90437pt>
+<slike/korisnikExport.png, id=395, 1144.275pt x 1178.90437pt>
 File: slike/korisnikExport.png Graphic file (type png)
 <use slike/korisnikExport.png>
 Package pdftex.def Info: slike/korisnikExport.png  used on input line 754.
@@ -1703,7 +1705,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.758 				\eject
                 		 <./slike/korisnikExport.png>]
-<slike/dijagramExport.png, id=406, 776.9025pt x 488.57532pt>
+<slike/dijagramExport.png, id=405, 776.9025pt x 488.57532pt>
 File: slike/dijagramExport.png Graphic file (type png)
 <use slike/dijagramExport.png>
 Package pdftex.def Info: slike/dijagramExport.png  used on input line 761.
@@ -1728,7 +1730,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 769--770
 
  []
 
-<slike/UC11 - Stvaranje novog zahtjeva - sekvencijski - v3.png, id=414, 797.981
+<slike/UC11 - Stvaranje novog zahtjeva - sekvencijski - v3.png, id=413, 797.981
 25pt x 651.18282pt>
 File: slike/UC11 - Stvaranje novog zahtjeva - sekvencijski - v3.png Graphic fil
 e (type png)
@@ -1761,7 +1763,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 781--782
 
  []
 
-<slike/UC14 - sekvencijski.jpg, id=422, 1253.68375pt x 1213.53375pt>
+<slike/UC14 - sekvencijski.jpg, id=421, 1253.68375pt x 1213.53375pt>
 File: slike/UC14 - sekvencijski.jpg Graphic file (type jpg)
 <use slike/UC14 - sekvencijski.jpg>
 Package pdftex.def Info: slike/UC14 - sekvencijski.jpg  used on input line 787.
@@ -1791,7 +1793,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 793--794
 
  []
 
-<slike/UC21 - Potvrđivanje stvorenog zahtjeva - sekvencijski.png, id=430, 1111
+<slike/UC21 - Potvrđivanje stvorenog zahtjeva - sekvencijski.png, id=429, 1111
 .15125pt x 919.18407pt>
 File: slike/UC21 - Potvrđivanje stvorenog zahtjeva - sekvencijski.png Graphic 
 file (type png)
@@ -1820,7 +1822,7 @@ has been already used, duplicate ignored
 l.803 				\eject
                 	 <./slike/UC21 - Potvrđivanje stvorenog zahtjeva - sekvencijs
 ki.png>]
-<slike/UC23 - Blokiranje korisnika - sekvencijski.png, id=438, 1084.80281pt x 6
+<slike/UC23 - Blokiranje korisnika - sekvencijski.png, id=437, 1084.80281pt x 6
 09.02531pt>
 File: slike/UC23 - Blokiranje korisnika - sekvencijski.png Graphic file (type p
 ng)
@@ -1897,7 +1899,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-<slike/arhitektura-diagram.png, id=456, 402.50375pt x 442.65375pt>
+<slike/arhitektura-diagram.png, id=455, 402.50375pt x 442.65375pt>
 File: slike/arhitektura-diagram.png Graphic file (type png)
 <use slike/arhitektura-diagram.png>
 Package pdftex.def Info: slike/arhitektura-diagram.png  used on input line 21.
@@ -2341,7 +2343,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [36]
-<slike/dijagramASCP.png, id=501, 744.98325pt x 481.8pt>
+<slike/dijagramASCP.png, id=500, 744.98325pt x 481.8pt>
 File: slike/dijagramASCP.png Graphic file (type png)
 <use slike/dijagramASCP.png>
 Package pdftex.def Info: slike/dijagramASCP.png  used on input line 302.
@@ -2366,7 +2368,7 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.307 			\eject
                 <./slike/dijagramASCP.png>]
-<slike/Class Diagram.png, id=509, 1269.24188pt x 782.925pt>
+<slike/Class Diagram.png, id=508, 1269.24188pt x 782.925pt>
 File: slike/Class Diagram.png Graphic file (type png)
 <use slike/Class Diagram.png>
 Package pdftex.def Info: slike/Class Diagram.png  used on input line 316.
@@ -2813,13 +2815,12 @@ pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texmf-
 dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
-/kpfonts/jkpmi.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmi
-t8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/
-texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (56 pages, 1003603 bytes).
+/kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
+pmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
+Output written on PROGI_ProjektnaDokumentacija.pdf (56 pages, 1000781 bytes).
 PDF statistics:
- 726 PDF objects out of 1000 (max. 8388607)
- 632 compressed objects within 7 object streams
+ 721 PDF objects out of 1000 (max. 8388607)
+ 629 compressed objects within 7 object streams
  251 named destinations out of 1000 (max. 500000)
  254 words of extra memory for PDF output out of 10000 (max. 10000000)
 
