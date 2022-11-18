@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  17 NOV 2022 09:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  18 NOV 2022 13:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1297,6 +1297,16 @@ Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
 []\OT1/jkp/m/n/12 16.11.2022. 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]\OT1/jkp/m/n/12 Ivan
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
+[]\OT1/jkp/m/n/12 18.11.2022. 
+ []
+
 > Step: build the whole table.
 
 Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
@@ -1457,6 +1467,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--31
 
 Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
 []\OT1/jkp/m/n/12 16.11.2022. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--31
+[]\OT1/jkp/m/n/12 Ivan
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 31--31
+[]\OT1/jkp/m/n/12 18.11.2022. 
  []
 
 )
@@ -1877,6 +1897,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
+<slike/arhitektura-diagram.png, id=456, 402.50375pt x 442.65375pt>
+File: slike/arhitektura-diagram.png Graphic file (type png)
+<use slike/arhitektura-diagram.png>
+Package pdftex.def Info: slike/arhitektura-diagram.png  used on input line 21.
+(pdftex.def)             Requested size: 284.52756pt x 312.90846pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -1885,7 +1911,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[29]
+[29
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.31 		\eject
+              <./slike/arhitektura-diagram.png>]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1899,7 +1931,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.70 			\end
+l.75 			\end
             {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -1932,7 +1964,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.95 				\end
+l.100 				\end
+              {longtblr}
+
+LaTeX does not know anything more about this error, sorry.
+
+Try typing <return> to proceed.
+If that doesn't work, type X <return> to quit.
+
+
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+
+! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
+
+Type <return> to continue.
+ ...                                              
+                                                  
+l.117 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -1955,30 +2010,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.112 			\end
-             {longtblr}
-
-LaTeX does not know anything more about this error, sorry.
-
-Try typing <return> to proceed.
-If that doesn't work, type X <return> to quit.
-
-
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-
-! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
-
-Type <return> to continue.
- ...                                              
-                                                  
-l.127 			\end
+l.132 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2011,7 +2043,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.144 			\end
+l.149 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2022,13 +2054,13 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (2.01688pt too wide) in paragraph at lines 144--144
+Overfull \hbox (2.01688pt too wide) in paragraph at lines 149--149
 []\OT1/jkp/m/n/12 hasExperience  
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (2.01688pt too wide) in paragraph at lines 144--144
+Overfull \hbox (2.01688pt too wide) in paragraph at lines 149--149
 []\OT1/jkp/m/n/12 hasExperience  
  []
 
@@ -2044,7 +2076,7 @@ Overfull \hbox (2.01688pt too wide) in paragraph at lines 144--144
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.170 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2077,7 +2109,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.189 			\end
+l.194 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2088,23 +2120,23 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (2.6529pt too wide) in paragraph at lines 189--189
+Overfull \hbox (2.6529pt too wide) in paragraph at lines 194--194
 []\OT1/jkp/m/n/12 dogTimeBegin  
  []
 
 
-Overfull \hbox (1.47688pt too wide) in paragraph at lines 189--189
+Overfull \hbox (1.47688pt too wide) in paragraph at lines 194--194
 []\OT1/jkp/m/n/12 numberOfDos  
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (2.6529pt too wide) in paragraph at lines 189--189
+Overfull \hbox (2.6529pt too wide) in paragraph at lines 194--194
 []\OT1/jkp/m/n/12 dogTimeBegin  
  []
 
 
-Overfull \hbox (1.47688pt too wide) in paragraph at lines 189--189
+Overfull \hbox (1.47688pt too wide) in paragraph at lines 194--194
 []\OT1/jkp/m/n/12 numberOfDos  
  []
 
@@ -2120,7 +2152,7 @@ Overfull \hbox (1.47688pt too wide) in paragraph at lines 189--189
 Type <return> to continue.
  ...                                              
                                                   
-l.213 			\end
+l.218 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2131,12 +2163,12 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 213--213
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 218--218
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 213--213
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 218--218
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
@@ -2150,12 +2182,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [33]
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 213--213
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 218--218
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 213--213
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 218--218
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
@@ -2171,7 +2203,7 @@ Overfull \hbox (3.87682pt too wide) in paragraph at lines 213--213
 Type <return> to continue.
  ...                                              
                                                   
-l.231 			\end
+l.236 			\end
              {longtblr}			
 
 LaTeX does not know anything more about this error, sorry.
@@ -2182,13 +2214,13 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (2.65225pt too wide) in paragraph at lines 231--231
+Overfull \hbox (2.65225pt too wide) in paragraph at lines 236--236
 []\OT1/jkp/m/n/12 requestGuardiansDogId  
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (2.65225pt too wide) in paragraph at lines 231--231
+Overfull \hbox (2.65225pt too wide) in paragraph at lines 236--236
 []\OT1/jkp/m/n/12 requestGuardiansDogId  
  []
 
@@ -2204,7 +2236,7 @@ Overfull \hbox (2.65225pt too wide) in paragraph at lines 231--231
 Type <return> to continue.
  ...                                              
                                                   
-l.248 			\end
+l.253 			\end
              {longtblr}			
 
 LaTeX does not know anything more about this error, sorry.
@@ -2237,7 +2269,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.265 		\end
+l.270 		\end
             {longtblr}	
 
 LaTeX does not know anything more about this error, sorry.
@@ -2260,7 +2292,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.288 		\end
+l.293 		\end
             {longtblr}	
 
 LaTeX does not know anything more about this error, sorry.
@@ -2271,23 +2303,23 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 288--288
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 293--293
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 288--288
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 293--293
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 288--288
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 293--293
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 288--288
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 293--293
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
@@ -2309,13 +2341,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [36]
-<slike/dijagramASCP.png, id=498, 744.98325pt x 481.8pt>
+<slike/dijagramASCP.png, id=501, 744.98325pt x 481.8pt>
 File: slike/dijagramASCP.png Graphic file (type png)
 <use slike/dijagramASCP.png>
-Package pdftex.def Info: slike/dijagramASCP.png  used on input line 297.
+Package pdftex.def Info: slike/dijagramASCP.png  used on input line 302.
 (pdftex.def)             Requested size: 455.24408pt x 294.41953pt.
 
-Overfull \hbox (19.63329pt too wide) in paragraph at lines 297--298
+Overfull \hbox (19.63329pt too wide) in paragraph at lines 302--303
  [][] 
  []
 
@@ -2328,24 +2360,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [37
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.302 			\eject
+l.307 			\eject
                 <./slike/dijagramASCP.png>]
-<slike/Class Diagram.png, id=506, 1269.24188pt x 782.925pt>
+<slike/Class Diagram.png, id=509, 1269.24188pt x 782.925pt>
 File: slike/Class Diagram.png Graphic file (type png)
 <use slike/Class Diagram.png>
-Package pdftex.def Info: slike/Class Diagram.png  used on input line 311.
+Package pdftex.def Info: slike/Class Diagram.png  used on input line 316.
 (pdftex.def)             Requested size: 455.24408pt x 280.81345pt.
 
-Overfull \hbox (19.63329pt too wide) in paragraph at lines 311--312
+Overfull \hbox (19.63329pt too wide) in paragraph at lines 316--317
  [][] 
  []
 
 
-Overfull \hbox (10.90878pt too wide) in paragraph at lines 316--318
+Overfull \hbox (10.90878pt too wide) in paragraph at lines 321--323
 \OT1/jkp/m/n/12 Razred Ap-pU-ser pred-stav-lja ko-ris-nika web apli-ka-cije koj
 i se mo[]ze re-gis-tri-rati unose[]ci
  []
@@ -2359,11 +2391,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [38
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.318 			
+l.323 			
           <./slike/Class Diagram.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2374,7 +2406,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 321--322
+Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
@@ -2387,7 +2419,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
 
  []
 
@@ -2400,7 +2432,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
 
@@ -2413,7 +2445,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [42]
-Underfull \hbox (badness 10000) in paragraph at lines 348--349
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 
  []
 
@@ -2520,13 +2552,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 \openout2 = `Literatura.aux'.
 
  (./Literatura.tex
-Overfull \hbox (8.89293pt too wide) in paragraph at lines 12--13
+Overfull \hbox (8.89293pt too wide) in paragraph at lines 10--11
 []\OT1/jkp/m/n/12 Programsko in[]zenjerstvo, FER ZE-MRIS, [][]$\OT1/jkptt/m/n/1
 2 http : / / www . fer . hr / predmet / proinz$[][] 
  []
 
 
-Overfull \hbox (7.06pt too wide) in paragraph at lines 18--19
+Overfull \hbox (7.06pt too wide) in paragraph at lines 16--17
 \OT1/jkp/m/n/12 ter En-gi-ne-ering, Rut-gers Uni-ver-sity, [][]$\OT1/jkptt/m/n/
 12 http : / / www . ece . rutgers . edu / []marsic /
  []
@@ -2593,7 +2625,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 65--66
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
@@ -2609,7 +2641,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--66
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2624,7 +2656,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2639,7 +2671,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2654,7 +2686,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2669,7 +2701,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2684,7 +2716,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2699,7 +2731,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2714,7 +2746,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.114 			\end
+l.127 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2743,7 +2775,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
@@ -2767,10 +2799,10 @@ anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
  ) 
 Here is how much of TeX's memory you used:
- 17889 strings out of 475066
- 318002 string characters out of 5782772
- 841298 words of memory out of 5000000
- 38695 multiletter control sequences out of 15000+600000
+ 17903 strings out of 475066
+ 318406 string characters out of 5782772
+ 841402 words of memory out of 5000000
+ 38706 multiletter control sequences out of 15000+600000
  537703 words of font info for 175 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,116p,1211b,1044s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2784,10 +2816,10 @@ type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmi.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmi
 t8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb><c:/
 texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (56 pages, 994268 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (56 pages, 1003603 bytes).
 PDF statistics:
- 721 PDF objects out of 1000 (max. 8388607)
- 629 compressed objects within 7 object streams
- 249 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 726 PDF objects out of 1000 (max. 8388607)
+ 632 compressed objects within 7 object streams
+ 251 named destinations out of 1000 (max. 500000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

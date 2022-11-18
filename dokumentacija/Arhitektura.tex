@@ -7,16 +7,21 @@
 		\newline
 		\textbf{Web preglednik} je softver koji služi kao sučelje između poslužitelja i klijenta i web dokumente klijentu. Njegova primarna uloga je slanje HTTP zahtjeva i primanje HTTP odgovora. Web preglednici prevode kod koji dobivaju u HTTP odgovoru te ga zatim prikazuju.
 		\newline
-		\textbf{Baza podataka} koristi se za sigurno spremanje podataka. Povezana je s web aplikacijom koja joj šalje upite za potrebnim podacima. Baza podataka je dalje opisana u poglavlju 4.1 Baza podataka.
+		\textbf{Baza podataka} (podatkovni sloj) koristi se za sigurno spremanje podataka. Povezana je s web aplikacijom koja joj šalje upite za potrebnim podacima. Baza podataka je dalje opisana u poglavlju 4.1 Baza podataka.
 		\newline
 		\newline
 		Web aplikacija koristi arhitekturu MVC (Model-View-Controller). \textbf{Model} predstavlja dinamičke strukture podataka. U njemu se izravno upravlja podacima.
-		\textbf{View} predstavlja prikaz podataka, a \textbf{Controller} prima zahtjeve i prosljeđuje ih gdje su dalje potrebni. MVC je implementiran u našu web aplikaciju tako da su Model i Controller komponente sadržane u back-end dijelu, a view u front-end dijelu. \textbf{Front-end} (prezentacijski sloj) je dio aplikacije zaslužan za grafičko korisničko sučelje dok se \textbf{back-end} (sloj pristupa podacima) može poistovjetiti sa web poslužiteljem. U njemu se opisuju funkcionalnosti web aplikacije odnosno on upravlja web aplikacijom.\\
+		\textbf{View} predstavlja prikaz podataka, a \textbf{Controller} prima zahtjeve i prosljeđuje ih gdje su dalje potrebni. MVC je implementiran u našu web aplikaciju tako da su Model i Controller komponente sadržane u back-end dijelu, a view u front-end dijelu. \textbf{Front-end} (prezentacijski sloj) je dio aplikacije zaslužan za grafičko korisničko sučelje dok se \textbf{back-end} (poslovni sloj) može poistovjetiti sa web poslužiteljem. U njemu se opisuju funkcionalnosti web aplikacije odnosno on upravlja web aplikacijom.\\
 		Backend je osim na model (repository) i controller komponente podijeljen i na service komponentu. U njoj se nalazi implementacija poslovne logike.
 		\newline
 		Front-end smo odlučili raditi u programskom jeziku JavaScript koristeći radni okvir React, a back-end u programskom jeziku Java s radnoim okvirom Spring Boot. Razvojna okruženja u kojima radimo su Visual Studio Code i IntelliJ.
 		
-		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=10cm]{slike/arhitektura-diagram}
+			\caption{Dijagram arhitekture} 
+			\label{fig:arhitektura-dijagram}
+		\end{figure}
 		
 
 	
