@@ -72,6 +72,7 @@ function Register(){
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
+            setIsDisabled(false);
         })
 
     }
