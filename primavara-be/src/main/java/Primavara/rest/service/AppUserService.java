@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AppUserService {
     List<AppUser> getAllUsers();
-    String addAppUser(RegisterUser appUser);
+    void addAppUser(RegisterUser appUser);
+    AppUser getUserById(Long id);
 }

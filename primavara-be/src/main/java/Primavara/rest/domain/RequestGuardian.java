@@ -31,7 +31,7 @@ public class RequestGuardian {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private Owner owner;
+    private AppUser appUser;
 
     public Long getRequestGuardianId() {
         return requestGuardianId;
@@ -105,11 +105,11 @@ public class RequestGuardian {
         isReviewed = reviewed;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }

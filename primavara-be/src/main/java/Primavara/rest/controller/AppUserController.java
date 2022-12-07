@@ -21,4 +21,9 @@ public class AppUserController {
 
     @PostMapping("register")
     private void addAppUser(@RequestBody RegisterUser registerUser) {appUserService.addAppUser(registerUser);}
+
+    @GetMapping("profile/{id}")
+    public AppUser getUserById(@PathVariable(required = true) Long id){
+        return appUserService.getUserById(id);
+    }
 }

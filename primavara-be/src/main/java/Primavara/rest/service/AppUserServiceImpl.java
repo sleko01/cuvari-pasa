@@ -31,7 +31,7 @@ public class AppUserServiceImpl implements AppUserService{
     }
 
     @Override
-    public String addAppUser(RegisterUser registerUser) {
+    public void addAppUser(RegisterUser registerUser) {
 
         validate(registerUser);
 
@@ -55,7 +55,11 @@ public class AppUserServiceImpl implements AppUserService{
         Role role = roleRepository.findByRoleId(registerUser.getRoleId());
         appUser.setRole(role);
         appUserRepository.save(appUser);
-        return "doso";
+    }
+
+    @Override
+    public AppUser getUserById(Long id) {
+        return appUserRepository.findByUserId(id);
     }
 
     private void validate(RegisterUser registerUser) {

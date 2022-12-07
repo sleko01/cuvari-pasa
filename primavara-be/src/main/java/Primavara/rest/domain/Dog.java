@@ -32,7 +32,7 @@ public class Dog {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private Owner owner;
+    private AppUser appUser;
 
     public Long getDogId() {
         return dogId;
@@ -90,12 +90,7 @@ public class Dog {
         this.breed = breed;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public AppUser getAppUser() {
+        return appUser;
     }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
-    }
-
 }
