@@ -12,5 +12,5 @@ public interface RequestGuardianRepository extends JpaRepository<RequestGuardian
 
     @Query(value = "SELECT * FROM request_guardian r WHERE r.is_reviewed = true AND r.is_published = true",
     nativeQuery = true)
-    Optional<RequestGuardian> findAllReviewedAndPublished();
+    List<Optional<RequestGuardian>> findAllReviewedAndPublished();
 }

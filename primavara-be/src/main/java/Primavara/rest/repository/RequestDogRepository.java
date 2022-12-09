@@ -13,5 +13,5 @@ public interface RequestDogRepository extends JpaRepository<RequestDog, Long> {
 
     @Query(value = "SELECT * FROM request_dog r WHERE r.is_reviewed = true AND r.is_published = true",
     nativeQuery = true)
-    Optional<RequestDog> findAllReviewedAndPublished();
+    List<Optional<RequestDog>> findAllReviewedAndPublished();
 }

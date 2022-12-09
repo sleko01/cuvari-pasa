@@ -1,5 +1,6 @@
 package Primavara.rest.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Dog {
     @JoinColumn(name="breed_id")
     private Breed breed;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="user_id")
     private AppUser appUser;

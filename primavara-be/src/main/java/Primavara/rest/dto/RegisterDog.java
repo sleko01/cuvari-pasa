@@ -13,6 +13,8 @@ public class RegisterDog {
     @Lob
     private Clob photo;
 
+    private Long breedId;
+
     public String getName() {
         return name;
     }
@@ -35,5 +37,13 @@ public class RegisterDog {
 
     public void setPhoto(Clob photo) {
         this.photo = photo;
+    }
+
+    public Long getBreedId() {
+        return breedId;
+    }
+
+    public void setBreedId(Long breedId) {
+        this.breedId = breedId;
     }
 }

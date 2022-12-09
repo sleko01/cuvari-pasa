@@ -12,9 +12,8 @@ import java.util.Optional;
 public class RequestGuardianServiceImpl implements RequestGuardianService {
     @Autowired
     private RequestGuardianRepository requestGuardianRepository;
-
     @Override
-    public Optional<RequestGuardian> getAllReviewedAndPublishedRequestGuardians() {
+    public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians() {
         return requestGuardianRepository.findAllReviewedAndPublished();
     }
 }

@@ -23,7 +23,7 @@ public class AppUserServiceImpl implements AppUserService{
     @Autowired
     private RoleRepository roleRepository;
 
-    PasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
+    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
     public List<AppUser> getAllUsers() {
