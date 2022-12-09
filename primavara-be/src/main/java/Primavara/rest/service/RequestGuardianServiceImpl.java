@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RequestGuardianServiceImpl implements RequestGuardianService {
@@ -13,7 +14,7 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
     private RequestGuardianRepository requestGuardianRepository;
 
     @Override
-    public List<RequestGuardian> getAllRequestGuardians() {
-        return requestGuardianRepository.findAll();
+    public Optional<RequestGuardian> getAllReviewedAndPublishedRequestGuardians() {
+        return requestGuardianRepository.findAllReviewedAndPublished();
     }
 }
