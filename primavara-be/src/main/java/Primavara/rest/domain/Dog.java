@@ -3,6 +3,7 @@ package Primavara.rest.domain;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import java.sql.Clob;
 import java.sql.Date;
 
 @Entity
@@ -18,7 +19,8 @@ public class Dog {
     @NotNull
     private Date dateOfBirth;
 
-    private String photo;
+    @Lob
+    private Clob photo;
 
     @NotNull
     private Long ratingSum;
@@ -58,11 +60,11 @@ public class Dog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPhoto() {
+    public Clob getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(Clob photo) {
         this.photo = photo;
     }
 
@@ -92,5 +94,9 @@ public class Dog {
 
     public AppUser getAppUser() {
         return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }
