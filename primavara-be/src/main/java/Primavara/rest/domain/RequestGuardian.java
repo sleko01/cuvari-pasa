@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 
 @Entity
 public class RequestGuardian {
+    //pise ga vlasnik pasa
     @Id
     @GeneratedValue
     private Long requestGuardianId;

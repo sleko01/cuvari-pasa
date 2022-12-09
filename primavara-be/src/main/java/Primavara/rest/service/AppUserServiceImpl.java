@@ -55,6 +55,10 @@ public class AppUserServiceImpl implements AppUserService{
         Role role = roleRepository.findByRoleId(registerUser.getRoleId());
         appUser.setRole(role);
         appUserRepository.save(appUser);
+
+        //appuser tablica ima atribute has_dog i has_experience, pa bi trebalo za čuvare staviti
+        // opciju pri registraciji da mogu ispuniti te atribute (samo neki checkbox ili tak nesto)
+        //za vlasnike staviti null ili nesto drugo
     }
 
     @Override

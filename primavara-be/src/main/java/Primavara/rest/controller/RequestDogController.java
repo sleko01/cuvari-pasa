@@ -1,11 +1,11 @@
 package Primavara.rest.controller;
 
 import Primavara.rest.domain.RequestDog;
+import Primavara.rest.dto.NewRequestDog;
+import Primavara.rest.dto.RegisterUser;
 import Primavara.rest.service.RequestDogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,5 +20,8 @@ public class RequestDogController {
     private List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs() {
         return requestDogService.getAllReviewedAndPublishedRequestDogs();
     }
+
+    @PostMapping("new")
+    private void addNewRequestDog (@RequestBody NewRequestDog newRequestDog) {requestDogService.addNewRequestDog(newRequestDog);}
 
 }

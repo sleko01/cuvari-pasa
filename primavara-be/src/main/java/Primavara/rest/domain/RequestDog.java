@@ -8,6 +8,7 @@ import java.util.Set;
 
 @Entity
 public class RequestDog {
+    //pise ga cuvar pasa
     @Id
     @GeneratedValue
     private Long requestDogId;
@@ -79,8 +80,8 @@ public class RequestDog {
         return isFlexible;
     }
 
-    public void setFlexible(Boolean flexible) {
-        isFlexible = flexible;
+    public void setFlexible(Boolean isFlexible) {
+        this.isFlexible = isFlexible;
     }
 
     public String getLocation() {
