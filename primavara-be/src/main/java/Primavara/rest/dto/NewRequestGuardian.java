@@ -1,6 +1,8 @@
 package Primavara.rest.dto;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.List;
 
 public class NewRequestGuardian {
     //pise ga vlasnik pasa
@@ -17,7 +19,7 @@ public class NewRequestGuardian {
 
     private Boolean hasDog;
 
-    private Long dogId;
+    private List<Long> dogId;
 
     public String getLocation() {
         return location;
@@ -67,11 +69,11 @@ public class NewRequestGuardian {
         this.hasDog = hasDog;
     }
 
-    public Long getDogId() {
+    public List<Long> getDogId() {
         return dogId;
     }
 
-    public void setDogId(Long dogId) {
-        this.dogId = dogId;
+    public void setDogId(Long[] dogId) {
+        this.dogId = Arrays.asList(dogId);
     }
 }

@@ -47,13 +47,13 @@ public class RequestDogServiceImpl implements RequestDogService{
         Breed dogBreed=breedRepository.findByBreedId(newRequestDog.getBreedId());
         requestDog.setBreed(dogBreed);
 
-        //za sada (služi da bi se moglo iscitati hasExperience i hasDog atributi)
+        //za sada (iz tog cemo iscitati hasExperience i hasDog atribute)
             AppUser appUser=appUserRepository.findByUsername("mariopetek");
         //
         requestDog.setAppUser(appUser);
 
         requestDogRepository.save(requestDog);
-
-
     }
+
+    //validacija
 }
