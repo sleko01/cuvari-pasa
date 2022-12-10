@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AppUserServiceImpl implements AppUserService{
@@ -74,5 +75,18 @@ public class AppUserServiceImpl implements AppUserService{
                     "Role with id " + registerUser.getRoleId() + " does not exist"
             );
         Assert.isTrue(registerUser.getEmail().matches(EMAIL_FORMAT), "Email in wrong format");
+    }
+
+    //za admina
+    @Override
+    public List<Optional<AppUser>> getAllUsersExceptCurrentUser(Long id){
+        AppUser appUser=appUserRepository.findByUserId(id);
+        if(appUser.getRole().getRoleId()!=4){
+            throw new RequestDeniedException(
+                    "User with role " + appUser.getRole().getName() + " does not have access"
+            );
+        }
+
+        return appUserRepository.findAllExceptCurrentUser(id);
     }
 }

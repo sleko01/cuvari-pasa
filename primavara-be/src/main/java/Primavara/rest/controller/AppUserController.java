@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("users")
@@ -25,5 +26,10 @@ public class AppUserController {
     @GetMapping("profile/{id}")
     public AppUser getUserById(@PathVariable(required = true) Long id){
         return appUserService.getUserById(id);
+    }
+
+    @GetMapping("/moderation/{id}/u")
+    public List<Optional<AppUser>> getAllUsersExceptCurrentUser(@PathVariable(required = true) Long id){
+        return appUserService.getAllUsersExceptCurrentUser(id);
     }
 }

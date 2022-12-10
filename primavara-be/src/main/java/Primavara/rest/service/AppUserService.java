@@ -4,9 +4,13 @@ import Primavara.rest.domain.AppUser;
 import Primavara.rest.dto.RegisterUser;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface AppUserService {
     List<AppUser> getAllUsers();
     void addAppUser(RegisterUser appUser);
     AppUser getUserById(Long id);
+
+    //za admina
+    List<Optional<AppUser>> getAllUsersExceptCurrentUser(Long id);
 }
