@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface RequestGuardianService {
     List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians();
 
-    void addNewRequestGuardian(NewRequestGuardian newRequestGuardian);
+    void addNewRequestGuardian(NewRequestGuardian newRequestGuardian, Long id);
 }

@@ -21,7 +21,7 @@ public class RequestGuardianController {
                 return requestGuardianService.getAllReviewedAndPublishedRequestGuardians();
         }
 
-        @PostMapping("/new")
-        private void addNewRequestGuardian (@RequestBody NewRequestGuardian newRequestGuardian) {requestGuardianService.addNewRequestGuardian(newRequestGuardian);}
+        @PostMapping("/new/{id}")
+        private void addNewRequestGuardian (@RequestBody NewRequestGuardian newRequestGuardian, @PathVariable(required = true) Long id) {requestGuardianService.addNewRequestGuardian(newRequestGuardian, id);}
 
 }

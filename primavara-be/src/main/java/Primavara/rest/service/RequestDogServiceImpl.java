@@ -41,7 +41,7 @@ public class RequestDogServiceImpl implements RequestDogService{
                     "AppUser with id " + id + " does not exists"
             );
 
-        //za sada (iz tog cemo iscitati hasExperience i hasDog atribute)
+        //(iz tog cemo iscitati hasExperience i hasDog atribute)
             AppUser appUser=appUserRepository.findByUserId(id);
         //
         if (appUser.getRole().getRoleId() == 1)
@@ -56,7 +56,7 @@ public class RequestDogServiceImpl implements RequestDogService{
         requestDog.setFlexible(newRequestDog.getFlexible());
         requestDog.setLocation(newRequestDog.getLocation());
         requestDog.setNumberOfDogs(newRequestDog.getNumberOfDogs());
-        //za sada
+        //za sada zbog testiranja (po defaultu ce inace biti false)
             requestDog.setPublished(true);
             requestDog.setReviewed(true);
         //
