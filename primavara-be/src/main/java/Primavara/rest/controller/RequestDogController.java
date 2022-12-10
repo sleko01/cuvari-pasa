@@ -2,7 +2,6 @@ package Primavara.rest.controller;
 
 import Primavara.rest.domain.RequestDog;
 import Primavara.rest.dto.NewRequestDog;
-import Primavara.rest.dto.RegisterUser;
 import Primavara.rest.service.RequestDogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

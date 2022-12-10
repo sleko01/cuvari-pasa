@@ -1,6 +1,5 @@
 package Primavara.rest.repository;
 
-import Primavara.rest.domain.AppUser;
 import Primavara.rest.domain.Dog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

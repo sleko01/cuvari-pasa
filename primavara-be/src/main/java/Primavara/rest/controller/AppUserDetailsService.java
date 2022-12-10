@@ -2,7 +2,6 @@ package Primavara.rest.controller;
 
 import Primavara.rest.domain.AppUser;
 import Primavara.rest.repository.AppUserRepository;
-import Primavara.rest.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

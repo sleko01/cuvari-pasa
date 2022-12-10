@@ -1,7 +1,6 @@
 package Primavara.rest.service;
 
 import Primavara.rest.domain.*;
-import Primavara.rest.dto.NewRequestDog;
 import Primavara.rest.dto.NewRequestGuardian;
 import Primavara.rest.repository.AppUserRepository;
 import Primavara.rest.repository.DogRepository;
@@ -105,5 +104,17 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
                 );
             }
         }
+    }
+
+    @Override
+    public List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(Long id){
+        AppUser appUser=appUserRepository.findByUserId(id);
+        if(appUser.getRole().getRoleId()==2){
+            throw new RequestDeniedException(
+                    "User with role " + appUser.getRole().getName() + " cannot access RequestGuardians"
+            );
+        }
+
+        return requestGuardianRepository.findAllByUserId(id);
     }
 }

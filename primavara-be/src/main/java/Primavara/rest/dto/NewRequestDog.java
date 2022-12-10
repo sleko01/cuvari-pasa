@@ -1,7 +1,5 @@
 package Primavara.rest.dto;
 
-import Primavara.rest.domain.AppUser;
-import Primavara.rest.domain.Breed;
 
 import java.sql.Timestamp;
 

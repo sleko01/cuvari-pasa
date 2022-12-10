@@ -1,6 +1,5 @@
 package Primavara.rest.service;
 
-import Primavara.rest.CuvariPasaApplication;
 import Primavara.rest.domain.AppUser;
 import Primavara.rest.domain.Role;
 import Primavara.rest.dto.RegisterUser;

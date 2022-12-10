@@ -1,7 +1,6 @@
 package Primavara.rest.controller;
 
 import Primavara.rest.domain.RequestGuardian;
-import Primavara.rest.dto.NewRequestDog;
 import Primavara.rest.dto.NewRequestGuardian;
 import Primavara.rest.service.RequestGuardianService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,11 @@ public class RequestGuardianController {
                 return requestGuardianService.getAllReviewedAndPublishedRequestGuardians();
         }
 
-        @PostMapping("/new/{id}")
+        @PostMapping("new/{id}")
         private void addNewRequestGuardian (@RequestBody NewRequestGuardian newRequestGuardian, @PathVariable(required = true) Long id) {requestGuardianService.addNewRequestGuardian(newRequestGuardian, id);}
 
+        @GetMapping("my/{id}")
+        private List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(@PathVariable(required = true) Long id){
+                return requestGuardianService.getAllRequestGuardiansByUserId(id);
+        }
 }

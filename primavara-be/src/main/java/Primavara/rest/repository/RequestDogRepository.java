@@ -1,7 +1,6 @@
 package Primavara.rest.repository;
 
 
-import Primavara.rest.domain.Breed;
 import Primavara.rest.domain.RequestDog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
