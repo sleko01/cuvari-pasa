@@ -21,7 +21,7 @@ public class RequestDogController {
         return requestDogService.getAllReviewedAndPublishedRequestDogs();
     }
 
-    @PostMapping("new")
-    private void addNewRequestDog (@RequestBody NewRequestDog newRequestDog) {requestDogService.addNewRequestDog(newRequestDog);}
+    @PostMapping("new/{id}")
+    private void addNewRequestDog (@RequestBody NewRequestDog newRequestDog, @PathVariable(required = true) Long id) {requestDogService.addNewRequestDog(newRequestDog, id);}
 
 }

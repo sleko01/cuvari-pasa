@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface RequestDogService {
     List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs();
 
-    void addNewRequestDog(NewRequestDog newRequestDog);
+    void addNewRequestDog(NewRequestDog newRequestDog, Long id);
 }

@@ -5,11 +5,13 @@ import Primavara.rest.domain.Breed;
 import Primavara.rest.domain.RequestDog;
 import Primavara.rest.domain.Role;
 import Primavara.rest.dto.NewRequestDog;
+import Primavara.rest.dto.RegisterDog;
 import Primavara.rest.repository.AppUserRepository;
 import Primavara.rest.repository.BreedRepository;
 import Primavara.rest.repository.RequestDogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +33,21 @@ public class RequestDogServiceImpl implements RequestDogService{
     }
 
     @Override
-    public void addNewRequestDog(NewRequestDog newRequestDog){
+    public void addNewRequestDog(NewRequestDog newRequestDog, Long id){
+        validate(newRequestDog);
+
+        if (appUserRepository.findByUserId(id) == null)
+            throw new RequestDeniedException(
+                    "AppUser with id " + id + " does not exists"
+            );
+
+        //za sada (iz tog cemo iscitati hasExperience i hasDog atribute)
+            AppUser appUser=appUserRepository.findByUserId(id);
+        //
+        if (appUser.getRole().getRoleId() == 1)
+            throw new RequestDeniedException(
+                    "Owner can not add new RequestDog"
+            );
 
         RequestDog requestDog= new RequestDog();
         requestDog.setDogAge(newRequestDog.getDogAge());
@@ -47,13 +63,22 @@ public class RequestDogServiceImpl implements RequestDogService{
         Breed dogBreed=breedRepository.findByBreedId(newRequestDog.getBreedId());
         requestDog.setBreed(dogBreed);
 
-        //za sada (iz tog cemo iscitati hasExperience i hasDog atribute)
-            AppUser appUser=appUserRepository.findByUsername("mariopetek");
-        //
         requestDog.setAppUser(appUser);
 
         requestDogRepository.save(requestDog);
     }
 
-    //validacija
+    private void validate(NewRequestDog newRequestDog) {
+        Assert.notNull(newRequestDog, "NewRequestDog object must be given");
+        Assert.hasText(newRequestDog.getDogAge().toString(), "NewRequestDog dogAge must be given");
+        Assert.notNull(newRequestDog.getDogTimeBegin(), "NewRequestDog dogTimeBegin must be given");
+        Assert.notNull(newRequestDog.getDogTimeEnd(), "NewRequestDog dogTimeBEnd must be given");
+        Assert.notNull(newRequestDog.getFlexible(), "NewRequestDog isFlexible must be given");
+        Assert.hasText(newRequestDog.getLocation(), "NewRequestDog location must be given");
+        Assert.hasText(newRequestDog.getNumberOfDogs().toString(), "NewRequestDog numberOfDogs must be given");
+        if (breedRepository.countByBreedId(newRequestDog.getBreedId()) == 0)
+            throw new RequestDeniedException(
+                    "Breed with id " + newRequestDog.getBreedId() + " does not exist"
+            );
+    }
 }
