@@ -1,9 +1,13 @@
 package Primavara.rest.service;
 
 import Primavara.rest.domain.AppUser;
+import Primavara.rest.domain.RequestDog;
+import Primavara.rest.domain.RequestGuardian;
 import Primavara.rest.domain.Role;
 import Primavara.rest.dto.RegisterUser;
 import Primavara.rest.repository.AppUserRepository;
+import Primavara.rest.repository.RequestDogRepository;
+import Primavara.rest.repository.RequestGuardianRepository;
 import Primavara.rest.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,8 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class AppUserServiceImpl implements AppUserService{
@@ -23,6 +26,10 @@ public class AppUserServiceImpl implements AppUserService{
     @Autowired
     private RoleRepository roleRepository;
 
+    @Autowired
+    private RequestGuardianRepository requestGuardianRepository;
+    @Autowired
+    private RequestDogRepository requestDogRepository;
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
@@ -88,5 +95,26 @@ public class AppUserServiceImpl implements AppUserService{
         }
 
         return appUserRepository.findAllExceptCurrentUser(id);
+    }
+
+    @Override
+    public Map<Integer, List<Object>> getAllNotReviewedRequests(Long id){
+        AppUser appUser=appUserRepository.findByUserId(id);
+        if(appUser.getRole().getRoleId()!=4){
+            throw new RequestDeniedException(
+                    "User with role " + appUser.getRole().getName() + " does not have access"
+            );
+        }
+
+        Map<Integer, List<Object>> allNotReviewedRequests = new HashMap<>();
+
+        List<RequestDog> notReviewedRequestDogs = requestDogRepository.findAllNotReviewed();
+        List<RequestGuardian> notReviewedRequestGuardians = requestGuardianRepository.findAllNotReviewed();
+
+        allNotReviewedRequests.put(1, Collections.singletonList(notReviewedRequestDogs));
+        allNotReviewedRequests.put(2, Collections.singletonList(notReviewedRequestGuardians));
+
+        return allNotReviewedRequests;
+
     }
 }

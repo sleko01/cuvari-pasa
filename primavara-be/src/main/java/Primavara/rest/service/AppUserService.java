@@ -4,6 +4,7 @@ import Primavara.rest.domain.AppUser;
 import Primavara.rest.dto.RegisterUser;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface AppUserService {
@@ -13,4 +14,5 @@ public interface AppUserService {
 
     //za admina
     List<Optional<AppUser>> getAllUsersExceptCurrentUser(Long id);
+    Map<Integer, List<Object>> getAllNotReviewedRequests(Long id);
 }

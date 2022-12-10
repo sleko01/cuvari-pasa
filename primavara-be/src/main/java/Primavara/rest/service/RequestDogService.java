@@ -12,4 +12,6 @@ public interface RequestDogService {
     void addNewRequestDog(NewRequestDog newRequestDog, Long id);
 
     List<Optional<RequestDog>> getAllRequestDogsByUserId(Long id);
+
+
 }

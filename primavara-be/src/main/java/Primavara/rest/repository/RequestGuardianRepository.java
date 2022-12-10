@@ -17,4 +17,7 @@ public interface RequestGuardianRepository extends JpaRepository<RequestGuardian
 
     @Query(value= "SELECT * FROM request_guardian r WHERE r.user_id = :i", nativeQuery = true)
     List<Optional<RequestGuardian>> findAllByUserId(@Param("i") Long user_id);
+
+    @Query(value = "SELECT * FROM request_guardian r WHERE r.is_reviewed = false", nativeQuery = true)
+    List<RequestGuardian> findAllNotReviewed();
 }
