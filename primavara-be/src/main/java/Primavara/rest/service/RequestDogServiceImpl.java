@@ -81,4 +81,16 @@ public class RequestDogServiceImpl implements RequestDogService{
                     "Breed with id " + newRequestDog.getBreedId() + " does not exist"
             );
     }
+
+    @Override
+    public List<Optional<RequestDog>> getAllRequestDogsByUserId(Long id){
+        AppUser appUser=appUserRepository.findByUserId(id);
+        if(appUser.getRole().getRoleId()==1){
+            throw new RequestDeniedException(
+                    "User with role " + appUser.getRole().getName() + " cannot access RequestDogs"
+            );
+        }
+
+        return requestDogRepository.findAllByUserId(id);
+    }
 }

@@ -24,4 +24,8 @@ public class RequestDogController {
     @PostMapping("new/{id}")
     private void addNewRequestDog (@RequestBody NewRequestDog newRequestDog, @PathVariable(required = true) Long id) {requestDogService.addNewRequestDog(newRequestDog, id);}
 
+    @GetMapping("my/{id}")
+    private List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
+        return requestDogService.getAllRequestDogsByUserId(id);
+    }
 }
