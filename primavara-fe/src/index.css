@@ -199,7 +199,7 @@ body {
 .navbar-container {
   top: 0;
   position: sticky;
-  z-index: 1000;
+  z-index: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -242,13 +242,6 @@ body {
   padding-right: 2vw;
 }
 
-.welcome-text{
-  font-family: "Lexend Regular";
-  font-size: 2vmin;
-  color: var(--color-apricot);
-  padding-right: 2vw;
-}
-
 .navbar-links {
   display: flex;
   align-items: center;
@@ -259,6 +252,53 @@ body {
   text-decoration: none;
 }
 
+
+
+/* DROPDOWN MENU */
+.dropdown {
+  display: inline-flex;
+  margin: 0%;
+  padding: 0%;
+}
+
+.dropdown-username {
+  font-family: "Lexend Regular";
+  font-size: 2vmin;
+  color: var(--color-apricot);
+  padding-right: 1vw;
+  padding-top: 0.5vh;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  z-index: 501;
+}
+
+.dropdown-content a {
+  font-size: 1.7vmin;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  color: black;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-image {
+  display: inline-flex;
+  object-fit: contain;
+  width: 3.5vw;
+  height: 3.5vh;
+}
 
 
 
@@ -275,7 +315,6 @@ body {
   margin-top: 0em;
   margin-bottom: 0em;
 }
-
 
 
 
