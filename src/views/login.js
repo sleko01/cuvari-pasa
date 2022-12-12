@@ -1,10 +1,12 @@
 import React from 'react'
+import axios, {AxiosError} from "axios";
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 import './home.css'
 import '../index.css'
+
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -15,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import NativeSelect from '@mui/material/NativeSelect';
 import { alpha, styled } from '@mui/material/styles';
 import GlobalStyles from '@mui/material/GlobalStyles';
+import {redirect} from "react-router-dom";
 
 const StyledTextField = styled(TextField)({
     '& label.Mui-focused': {
@@ -38,7 +41,7 @@ const StyledTextField = styled(TextField)({
 
 function Login(){
 
-    const [form, setForm] = React.useState({email: '', password: ''});
+    const [form, setForm] = React.useState({username: '', password: ''});
 
     function onChange(event) {
         const {name, value} = event.target;
@@ -46,13 +49,29 @@ function Login(){
     }
 
     function isValid() {
-        const {email, password} = form;
-        return password.length >= 8 && /\S+@\S+\.\S+/.test(email);
+        const {username, password} = form;
+        return password.length >= 8;
     }
 
     function onSubmit(e) {
         e.preventDefault()
-        alert("Tu trebas implementirat vezu frontenda i bekenda")
+        // alert("Tu trebas implementirat vezu frontenda i bekenda")
+        var bodyFormData = new FormData();
+        bodyFormData.append("username", form.username)
+        bodyFormData.append("password", form.password)
+        axios({
+            method: "post",
+            url: "/api/login",
+            data: bodyFormData,
+            headers: { "Content-Type": "multipart/form-data" },
+        }).then(response => {
+            console.log(response)
+            localStorage.setItem("username", form.username)
+            window.location.href = "/";
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        });
     }
 
     return(
@@ -65,7 +84,7 @@ function Login(){
             <Navbar/>
 
 
-            <div className="form-section-container">
+            <div className="form-section-container snap-center">
                 <div className='form-container background-citrus'>
                     <Box
                         sx={{
@@ -85,9 +104,9 @@ function Login(){
                                     <StyledTextField
                                         required
                                         fullWidth
-                                        id="email"
-                                        label="Email Adresa"
-                                        name="email"
+                                        id="username"
+                                        label="Korisničko ime"
+                                        name="username"
                                         onChange={onChange}
                                         value={form.email}
                                     />

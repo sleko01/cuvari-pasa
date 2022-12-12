@@ -14,6 +14,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import NativeSelect from '@mui/material/NativeSelect';
 import { alpha, styled } from '@mui/material/styles';
+import axios, {AxiosError} from "axios";
 
 
 
@@ -39,8 +40,9 @@ const StyledTextField = styled(TextField)({
 
 function Register(){
     const [password, setPassword] = useState("")
+    const [isDisabled, setIsDisabled] = useState(false)
     const [passwordAgain, setPasswordAgain] = useState("")
-    const [form, setForm] = React.useState({firstName: '', lastName: '', email: '', role: '', password: '', confirmPassword: ''});
+    const [form, setForm] = React.useState({firstName: '', lastName: '', username: '', email: '', role: '', password: '', confirmPassword: ''});
 
     function onChange(event) {
         const {name, value} = event.target;
@@ -48,16 +50,34 @@ function Register(){
     }
 
     function isValid() {
-        const {firstName, lastName, email, role, password, confirmPassword} = form;
-        return firstName.length>0 && lastName.length > 0 && password.length >= 8 && password == confirmPassword && /\S+@\S+\.\S+/.test(email) && role != 0;
+        const {firstName, lastName, username, email, role, password, confirmPassword} = form;
+        return firstName.length>0 && lastName.length > 0 && username.length > 0 && password.length >= 8 && password == confirmPassword && /\S+@\S+\.\S+/.test(email) && role != 0;
     }
 
     function onSubmit(e) {
         e.preventDefault()
-        alert("Tu trebas implementirat vezu frontenda i bekenda")
+        // alert("Tu trebas implementirat vezu frontenda i bekenda")
+        setIsDisabled(true);
+        axios.post('/api/users/register', {
+            "username": form.username,
+            "firstName": form.firstName,
+            "lastName": form.lastName,
+            "password": form.password,
+            "email": form.email,
+            "roleId": form.role
+        }).then(async response => {
+            console.log(response)
+            window.location.href = "/";
+            setIsDisabled(false);
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+            setIsDisabled(false);
+        })
+
     }
 
-    return (
+     return (
             <div className="page-container">
                 <Helmet>
                     <title>CuvariPasa | Registracija</title>
@@ -101,6 +121,17 @@ function Register(){
                                             name="lastName"
                                             onChange={onChange}
                                             value={form.lastName}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <StyledTextField
+                                            name="username"
+                                            required
+                                            fullWidth
+                                            id="username"
+                                            label="Korisničko ime"
+                                            onChange={onChange}
+                                            value={form.username}
                                         />
                                     </Grid>
                                     <Grid item xs={12}>
@@ -184,7 +215,7 @@ function Register(){
 
                                                 className="button button-primary"
                                                 variant="contained"
-                                                disabled={!isValid()}
+                                                disabled={!isValid() || isDisabled}
                                                 onClick={onSubmit}
                                             >
                                                 Registracija
