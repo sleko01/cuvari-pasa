@@ -12,6 +12,7 @@ public interface AppUserService {
     void addAppUser(RegisterUser appUser);
     AppUser getUserById(Long id);
 
+    Long getIdByUsername(String username);
     //za admina
     List<Optional<AppUser>> getAllUsersExceptCurrentUser(Long id);
     Map<Integer, List<Object>> getAllNotReviewedRequests(Long id);

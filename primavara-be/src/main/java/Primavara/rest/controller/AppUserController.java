@@ -17,12 +17,15 @@ public class AppUserController {
     private AppUserService appUserService;
 
     @GetMapping("")
-    private List<AppUser> getAllUsers() {
+    public List<AppUser> getAllUsers() {
         return appUserService.getAllUsers();
     }
 
+    @GetMapping("username/{username}")
+    public Long getAppUserById(@PathVariable(required = true) String username) { return appUserService.getIdByUsername(username); }
+
     @PostMapping("register")
-    private void addAppUser(@RequestBody RegisterUser registerUser) {appUserService.addAppUser(registerUser);}
+    public void addAppUser(@RequestBody RegisterUser registerUser) {appUserService.addAppUser(registerUser);}
 
     @GetMapping("profile/{id}")
     public AppUser getUserById(@PathVariable(required = true) Long id){

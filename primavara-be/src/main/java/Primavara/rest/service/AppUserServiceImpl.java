@@ -73,6 +73,11 @@ public class AppUserServiceImpl implements AppUserService{
         return appUserRepository.findByUserId(id);
     }
 
+    @Override
+    public Long getIdByUsername(String username) {
+        return appUserRepository.findByUsername(username).getUserId();
+    }
+
     private void validate(RegisterUser registerUser) {
         Assert.notNull(registerUser, "RegisterUser object must be given");
         Assert.hasText(registerUser.getUsername(), "RegisterUser username must be given");
@@ -115,6 +120,7 @@ public class AppUserServiceImpl implements AppUserService{
         allNotReviewedRequests.put(2, Collections.singletonList(notReviewedRequestGuardians));
 
         return allNotReviewedRequests;
-
     }
+
+
 }

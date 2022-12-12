@@ -8,6 +8,7 @@ function Navbar(){
 
     function logout() {
         localStorage.removeItem("username");
+        localStorage.removeItem("id")
         window.location.href = "/";
     }
 
