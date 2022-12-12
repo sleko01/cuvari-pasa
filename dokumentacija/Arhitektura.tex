@@ -32,7 +32,7 @@
 				
 		\section{Baza podataka}
 			
-			Sustav koristi relacijsku bazu podataka koja će biti implementirana u PostgreSQLu. Relacijsku bazu podataka koristimo radi lakšeg oblikovanja sustava kao stvarnog svijeta, a PostgresSQL jer smo najbolje upoznati s njim. U njemu se entiteti modeliraju kao tablice koje imaju vlastito ime i skup atributa.\\
+			Sustav koristi relacijsku bazu podataka koja će biti implementirana u PostgreSQLu. Relacijsku bazu podataka koristimo radi lakšeg oblikovanja sustava kao stvarnog svijeta, a PostgreSQL jer smo najbolje upoznati s njim. U njemu se entiteti modeliraju kao tablice koje imaju vlastito ime i skup atributa.\\
 			Baza podataka nam je potrebna zbog njezine sigurnosti podataka, ali i brzog dohvata, pohrane i izmijene podataka koje sustav koristi za daljnje akcije.
 			Baza podataka ovog sustava korisit sjedeće entitete:
 			\begin{packed_item}
@@ -55,7 +55,7 @@
 			\subsection{Opis tablica}
 			
 			
-			\textbf{Role} je entitet koji sadržava sve važne informacije o rolama aplikacije. Povezan je vezom One-To-Many s tablicom App User preko atributa userId tablice App User. Sadrži atribute: roleId i name.
+			\textbf{Role} je entitet koji sadržava sve važne informacije o ulogama u  aplikaciji. Povezan je vezom One-To-Many s tablicom App User preko atributa userId tablice App User. Sadrži atribute: roleId i name.
 			
 			
 			
@@ -300,7 +300,7 @@
 			\begin{figure}[htb]
 				\centering
 				\includegraphics[width=16cm]{slike/dijagramASCP}
-				\caption{E-R dijagram baze podataka} 
+				\caption{Relacijski dijagram baze podataka} 
 				\label{fig:E-Rdijagram}
 			\end{figure}
 			
