@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8409628c-6468-4cba-b2d8-904f2abe1390" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/primavara-fe/src/views/moderator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/primavara-fe/src/views/registerdog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/primavara-fe/src/views/requestdog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/primavara-fe/src/views/requestguardian.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/primavara-fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/primavara-fe/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/primavara-fe/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/primavara-fe/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/primavara-fe/src/views/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/primavara-fe/src/views/login.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="header_dropdown" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2GzDwvtnS9AEMqCiWlBQpWePTSJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/progi/cuvari-pasa/primavara-fe/src/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "ffda5eff22a2c9821fe7be497d9267ed",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\progi\cuvari-pasa\primavara-fe\src\views" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CuvariPasaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="cuvari-pasa" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="Primavara.rest.CuvariPasaApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Primavara.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.CuvariPasaApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8409628c-6468-4cba-b2d8-904f2abe1390" name="Changes" comment="" />
+      <created>1667382764884</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667382764884</updated>
+      <workItem from="1667382768581" duration="1905000" />
+      <workItem from="1667404437951" duration="8508000" />
+      <workItem from="1667466142517" duration="878000" />
+      <workItem from="1667467039307" duration="5955000" />
+      <workItem from="1668009821141" duration="21000" />
+      <workItem from="1668009862448" duration="11061000" />
+      <workItem from="1668025467822" duration="408000" />
+      <workItem from="1668174999660" duration="11908000" />
+      <workItem from="1668196080567" duration="146000" />
+      <workItem from="1670838979627" duration="2830000" />
+      <workItem from="1670860141999" duration="5941000" />
+      <workItem from="1670866514928" duration="10018000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/oglasi_i_zahtjevi" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

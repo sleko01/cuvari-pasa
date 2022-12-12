@@ -67,6 +67,13 @@ function Login(){
         }).then(response => {
             console.log(response)
             localStorage.setItem("username", form.username)
+            axios({
+                method: "get",
+                url: "/api/users/username/" + form.username
+            }).then(response => {
+                console.log(response)
+                localStorage.setItem("id", response.data)
+            })
             window.location.href = "/";
         }).catch(err => {
             console.log(err);
