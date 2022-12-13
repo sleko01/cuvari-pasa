@@ -6,7 +6,7 @@ import Footer from './partials/footer'
 
 import './home.css'
 
-function Moderator()
+function Moderation(){
     const [pendingRequests, setPendingRequests] = React.useState([])
     const [users, setUsers] = React.useState([])
 
@@ -60,4 +60,4 @@ function Moderator()
     )
 }
 
-export default Moderator;
+export default Moderation;

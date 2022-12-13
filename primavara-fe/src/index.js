@@ -5,8 +5,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/home.js";
 import Register from "./views/register.js";
 import Login from "./views/login.js";
-import RegisterDog from "./views/registerdog.js";
-import RequestGuardian from "./views/requestguardian.js"
+import Profile from "./views/profile.js";
+import RegisterDog from "./views/registerDog.js";
+import NewRequest from "./views/newRequest.js"
 
 import './index.css'
  
@@ -18,8 +19,9 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/users/register" element={<Register />} />
           <Route path="/users/login" element={<Login />} />
+          <Route path="/users/profile" element={<Profile />} />
           <Route path="/dogs/register" element={<RegisterDog />} />
-          <Route path="/reqgua" element={<RequestGuardian />} />
+          <Route path="/reqgua" element={<NewRequest />} />
       </Routes>
     </BrowserRouter>
   );

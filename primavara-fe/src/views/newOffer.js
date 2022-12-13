@@ -41,7 +41,7 @@ const StyledTextField = styled(TextField)({
     },
 });
 
-function RequestDog(){
+function newOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
     const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: ''})
 
@@ -73,7 +73,7 @@ function RequestDog(){
     return (
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Registracija</title>
+                <title>CuvariPasa | Novi oglas</title>
             </Helmet>
 
             <Navbar/>
@@ -161,7 +161,7 @@ function RequestDog(){
                                             disabled={!isValid() || isDisabled}
                                             onClick={onSubmit}
                                         >
-                                            Registracija psa
+                                            Predaj
                                         </button>
                                     </div>
                                 </Grid>
@@ -180,4 +180,4 @@ function RequestDog(){
 
 }
 
-export default RequestDog;
+export default newOffer;

@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
-import PasswordChecklist from "react-password-checklist"
 import { Helmet } from 'react-helmet'
 
 import Navbar from './partials/navbar'
-import Footer from './partials/footer'
 import './home.css'
 import '../index.css'
 
@@ -43,7 +41,7 @@ const StyledTextField = styled(TextField)({
     },
 });
 
-function RequestGuardian(){
+function NewRequest(){
     const [isDisabled, setIsDisabled] = useState(false)
     const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', dogs: ''})
     //const [dogs, setDogs] = React.useState([])
@@ -77,7 +75,7 @@ function RequestGuardian(){
     return (
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Registracija</title>
+                <title>CuvariPasa | Novi zahtjev</title>
             </Helmet>
 
             <Navbar/>
@@ -96,6 +94,7 @@ function RequestGuardian(){
                         <Typography component="h1" variant="h5" className="text-blackolive">
                             Predaj oglas!
                         </Typography>
+
                         <Box component="form"  sx={{mt: 3}}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
@@ -111,6 +110,8 @@ function RequestGuardian(){
                                         focused
                                     />
                                 </Grid>
+
+
                                 <Grid item xs={12}>
                                     <StyledTextField
                                         required
@@ -124,6 +125,7 @@ function RequestGuardian(){
                                         focused
                                     />
                                 </Grid>
+
 
                                 <Grid item xs={12}>
                                     <NativeSelect
@@ -155,6 +157,7 @@ function RequestGuardian(){
                                     />
                                 </Grid>
 
+
                                 <Grid item xs={12}>
                                     <NativeSelect
                                         inputProps={{
@@ -182,23 +185,17 @@ function RequestGuardian(){
                                             disabled={!isValid() || isDisabled}
                                             onClick={onSubmit}
                                         >
-                                            Registracija psa
+                                            Predaj
                                         </button>
                                     </div>
                                 </Grid>
-
-
                             </Grid>
-
-
                         </Box>
                     </Box>
                 </div>
             </div>
         </div>
-
     );
-
 }
 
-export default RequestGuardian;
+export default NewRequest;

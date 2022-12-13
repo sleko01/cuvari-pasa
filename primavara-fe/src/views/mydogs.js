@@ -9,7 +9,7 @@ import './home.css'
 function MyDogs(){
     const [dogs, setDogs] = React.useState([])
 
-    React.useEffect() //implementacija fetch metode za popis guardiana
+    React.useEffect() //implementacija fetch metode za popis psa
 
     return(
         <div className="page-container">

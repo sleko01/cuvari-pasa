@@ -6,7 +6,7 @@ import Footer from './partials/footer'
 
 import './home.css'
 
-function GuardianRequests(){
+function Offers(){
     const [requests, setRequests] = React.useState([])
 
     React.useEffect() //implementacija fetch metode za popis guardiana
@@ -14,7 +14,7 @@ function GuardianRequests(){
     return(
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Naslovnica</title>
+                <title>CuvariPasa | Oglasi</title>
             </Helmet>
 
             <Navbar/>
@@ -39,4 +39,4 @@ function GuardianRequests(){
     )
 }
 
-export default GuardianRequests;
+export default Offers;

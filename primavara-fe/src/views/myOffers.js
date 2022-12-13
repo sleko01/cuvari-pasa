@@ -6,15 +6,15 @@ import Footer from './partials/footer'
 
 import './home.css'
 
-function MyDogRequests(){
+function MyRequests(){
     const [requests, setRequests] = React.useState([])
 
-    React.useEffect() //implementacija fetch metode za popis pesa
+    React.useEffect() //implementacija fetch metode za popis guardiana
 
     return(
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Naslovnica</title>
+                <title>CuvariPasa | Moji oglasi</title>
             </Helmet>
 
             <Navbar/>
@@ -22,12 +22,12 @@ function MyDogRequests(){
             <table>
                 <tbody>
                 {requests && requests.map(request =>
-                    <tr key={request.requestDogId}>
-                        <td>{request.dogAge}</td>
-                        <td>{request.numberOfDogs}</td>
-                        <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
-                        <td>{request.isFlexible}</td>
+                    <tr key={request.requestGuardianId}>
                         <td>{request.location}</td>
+                        <td>{request.numberOfDogs}</td>
+                        <td>{request.guardianTimeBegin}-{request.guardianTimeEnd}</td>
+                        <td>{request.hasDog}</td>
+                        <td>{request.hasExperience}</td>
                     </tr>
                 )}
                 </tbody>
@@ -39,4 +39,4 @@ function MyDogRequests(){
     )
 }
 
-export default MyDogRequests;
+export default MyRequests;

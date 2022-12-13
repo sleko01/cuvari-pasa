@@ -6,7 +6,7 @@ import Footer from './partials/footer'
 
 import './home.css'
 
-function DogRequests(){
+function Requests(){
     const [requests, setRequests] = React.useState([])
 
     React.useEffect() //implementacija fetch metode za popis pesa
@@ -14,7 +14,7 @@ function DogRequests(){
     return(
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Naslovnica</title>
+                <title>CuvariPasa | Zahtjevi</title>
             </Helmet>
 
             <Navbar/>
@@ -39,4 +39,4 @@ function DogRequests(){
     )
 }
 
-export default DogRequests;
+export default Requests;

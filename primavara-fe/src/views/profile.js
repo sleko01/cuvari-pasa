@@ -2,14 +2,19 @@ import React from 'react'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
-import Footer from './partials/footer'
 
 import './home.css'
+import '../index.css'
 
 function Profile(){
-    const [user, setUser] = React.useState()
+    //samo jedan od ova 2 ispod smije biti otkomentiran
 
-    React.useEffect() //tu implementacija fetcha usera po id
+    //const [user, setUser] = React.useState()
+    const user = {username: "Eugen", email: "eg@gmail.com", rating: "999999"}
+
+
+    //React.useEffect(); tu implementacija fetcha usera po id
+    
 
     return(
         <div className="page-container mandatory-scroll-snapping">
@@ -20,8 +25,6 @@ function Profile(){
             <Navbar/>
 
             <span>{user.username} {user.email} {user.rating}</span>
-
-            <Footer/>
         </div>
     )
 }
