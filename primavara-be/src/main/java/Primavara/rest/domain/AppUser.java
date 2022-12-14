@@ -33,11 +33,14 @@ public class AppUser {
     @NotNull
     private Long ratingCount;
 
+    @NotNull
     private String email;
 
     private Boolean hasExperience;
 
     private Boolean hasDog;
+
+    private Boolean blocked;
 
     public Boolean getHasDog() {
         return hasDog;
@@ -125,5 +128,13 @@ public class AppUser {
 
     public void setHasExperience(Boolean hasExperience) {
         this.hasExperience = hasExperience;
+    }
+
+    public Boolean getBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        this.blocked = blocked;
     }
 }

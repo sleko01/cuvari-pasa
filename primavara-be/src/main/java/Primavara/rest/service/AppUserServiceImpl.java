@@ -59,6 +59,7 @@ public class AppUserServiceImpl implements AppUserService{
         appUser.setEmail(registerUser.getEmail());
         appUser.setRatingCount(Long.valueOf(0));
         appUser.setRatingSum(Long.valueOf(0));
+        appUser.setBlocked(false);
         Role role = roleRepository.findByRoleId(registerUser.getRoleId());
         appUser.setRole(role);
         appUserRepository.save(appUser);
