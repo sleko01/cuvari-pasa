@@ -16,15 +16,15 @@ public class RequestDogController {
     private RequestDogService requestDogService;
 
     @GetMapping("")
-    private List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs() {
+    public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs() {
         return requestDogService.getAllReviewedAndPublishedRequestDogs();
     }
 
     @PostMapping("new/{id}")
-    private void addNewRequestDog (@RequestBody NewRequestDog newRequestDog, @PathVariable(required = true) Long id) {requestDogService.addNewRequestDog(newRequestDog, id);}
+    public void addNewRequestDog (@RequestBody NewRequestDog newRequestDog, @PathVariable(required = true) Long id) {requestDogService.addNewRequestDog(newRequestDog, id);}
 
     @GetMapping("my/{id}")
-    private List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
+    public List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
         return requestDogService.getAllRequestDogsByUserId(id);
     }
 }

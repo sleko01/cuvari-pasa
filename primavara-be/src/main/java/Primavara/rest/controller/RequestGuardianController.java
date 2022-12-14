@@ -16,7 +16,7 @@ public class RequestGuardianController {
         private RequestGuardianService requestGuardianService;
 
         @GetMapping("")
-        private List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians() {
+        public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians() {
                 return requestGuardianService.getAllReviewedAndPublishedRequestGuardians();
         }
 
@@ -24,7 +24,7 @@ public class RequestGuardianController {
         private void addNewRequestGuardian (@RequestBody NewRequestGuardian newRequestGuardian, @PathVariable(required = true) Long id) {requestGuardianService.addNewRequestGuardian(newRequestGuardian, id);}
 
         @GetMapping("my/{id}")
-        private List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(@PathVariable(required = true) Long id){
+        public List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(@PathVariable(required = true) Long id){
                 return requestGuardianService.getAllRequestGuardiansByUserId(id);
         }
 }

@@ -17,12 +17,12 @@ public class DogController {
     private DogService dogService;
 
     @PutMapping("register/{id}")
-    private void addDog(@RequestBody RegisterDog registerDog, @PathVariable(required = true) Long id){
+    public void addDog(@RequestBody RegisterDog registerDog, @PathVariable(required = true) Long id){
         dogService.addDog(registerDog, id);
     }
 
     @GetMapping("my/{id}")
-    private List<Optional<Dog>> getAllMyDogs(@PathVariable(required = true) Long id) {
+    public List<Optional<Dog>> getAllMyDogs(@PathVariable(required = true) Long id) {
         return dogService.getAllMyDogs(id);
     }
 }

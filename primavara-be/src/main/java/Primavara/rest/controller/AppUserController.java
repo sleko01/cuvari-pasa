@@ -22,7 +22,7 @@ public class AppUserController {
     }
 
     @GetMapping("username/{username}")
-    public Long getAppUserById(@PathVariable(required = true) String username) { return appUserService.getIdByUsername(username); }
+    public Long getAppUserIdByUsername(@PathVariable(required = true) String username) { return appUserService.getIdByUsername(username); }
 
     @PostMapping("register")
     public void addAppUser(@RequestBody RegisterUser registerUser) {appUserService.addAppUser(registerUser);}
