@@ -44,7 +44,8 @@ const StyledTextField = styled(TextField)({
 function newOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
     const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: ''})
-
+    const [breeds, setBreeds] = React.useState([])
+    const [dogs, setDogs] = React.useState([])
 
     function onChange(event) {
         const {name, value} = event.target;
@@ -57,17 +58,67 @@ function newOffer(){
     }
 
     function onSubmit(e){
+        e.preventDefault();
         Geocode.fromAddress(form.address).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
                 form.lat = lat
                 form.lng = lng
+                var location = [form.lat, form.lng]
+                var bodyFormData = new FormData();
+                var breedId;
+                breeds.forEach(breed => {
+                    if (breed.name == form.breed) {
+                        breedId = breed.id;
+                    }
+                })
+
+                let idOfUser = localStorage.getItem('id');
+                bodyFormData.append("location", location);
+                bodyFormData.append("numberOfDogs", numberOfDogs);
+                bodyFormData.append("guardTimeBegin", form.startDate);
+                bodyFormData.append("guardTimeEnd", form.endDate);
+                bodyFormData.append("hasExperience", haxExperience);
+                bodyFormData.append("hasDog", hasDog);
+                bodyFormData.append("dogId", dogId); //ovo ce bit lista svih Id-eva
+                bodyFormData.append("id", idOfUser);
+                axios({
+                    method: "post",
+                    url: "/api/reqgua/new/" + idOfUser,
+                    data: bodyFormData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                }).then(response => {
+                    console.log(response)
+                }).catch(err => {
+                    console.log(err);
+                    alert(err.response.data.message)
+                });
             },
             (error) => {
                 console.error(error);
             }
         );
     }
+
+    React.useEffect(() => {
+        axios.get('/api/dogs/breeds').then(response => {
+            console.log(response.data);
+            setBreeds(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
+
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/dogs/my/' + id).then(response => {
+            console.log(response.data);
+            setDogs(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
+    
 
 
     return (

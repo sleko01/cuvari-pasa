@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -7,9 +8,16 @@ import Footer from './partials/footer'
 import './home.css'
 
 function Offers(){
-    const [requests, setRequests] = React.useState([])
+    const [offers, setOffers] = React.useState([])
 
-    React.useEffect() //implementacija fetch metode za popis guardiana
+    React.useEffect(() => {
+        axios.get('/api/reqgua').then(response => {
+            console.log(response.data);
+            setOffers(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return(
         <div className="page-container">
@@ -21,13 +29,13 @@ function Offers(){
 
             <table>
                 <tbody>
-                    {requests && requests.map(request =>
-                        <tr key={request.requestGuardianId}>
-                            <td>{request.location}</td>
-                            <td>{request.numberOfDogs}</td>
-                            <td>{request.guardianTimeBegin}-{request.guardianTimeEnd}</td>
-                            <td>{request.hasDog}</td>
-                            <td>{request.hasExperience}</td>
+                    {offers && offers.map(offer =>
+                        <tr key={offer.requestGuardianId}>
+                            <td>{offer.location}</td>
+                            <td>{offer.numberOfDogs}</td>
+                            <td>{offer.guardTimeBegin}-{offer.guardTimeEnd}</td>
+                            <td>{offer.hasDog == true ? "true" : "false"}</td>
+                            <td>{offer.hasExperience == true ? "true" : "false"}</td>
                         </tr>
                     )}
                 </tbody>

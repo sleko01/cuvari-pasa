@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -9,7 +10,15 @@ import './home.css'
 function MyRequests(){
     const [requests, setRequests] = React.useState([])
 
-    React.useEffect() //implementacija fetch metode za popis guardiana
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/reqgua/my/' + id).then(response => {
+            console.log(response.data);
+            setRequests(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return(
         <div className="page-container">
@@ -25,9 +34,9 @@ function MyRequests(){
                     <tr key={request.requestGuardianId}>
                         <td>{request.location}</td>
                         <td>{request.numberOfDogs}</td>
-                        <td>{request.guardianTimeBegin}-{request.guardianTimeEnd}</td>
-                        <td>{request.hasDog}</td>
-                        <td>{request.hasExperience}</td>
+                        <td>{request.guardTimeBegin}-{request.guardTimeEnd}</td>
+                        <td>{request.hasDog==true ? "true" : "false"}</td>
+                        <td>{request.hasExperience == true? "true" : "false"}</td>
                     </tr>
                 )}
                 </tbody>

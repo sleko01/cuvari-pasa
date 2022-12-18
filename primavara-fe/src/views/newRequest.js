@@ -58,18 +58,56 @@ function NewRequest(){
         return startDate && endDate && address.length>0 && dogs;
     }
 
-    function onSubmit(e){
-        Geocode.fromAddress(form.address).then(
-            (response) => {
-                const { lat, lng } = response.results[0].geometry.location;
-                form.lat = lat
-                form.lng = lng
-            },
-            (error) => {
-                console.error(error);
-            }
-        );
-    }
+    // function onSubmit(e){
+    //     e.preventDefault();
+    //     Geocode.fromAddress(form.address).then(
+    //         (response) => {
+    //             const { lat, lng } = response.results[0].geometry.location;
+    //             form.lat = lat
+    //             form.lng = lng
+    //             var location = [form.lat, form.lng]
+    //             var bodyFormData = new FormData();
+    //             var breedId;
+    //             breeds.forEach(breed => {
+    //                 if (breed.name == form.breed) {
+    //                     breedId = breed.id;
+    //                 }
+    //             })
+
+    //             let idOfUser = localStorage.getItem('id');
+    //             bodyFormData.append("dogAge", dogAge);
+    //             bodyFormData.append("dogTimeBegin", form.startDate);
+    //             bodyFormData.append("dogTimeEnd", form.endDate);
+    //             bodyFormData.append("isFlexible", form.flexible);
+    //             bodyFormData.append("location", location);
+    //             bodyFormData.append("numberOfDogs", numberOfDogs);
+    //             bodyFormData.append("breedId", breedId)
+    //             axios({
+    //                 method: "post",
+    //                 url: "/api/reqdog/new/" + idOfUser,
+    //                 data: bodyFormData,
+    //                 headers: { "Content-Type": "multipart/form-data" },
+    //             }).then(response => {
+    //                 console.log(response)
+    //             }).catch(err => {
+    //                 console.log(err);
+    //                 alert(err.response.data.message)
+    //             });
+    //         },
+    //         (error) => {
+    //             console.error(error);
+    //         }
+    //     );
+    // }
+
+    React.useEffect(() => {
+        axios.get('/api/dogs/breeds').then(response => {
+            console.log(response.data);
+            // setBreeds(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
 
     return (
@@ -183,7 +221,7 @@ function NewRequest(){
                                             className="button button-primary"
                                             variant="contained"
                                             disabled={!isValid() || isDisabled}
-                                            onClick={onSubmit}
+                                            // onClick={onSubmit}
                                         >
                                             Predaj
                                         </button>

@@ -21,8 +21,9 @@ function Navbar(){
                                 <span className="dropdown-username">{localStorage.getItem("username")}</span>
                                 <div className="dropdown-content">
                                     <a href="/users/profile">Moj račun</a>
-                                    <a href="#about">Moji zahtjevi</a>
-                                    <a href="#home">Moji oglasi</a>
+                                    <a href="/users/requests">Moji zahtjevi</a>
+                                    <a href="/users/offers">Moji oglasi</a>
+                                    <a href="/users/dogs">Moji psi</a>
                                     <a href="#home">Zaprimljene ponude</a>
                                     <a href="#" onClick={logout}>Odjava</a>
                                 </div>
@@ -55,8 +56,8 @@ function Navbar(){
           </div>
           <div className="navbar-links">
             <a href="/" className="navbar-text navbar-link">Kontakt</a>
-            <a href="/" className="navbar-text navbar-link">Zahtjevi</a>
-            <a href="/" className="navbar-text navbar-link">Oglasi</a>
+            <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
+            <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
                 {dropdownMenu}
                 {loginButton}
                 {registerButton}

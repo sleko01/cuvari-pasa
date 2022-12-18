@@ -1,5 +1,6 @@
 package Primavara.rest.controller;
 
+import Primavara.rest.domain.Breed;
 import Primavara.rest.domain.Dog;
 import Primavara.rest.dto.RegisterDog;
 import Primavara.rest.service.DogService;
@@ -24,5 +25,10 @@ public class DogController {
     @GetMapping("my/{id}")
     public List<Optional<Dog>> getAllMyDogs(@PathVariable(required = true) Long id) {
         return dogService.getAllMyDogs(id);
+    }
+
+    @GetMapping("breeds")
+    public List<Breed> getAllBreeds() {
+        return dogService.getAllBreeds();
     }
 }

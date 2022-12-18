@@ -1,6 +1,9 @@
 package Primavara.rest.dto;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Lob;
+import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.Date;
 
@@ -10,8 +13,8 @@ public class RegisterDog {
 
     private Date dateOfBirth;
 
-    @Lob
-    private Clob photo;
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] photo;
 
     private Long breedId;
 
@@ -31,11 +34,11 @@ public class RegisterDog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Clob getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Clob photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
 

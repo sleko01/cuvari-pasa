@@ -64,6 +64,11 @@ public class DogServiceImpl implements DogService{
         return dogRepository.findAllAppUsersDogs(id);
     }
 
+    @Override
+    public List<Breed> getAllBreeds() {
+        return breedRepository.findAll();
+    }
+
     private void validate(RegisterDog registerDog) {
         Assert.notNull(registerDog, "RegisterDog object must be given");
         Assert.hasText(registerDog.getName(), "RegisterDog name must be given");

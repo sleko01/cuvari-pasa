@@ -72,9 +72,10 @@ function Login(){
                 url: "/api/users/username/" + form.username
             }).then(response => {
                 console.log(response)
+                console.log(response.data + " ja sam response.data");
                 localStorage.setItem("id", response.data)
+                window.location.href = "/";
             })
-            window.location.href = "/";
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)

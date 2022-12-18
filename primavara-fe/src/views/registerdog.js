@@ -41,8 +41,15 @@ const StyledTextField = styled(TextField)({
 
 function RegisterDog(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '', image: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: 'Buldog', image: ''})
     const [breeds, setBreeds] = React.useState([])
+    const [images, setImages] = React.useState([])
+
+    function onImageChange(e) {
+        const {name, value} = e.target;
+        setForm(oldForm => ({...oldForm, [name]: value}))
+        setImages([...e.target.files])
+    }
 
 
     function onChange(event) {
@@ -55,11 +62,68 @@ function RegisterDog(){
         return name.length > 0 && dateOfBirth && image;
     }
 
-    function onSubmit(e){
+    // function onSubmit(e){
+    //     e.preventDefault();
+    //     var bodyFormData = new FormData();
+    //     var breedId;
+    //     breeds.forEach(breed => {
+    //         if (breed.name == form.breed) {
+    //             breedId = breed.id;
+    //         }
+    //     })
+    //     console.log(breedId + " ovo je breedId inbredu");
+
+    //     let idOfUser = localStorage.getItem('id');
+    //     bodyFormData.append("name", form.name);
+    //     bodyFormData.append("dateOfBirth", form.dateOfBirth);
+    //     bodyFormData.append("photo", form.image);
+    //     bodyFormData.append("breedId", breedId); //ovo treba napisat
+    //     bodyFormData.append("id", idOfUser);
+
+    //     axios({
+    //         method: "put",
+    //         url: "/api/dogs/register/" + idOfUser,
+    //         data: bodyFormData,
+    //         headers: { "Content-Type": "multipart/form-data" },
+    //     }).then(response => {
+    //         console.log(response)
+    //     }).catch(err => {
+    //         console.log(err);
+    //         alert(err.response.data.message)
+    //     });
+    // }
+
+    function onSubmit(e) {
+        e.preventDefault()
+        var breedId;
+        breeds.forEach(breed => {
+            if (breed.name == form.breed) {
+                breedId = breed.breedId;
+            }
+        })
+        let idOfUser = localStorage.getItem('id');
+        axios.put('/api/dogs/register/' + idOfUser, {
+            "name": form.name,
+            "dateOfBirth": form.dateOfBirth,
+            "photo": images[0],
+            "breedId": breedId,
+            "id": idOfUser,
+        }).then(async response => {
+            console.log(response)
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
 
     }
 
-    //React.useEffect() //fetch za breedove
+    React.useEffect(() => {
+        axios.get('/api/dogs/breeds').then(response => {
+            setBreeds(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return (
         <div className="page-container">
@@ -112,10 +176,12 @@ function RegisterDog(){
 
                                 <Grid item xs={12}>
                                     <Autocomplete
-                                        disablePortal
+                                        // disablePortal
                                         id="breed"
-                                        options={breeds}
+                                        options={breeds.map(breed => breed.name)}
                                         renderInput={(params) => <StyledTextField {...params} label="Vrsta"/>}
+                                        onChange={onChange}
+                                        value={form.breed}
                                     />
                                 </Grid>
 
@@ -127,7 +193,7 @@ function RegisterDog(){
                                         label="Slika psa"
                                         name="image"
                                         type="file"
-                                        onChange={onChange}
+                                        onChange={onImageChange}
                                         value={form.image}
                                         focused
                                     />

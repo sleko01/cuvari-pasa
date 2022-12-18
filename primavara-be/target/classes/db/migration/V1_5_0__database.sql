@@ -1,5 +1,3 @@
-ALTER TABLE APPUSER ADD COLUMN has_dog boolean;
-ALTER TABLE APPUSER ADD COLUMN has_experience boolean;
 
 ALTER TABLE DOG DROP CONSTRAINT dog_user_id_fkey;
 ALTER TABLE DOG ADD CONSTRAINT dog_user_id_fkey FOREIGN KEY(user_id) REFERENCES AppUser(user_id);

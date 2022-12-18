@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -9,7 +10,14 @@ import './home.css'
 function Requests(){
     const [requests, setRequests] = React.useState([])
 
-    React.useEffect() //implementacija fetch metode za popis pesa
+    React.useEffect(() => {
+        axios.get('/api/reqdog').then(response => {
+            console.log(response.data);
+            setRequests(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return(
         <div className="page-container">
@@ -28,6 +36,7 @@ function Requests(){
                         <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
                         <td>{request.isFlexible}</td>
                         <td>{request.location}</td>
+                        <td>{request.user_id}</td>
                     </tr>
                 )}
                 </tbody>
