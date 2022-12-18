@@ -123,5 +123,19 @@ public class AppUserServiceImpl implements AppUserService{
         return allNotReviewedRequests;
     }
 
+    @Override
+    public void giveAdminToAppUser(Long id) {
+        AppUser user = appUserRepository.findByUserId(id);
+        user.setRole(roleRepository.findByRoleId(4L));
+        appUserRepository.save(user);
+    }
+
+    @Override
+    public void blockAppUser(Long id) {
+        AppUser user = appUserRepository.findByUserId(id);
+        user.setBlocked(true);
+        appUserRepository.save(user);
+    }
+
 
 }

@@ -16,4 +16,8 @@ public interface AppUserService {
     //za admina
     List<Optional<AppUser>> getAllUsersExceptCurrentUser(Long id);
     Map<Integer, List<Object>> getAllNotReviewedRequests(Long id);
+
+    void giveAdminToAppUser(Long id);
+
+    void blockAppUser(Long id);
 }

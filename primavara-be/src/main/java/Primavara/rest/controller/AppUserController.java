@@ -41,4 +41,15 @@ public class AppUserController {
     public Map<Integer, List<Object>> getAllNotReviewedRequests(@PathVariable(required = true) Long id){
         return appUserService.getAllNotReviewedRequests(id);
     }
+
+    @PostMapping("moderation/give-admin/{id}")
+    public void giveAdminToAppUser(@PathVariable(required = true) Long id) {
+        appUserService.giveAdminToAppUser(id);
+    }
+
+    @PostMapping("moderation/block/{id}")
+    public void blockAppUser(@PathVariable(required = true) Long id) {
+        appUserService.blockAppUser(id);
+    }
+
 }

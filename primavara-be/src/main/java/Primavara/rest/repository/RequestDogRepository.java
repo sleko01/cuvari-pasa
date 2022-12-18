@@ -21,4 +21,7 @@ public interface RequestDogRepository extends JpaRepository<RequestDog, Long> {
 
     @Query(value = "SELECT * FROM request_dog r WHERE r.is_reviewed = false", nativeQuery = true)
     List<RequestDog> findAllNotReviewed();
+
+    @Query(value = "SELECT * FROM request_dog r WHERE r.is_reviewed = false AND r.user_id = :i", nativeQuery = true)
+    List<RequestDog> findAllMyNotReviewed(@Param("i") Long user_id);
 }

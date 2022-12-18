@@ -27,4 +27,5 @@ public class RequestDogController {
     public List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
         return requestDogService.getAllRequestDogsByUserId(id);
     }
+
 }
