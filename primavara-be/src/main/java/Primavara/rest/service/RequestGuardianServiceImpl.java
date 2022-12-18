@@ -2,10 +2,7 @@ package Primavara.rest.service;
 
 import Primavara.rest.domain.*;
 import Primavara.rest.dto.NewRequestGuardian;
-import Primavara.rest.repository.AppUserRepository;
-import Primavara.rest.repository.DogRepository;
-import Primavara.rest.repository.RequestGuardianRepository;
-import Primavara.rest.repository.RequestGuardiansDogRepository;
+import Primavara.rest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
@@ -26,6 +23,13 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
 
     @Autowired
     private RequestGuardiansDogRepository requestGuardiansDogRepository;
+
+    @Autowired
+    private ActivityRepository activityRepository;
+
+    @Autowired
+    private RequestActivityRepository requestActivityRepository;
+
     @Override
     public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians() {
         return requestGuardianRepository.findAllReviewedAndPublished();
@@ -85,6 +89,19 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
             requestGuardiansDog.setDog(dog);
             requestGuardiansDogRepository.save(requestGuardiansDog);
         }
+
+        for(Long activityId: newRequestGuardian.getActivityId()){
+            RequestActivity requestActivity = new RequestActivity();
+            requestActivity.setRequestGuardian(requestGuardian);
+            Activity activity=activityRepository.findByActivityId(activityId);
+            requestActivity.setActivity(activity);
+            if(activity.getActivityName().equals("Hranjenje")){
+                requestActivity.setFeedingQuantity(newRequestGuardian.getQuantity());
+            }else{
+                requestActivity.setFeedingQuantity(0L);
+            }
+            requestActivityRepository.save(requestActivity);
+        }
     }
 
     //validacija
@@ -101,6 +118,14 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
             if(dogRepository.findByDogId(dogId)==null){
                 throw new RequestDeniedException(
                         "Dog with id " + dogId + " does not exist"
+                );
+            }
+        }
+
+        for(Long activityId: newRequestGuardian.getActivityId()){
+            if(activityRepository.findByActivityId(activityId)==null){
+                throw new RequestDeniedException(
+                        "Activity with id " + activityId + " does not exist"
                 );
             }
         }

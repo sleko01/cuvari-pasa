@@ -21,6 +21,10 @@ public class NewRequestGuardian {
 
     private List<Long> dogId;
 
+    private List<Long> activityId;
+
+    private Long quantity;
+
     public String getLocation() {
         return location;
     }
@@ -76,4 +80,12 @@ public class NewRequestGuardian {
     public void setDogId(Long[] dogId) {
         this.dogId = Arrays.asList(dogId);
     }
+
+    public List<Long> getActivityId() { return activityId; }
+
+    public void setActivityId(Long[] activityId) { this.activityId = Arrays.asList(activityId); }
+
+    public Long getQuantity() { return quantity; }
+
+    public void setQuantity(Long quantity) { this.quantity = quantity; }
 }
