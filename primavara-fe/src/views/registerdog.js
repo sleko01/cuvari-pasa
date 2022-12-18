@@ -49,6 +49,13 @@ function RegisterDog(){
         const {name, value} = e.target;
         setForm(oldForm => ({...oldForm, [name]: value}))
         setImages([...e.target.files])
+        console.log(images[0])
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const blob = new Blob([new Uint8Array(e.target.result)], {type: images[0].type });
+            console.log(blob);
+        };
+        console.log(reader.readAsArrayBuffer(images[0]));
     }
 
 
@@ -96,16 +103,19 @@ function RegisterDog(){
     function onSubmit(e) {
         e.preventDefault()
         var breedId;
+        console.log(images[0])
         breeds.forEach(breed => {
             if (breed.name == form.breed) {
                 breedId = breed.breedId;
             }
         })
         let idOfUser = localStorage.getItem('id');
+        // var blob = new Blob([images[0]], {type: "file"})
+        //or const file = document.querySelector('input[type=file]').files[0];
         axios.put('/api/dogs/register/' + idOfUser, {
             "name": form.name,
             "dateOfBirth": form.dateOfBirth,
-            "photo": images[0],
+            // "photo": blob,
             "breedId": breedId,
             "id": idOfUser,
         }).then(async response => {

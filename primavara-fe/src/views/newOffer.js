@@ -41,9 +41,9 @@ const StyledTextField = styled(TextField)({
     },
 });
 
-function newOffer(){
+function NewOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', numberOfDogs: 0, hasExperience: false, hasDog: false})
     const [breeds, setBreeds] = React.useState([])
     const [dogs, setDogs] = React.useState([])
 
@@ -73,15 +73,20 @@ function newOffer(){
                     }
                 })
 
+                var dogIds = []
+                dogs.forEach(dog => {
+                    dogIds.append(dog.dogId)
+                })
+
                 let idOfUser = localStorage.getItem('id');
                 bodyFormData.append("location", location);
-                bodyFormData.append("numberOfDogs", numberOfDogs);
+                bodyFormData.append("numberOfDogs", form.numberOfDogs);
                 bodyFormData.append("guardTimeBegin", form.startDate);
                 bodyFormData.append("guardTimeEnd", form.endDate);
-                bodyFormData.append("hasExperience", haxExperience);
-                bodyFormData.append("hasDog", hasDog);
-                bodyFormData.append("dogId", dogId); //ovo ce bit lista svih Id-eva
+                bodyFormData.append("hasExperience", form.haxExperience);
+                bodyFormData.append("hasDog", form.hasDog);
                 bodyFormData.append("id", idOfUser);
+                bodyFormData.append("dogId", dogIds);
                 axios({
                     method: "post",
                     url: "/api/reqgua/new/" + idOfUser,
@@ -231,4 +236,4 @@ function newOffer(){
 
 }
 
-export default newOffer;
+export default NewOffer;
