@@ -14,8 +14,12 @@ function Moderation(){
 
     // function approveRequest()
     // function denyRequest()
-    // function blockUser()
-    // function addAdmin()
+    function blockUser(id){
+        console.log(id)
+    }
+    function addAdmin(id){
+        console.log(id)
+    }
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
@@ -53,8 +57,8 @@ function Moderation(){
                         <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
                         <td>{request.isFlexible}</td>
                         <td>{request.location}</td>
-                        {/* <td><button onClick={approveRequest()}>Odobri</button></td>
-                        <td><button onClick={denyRequest()}>Odbij</button></td> */}
+                        {/*<td><button onClick={approveRequest()}>Odobri</button></td>*/}
+                        {/*<td><button onClick={denyRequest()}>Odbij</button></td>*/}
                     </tr>
                 )}
                 </tbody>
@@ -68,8 +72,8 @@ function Moderation(){
                             <td>{user.username}</td>
                             <td>{user.firstName} {user.lastName}</td>
                             <td>{user.email}</td>
-                            {/* <td><button onClick={blockUser()}>Blokiraj</button></td>
-                            <td><button onClick={addAdmin()}>Dodaj admina</button></td> */}
+                            <td><button onClick={blockUser(user.userId)}>Blokiraj</button></td>
+                            <td><button onClick={addAdmin(user.userId)}>Dodaj admina</button></td>
                         </tr>
                     )}
                 </tbody>

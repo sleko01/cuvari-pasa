@@ -43,10 +43,10 @@ const StyledTextField = styled(TextField)({
 
 function NewOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', numberOfDogs: 0, hasExperience: false, hasDog: false})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', breed: 0, dogAge: ''})
     const [breeds, setBreeds] = React.useState([])
-    const [dogs, setDogs] = React.useState([])
 
+    //, numberOfDogs: 0, hasExperience: false, hasDog: false  <------- uzeti iz baze?
     function onChange(event) {
         const {name, value} = event.target;
         setForm(oldForm => ({...oldForm, [name]: value}))
@@ -66,27 +66,16 @@ function NewOffer(){
                 form.lng = lng
                 var location = [form.lat, form.lng]
                 var bodyFormData = new FormData();
-                var breedId;
-                breeds.forEach(breed => {
-                    if (breed.name == form.breed) {
-                        breedId = breed.id;
-                    }
-                })
-
-                var dogIds = []
-                dogs.forEach(dog => {
-                    dogIds.append(dog.dogId)
-                })
 
                 let idOfUser = localStorage.getItem('id');
                 bodyFormData.append("location", location);
                 bodyFormData.append("numberOfDogs", form.numberOfDogs);
                 bodyFormData.append("guardTimeBegin", form.startDate);
                 bodyFormData.append("guardTimeEnd", form.endDate);
-                bodyFormData.append("hasExperience", form.haxExperience);
+                bodyFormData.append("hasExperience", form.hasExperience);
                 bodyFormData.append("hasDog", form.hasDog);
                 bodyFormData.append("id", idOfUser);
-                bodyFormData.append("dogId", dogIds);
+                bodyFormData.append("breed", form.breed);
                 axios({
                     method: "post",
                     url: "/api/reqgua/new/" + idOfUser,
@@ -114,15 +103,7 @@ function NewOffer(){
         })
     }, []);
 
-    React.useEffect(() => {
-        let id = localStorage.getItem('id');
-        axios.get('/api/dogs/my/' + id).then(response => {
-            console.log(response.data);
-            setDogs(response.data);
-        }).catch(err => {
-            alert(err.response.data.message);
-        })
-    }, []);
+
     
 
 
@@ -205,6 +186,34 @@ function NewOffer(){
                                         onChange={onChange}
                                         value={form.address}
                                     />
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                    <StyledTextField
+                                        name="dogAge"
+                                        fullWidth
+                                        id="dogAge"
+                                        label="Željena dob psa"
+                                        onChange={onChange}
+                                        value={form.dogAge}
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                    <NativeSelect
+                                        // disablePortal
+                                        inputProps={{
+                                            name: 'breed',
+                                            id: 'breed'
+                                        }}
+                                        fullWidth
+                                        onChange={onChange}
+                                        value={form.breed}
+                                    >
+                                        {breeds.map(breed =>
+                                            <option value={breed.breedId}>{breed.name}</option>)}
+                                    </NativeSelect>
+
                                 </Grid>
 
 

@@ -74,7 +74,15 @@ function Login(){
                 console.log(response)
                 console.log(response.data + " ja sam response.data");
                 localStorage.setItem("id", response.data)
-                window.location.href = "/";
+                axios({
+                    method: "get",
+                    url: "/api/users/profile/" + localStorage.getItem("id")
+                }).then(response => {
+                    console.log(response)
+                    localStorage.setItem("role", response.data.role.roleId)
+                    window.location.href = "/";
+                })
+
             })
         }).catch(err => {
             console.log(err);

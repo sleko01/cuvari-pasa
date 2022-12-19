@@ -43,10 +43,9 @@ const StyledTextField = styled(TextField)({
 
 function NewRequest(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', dogs: []})
-    //const [dogs, setDogs] = React.useState([])
-    var dogs = [{name: "floki", dogId: 0},{name:"ante", dogId: 1},{name:"eugen", dogId: 2}]
-    //React.useEffect() --- fetchat pse od vlasnika
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0, dogs: []})
+    const [dogs, setDogs] = React.useState([])
+    const [activities, setActivities] = React.useState([])
 
     function onChange(event) {
         const {name, value} = event.target;
@@ -79,6 +78,8 @@ function NewRequest(){
                 bodyFormData.append("dogTimeBegin", form.startDate);
                 bodyFormData.append("dogTimeEnd", form.endDate);
                 bodyFormData.append("isFlexible", form.flexible);
+                bodyFormData.append("hasExperience", form.hasExperience);
+                bodyFormData.append("hasDog", form.hasDog);
                 bodyFormData.append("location", location);
                 bodyFormData.append("numberOfDogs", numberOfDogs);
                 bodyFormData.append("breedId", breedId)
@@ -109,6 +110,15 @@ function NewRequest(){
         })
     }, []);
 
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/dogs/my/' + id).then(response => {
+            console.log(response.data);
+            setDogs(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return (
         <div className="page-container">
@@ -169,7 +179,7 @@ function NewRequest(){
                                     <NativeSelect
                                         inputProps={{
                                             name: 'flexible',
-                                            id: 'flexible',
+                                            id: 'flexible'
                                         }}
                                         fullWidth
                                         required
@@ -182,6 +192,39 @@ function NewRequest(){
                                     </NativeSelect>
                                 </Grid>
 
+                                <Grid item xs={12}>
+                                    <NativeSelect
+                                        inputProps={{
+                                            name: 'hasExperience',
+                                            id: 'hasExperience'
+                                        }}
+                                        fullWidth
+                                        required
+                                        defaultValue={0}
+                                        onChange={onChange}
+                                        value={form.hasExperience}
+                                    >
+                                        <option value={0}>Nije potrebno iskustvo</option>
+                                        <option value={1}>Potrebno iskustvo</option>
+                                    </NativeSelect>
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                    <NativeSelect
+                                        inputProps={{
+                                            name: 'hasDog',
+                                            id: 'hasDog',
+                                        }}
+                                        fullWidth
+                                        required
+                                        defaultValue={0}
+                                        onChange={onChange}
+                                        value={form.hasDog}
+                                    >
+                                        <option value={0}>Ne mora imati psa</option>
+                                        <option value={1}>Mora imati psa</option>
+                                    </NativeSelect>
+                                </Grid>
 
                                 <Grid item xs={12}>
                                     <StyledTextField

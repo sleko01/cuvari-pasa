@@ -41,7 +41,7 @@ const StyledTextField = styled(TextField)({
 
 function RegisterDog(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: 'Buldog', image: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '', image: ''})
     const [breeds, setBreeds] = React.useState([])
     const [images, setImages] = React.useState([])
 
@@ -102,13 +102,13 @@ function RegisterDog(){
 
     function onSubmit(e) {
         e.preventDefault()
-        var breedId;
+        /*var breedId;
         console.log(images[0])
         breeds.forEach(breed => {
             if (breed.name == form.breed) {
                 breedId = breed.breedId;
             }
-        })
+        })*/
         let idOfUser = localStorage.getItem('id');
         // var blob = new Blob([images[0]], {type: "file"})
         //or const file = document.querySelector('input[type=file]').files[0];
@@ -116,7 +116,7 @@ function RegisterDog(){
             "name": form.name,
             "dateOfBirth": form.dateOfBirth,
             // "photo": blob,
-            "breedId": breedId,
+            "breedId": form.breed,
             "id": idOfUser,
         }).then(async response => {
             console.log(response)
@@ -184,15 +184,36 @@ function RegisterDog(){
                                     />
                                 </Grid>
 
+                                {/*<Grid item xs={12}>*/}
+                                {/*    <Autocomplete*/}
+                                {/*        // disablePortal*/}
+                                {/*        id="breed"*/}
+                                {/*        name="breed"*/}
+                                {/*        options={breeds.map(breed => breed.name)}*/}
+                                {/*        clearOnBlur={false}*/}
+                                {/*        freeSolo={true}*/}
+                                {/*        renderInput={(params) => <StyledTextField {...params} label="Vrsta"/>}*/}
+                                {/*        onInputChange={onChange}*/}
+                                {/*        value={form.breed}*/}
+                                {/*    />*/}
+                                {/*</Grid>*/}
+
                                 <Grid item xs={12}>
-                                    <Autocomplete
+                                    <NativeSelect
                                         // disablePortal
-                                        id="breed"
-                                        options={breeds.map(breed => breed.name)}
-                                        renderInput={(params) => <StyledTextField {...params} label="Vrsta"/>}
+                                        inputProps={{
+                                            name: 'breed',
+                                            id: 'breed'
+                                        }}
+                                        fullWidth
+                                        required
                                         onChange={onChange}
                                         value={form.breed}
-                                    />
+                                    >
+                                        {breeds.map(breed =>
+                                            <option value={breed.breedId}>{breed.name}</option>)}
+                                    </NativeSelect>
+
                                 </Grid>
 
                                 <Grid item xs={12}>

@@ -14,7 +14,6 @@ function Navbar(){
         localStorage.removeItem("id")
         window.location.href = "/";
     }
-
     if (isLoggedIn && !isModerator) {
         var dropdownMenu = <div className="dropdown">
                                 <img src="/images/user.png" className="dropdown-image"/>
