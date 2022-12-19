@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
-import PasswordChecklist from "react-password-checklist"
 import { Helmet } from 'react-helmet'
 
 import Navbar from './partials/navbar'
-import Footer from './partials/footer'
-import './home.css'
-import '../index.css'
+import '../styles/home.css'
+import '../styles/index.css'
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -14,11 +12,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import NativeSelect from '@mui/material/NativeSelect';
 import { alpha, styled } from '@mui/material/styles';
-import Autocomplete from '@mui/material/Autocomplete';
 import axios, {AxiosError} from "axios";
 
-import Geocode from "react-geocode";
 
+import Geocode from "react-geocode";
+Geocode.setApiKey("AIzaSyCzdvGwSbOBwq2GwrvNmJbeGWPDJTzCsLo")
+Geocode.setRegion("hr");
+Geocode.setLocationType("ROOFTOP");
 
 
 const StyledTextField = styled(TextField)({
@@ -62,9 +62,9 @@ function NewOffer(){
         Geocode.fromAddress(form.address).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
-                form.lat = lat
-                form.lng = lng
-                var location = [form.lat, form.lng]
+                var location = lat + "|"+ lng
+                //console.log(location);
+                
                 var bodyFormData = new FormData();
 
                 let idOfUser = localStorage.getItem('id');
@@ -90,6 +90,7 @@ function NewOffer(){
             },
             (error) => {
                 console.error(error);
+                window.alert("Netočna adresa! \nMolimo provjerite vaš unos.")
             }
         );
     }
@@ -176,7 +177,7 @@ function NewOffer(){
                                 </Grid>
 
 
-                                <Grid item xs={12}>
+                                <Grid item xs={12}> 
                                     <StyledTextField
                                         name="address"
                                         required
@@ -230,17 +231,12 @@ function NewOffer(){
                                         </button>
                                     </div>
                                 </Grid>
-
-
                             </Grid>
-
-
                         </Box>
                     </Box>
                 </div>
             </div>
         </div>
-
     );
 
 }

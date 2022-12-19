@@ -5,7 +5,8 @@ import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 
-import './home.css'
+import '../styles/home.css'
+import '../styles/index.css'
 
 function MyDogs(){
     const [dogs, setDogs] = React.useState([])

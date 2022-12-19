@@ -60,6 +60,10 @@ body {
   background-color: var(--color-citrus);
 }
 
+.background-white {
+  background-color: white;
+}
+
 
 
 
@@ -210,6 +214,14 @@ body {
   background-color: white;
 }
 
+.navbar-filler {
+  width: 100vw;
+  min-height: 5vh;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: white;
+}
+
 .navbar-logo-container {
   display: flex;
   align-items: center;
@@ -239,7 +251,7 @@ body {
   font-family: "Lexend Regular";
   font-size: 2vmin;
   color: var(--color-blackolive);
-  padding-right: 2vw;
+  padding-right: 2.5vw;
 }
 
 .navbar-links {
@@ -259,6 +271,7 @@ body {
   display: inline-flex;
   margin: 0%;
   padding: 0%;
+  padding-right: 40px;
 }
 
 .dropdown-username {
