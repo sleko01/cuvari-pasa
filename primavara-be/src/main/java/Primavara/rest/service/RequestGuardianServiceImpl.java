@@ -110,7 +110,7 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
         Assert.hasText(newRequestGuardian.getLocation(), "NewRequestGuardian location must be given");
         Assert.hasText(newRequestGuardian.getNumberOfDogs().toString(), "NewRequestGuardian numberOfDogs must be given");
         Assert.notNull(newRequestGuardian.getGuardTimeBegin(), "NewRequestGuardian guardTimeBegin must be given");
-        Assert.notNull(newRequestGuardian.getGuardTimeEnd(), "NewRequestGuardian guardTimeBEnd must be given");
+        Assert.notNull(newRequestGuardian.getGuardTimeEnd(), "NewRequestGuardian guardTimeEnd must be given");
         Assert.notNull(newRequestGuardian.getHasExperience(), "NewRequestGuardian hasExperience must be given");
         Assert.notNull(newRequestGuardian.getHasDog(), "NewRequestGuardian hasDog must be given");
 

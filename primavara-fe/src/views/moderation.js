@@ -16,10 +16,22 @@ function Moderation(){
     // function approveRequest()
     // function denyRequest()
     function blockUser(id){
-        console.log(id)
+        console.log("blockUser");
+        axios.post('/api/users/moderation/block/' + id, {
+            "id": id
+        }).then((response) => {
+            console.log(response);
+        }).catch(err => {
+            console.log(err);
+        });
     }
     function addAdmin(id){
-        console.log(id)
+        console.log("addAdmin")
+        axios.post('/api/users/moderation/give-admin/' + id, {
+            "id": id
+        }).catch(err => {
+            console.log(err);
+        });
     }
 
     React.useEffect(() => {
@@ -73,8 +85,8 @@ function Moderation(){
                             <td>{user.username}</td>
                             <td>{user.firstName} {user.lastName}</td>
                             <td>{user.email}</td>
-                            <td><button onClick={blockUser(user.userId)}>Blokiraj</button></td>
-                            <td><button onClick={addAdmin(user.userId)}>Dodaj admina</button></td>
+                            <td><button onClick={() => blockUser(user.userId)}>Blokiraj</button></td>
+                            <td><button onClick={() => addAdmin(user.userId)}>Dodaj admina</button></td>
                         </tr>
                     )}
                 </tbody>

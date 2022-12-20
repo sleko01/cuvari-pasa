@@ -41,9 +41,11 @@ const StyledTextField = styled(TextField)({
 
 function RegisterDog(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '', image: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '', image: []})
     const [breeds, setBreeds] = React.useState([])
     const [images, setImages] = React.useState([])
+
+    const [blob, setBlob] = React.useState()
 
     function onImageChange(e) {
         const {name, value} = e.target;
@@ -52,11 +54,14 @@ function RegisterDog(){
         console.log(images[0])
         const reader = new FileReader();
         reader.onload = function(e) {
-            const blob = new Blob([new Uint8Array(e.target.result)], {type: images[0].type });
-            console.log(blob);
+            console.log(e.target.result);
+            setBlob(new Blob([new Uint8Array(e.target.result)], {type: images[0].type }));
+            // const blob = new Blob([new Uint8Array(e.target.result)], {type: images[0].type })
+
         };
-        console.log(reader.readAsArrayBuffer(images[0]));
+        // console.log(reader.readAsArrayBuffer(images[0]));
     }
+
 
 
     function onChange(event) {
@@ -68,37 +73,6 @@ function RegisterDog(){
         const {userId, name, dateOfBirth, breed, image} = form;
         return name.length > 0 && dateOfBirth && image;
     }
-
-    // function onSubmit(e){
-    //     e.preventDefault();
-    //     var bodyFormData = new FormData();
-    //     var breedId;
-    //     breeds.forEach(breed => {
-    //         if (breed.name == form.breed) {
-    //             breedId = breed.id;
-    //         }
-    //     })
-    //     console.log(breedId + " ovo je breedId inbredu");
-
-    //     let idOfUser = localStorage.getItem('id');
-    //     bodyFormData.append("name", form.name);
-    //     bodyFormData.append("dateOfBirth", form.dateOfBirth);
-    //     bodyFormData.append("photo", form.image);
-    //     bodyFormData.append("breedId", breedId); //ovo treba napisat
-    //     bodyFormData.append("id", idOfUser);
-
-    //     axios({
-    //         method: "put",
-    //         url: "/api/dogs/register/" + idOfUser,
-    //         data: bodyFormData,
-    //         headers: { "Content-Type": "multipart/form-data" },
-    //     }).then(response => {
-    //         console.log(response)
-    //     }).catch(err => {
-    //         console.log(err);
-    //         alert(err.response.data.message)
-    //     });
-    // }
 
     function onSubmit(e) {
         e.preventDefault()
@@ -115,14 +89,14 @@ function RegisterDog(){
         axios.put('/api/dogs/register/' + idOfUser, {
             "name": form.name,
             "dateOfBirth": form.dateOfBirth,
-            // "photo": blob,
+            "photo": blob,
             "breedId": form.breed,
             "id": idOfUser,
         }).then(async response => {
-            console.log(response)
+            // console.log(response)
         }).catch(err => {
-            console.log(err);
             alert(err.response.data.message)
+            console.log(blob)
         })
 
     }

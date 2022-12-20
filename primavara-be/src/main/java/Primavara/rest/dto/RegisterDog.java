@@ -13,8 +13,8 @@ public class RegisterDog {
 
     private Date dateOfBirth;
 
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] photo;
+    @Lob
+    private Blob photo;
 
     private Long breedId;
 
@@ -34,11 +34,11 @@ public class RegisterDog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public byte[] getPhoto() {
+    public Blob getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(Blob photo) {
         this.photo = photo;
     }
 

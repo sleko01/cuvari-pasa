@@ -22,9 +22,8 @@ public class Dog {
     @NotNull
     private Date dateOfBirth;
 
-    @Type(type="org.hibernate.type.BinaryType")
-    @Column(name = "photo")
-    private byte[] photo;
+    @Lob
+    private Blob photo;
 
     @NotNull
     private Long ratingSum;
@@ -65,11 +64,11 @@ public class Dog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public byte[] getPhoto() {
+    public Blob getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(Blob photo) {
         this.photo = photo;
     }
 

@@ -6,7 +6,7 @@ import Home from "./views/home.js";
 import Register from "./views/register.js";
 import Login from "./views/login.js";
 import Profile from "./views/profile.js";
-import RegisterDog from "./views/registerDog.js";
+import RegisterDog from "./views/registerdog.js";
 import NewRequest from "./views/newRequest.js"
 import MyRequests from "./views/myRequests.js";
 import NewOffer from "./views/newOffer.js";

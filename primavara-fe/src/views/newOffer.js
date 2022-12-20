@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
-
+import PasswordChecklist from "react-password-checklist"
+import Footer from './partials/footer'
 import Navbar from './partials/navbar'
 import '../styles/home.css'
 import '../styles/index.css'
@@ -43,8 +44,9 @@ const StyledTextField = styled(TextField)({
 
 function NewOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', breed: 0, dogAge: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', breed: 0, dogAge: '', numberOfDogs: ''})
     const [breeds, setBreeds] = React.useState([])
+    const [user, setUser] = React.useState([]);
 
     //, numberOfDogs: 0, hasExperience: false, hasDog: false  <------- uzeti iz baze?
     function onChange(event) {
@@ -53,40 +55,37 @@ function NewOffer(){
     }
 
     function isValid() {
-        const {userId, startDate, endDate, flexible, address, lat, lng} = form;
+        const {userId, startDate, endDate, flexible, address, lat, lng, dogNumber} = form;
         return startDate && endDate && address.length>0;
     }
 
+		
     function onSubmit(e){
         e.preventDefault();
         Geocode.fromAddress(form.address).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
                 var location = lat + "|"+ lng
-                //console.log(location);
-                
-                var bodyFormData = new FormData();
-
                 let idOfUser = localStorage.getItem('id');
-                bodyFormData.append("location", location);
-                bodyFormData.append("numberOfDogs", form.numberOfDogs);
-                bodyFormData.append("guardTimeBegin", form.startDate);
-                bodyFormData.append("guardTimeEnd", form.endDate);
-                bodyFormData.append("hasExperience", form.hasExperience);
-                bodyFormData.append("hasDog", form.hasDog);
-                bodyFormData.append("id", idOfUser);
-                bodyFormData.append("breed", form.breed);
-                axios({
-                    method: "post",
-                    url: "/api/reqgua/new/" + idOfUser,
-                    data: bodyFormData,
-                    headers: { "Content-Type": "multipart/form-data" },
-                }).then(response => {
+                console.log(form.flexible + " ovo je ")
+                axios.post('/api/reqdog/new/' + idOfUser, {
+                    "dogAge": form.dogAge,
+                    "dogTimeBegin": form.startDate,
+                    "dogTimeEnd": form.endDate,
+                    "flexible": form.flexible,
+                    "location": location,
+                    "numberOfDogs": form.numberOfDogs,
+                    "breedId": form.breed,
+                    "id": idOfUser
+                }).then(async response => {
                     console.log(response)
+                    setIsDisabled(false);
+                    window.location.href = "/users/offers";
                 }).catch(err => {
                     console.log(err);
                     alert(err.response.data.message)
-                });
+                    setIsDisabled(false);
+                })
             },
             (error) => {
                 console.error(error);
@@ -99,6 +98,16 @@ function NewOffer(){
         axios.get('/api/dogs/breeds').then(response => {
             console.log(response.data);
             setBreeds(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
+
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/users/profile/' + id).then(response => {
+            console.log(response.data);
+            setUser(response.data);
         }).catch(err => {
             alert(err.response.data.message);
         })
@@ -171,8 +180,8 @@ function NewOffer(){
                                         onChange={onChange}
                                         value={form.flexible}
                                     >
-                                        <option value={0}>Nije fleksibilno</option>
-                                        <option value={1}>Fleksibilno</option>
+                                        <option value={false}>Nije fleksibilno</option>
+                                        <option value={true}>Fleksibilno</option>
                                     </NativeSelect>
                                 </Grid>
 
@@ -197,6 +206,17 @@ function NewOffer(){
                                         label="Željena dob psa"
                                         onChange={onChange}
                                         value={form.dogAge}
+                                    />
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                    <StyledTextField
+                                        name="numberOfDogs"
+                                        fullWidth
+                                        id="numberOfDogs"
+                                        label="Željeni broj pasa"
+                                        onChange={onChange}
+                                        value={form.numberOfDogs}
                                     />
                                 </Grid>
 

@@ -13,7 +13,7 @@ function MyRequests(){
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
-        axios.get('/api/reqgua/my/' + id).then(response => {
+        axios.get('/api/reqdog/my/' + id).then(response => {
             console.log(response.data);
             setRequests(response.data);
         }).catch(err => {

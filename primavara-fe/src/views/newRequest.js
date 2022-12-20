@@ -15,6 +15,7 @@ import { alpha, styled } from '@mui/material/styles';
 import axios, {AxiosError} from "axios";
 
 
+
 import Geocode from "react-geocode";
 Geocode.setApiKey("AIzaSyCzdvGwSbOBwq2GwrvNmJbeGWPDJTzCsLo")
 Geocode.setRegion("hr");
@@ -43,9 +44,10 @@ const StyledTextField = styled(TextField)({
 
 function NewRequest(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0, dogs: []})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0, dogs: ''})
     const [dogs, setDogs] = React.useState([])
     const [activities, setActivities] = React.useState([])
+
 
     function onChange(event) {
         const {name, value} = event.target;
@@ -63,48 +65,39 @@ function NewRequest(){
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
                 var location = lat + "|"+ lng
-
-                var breedId;
-                breeds.forEach(breed => {
-                    if (breed.name == form.breed) {
-                        breedId = breed.id;
-                    }
-                })
-
-                var bodyFormData = new FormData();
-
                 let idOfUser = localStorage.getItem('id');
-                bodyFormData.append("dogAge", dogAge);
-                bodyFormData.append("dogTimeBegin", form.startDate);
-                bodyFormData.append("dogTimeEnd", form.endDate);
-                bodyFormData.append("isFlexible", form.flexible);
-                bodyFormData.append("hasExperience", form.hasExperience);
-                bodyFormData.append("hasDog", form.hasDog);
-                bodyFormData.append("location", location);
-                bodyFormData.append("numberOfDogs", numberOfDogs);
-                bodyFormData.append("breedId", breedId)
-                axios({
-                    method: "post",
-                    url: "/api/reqdog/new/" + idOfUser,
-                    data: bodyFormData,
-                    headers: { "Content-Type": "multipart/form-data" },
-                }).then(response => {
+                console.log(activities)
+                axios.post('/api/reqgua/new/' + idOfUser, {
+                    "guardTimeBegin": form.startDate,
+                    "guardTimeEnd": form.endDate,
+                    "location": location,
+                    "hasDog": form.hasDog,
+                    "hasExperience": form.hasExperience,
+                    "id": idOfUser,
+                    "dogId": [form.dogs],
+                    "numberOfDogs": form.dogs.length
+                }).then(async response => {
                     console.log(response)
+                    setIsDisabled(false);
+                    window.location.href = "/users/requests";
                 }).catch(err => {
                     console.log(err);
                     alert(err.response.data.message)
-                });
+                    setIsDisabled(false);
+                })
             },
             (error) => {
                 console.error(error);
+                window.alert("Netočna adresa! \nMolimo provjerite vaš unos.")
             }
         );
     }
 
-    React.useEffect(() => {
-        axios.get('/api/dogs/breeds').then(response => {
+
+    React.useEffect(() => { 
+        axios.get('/api/activity').then(response => {
             console.log(response.data);
-            // setBreeds(response.data);
+            setActivities(response.data);
         }).catch(err => {
             alert(err.response.data.message);
         })
@@ -113,7 +106,7 @@ function NewRequest(){
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/dogs/my/' + id).then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             setDogs(response.data);
         }).catch(err => {
             alert(err.response.data.message);
@@ -175,7 +168,7 @@ function NewRequest(){
                                 </Grid>
 
 
-                                <Grid item xs={12}>
+                                {/* <Grid item xs={12}>
                                     <NativeSelect
                                         inputProps={{
                                             name: 'flexible',
@@ -190,7 +183,7 @@ function NewRequest(){
                                         <option value={0}>Nije fleksibilno</option>
                                         <option value={1}>Fleksibilno</option>
                                     </NativeSelect>
-                                </Grid>
+                                </Grid> */}
 
                                 <Grid item xs={12}>
                                     <NativeSelect
@@ -204,8 +197,8 @@ function NewRequest(){
                                         onChange={onChange}
                                         value={form.hasExperience}
                                     >
-                                        <option value={0}>Nije potrebno iskustvo</option>
-                                        <option value={1}>Potrebno iskustvo</option>
+                                        <option value={false}>Nije potrebno iskustvo</option>
+                                        <option value={true}>Potrebno iskustvo</option>
                                     </NativeSelect>
                                 </Grid>
 
@@ -221,8 +214,8 @@ function NewRequest(){
                                         onChange={onChange}
                                         value={form.hasDog}
                                     >
-                                        <option value={0}>Ne mora imati psa</option>
-                                        <option value={1}>Mora imati psa</option>
+                                        <option value={false}>Ne mora imati psa</option>
+                                        <option value={true}>Mora imati psa</option>
                                     </NativeSelect>
                                 </Grid>
 
