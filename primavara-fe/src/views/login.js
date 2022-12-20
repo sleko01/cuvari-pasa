@@ -80,7 +80,7 @@ function Login(){
                 }).then(response => {
                     console.log(response)
                     localStorage.setItem("role", response.data.role.roleId)
-                    window.location.href = "/";
+                    response.data.blocked == true ? window.location.href = "/blocked" : window.location.href = "/";
                 })
 
             })

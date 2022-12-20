@@ -55,11 +55,13 @@ function RegisterDog(){
         const reader = new FileReader();
         reader.onload = function(e) {
             console.log(e.target.result);
-            setBlob(new Blob([new Uint8Array(e.target.result)], {type: images[0].type }));
-            // const blob = new Blob([new Uint8Array(e.target.result)], {type: images[0].type })
+            // setBlob(new Blob([new Uint8Array(e.target.result)], {type: images[0].type }));
+            const blob1 = new Blob([new Uint8Array(e.target.result)], {type: images[0].type })
+            setBlob(blob1);
+            console.log(blob1)
 
         };
-        // console.log(reader.readAsArrayBuffer(images[0]));
+        console.log(reader.readAsArrayBuffer(images[0]));
     }
 
 

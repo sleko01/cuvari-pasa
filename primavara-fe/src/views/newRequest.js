@@ -4,6 +4,9 @@ import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import '../styles/home.css'
 import '../styles/index.css'
+import { Select } from '@mui/material'
+import { MenuItem } from '@mui/material'
+import { InputLabel } from '@mui/material'
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -44,9 +47,25 @@ const StyledTextField = styled(TextField)({
 
 function NewRequest(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0, dogs: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0})
     const [dogs, setDogs] = React.useState([])
     const [activities, setActivities] = React.useState([])
+    const [selectedActivities, setSelectedActivities] = React.useState([])
+    const [selectedDogs, setSelectedDogs] = React.useState([])
+
+    const changeDogs = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setSelectedDogs(typeof value === 'string' ? value.split(',') : value,)
+    }
+
+    const changeActivities = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setSelectedActivities(typeof value === 'string' ? value.split(',') : value,)
+    }
 
 
     function onChange(event) {
@@ -55,8 +74,8 @@ function NewRequest(){
     }
 
     function isValid() {
-        const {userId, startDate, endDate, flexible, address, lat, lng, dogs} = form;
-        return startDate && endDate && address.length>0 && dogs;
+        const {userId, startDate, endDate, flexible, address, lat, lng} = form;
+        return startDate && endDate && address.length>0;
     }
 
     function onSubmit(e){
@@ -74,8 +93,9 @@ function NewRequest(){
                     "hasDog": form.hasDog,
                     "hasExperience": form.hasExperience,
                     "id": idOfUser,
-                    "dogId": [form.dogs],
-                    "numberOfDogs": form.dogs.length
+                    "dogId": selectedDogs,
+                    "numberOfDogs": selectedDogs.length,
+                    "activityId": selectedActivities
                 }).then(async response => {
                     console.log(response)
                     setIsDisabled(false);
@@ -233,20 +253,47 @@ function NewRequest(){
 
 
                                 <Grid item xs={12}>
-                                    <NativeSelect
-                                        inputProps={{
-                                            name: 'dogs',
-                                            id: 'dogs',
-                                        }}
+                                <InputLabel id="dogs-label">Psi</InputLabel>
+                                    <Select
                                         fullWidth
-                                        required
-                                        onChange={onChange}
-                                        value={form.dogs}
+                                        name="dogs"
+                                        id="dogs"
+                                        multiple
+                                        onChange={changeDogs}
+                                        value={selectedDogs}
+                                        renderValue={(selected) => {
+                                            if(selected.length == 0) {
+                                                return <em>Psi</em>
+                                            }
+                                            return selected.join(",")
+                                        }}
                                     >
                                         {dogs && dogs.map(dog => (
-                                            <option value={dog.dogId}>{dog.name}</option>
+                                            <MenuItem value={dog.dogId}>{dog.name}</MenuItem>
                                         ))}
-                                    </NativeSelect>
+                                    </Select>
+                                </Grid>
+
+                                <Grid item xs={12}>
+                                <InputLabel id="activities-label">Aktivnosti</InputLabel>
+                                    <Select
+                                        fullWidth
+                                        name="activities"
+                                        id="activities"
+                                        multiple
+                                        onChange={changeActivities}
+                                        value={selectedActivities}
+                                        renderValue={(selected) => {
+                                            if(selected.length == 0) {
+                                                return <em>Aktivnosti</em>
+                                            }
+                                            return selected.join(",")
+                                        }}
+                                    >
+                                        {activities && activities.map(activity => (
+                                            <MenuItem value={activity.activityId}>{activity.activityName}</MenuItem>
+                                        ))}
+                                    </Select>
                                 </Grid>
 
 
