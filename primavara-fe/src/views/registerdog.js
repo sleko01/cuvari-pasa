@@ -41,7 +41,7 @@ const StyledTextField = styled(TextField)({
 
 function RegisterDog(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '', image: []})
+    const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '1', image: []})
     const [breeds, setBreeds] = React.useState([])
     const [images, setImages] = React.useState([])
 
@@ -95,7 +95,7 @@ function RegisterDog(){
             "breedId": form.breed,
             "id": idOfUser,
         }).then(async response => {
-            // console.log(response)
+            window.location.href = "/users/dogs"
         }).catch(err => {
             alert(err.response.data.message)
             console.log(blob)
@@ -150,6 +150,7 @@ function RegisterDog(){
                                     <StyledTextField
                                         required
                                         fullWidth
+                                        format = "dd/MM/yyyy"
                                         id="dateOfBirth"
                                         label="Datum rođenja"
                                         name="dateOfBirth"
@@ -159,20 +160,6 @@ function RegisterDog(){
                                         focused
                                     />
                                 </Grid>
-
-                                {/*<Grid item xs={12}>*/}
-                                {/*    <Autocomplete*/}
-                                {/*        // disablePortal*/}
-                                {/*        id="breed"*/}
-                                {/*        name="breed"*/}
-                                {/*        options={breeds.map(breed => breed.name)}*/}
-                                {/*        clearOnBlur={false}*/}
-                                {/*        freeSolo={true}*/}
-                                {/*        renderInput={(params) => <StyledTextField {...params} label="Vrsta"/>}*/}
-                                {/*        onInputChange={onChange}*/}
-                                {/*        value={form.breed}*/}
-                                {/*    />*/}
-                                {/*</Grid>*/}
 
                                 <Grid item xs={12}>
                                     <NativeSelect
@@ -187,7 +174,7 @@ function RegisterDog(){
                                         value={form.breed}
                                     >
                                         {breeds.map(breed =>
-                                            <option value={breed.breedId}>{breed.name}</option>)}
+                                            <option value={breed.breedId} key={breed.breedId}>{breed.name}</option>)}
                                     </NativeSelect>
 
                                 </Grid>

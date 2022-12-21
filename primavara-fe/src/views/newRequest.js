@@ -9,7 +9,6 @@ import { MenuItem } from '@mui/material'
 import { InputLabel } from '@mui/material'
 
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -133,6 +132,9 @@ function NewRequest(){
         })
     }, []);
 
+
+
+    
     return (
         <div className="page-container">
             <Helmet>
@@ -153,7 +155,7 @@ function NewRequest(){
                         }}
                     >
                         <Typography component="h1" variant="h5" className="text-blackolive">
-                            Predaj oglas!
+                            Predaj zahtjev!
                         </Typography>
 
                         <Box component="form"  sx={{mt: 3}}>
@@ -186,24 +188,6 @@ function NewRequest(){
                                         focused
                                     />
                                 </Grid>
-
-
-                                {/* <Grid item xs={12}>
-                                    <NativeSelect
-                                        inputProps={{
-                                            name: 'flexible',
-                                            id: 'flexible'
-                                        }}
-                                        fullWidth
-                                        required
-                                        defaultValue={0}
-                                        onChange={onChange}
-                                        value={form.flexible}
-                                    >
-                                        <option value={0}>Nije fleksibilno</option>
-                                        <option value={1}>Fleksibilno</option>
-                                    </NativeSelect>
-                                </Grid> */}
 
                                 <Grid item xs={12}>
                                     <NativeSelect

@@ -6,15 +6,16 @@ import Home from "./views/home.js";
 import Register from "./views/register.js";
 import Login from "./views/login.js";
 import Profile from "./views/profile.js";
-import RegisterDog from "./views/registerdog.js";
+import RegisterDog from "./views/registerDog.js";
 import NewRequest from "./views/newRequest.js"
 import MyRequests from "./views/myRequests.js";
 import NewOffer from "./views/newOffer.js";
 import MyOffers from "./views/myOffers.js";
-import MyDogs from "./views/mydogs.js";
+import MyDogs from "./views/myDogs.js";
 import Requests from "./views/requests.js";
 import Offers from "./views/offers.js";
 import Moderation from "./views/moderation.js";
+import Blocked from "./views/blocked.js";
 
 export default function App() {
   return (
@@ -37,6 +38,8 @@ export default function App() {
           
           <Route path="/dogs/register" element={<RegisterDog />} />
           <Route path="/users/dogs" element={<MyDogs />} />
+
+          <Route path="/blocked" element={<Blocked />} />
       </Routes>
     </BrowserRouter>
   );

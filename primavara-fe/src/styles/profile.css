@@ -1,35 +1,40 @@
-.profile-info {
-    align-self: center;
+.profile-info{
+    width: 100vw;
     display: block;
-    background-color: var(--color-blackolive);
-    margin: 0 auto;
-    margin-top: 10vh;
-    padding: 2vh;
-    width: 25vw;
-    border-radius: 5vmin;
-    border-color: #fc9d01;
-    border-width: 1vh;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.profile-text-content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 2vmin;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    margin-top: 7vh;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: var(--color-blackolive);
+    border-width: 1vmin;
+
 }
 
 .profile-info-item {
     display: flex;
     justify-content: space-between;
-    margin-left: 5vh;
-    border-radius: 5vmin;
-    margin-right: 5vh;
-    font-size: 3vh;
+    font-size: 2.5vmin;
 }
 
 .profile-info-item-name {
-    color: #fc9d01;
+    color: var(--color-blackolive);
 }
 
 .profile-info-item-value {
-    color: aliceblue;
+    color: var(--color-blackolive);
 }
 
-.my-dogs-button {
+.profile-button-container {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 30vw;
+    align-self: center;
 }

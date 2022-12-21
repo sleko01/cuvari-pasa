@@ -26,34 +26,62 @@ function Profile(){
     }, []);
 
 
+    if(localStorage.role == 1){
+        var role = <span>vlasnik</span>
+    }
+    else if(localStorage.role == 2){
+        var role = <span>čuvar</span>
+    }
+    else if(localStorage.role == 3){
+        var role = <span>vlasnik i čuvar</span>
+    }
+    else{
+        var role = <span>admin</span>
+    }
+
     return(
-        <div className="page-container mandatory-scroll-snapping">
+        <div className="ro-page-container">
             <Helmet>
-                <title>CuvariPasa | Naslovnica</title>
+                <title>CuvariPasa | Moj profil</title>
             </Helmet>
 
             <Navbar/>
 
             <div className="profile-info">
-                <div className='profile-info-item'>
-                    <span className='profile-info-item-name'>Korisničko ime: </span>
-                    <span className='profile-info-item-value'>{user.username}</span>
-                </div>
-                <div className='profile-info-item'>
-                    <span className='profile-info-item-name'>Ime: </span>
-                    <span className='profile-info-item-value'>{user.firstName}</span>
-                </div>
-                <div className='profile-info-item'>
-                    <span className='profile-info-item-name'>Prezime: </span>
-                    <span className='profile-info-item-value'>{user.lastName}</span>
-                </div>
-                <div className='profile-info-item'>
-                    <span className='profile-info-item-name'>Email:  </span>
-                    <span className='profile-info-item-value'>{user.email}</span>
-                </div>
-                <div className='profile-info-item'>
-                    <span className='profile-info-item-name'>Rating:  </span>
-                    <span className='profile-info-item-value'>{user.ratingCount == 0 ? 0 : user.rating}</span>
+                <div className='profile-text-content background-citrus'>
+                    <div className='profile-info-item'>
+                        <span className='profile-info-item-name'>Korisničko ime: </span>
+                        <span className='profile-info-item-value'>{user.username}</span>
+                    </div>
+                    
+                    <div className='profile-info-item'>
+                        <span className='profile-info-item-name'>Uloga: </span>
+                        <span className='profile-info-item-value'>{role}</span>
+                    </div>
+                    <div className='empty-space'/>
+                    <div className='profile-info-item'>
+                        <span className='profile-info-item-name'>Ime: </span>
+                        <span className='profile-info-item-value'>{user.firstName}</span>
+                    </div>
+                    <div className='profile-info-item'>
+                        <span className='profile-info-item-name'>Prezime: </span>
+                        <span className='profile-info-item-value'>{user.lastName}</span>
+                    </div>
+                    <div className='profile-info-item'>
+                        <span className='profile-info-item-name'>Email:  </span>
+                        <span className='profile-info-item-value'>{user.email}</span>
+                    </div>
+                    <div className='empty-space'/>
+                    <div className='profile-info-item'>
+                        <span className='profile-info-item-name'>Rating:  </span>
+                        <span className='profile-info-item-value'>{user.ratingCount == 0 ? 0 : user.ratingSum/user.ratingCount}</span>
+                    </div>
+                    <div className='empty-space'/>
+                    <div className='profile-button-container'>
+                        <a href='/users/dogs' className='button-href'>
+                            <button className="button button-primary"> Moji psi</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
