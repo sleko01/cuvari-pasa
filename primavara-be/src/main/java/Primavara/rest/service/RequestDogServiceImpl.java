@@ -49,8 +49,20 @@ public class RequestDogServiceImpl implements RequestDogService{
 
         RequestDog requestDog= new RequestDog();
         requestDog.setDogAge(newRequestDog.getDogAge());
+        if (java.time.LocalDate.now().isAfter(newRequestDog.getDogTimeBegin().toLocalDateTime().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of beginning must be in the future"
+            );
         requestDog.setDogTimeBegin(newRequestDog.getDogTimeBegin());
+        if (java.time.LocalDate.now().isAfter(newRequestDog.getDogTimeBegin().toLocalDateTime().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of beginning must be in the future"
+            );
         requestDog.setDogTimeEnd(newRequestDog.getDogTimeEnd());
+        if (newRequestDog.getDogTimeBegin().toLocalDateTime().toLocalDate().isAfter(newRequestDog.getDogTimeEnd().toLocalDateTime().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of begining must be before date of ending"
+            );
         requestDog.setFlexible(newRequestDog.getFlexible());
         requestDog.setLocation(newRequestDog.getLocation());
         requestDog.setNumberOfDogs(newRequestDog.getNumberOfDogs());

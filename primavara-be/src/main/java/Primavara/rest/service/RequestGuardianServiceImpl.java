@@ -70,8 +70,20 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
         RequestGuardian requestGuardian=new RequestGuardian();
         requestGuardian.setLocation(newRequestGuardian.getLocation());
         requestGuardian.setNumberOfDogs(newRequestGuardian.getNumberOfDogs());
+        if (java.time.LocalDate.now().isAfter(newRequestGuardian.getGuardTimeBegin().toLocalDateTime().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of beginning must be in the future"
+            );
         requestGuardian.setGuardTimeBegin(newRequestGuardian.getGuardTimeBegin());
+        if (java.time.LocalDate.now().isAfter(newRequestGuardian.getGuardTimeEnd().toLocalDateTime().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of ending must be in the future"
+            );
         requestGuardian.setGuardTimeEnd(newRequestGuardian.getGuardTimeEnd());
+        if (newRequestGuardian.getGuardTimeBegin().toLocalDateTime().toLocalDate().isAfter(newRequestGuardian.getGuardTimeEnd().toLocalDateTime().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of begining must be before date of ending"
+            );
         requestGuardian.setHasExperience(newRequestGuardian.getHasExperience());
         requestGuardian.setHasDog(newRequestGuardian.getHasDog());
         //za sada zbog testiranja (inace ce po defaultu ce biti false)

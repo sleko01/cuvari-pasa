@@ -45,7 +45,7 @@ const StyledTextField = styled(TextField)({
 
 function NewOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', breed: 1, dogAge: '', numberOfDogs: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: false, address: '', lat: '', lng: '', breed: 1, dogAge: '', numberOfDogs: ''})
     const [breeds, setBreeds] = React.useState([])
     const [user, setUser] = React.useState([]);
 

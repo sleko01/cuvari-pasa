@@ -44,6 +44,10 @@ public class DogServiceImpl implements DogService{
             );
         Dog dog = new Dog();
         dog.setName(registerDog.getName());
+        if (java.time.LocalDate.now().isBefore(registerDog.getDateOfBirth().toLocalDate()))
+            throw new RequestDeniedException(
+                    "Date of birth must be in the past"
+            );
         dog.setDateOfBirth(registerDog.getDateOfBirth());
         dog.setPhoto(registerDog.getPhoto());
         dog.setRatingCount(Long.valueOf(0));
