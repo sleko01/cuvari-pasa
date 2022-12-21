@@ -32,7 +32,7 @@ function MyRequests(){
 
             <Navbar/>
 
-            <div className="ro-section-container background-blackolive">
+            <div className="profile-info background-blackolive">
 
                 <div className="ro-page-content">
                     <div className='ro-bar'>
@@ -58,11 +58,11 @@ function MyRequests(){
 
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Početak: </span>
-                                    <span className='panel-info-item-value'>{request.dogTimeBegin.substring(0,10)}</span>
+                                    {<span className='panel-info-item-value'>{request.guardTimeBegin.substring(0,10)}</span>}
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Kraj: </span>
-                                    <span className='panel-info-item-value'>{request.dogTimeEnd.substring(0,10)}</span>
+                                    {<span className='panel-info-item-value'>{request.guardTimeEnd.substring(0,10)}</span>}
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Broj pasa: </span>

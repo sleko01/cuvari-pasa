@@ -33,7 +33,7 @@ export default function App() {
           <Route path="/requests/new" element={<NewRequest />} />
           <Route path="/offers/new" element={<NewOffer />} />
           
-          <Route path="/users/requests" element={<MyRequests />} /> {/* ovo je za my requests */}
+          <Route path="/users/requests" element={<MyRequests />} />
           <Route path="/users/offers" element={<MyOffers />} />
           
           <Route path="/dogs/register" element={<RegisterDog />} />

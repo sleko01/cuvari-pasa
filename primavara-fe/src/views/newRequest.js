@@ -84,7 +84,20 @@ function NewRequest(){
                 const { lat, lng } = response.results[0].geometry.location;
                 var location = lat + "|"+ lng
                 let idOfUser = localStorage.getItem('id');
-                console.log(activities)
+                //console.log(activities)
+                var sendingActivities = []
+                var sendingDogs = []
+                
+                activities.forEach(activity => {
+                    selectedActivities.forEach(selectedActivity => {
+                        if(activity.activityName == selectedActivity && !sendingActivities.includes(activity.activityId)) sendingActivities.push(activity.activityId)
+                    })
+                });
+                dogs.forEach(dog => {
+                    selectedDogs.forEach(selectedDog => {
+                        if(dog.name == selectedDog && !sendingDogs.includes(dog.dogId)) sendingDogs.push(dog.dogId)
+                    })
+                });
                 axios.post('/api/reqgua/new/' + idOfUser, {
                     "guardTimeBegin": form.startDate,
                     "guardTimeEnd": form.endDate,
@@ -92,9 +105,10 @@ function NewRequest(){
                     "hasDog": form.hasDog,
                     "hasExperience": form.hasExperience,
                     "id": idOfUser,
-                    "dogId": selectedDogs,
+                    "dogId": sendingDogs,
                     "numberOfDogs": selectedDogs.length,
-                    "activityId": selectedActivities
+                    "activityId": sendingActivities,
+                    "quantity": selectedActivities.includes("Hranjenje") ? form.foodAmount : 0
                 }).then(async response => {
                     console.log(response)
                     setIsDisabled(false);
