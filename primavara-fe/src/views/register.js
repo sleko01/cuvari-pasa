@@ -67,7 +67,7 @@ function Register(){
             "roleId": form.role
         }).then(async response => {
             console.log(response)
-            window.location.href = "/";
+            window.location.href = "/users/login";
             setIsDisabled(false);
         }).catch(err => {
             console.log(err);

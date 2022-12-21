@@ -119,3 +119,12 @@
   width: 2em;
   height: 2em;
 }
+
+/* TABLE STYLE */
+table {
+  table-layout: fixed;
+}
+th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}

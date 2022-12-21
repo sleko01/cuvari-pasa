@@ -17,6 +17,7 @@ import axios, {AxiosError} from "axios";
 
 
 import Geocode from "react-geocode";
+import {InputLabel} from "@mui/material";
 Geocode.setApiKey("AIzaSyCzdvGwSbOBwq2GwrvNmJbeGWPDJTzCsLo")
 Geocode.setRegion("hr");
 Geocode.setLocationType("ROOFTOP");
@@ -44,7 +45,7 @@ const StyledTextField = styled(TextField)({
 
 function NewOffer(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', breed: 0, dogAge: '', numberOfDogs: ''})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', breed: 1, dogAge: '', numberOfDogs: ''})
     const [breeds, setBreeds] = React.useState([])
     const [user, setUser] = React.useState([]);
 
@@ -112,7 +113,6 @@ function NewOffer(){
             alert(err.response.data.message);
         })
     }, []);
-
 
     
 
@@ -221,6 +221,7 @@ function NewOffer(){
                                 </Grid>
 
                                 <Grid item xs={12}>
+                                    <InputLabel id="breed-label">Preferirana pasmina</InputLabel>
                                     <NativeSelect
                                         // disablePortal
                                         inputProps={{

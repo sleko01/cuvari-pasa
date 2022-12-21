@@ -8,7 +8,7 @@ import '../styles/home.css'
 import '../styles/index.css'
 
 
-function MyDogRequests(){
+function MyRequests(){
     const [requests, setRequests] = React.useState([])
 
 
@@ -27,24 +27,62 @@ function MyDogRequests(){
     return(
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Moji zahtjevi</title>
+                <title>CuvariPasa | Moji Zahtjevi</title>
             </Helmet>
 
             <Navbar/>
 
-            <table>
-                <tbody>
-                {requests && requests.map(request =>
-                    <tr key={request.requestDogId}>
-                        <td>{request.dogAge}</td>
-                        <td>{request.numberOfDogs}</td>
-                        <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
-                        <td>{request.isFlexible}</td>
-                        <td>{request.location}</td>
-                    </tr>
-                )}
-                </tbody>
-            </table>
+            <div className="ro-section-container background-blackolive">
+
+                <div className="ro-page-content">
+                    <div className='ro-bar'>
+                        <span className='home-title'>
+                            Moji Zahtjevi
+                        </span>
+                        <div className='ro-button-container'>
+                            <a href="/requests/new" className='button-href'>
+                                <button className="button button-gradient">Dodaj novi zahtjev</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr className='hr-color-apricot'/>
+
+                    <div className='panel-container'>
+                        {requests && requests.map(request =>
+                            <div className='panel-content background-white'>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Lokacija: </span>
+                                    <span className='panel-info-item-value'>{request.location}</span>
+                                </div>
+
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Početak: </span>
+                                    <span className='panel-info-item-value'>{request.dogTimeBegin.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Kraj: </span>
+                                    <span className='panel-info-item-value'>{request.dogTimeEnd.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Broj pasa: </span>
+                                    <span className='panel-info-item-value'>{request.numberOfDogs}</span>
+                                </div>
+
+                                <div className="empty-space"></div>
+                                <div className='profile-button-container'>
+                                    <button className="button button-primary">Javi se</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
 
             <Footer/>
         </div>
@@ -52,4 +90,4 @@ function MyDogRequests(){
     )
 }
 
-export default MyDogRequests;
+export default MyRequests;

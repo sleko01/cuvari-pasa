@@ -12,7 +12,7 @@ function Offers(){
     const [offers, setOffers] = React.useState([])
 
     React.useEffect(() => {
-        axios.get('/api/reqgua').then(response => {
+        axios.get('/api/reqdog').then(response => {
             console.log(response.data);
             setOffers(response.data);
         }).catch(err => {
@@ -21,14 +21,14 @@ function Offers(){
     }, []);
 
     return(
-        <div className="ro-page-container">
+        <div className="page-container">
             <Helmet>
                 <title>CuvariPasa | Oglasi</title>
             </Helmet>
 
             <Navbar/>
 
-            <div className="ro-section-container background-blackolive">
+            <div className="profile-info background-blackolive">
                 
                 <div className="ro-page-content">
                     <div className='ro-bar'>
@@ -41,23 +41,60 @@ function Offers(){
                             </a>
                         </div>
                     </div>
-                    
+                    <hr className='hr-color-apricot'/>
 
-                    <div className='ro-table-container background-white'>
-                        <table>
-                            <tbody>
-                                {offers && offers.map(offer =>
-                                <tr key={offer.requestGuardianId}>
-                                <td>{offer.location}</td>
-                                <td>{offer.numberOfDogs}</td>
-                                <td>{offer.guardTimeBegin}-{offer.guardTimeEnd}</td>
-                                <td>{offer.hasDog == true ? "true" : "false"}</td>
-                                <td>{offer.hasExperience == true ? "true" : "false"}</td>
-                                </tr>
-                                )}
-                            </tbody>
-                        </table>
+                    <div className='panel-container'>
+                        {offers && offers.map(offer =>
+                            <div className='panel-content background-white'>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Korisnik: </span>
+                                    <span className='panel-info-item-value'>{offer.appUser.username}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Lokacija: </span>
+                                    <span className='panel-info-item-value'>{offer.location}</span>
+                                </div>
+
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Početak: </span>
+                                    <span className='panel-info-item-value'>{offer.dogTimeBegin.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Kraj: </span>
+                                    <span className='panel-info-item-value'>{offer.dogTimeEnd.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Fleksibilno:  </span>
+                                    <span className='panel-info-item-value'>{offer.flexible == true ? "Je" : "Nije"}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Iskustvo:  </span>
+                                    <span className='panel-info-item-value'>{offer.hasDog == true ? "Ima" : "Nema"}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Ima li psa:  </span>
+                                    <span className='panel-info-item-value'>{offer.hasExperience == true ? "Ima" : "Nema"}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Broj pasa: </span>
+                                    <span className='panel-info-item-value'>{offer.numberOfDogs}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Željena starost: </span>
+                                    <span className='panel-info-item-value'>{offer.dogAge}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Željena pasmina: </span>
+                                    <span className='panel-info-item-value'>{offer.breed.name}</span>
+                                </div>
+                                <div className="empty-space"></div>
+                                <div className='profile-button-container'>
+                                        <button className="button button-primary">Javi se</button>
+                                </div>
+                            </div>
+                        )}
                     </div>
+
                 </div>
             </div>
             

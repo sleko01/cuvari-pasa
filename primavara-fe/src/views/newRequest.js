@@ -46,7 +46,7 @@ const StyledTextField = styled(TextField)({
 
 function NewRequest(){
     const [isDisabled, setIsDisabled] = useState(false)
-    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0})
+    const [form, setForm] = React.useState({userId: localStorage.id, startDate: '',endDate: '', flexible: '', address: '', lat: '', lng: '', hasExperience: 0, hasDog: 0, foodAmount: 0})
     const [dogs, setDogs] = React.useState([])
     const [activities, setActivities] = React.useState([])
     const [selectedActivities, setSelectedActivities] = React.useState([])
@@ -132,7 +132,9 @@ function NewRequest(){
         })
     }, []);
 
-
+    if (selectedActivities.includes("Hranjenje")){
+        var hranjenje = <Grid item xs={12}><StyledTextField fullWidth name="foodAmount" id="foodAmount" label="Količina hrane (u g)" onChange={onChange} value={form.foodAmount}/> </Grid>
+    }
 
     
     return (
@@ -237,7 +239,7 @@ function NewRequest(){
 
 
                                 <Grid item xs={12}>
-                                <InputLabel id="dogs-label">Psi</InputLabel>
+                                    <InputLabel id="dogs-label">Psi</InputLabel>
                                     <Select
                                         fullWidth
                                         name="dogs"
@@ -253,7 +255,7 @@ function NewRequest(){
                                         }}
                                     >
                                         {dogs && dogs.map(dog => (
-                                            <MenuItem value={dog.dogId}>{dog.name}</MenuItem>
+                                            <MenuItem value={dog.name}>{dog.name}</MenuItem>
                                         ))}
                                     </Select>
                                 </Grid>
@@ -275,10 +277,12 @@ function NewRequest(){
                                         }}
                                     >
                                         {activities && activities.map(activity => (
-                                            <MenuItem value={activity.activityId}>{activity.activityName}</MenuItem>
+                                            <MenuItem value={activity.activityName}>{activity.activityName}</MenuItem>
                                         ))}
                                     </Select>
                                 </Grid>
+
+                                {hranjenje}
 
 
                                 <Grid item xs={12}>

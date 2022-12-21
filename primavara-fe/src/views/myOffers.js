@@ -8,14 +8,14 @@ import Footer from './partials/footer'
 import '../styles/home.css'
 import '../styles/index.css'
 
-function MyRequests(){
-    const [requests, setRequests] = React.useState([])
+function MyOffers(){
+    const [offers, setOffers] = React.useState([])
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/reqdog/my/' + id).then(response => {
             console.log(response.data);
-            setRequests(response.data);
+            setOffers(response.data);
         }).catch(err => {
             alert(err.response.data.message);
         })
@@ -29,19 +29,71 @@ function MyRequests(){
 
             <Navbar/>
 
-            <table>
-                <tbody>
-                {requests && requests.map(request =>
-                    <tr key={request.requestGuardianId}>
-                        <td>{request.location}</td>
-                        <td>{request.numberOfDogs}</td>
-                        <td>{request.guardTimeBegin}-{request.guardTimeEnd}</td>
-                        <td>{request.hasDog==true ? "true" : "false"}</td>
-                        <td>{request.hasExperience == true? "true" : "false"}</td>
-                    </tr>
-                )}
-                </tbody>
-            </table>
+            <div className="profile-info background-blackolive">
+
+                <div className="ro-page-content">
+                    <div className='ro-bar'>
+                        <span className='home-title'>
+                            Moji Oglasi
+                        </span>
+                        <div className='ro-button-container'>
+                            <a href="/offers/new" className='button-href'>
+                                <button className="button button-gradient">Dodaj novi oglas</button>
+                            </a>
+                        </div>
+                    </div>
+                    <hr className='hr-color-apricot'/>
+
+                    <div className='panel-container'>
+                        {offers && offers.map(offer =>
+                            <div className='panel-content background-white'>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Lokacija: </span>
+                                    <span className='panel-info-item-value'>{offer.location}</span>
+                                </div>
+
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Početak: </span>
+                                    <span className='panel-info-item-value'>{offer.dogTimeBegin.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Kraj: </span>
+                                    <span className='panel-info-item-value'>{offer.dogTimeEnd.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Fleksibilno:  </span>
+                                    <span className='panel-info-item-value'>{offer.flexible == true ? "Je" : "Nije"}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Iskustvo:  </span>
+                                    <span className='panel-info-item-value'>{offer.hasDog == true ? "Ima" : "Nema"}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Ima li psa:  </span>
+                                    <span className='panel-info-item-value'>{offer.hasExperience == true ? "Ima" : "Nema"}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Broj pasa: </span>
+                                    <span className='panel-info-item-value'>{offer.numberOfDogs}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Željena starost: </span>
+                                    <span className='panel-info-item-value'>{offer.dogAge}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Željena pasmina: </span>
+                                    <span className='panel-info-item-value'>{offer.breed.name}</span>
+                                </div>
+                                <div className="empty-space"></div>
+                                <div className='profile-button-container'>
+                                    <button className="button button-primary">Javi se</button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                </div>
+            </div>
 
             <Footer/>
         </div>
@@ -49,4 +101,4 @@ function MyRequests(){
     )
 }
 
-export default MyRequests;
+export default MyOffers;

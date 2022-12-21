@@ -13,7 +13,7 @@ function Requests(){
     const [requests, setRequests] = React.useState([])
 
     React.useEffect(() => {
-        axios.get('/api/reqdog').then(response => {
+        axios.get('/api/reqgua').then(response => {
             console.log(response.data);
             setRequests(response.data);
         }).catch(err => {
@@ -22,7 +22,7 @@ function Requests(){
     }, []);
 
     return(
-        <div className="ro-page-container">
+        <div className="page-container">
             <Helmet>
                 <title>CuvariPasa | Zahtjevi</title>
             </Helmet>
@@ -42,24 +42,42 @@ function Requests(){
                             </a>
                         </div>
                     </div>
-                    
 
-                    <div className='ro-table-container background-white'>
-                        <table>
-                            <tbody>
-                                {requests && requests.map(request =>
-                                <tr key={request.requestDogId}>
-                                <td>{request.dogAge}</td>
-                                <td>{request.numberOfDogs}</td>
-                                <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
-                                <td>{request.isFlexible}</td>
-                                <td>{request.location}</td>
-                                <td>{request.user_id}</td>
-                                </tr>
-                                )}
-                            </tbody>
-                        </table>
+                    <hr className='hr-color-apricot'/>
+
+                    <div className='panel-container'>
+                        {requests && requests.map(request =>
+                            <div className='panel-content background-white'>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Korisnik: </span>
+                                    <span className='panel-info-item-value'>{request.appUser.username}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Lokacija: </span>
+                                    <span className='panel-info-item-value'>{request.location}</span>
+                                </div>
+
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Početak: </span>
+                                    <span className='panel-info-item-value'>{request.dogTimeBegin.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Kraj: </span>
+                                    <span className='panel-info-item-value'>{request.dogTimeEnd.substring(0,10)}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Broj pasa: </span>
+                                    <span className='panel-info-item-value'>{request.numberOfDogs}</span>
+                                </div>
+
+                                <div className="empty-space"></div>
+                                <div className='profile-button-container'>
+                                    <button className="button button-primary">Javi se</button>
+                                </div>
+                            </div>
+                        )}
                     </div>
+
 
                 </div>
             </div>
