@@ -7,6 +7,7 @@ import Footer from './partials/footer'
 
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
 
 function Moderation(){
     const [pendingRequests, setPendingRequests] = React.useState([])
@@ -20,6 +21,7 @@ function Moderation(){
         axios.post('/api/users/moderation/block/' + id, {
             "id": id
         }).then((response) => {
+            window.alert("Uspješno blokirano!")
             console.log(response);
         }).catch(err => {
             console.log(err);
@@ -29,6 +31,9 @@ function Moderation(){
         console.log("addAdmin")
         axios.post('/api/users/moderation/give-admin/' + id, {
             "id": id
+        }).then((response) => {
+            window.alert("Uspješno davanje admina!")
+            console.log(response);
         }).catch(err => {
             console.log(err);
         });
@@ -61,36 +66,52 @@ function Moderation(){
             </Helmet>
 
             <Navbar/>
-            <table>
-                <tbody>
-                {pendingRequests.length > 0 && pendingRequests.map(request =>
-                    <tr key={request.requestDogId}>
-                        <td>{request.dogAge}</td>
-                        <td>{request.numberOfDogs}</td>
-                        <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
-                        <td>{request.isFlexible}</td>
-                        <td>{request.location}</td>
-                        {/*<td><button onClick={approveRequest()}>Odobri</button></td>*/}
-                        {/*<td><button onClick={denyRequest()}>Odbij</button></td>*/}
-                    </tr>
-                )}
-                </tbody>
-            </table>
-
-
-            <table>
-                <tbody>
-                    {users.length > 0 && users.map(user =>
-                        <tr key={user.userId}>
-                            <td>{user.username}</td>
-                            <td>{user.firstName} {user.lastName}</td>
-                            <td>{user.email}</td>
-                            <td><button onClick={() => blockUser(user.userId)}>Blokiraj</button></td>
-                            <td><button onClick={() => addAdmin(user.userId)}>Dodaj admina</button></td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
+            {(pendingRequests.length > 0 &&
+                <div className='container'>
+                    <table className='request-table'>
+                        <th>Zahtjev</th>
+                        <th>Godine psa</th>
+                        <th>Broj pasa</th>
+                        <th>Fleksibilno?</th>
+                        <th>Lokacija</th>
+                        <tbody>
+                        {pendingRequests.map(request =>
+                            <tr key={request.requestDogId}>
+                                <td>{request.dogAge}</td>
+                                <td>{request.numberOfDogs}</td>
+                                <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
+                                <td>{request.isFlexible}</td>
+                                <td>{request.location}</td>
+                                {/* <td className='confirm-button'><button className="button-primary button button-size" onClick={approveRequest()}>Odobri</button></td>
+                                    <td className="deny-button"><button className="button-primary button button-size" onClick={denyRequest()}>Odbij</button></td> */}
+                            </tr>
+                        )}
+                        </tbody>
+                    </table>
+                </div>
+            )}
+            {(users.length > 0 &&
+                <div className='container'>
+                    <table className='user-table'>
+                        <th>Username</th>
+                        <th>Ime i prezime</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                        <tbody>
+                        {users.map(user =>
+                            <tr key={user.userId}>
+                                <td>{user.username}</td>
+                                <td>{user.firstName} {user.lastName}</td>
+                                <td>{user.email}</td>
+                                <td className='block-button'><button className="button-primary button button-size" onClick={() => blockUser(user.userId)}>Blokiraj</button></td>
+                                <td className='admin-button'><button className="button-primary button button-size" onClick={() => addAdmin(user.userId)}>Dodaj admina</button></td>
+                            </tr>
+                        )}
+                        </tbody>
+                    </table>
+                </div>
+            )}
 
             <Footer/>
         </div>

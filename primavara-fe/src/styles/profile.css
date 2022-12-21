@@ -1,0 +1,35 @@
+.profile-info {
+    align-self: center;
+    display: block;
+    background-color: var(--color-blackolive);
+    margin: 0 auto;
+    margin-top: 10vh;
+    padding: 2vh;
+    width: 25vw;
+    border-radius: 5vmin;
+    border-color: #fc9d01;
+    border-width: 1vh;
+}
+
+.profile-info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5vh;
+    border-radius: 5vmin;
+    margin-right: 5vh;
+    font-size: 3vh;
+}
+
+.profile-info-item-name {
+    color: #fc9d01;
+}
+
+.profile-info-item-value {
+    color: aliceblue;
+}
+
+.my-dogs-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30vw;
+}

@@ -6,6 +6,7 @@ import Navbar from './partials/navbar'
 
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/profile.css'
 
 function Profile(){
     //samo jedan od ova 2 ispod smije biti otkomentiran
@@ -33,7 +34,28 @@ function Profile(){
 
             <Navbar/>
 
-            <span>{user.username} {user.email} {user.ratingCount == 0 ? 0 : user.rating}</span>
+            <div className="profile-info">
+                <div className='profile-info-item'>
+                    <span className='profile-info-item-name'>Korisničko ime: </span>
+                    <span className='profile-info-item-value'>{user.username}</span>
+                </div>
+                <div className='profile-info-item'>
+                    <span className='profile-info-item-name'>Ime: </span>
+                    <span className='profile-info-item-value'>{user.firstName}</span>
+                </div>
+                <div className='profile-info-item'>
+                    <span className='profile-info-item-name'>Prezime: </span>
+                    <span className='profile-info-item-value'>{user.lastName}</span>
+                </div>
+                <div className='profile-info-item'>
+                    <span className='profile-info-item-name'>Email:  </span>
+                    <span className='profile-info-item-value'>{user.email}</span>
+                </div>
+                <div className='profile-info-item'>
+                    <span className='profile-info-item-name'>Rating:  </span>
+                    <span className='profile-info-item-value'>{user.ratingCount == 0 ? 0 : user.rating}</span>
+                </div>
+            </div>
         </div>
     )
 }
