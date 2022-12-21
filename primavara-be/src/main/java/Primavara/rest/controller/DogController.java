@@ -28,7 +28,7 @@ public class DogController {
     }
 
     @GetMapping("breeds")
-    public List<Breed> getAllBreeds() {
-        return dogService.getAllBreeds();
+    public List<Optional<Breed>> getAllSortedBreeds() {
+        return dogService.getAllSortedBreeds();
     }
 }

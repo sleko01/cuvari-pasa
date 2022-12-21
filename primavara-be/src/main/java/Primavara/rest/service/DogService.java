@@ -14,4 +14,6 @@ public interface DogService {
     List<Optional<Dog>> getAllMyDogs(Long id);
 
     List<Breed> getAllBreeds();
+
+    List<Optional<Breed>> getAllSortedBreeds();
 }
