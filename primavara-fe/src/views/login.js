@@ -4,8 +4,8 @@ import axios, {AxiosError} from "axios";
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
-import './home.css'
-import '../index.css'
+import '../styles/home.css'
+import '../styles/index.css'
 
 
 import TextField from '@mui/material/TextField';
@@ -67,7 +67,23 @@ function Login(){
         }).then(response => {
             console.log(response)
             localStorage.setItem("username", form.username)
-            window.location.href = "/";
+            axios({
+                method: "get",
+                url: "/api/users/username/" + form.username
+            }).then(response => {
+                console.log(response)
+                console.log(response.data + " ja sam response.data");
+                localStorage.setItem("id", response.data)
+                axios({
+                    method: "get",
+                    url: "/api/users/profile/" + localStorage.getItem("id")
+                }).then(response => {
+                    console.log(response)
+                    localStorage.setItem("role", response.data.role.roleId)
+                    response.data.blocked == true ? window.location.href = "/blocked" : window.location.href = "/";
+                })
+
+            })
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)

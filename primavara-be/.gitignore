@@ -1,8 +1,10 @@
-.idea/
+../.idea/
 .DS_Store
 rest.imlnode_modules/
 .DS_Store
 .AppleDouble
 .LSOverride
+./src/main/resources/application.properties
+./target/classes/application.properties
 
 

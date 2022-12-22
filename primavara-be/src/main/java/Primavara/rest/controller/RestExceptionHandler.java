@@ -17,7 +17,7 @@ public class RestExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     protected ResponseEntity<?> handleIllegalArgument(Exception e, WebRequest req) {
         Map<String, String> props = new HashMap<>();
-        props.put("message", "banana");
+        props.put("message", e.getMessage());
         props.put("status", "400");
         props.put("error", "Bad Request");
         return new ResponseEntity<>(props, HttpStatus.BAD_REQUEST);

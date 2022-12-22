@@ -1,6 +1,5 @@
 package Primavara.rest.domain;
 
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -27,8 +26,12 @@ public class AgreedRequest {
     private RequestDog requestDog;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="initiator_user_id")
     private AppUser initiatorUser;
+
+    @OneToOne
+    @JoinColumn(name="user_id")
+    private AppUser appUser;
 
     public Long getAgreedRequestId() {
         return agreedRequestId;
@@ -84,5 +87,13 @@ public class AgreedRequest {
 
     public void setInitiatorUser(AppUser initiatorUser) {
         this.initiatorUser = initiatorUser;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }

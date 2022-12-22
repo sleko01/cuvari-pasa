@@ -1,8 +1,12 @@
 package Primavara.rest.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.sql.Blob;
+import java.sql.Clob;
 import java.sql.Date;
 
 @Entity
@@ -18,7 +22,9 @@ public class Dog {
     @NotNull
     private Date dateOfBirth;
 
-    private String photo;
+    @Lob
+    @Type(type="org.hibernate.type.BinaryType")
+    private byte[] photo;
 
     @NotNull
     private Long ratingSum;
@@ -30,9 +36,10 @@ public class Dog {
     @JoinColumn(name="breed_id")
     private Breed breed;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="user_id")
-    private Owner owner;
+    private AppUser appUser;
 
     public Long getDogId() {
         return dogId;
@@ -58,11 +65,11 @@ public class Dog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
 
@@ -90,12 +97,11 @@ public class Dog {
         this.breed = breed;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
-
 }

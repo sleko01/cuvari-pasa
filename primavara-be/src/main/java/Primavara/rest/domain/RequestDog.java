@@ -4,10 +4,10 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Set;
 
 @Entity
 public class RequestDog {
+    //pise ga cuvar pasa
     @Id
     @GeneratedValue
     private Long requestDogId;
@@ -41,7 +41,7 @@ public class RequestDog {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private Guardian guardian;
+    private AppUser appUser;
 
     public Long getRequestDogId() {
         return requestDogId;
@@ -79,8 +79,8 @@ public class RequestDog {
         return isFlexible;
     }
 
-    public void setFlexible(Boolean flexible) {
-        isFlexible = flexible;
+    public void setFlexible(Boolean isFlexible) {
+        this.isFlexible = isFlexible;
     }
 
     public String getLocation() {
@@ -123,11 +123,11 @@ public class RequestDog {
         this.breed = breed;
     }
 
-    public Guardian getGuardian() {
-        return guardian;
+    public AppUser getAppUser() {
+        return appUser;
     }
 
-    public void setGuardian(Guardian guardian) {
-        this.guardian = guardian;
+    public void setAppUser(AppUser appUser) {
+        this.appUser = appUser;
     }
 }

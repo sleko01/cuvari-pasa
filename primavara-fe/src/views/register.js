@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet'
 
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
-import './home.css'
-import '../index.css'
+import '../styles/home.css'
+import '../styles/index.css'
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -67,7 +67,7 @@ function Register(){
             "roleId": form.role
         }).then(async response => {
             console.log(response)
-            window.location.href = "/";
+            window.location.href = "/users/login";
             setIsDisabled(false);
         }).catch(err => {
             console.log(err);

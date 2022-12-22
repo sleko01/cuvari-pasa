@@ -33,7 +33,22 @@ public class AppUser {
     @NotNull
     private Long ratingCount;
 
+    @NotNull
     private String email;
+
+    private Boolean hasExperience;
+
+    private Boolean hasDog;
+
+    private Boolean blocked;
+
+    public Boolean getHasDog() {
+        return hasDog;
+    }
+
+    public void setHasDog(Boolean hasDog) {
+        this.hasDog = hasDog;
+    }
 
     public Long getUserId() {
         return userId;
@@ -105,5 +120,21 @@ public class AppUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Boolean getHasExperience() {
+        return hasExperience;
+    }
+
+    public void setHasExperience(Boolean hasExperience) {
+        this.hasExperience = hasExperience;
+    }
+
+    public Boolean getBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        this.blocked = blocked;
     }
 }

@@ -1,6 +1,5 @@
 package Primavara.rest.domain;
 
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 
