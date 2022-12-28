@@ -1,0 +1,1 @@
+INSERT INTO Role VALUES (1, 'Vlasnik'), (2, 'Čuvar'), (3, 'VlasnikČuvar');
