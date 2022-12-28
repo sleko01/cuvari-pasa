@@ -1,1 +1,0 @@
-INSERT INTO ACTIVITY VALUES (1, 'Hranjenje'), (2, 'Trčanje'), (3, 'Šetanje');
