@@ -47,7 +47,7 @@ public class RequestDogServiceImpl implements RequestDogService{
                     "Owner can not add new RequestDog"
             );
 
-        RequestDog requestDog= new RequestDog();
+        RequestDog requestDog = new RequestDog();
         requestDog.setDogAge(newRequestDog.getDogAge());
         if (java.time.LocalDate.now().isAfter(newRequestDog.getDogTimeBegin().toLocalDateTime().toLocalDate()))
             throw new RequestDeniedException(
@@ -65,6 +65,7 @@ public class RequestDogServiceImpl implements RequestDogService{
             );
         requestDog.setFlexible(newRequestDog.getFlexible());
         requestDog.setLocation(newRequestDog.getLocation());
+        requestDog.setLocationName(newRequestDog.getLocationName());
         requestDog.setNumberOfDogs(newRequestDog.getNumberOfDogs());
         //za sada zbog testiranja (po defaultu ce inace biti false)
             requestDog.setPublished(true);

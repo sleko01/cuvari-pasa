@@ -43,6 +43,9 @@ public class RequestDog {
     @JoinColumn(name="user_id")
     private AppUser appUser;
 
+    @NotNull
+    private String locationName;
+
     public Long getRequestDogId() {
         return requestDogId;
     }
@@ -129,5 +132,13 @@ public class RequestDog {
 
     public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 }

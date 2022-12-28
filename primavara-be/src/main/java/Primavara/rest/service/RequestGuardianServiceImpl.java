@@ -69,6 +69,7 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
 
         RequestGuardian requestGuardian=new RequestGuardian();
         requestGuardian.setLocation(newRequestGuardian.getLocation());
+        requestGuardian.setLocationName(newRequestGuardian.getLocationName());
         requestGuardian.setNumberOfDogs(newRequestGuardian.getNumberOfDogs());
         if (java.time.LocalDate.now().isAfter(newRequestGuardian.getGuardTimeBegin().toLocalDateTime().toLocalDate()))
             throw new RequestDeniedException(

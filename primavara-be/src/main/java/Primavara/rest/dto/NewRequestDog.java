@@ -20,6 +20,8 @@ public class NewRequestDog {
 
     private Long breedId;
 
+    private String locationName;
+
     public Long getDogAge() {
         return dogAge;
     }
@@ -71,4 +73,12 @@ public class NewRequestDog {
     public Long getBreedId() { return breedId; }
 
     public void setBreedId(Long breedId) { this.breedId = breedId; }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 }

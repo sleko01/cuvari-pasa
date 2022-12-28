@@ -25,6 +25,8 @@ public class NewRequestGuardian {
 
     private Long quantity;
 
+    private String locationName;
+
     public String getLocation() {
         return location;
     }
@@ -88,4 +90,20 @@ public class NewRequestGuardian {
     public Long getQuantity() { return quantity; }
 
     public void setQuantity(Long quantity) { this.quantity = quantity; }
+
+    public void setDogId(List<Long> dogId) {
+        this.dogId = dogId;
+    }
+
+    public void setActivityId(List<Long> activityId) {
+        this.activityId = activityId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 }

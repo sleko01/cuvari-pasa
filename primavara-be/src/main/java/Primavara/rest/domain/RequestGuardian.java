@@ -34,6 +34,8 @@ public class RequestGuardian {
     @JoinColumn(name="user_id")
     private AppUser appUser;
 
+    private String locationName;
+
     public Long getRequestGuardianId() {
         return requestGuardianId;
     }
@@ -112,5 +114,13 @@ public class RequestGuardian {
 
     public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
     }
 }
