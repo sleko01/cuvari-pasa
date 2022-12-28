@@ -1,0 +1,14 @@
+ALTER TABLE APPUSER ADD COLUMN has_dog boolean;
+ALTER TABLE APPUSER ADD COLUMN has_experience boolean;
+
+ALTER TABLE DOG DROP CONSTRAINT dog_user_id_fkey;
+ALTER TABLE DOG ADD CONSTRAINT dog_user_id_fkey FOREIGN KEY(user_id) REFERENCES AppUser(user_id);
+
+ALTER TABLE REQUEST_DOG DROP CONSTRAINT request_dog_user_id_fkey;
+ALTER TABLE REQUEST_DOG ADD CONSTRAINT request_dog_user_id_fkey FOREIGN KEY(user_id) REFERENCES AppUser(user_id);
+
+ALTER TABLE REQUEST_GUARDIAN DROP CONSTRAINT request_guardian_user_id_fkey;
+ALTER TABLE REQUEST_GUARDIAN ADD CONSTRAINT request_guardian_user_id_fkey FOREIGN KEY(user_id) REFERENCES AppUser(user_id);
+
+DROP TABLE GUARDIAN;
+DROP TABLE OWNER;
