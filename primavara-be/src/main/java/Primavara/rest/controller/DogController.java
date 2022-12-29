@@ -2,11 +2,16 @@ package Primavara.rest.controller;
 
 import Primavara.rest.domain.Breed;
 import Primavara.rest.domain.Dog;
+import Primavara.rest.dto.RatedDogsList;
 import Primavara.rest.dto.RegisterDog;
 import Primavara.rest.service.DogService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,5 +35,17 @@ public class DogController {
     @GetMapping("breeds")
     public List<Optional<Breed>> getAllSortedBreeds() {
         return dogService.getAllSortedBreeds();
+    }
+
+    @PostMapping("rate/{idRequest}")
+    public void rateDogs(@RequestBody RatedDogsList ratedDogsList, @PathVariable(required = true) Long idRequest) throws JsonProcessingException {
+        /*ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<Long, Long>> typeRef = new TypeReference<HashMap<Long, Long>>() {};
+        HashMap<Long, Long> map = mapper.readValue(dogs, typeRef);*/
+        HashMap<Long, Long> map = new HashMap<>();
+        for (int i = 0; i < ratedDogsList.length(); i++) {
+            map.put(ratedDogsList.getListId().get(i), ratedDogsList.getListValue().get(i));
+        }
+        dogService.rateDogs(idRequest, map);
     }
 }

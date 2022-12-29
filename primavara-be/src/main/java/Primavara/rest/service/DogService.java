@@ -4,6 +4,7 @@ import Primavara.rest.domain.Breed;
 import Primavara.rest.domain.Dog;
 import Primavara.rest.dto.RegisterDog;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,4 +17,6 @@ public interface DogService {
     List<Breed> getAllBreeds();
 
     List<Optional<Breed>> getAllSortedBreeds();
+
+    void rateDogs(Long idRequest, HashMap<Long, Long> dogs);
 }

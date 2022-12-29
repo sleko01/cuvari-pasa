@@ -52,4 +52,8 @@ public class AppUserController {
         appUserService.blockAppUser(id);
     }
 
+    @PostMapping("rate/{idRequest}/{value}")
+    public void rateAppUser(@PathVariable(required = true) Long idRequest, @PathVariable(required = true) Long value) {
+        appUserService.rateAppUser(idRequest, value);
+    }
 }

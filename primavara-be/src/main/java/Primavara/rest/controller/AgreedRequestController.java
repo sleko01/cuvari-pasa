@@ -19,4 +19,9 @@ public class AgreedRequestController {
     private void respondToAgreedRequest(@PathVariable(required = true) Long idUser, @PathVariable(required = true) Long idRequest) {
         agreedRequestService.responseToRequest(idUser, idRequest);
     }
+
+    @PostMapping("initiate/{idReqGua}/{idReqDog}/{idInitiator}")
+    private void initiateToAgreedRequestByBestOption(@PathVariable Long idReqGua, @PathVariable Long idReqDog, @PathVariable Long idInitiator) {
+        agreedRequestService.initiateToAgreedRequestByBestOption(idReqGua, idReqDog, idInitiator);
+    }
 }

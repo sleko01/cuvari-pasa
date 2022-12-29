@@ -13,6 +13,10 @@ public interface DogRepository extends JpaRepository<Dog, Long> {
             nativeQuery = true)
     List<Optional<Dog>> findAllAppUsersDogs(@Param("s") Long id);
 
+    @Query(value = "SELECT dog_id FROM dog d WHERE d.user_id = :s",
+            nativeQuery = true)
+    List<Long> findAllAppUsersDogsId(@Param("s") Long id);
+
     @Query(value = "SELECT COUNT(*) FROM dog d WHERE d.user_id = :i AND d.name = :n",
             nativeQuery = true)
     Integer countAllAppUsersDogsWithName(@Param("i") Long id, @Param("n") String name);

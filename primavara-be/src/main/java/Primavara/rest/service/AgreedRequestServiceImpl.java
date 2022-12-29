@@ -104,4 +104,42 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
         agreedRequestRepository.save(agreedRequest);
     }
 
+    @Override
+    public void initiateToAgreedRequestByBestOption(Long idReqGua, Long idReqDog, Long idInitiator) {
+        if (requestDogRepository.countByRequestDogId(idReqDog) == 0)
+            throw new RequestDeniedException(
+                    "RequestDog with id " + idReqDog + " does not exists"
+            );
+        if (requestGuardianRepository.countByRequestGuardianId(idReqGua) == 0)
+            throw new RequestDeniedException(
+                    "RequestGuardian with id " + idReqGua + " does not exists"
+            );
+        RequestDog requestDog = requestDogRepository.findByRequestDogId(idReqDog);
+        RequestGuardian requestGuardian = requestGuardianRepository.findByRequestGuardianId(idReqGua);
+        if (appUserRepository.countByUserId(idInitiator) == 0)
+            throw new RequestDeniedException(
+                    "User with id " + idInitiator + " does not exists"
+            );
+        Long prvi = requestDog.getAppUser().getUserId();
+        Long drugi = requestGuardian.getAppUser().getUserId();
+        if (!(((idInitiator != prvi && idInitiator == drugi) || (idInitiator == prvi && idInitiator != drugi)) && prvi != drugi))
+            throw new RequestDeniedException(
+                    "Can not initiate on your own request"
+            );
+        AgreedRequest agreedRequest = new AgreedRequest();
+        agreedRequest.setAgreed(false);
+        agreedRequest.setAgreedTimeBegin(requestDog.getDogTimeBegin());
+        agreedRequest.setAgreedTimeEnd(requestDog.getDogTimeEnd());
+        agreedRequest.setRequestGuardian(requestGuardian);
+        agreedRequest.setRequestDog(requestDog);
+        agreedRequest.setInitiatorUser(appUserRepository.findByUserId(idInitiator));
+        if (idInitiator != requestDog.getAppUser().getUserId())
+            agreedRequest.setAppUser(requestDog.getAppUser());
+        else
+            agreedRequest.setAppUser(requestGuardian.getAppUser());
+        agreedRequest.setInitiatorRated(false);
+        agreedRequest.setUserRated(false);
+        agreedRequestRepository.save(agreedRequest);
+    }
+
 }

@@ -1,14 +1,8 @@
 package Primavara.rest.service;
 
-import Primavara.rest.domain.AppUser;
-import Primavara.rest.domain.RequestDog;
-import Primavara.rest.domain.RequestGuardian;
-import Primavara.rest.domain.Role;
+import Primavara.rest.domain.*;
 import Primavara.rest.dto.RegisterUser;
-import Primavara.rest.repository.AppUserRepository;
-import Primavara.rest.repository.RequestDogRepository;
-import Primavara.rest.repository.RequestGuardianRepository;
-import Primavara.rest.repository.RoleRepository;
+import Primavara.rest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,6 +24,10 @@ public class AppUserServiceImpl implements AppUserService{
     private RequestGuardianRepository requestGuardianRepository;
     @Autowired
     private RequestDogRepository requestDogRepository;
+
+    @Autowired
+    private AgreedRequestRepository agreedRequestRepository;
+
     PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
@@ -143,6 +141,58 @@ public class AppUserServiceImpl implements AppUserService{
         AppUser user = appUserRepository.findByUserId(id);
         user.setBlocked(true);
         appUserRepository.save(user);
+    }
+
+    @Override
+    public void rateAppUser(Long idRequest, Long value) {
+        if (value != -1) {
+            if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
+                throw new RequestDeniedException(
+                        "Request with id " + idRequest + " does not exist"
+                );
+            AgreedRequest agreedRequest = agreedRequestRepository.findByAgreedRequestId(idRequest);
+            if (!agreedRequest.getAgreed())
+                throw  new RequestDeniedException(
+                        "Can not rate not agreed request"
+                );
+
+            if (agreedRequest.getRequestDog() == null) {
+                AppUser initiator = agreedRequest.getInitiatorUser();
+                initiator.setRatingSum(initiator.getRatingSum() + value);
+                initiator.setRatingCount(initiator.getRatingCount() + 1);
+                appUserRepository.save(initiator);
+                agreedRequest.setUserRated(true);
+                agreedRequestRepository.save(agreedRequest);
+            } else if (agreedRequest.getRequestGuardian() == null) {
+                AppUser appUser = agreedRequest.getAppUser();
+                appUser.setRatingSum(appUser.getRatingSum() + value);
+                appUser.setRatingCount(appUser.getRatingCount() + 1);
+                appUserRepository.save(appUser);
+                agreedRequest.setInitiatorRated(true);
+                agreedRequestRepository.save(agreedRequest);
+            } else {
+                RequestDog requestDog = agreedRequest.getRequestDog();
+                RequestGuardian requestGuardian = agreedRequest.getRequestGuardian();
+                if (agreedRequest.getAppUser().getUserId() == requestDog.getAppUser().getUserId()) {
+                    //ako je appuser jednak cuvaru
+                    AppUser appUser = agreedRequest.getAppUser();
+                    appUser.setRatingSum(appUser.getRatingSum() + value);
+                    appUser.setRatingCount(appUser.getRatingCount() + 1);
+                    appUserRepository.save(appUser);
+                    agreedRequest.setUserRated(true);
+                    agreedRequestRepository.save(agreedRequest);
+                }
+                else if (agreedRequest.getInitiatorUser().getUserId() == requestDog.getAppUser().getUserId()) {
+                    //ako je initiator jednak cuvaru
+                    AppUser initiator = agreedRequest.getInitiatorUser();
+                    initiator.setRatingSum(initiator.getRatingSum() + value);
+                    initiator.setRatingCount(initiator.getRatingCount() + 1);
+                    appUserRepository.save(initiator);
+                    agreedRequest.setInitiatorRated(true);
+                    agreedRequestRepository.save(agreedRequest);
+                }
+            }
+        }
     }
 
 }

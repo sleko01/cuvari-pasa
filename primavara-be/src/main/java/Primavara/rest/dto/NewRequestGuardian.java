@@ -79,13 +79,7 @@ public class NewRequestGuardian {
         return dogId;
     }
 
-    public void setDogId(Long[] dogId) {
-        this.dogId = Arrays.asList(dogId);
-    }
-
     public List<Long> getActivityId() { return activityId; }
-
-    public void setActivityId(Long[] activityId) { this.activityId = Arrays.asList(activityId); }
 
     public Long getQuantity() { return quantity; }
 

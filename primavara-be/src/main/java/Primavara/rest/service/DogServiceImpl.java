@@ -1,17 +1,15 @@
 package Primavara.rest.service;
 
-import Primavara.rest.domain.AppUser;
-import Primavara.rest.domain.Breed;
-import Primavara.rest.domain.Dog;
+import Primavara.rest.domain.*;
 import Primavara.rest.dto.RegisterDog;
-import Primavara.rest.repository.AppUserRepository;
-import Primavara.rest.repository.BreedRepository;
-import Primavara.rest.repository.DogRepository;
+import Primavara.rest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -25,6 +23,12 @@ public class DogServiceImpl implements DogService{
 
     @Autowired
     private BreedRepository breedRepository;
+
+    @Autowired
+    private AgreedRequestRepository agreedRequestRepository;
+
+    @Autowired
+    private RequestGuardiansDogRepository requestGuardiansDogRepository;
 
     @Override
     public void addDog(RegisterDog registerDog, Long id) {
@@ -76,6 +80,56 @@ public class DogServiceImpl implements DogService{
     @Override
     public List<Optional<Breed>> getAllSortedBreeds() {
         return breedRepository.findAllSorted();
+    }
+
+    @Override
+    public void rateDogs(Long idRequest, HashMap<Long, Long> dogs) {
+        if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
+            throw new RequestDeniedException(
+                    "Request with id " + idRequest + " does not exist"
+            );
+        AgreedRequest agreedRequest = agreedRequestRepository.findByAgreedRequestId(idRequest);
+        if (!agreedRequest.getAgreed())
+            throw  new RequestDeniedException(
+                    "Can not rate not agreed request"
+            );
+
+        if (agreedRequest.getRequestGuardian() != null) {
+            List<Long> dogsIdsInRequest = requestGuardiansDogRepository.findALlIdsByRequestGuardianId(agreedRequest.getRequestGuardian().getRequestGuardianId());
+
+            for (Map.Entry<Long, Long> entry: dogs.entrySet()) {
+                if (!dogsIdsInRequest.contains(entry.getKey()))
+                    throw  new RequestDeniedException(
+                            "Dog with id " + entry.getKey() + " was not in that walk"
+                    );
+                else if (entry.getValue() != -1) {
+                    Dog dog = dogRepository.findByDogId(entry.getKey());
+                    dog.setRatingSum(dog.getRatingSum() + entry.getValue());
+                    dog.setRatingCount(dog.getRatingCount() + 1);
+                    dogRepository.save(dog);
+                    agreedRequest.setInitiatorRated(true);
+                    agreedRequestRepository.save(agreedRequest);
+                }
+            }
+        }
+        else if (agreedRequest.getRequestDog() != null) {
+            List<Long> allAppUsersDogIds = dogRepository.findAllAppUsersDogsId(agreedRequest.getAppUser().getUserId());
+
+            for (Map.Entry<Long, Long> entry: dogs.entrySet()) {
+                if (!allAppUsersDogIds.contains(entry.getKey()))
+                    throw  new RequestDeniedException(
+                             "Dog with id " + entry.getKey() + " is not that app user's dog"
+                    );
+                else if (entry.getValue() != -1) {
+                    Dog dog = dogRepository.findByDogId(entry.getKey());
+                    dog.setRatingSum(dog.getRatingSum() + entry.getValue());
+                    dog.setRatingCount(dog.getRatingCount() + 1);
+                    dogRepository.save(dog);
+                    agreedRequest.setInitiatorRated(true);
+                    agreedRequestRepository.save(agreedRequest);
+                }
+            }
+        }
     }
 
     private void validate(RegisterDog registerDog) {

@@ -7,4 +7,6 @@ public interface AgreedRequestService {
     void initiateToRequestGuardian(Long idReqGua, Long idInitiator);
 
     void responseToRequest(Long idUser, Long idRequest);
+
+    void initiateToAgreedRequestByBestOption(Long idReqGua, Long idReqDog, Long idInitiator);
 }

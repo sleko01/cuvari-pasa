@@ -20,4 +20,6 @@ public interface AppUserService {
     void giveAdminToAppUser(Long id);
 
     void blockAppUser(Long id);
+
+    void rateAppUser(Long idRequest, Long value);
 }
