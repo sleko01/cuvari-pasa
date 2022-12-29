@@ -17,11 +17,11 @@ public class AgreedRequest {
 
     private Timestamp agreedTimeEnd;
 
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name="request_guardian_id")
     private RequestGuardian requestGuardian;
 
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name="request_dog_id")
     private RequestDog requestDog;
 
@@ -32,6 +32,10 @@ public class AgreedRequest {
     @OneToOne
     @JoinColumn(name="user_id")
     private AppUser appUser;
+
+    private boolean initiatorRated;
+
+    private boolean userRated;
 
     public Long getAgreedRequestId() {
         return agreedRequestId;
@@ -95,5 +99,21 @@ public class AgreedRequest {
 
     public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
+    }
+
+    public boolean isInitiatorRated() {
+        return initiatorRated;
+    }
+
+    public void setInitiatorRated(boolean initiatorRated) {
+        this.initiatorRated = initiatorRated;
+    }
+
+    public boolean isUserRated() {
+        return userRated;
+    }
+
+    public void setUserRated(boolean userRated) {
+        this.userRated = userRated;
     }
 }

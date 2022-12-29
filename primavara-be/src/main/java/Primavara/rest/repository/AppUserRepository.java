@@ -20,4 +20,5 @@ public interface AppUserRepository extends JpaRepository<AppUser, Long> {
     @Query(value = "SELECT * FROM appuser a WHERE a.user_id != :i", nativeQuery = true)
     List<Optional<AppUser>> findAllExceptCurrentUser(@Param("i") Long id);
 
+    Integer countByUserId(Long id);
 }

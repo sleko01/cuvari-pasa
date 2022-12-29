@@ -125,6 +125,10 @@ public class AppUserServiceImpl implements AppUserService{
 
     @Override
     public void giveAdminToAppUser(Long id) {
+        if (appUserRepository.countByUserId(id) == 0)
+            throw new RequestDeniedException(
+                    "User with id " + id + " does not exist"
+            );
         AppUser user = appUserRepository.findByUserId(id);
         user.setRole(roleRepository.findByRoleId(4L));
         appUserRepository.save(user);
@@ -132,10 +136,13 @@ public class AppUserServiceImpl implements AppUserService{
 
     @Override
     public void blockAppUser(Long id) {
+        if (appUserRepository.countByUserId(id) == 0)
+            throw new RequestDeniedException(
+                    "User with id " + id + " does not exist"
+            );
         AppUser user = appUserRepository.findByUserId(id);
         user.setBlocked(true);
         appUserRepository.save(user);
     }
-
 
 }
