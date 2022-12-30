@@ -195,4 +195,48 @@ public class AppUserServiceImpl implements AppUserService{
         }
     }
 
+    @Override
+    public void approveRequestGuardian(Long id, Long val){
+        if(requestGuardianRepository.countByRequestGuardianId(id)==0){
+            throw new RequestDeniedException(
+                    "RequestGuardian with id " + id + " does not exist"
+            );
+        }
+        RequestGuardian requestGuardian = requestGuardianRepository.findByRequestGuardianId(id);
+
+        if(val==0){
+            requestGuardian.setPublished(false);
+        }else if(val==1){
+            requestGuardian.setPublished(true);
+        }else{
+            throw new RequestDeniedException(
+                    "Cannot approve RequestGuardian with value of " + val
+            );
+        }
+        requestGuardian.setReviewed(true);
+        requestGuardianRepository.save(requestGuardian);
+    }
+
+    @Override
+    public void approveRequestDog(Long id, Long val){
+        if(requestDogRepository.countByRequestDogId(id)==0){
+            throw new RequestDeniedException(
+                    "RequestDog with id " + id + " does not exist"
+            );
+        }
+        RequestDog requestDog = requestDogRepository.findByRequestDogId(id);
+
+        if(val==0){
+            requestDog.setPublished(false);
+        }else if(val==1){
+            requestDog.setPublished(true);
+        }else{
+            throw new RequestDeniedException(
+                    "Cannot approve RequestDog with value of " + val
+            );
+        }
+        requestDog.setReviewed(true);
+        requestDogRepository.save(requestDog);
+    }
+
 }

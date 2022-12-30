@@ -56,4 +56,14 @@ public class AppUserController {
     public void rateAppUser(@PathVariable(required = true) Long idRequest, @PathVariable(required = true) Long value) {
         appUserService.rateAppUser(idRequest, value);
     }
+
+    @PostMapping("moderation/reqgua/{id}/{val}")
+    public void approveRequestGuardian(@PathVariable(required = true) Long id, @PathVariable(required = true) Long val){
+        appUserService.approveRequestGuardian(id, val);
+    }
+
+    @PostMapping("moderation/reqdog/{id}/{val}")
+    public void approveRequestDog(@PathVariable(required = true) Long id, @PathVariable(required = true) Long val){
+        appUserService.approveRequestDog(id, val);
+    }
 }
