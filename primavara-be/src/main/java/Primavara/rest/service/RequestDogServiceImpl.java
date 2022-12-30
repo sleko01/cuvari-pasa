@@ -34,10 +34,11 @@ public class RequestDogServiceImpl implements RequestDogService{
     public void addNewRequestDog(NewRequestDog newRequestDog, Long id){
         validate(newRequestDog);
 
-        if (appUserRepository.findByUserId(id) == null)
+        if (appUserRepository.findByUserId(id) == null){
             throw new RequestDeniedException(
                     "AppUser with id " + id + " does not exists"
             );
+        }
 
         //(iz tog cemo iscitati hasExperience i hasDog atribute)
             AppUser appUser=appUserRepository.findByUserId(id);
@@ -54,23 +55,23 @@ public class RequestDogServiceImpl implements RequestDogService{
                     "Date of beginning must be in the future"
             );
         requestDog.setDogTimeBegin(newRequestDog.getDogTimeBegin());
-        if (java.time.LocalDate.now().isAfter(newRequestDog.getDogTimeBegin().toLocalDateTime().toLocalDate()))
+        if (java.time.LocalDate.now().isAfter(newRequestDog.getDogTimeEnd().toLocalDateTime().toLocalDate()))
             throw new RequestDeniedException(
-                    "Date of beginning must be in the future"
+                    "Date of ending must be in the future"
             );
         requestDog.setDogTimeEnd(newRequestDog.getDogTimeEnd());
         if (newRequestDog.getDogTimeBegin().toLocalDateTime().toLocalDate().isAfter(newRequestDog.getDogTimeEnd().toLocalDateTime().toLocalDate()))
             throw new RequestDeniedException(
-                    "Date of begining must be before date of ending"
+                    "Date of beginning must be before date of ending"
             );
         requestDog.setFlexible(newRequestDog.getFlexible());
         requestDog.setLocation(newRequestDog.getLocation());
         requestDog.setLocationName(newRequestDog.getLocationName());
         requestDog.setNumberOfDogs(newRequestDog.getNumberOfDogs());
-        //za sada zbog testiranja (po defaultu ce inace biti false)
-            requestDog.setPublished(true);
-            requestDog.setReviewed(true);
-        //
+
+        requestDog.setPublished(false);
+        requestDog.setReviewed(false);
+
         Breed dogBreed=breedRepository.findByBreedId(newRequestDog.getBreedId());
         requestDog.setBreed(dogBreed);
 
@@ -86,6 +87,7 @@ public class RequestDogServiceImpl implements RequestDogService{
         Assert.notNull(newRequestDog.getDogTimeEnd(), "NewRequestDog dogTimeBEnd must be given");
         Assert.notNull(newRequestDog.getFlexible(), "NewRequestDog isFlexible must be given");
         Assert.hasText(newRequestDog.getLocation(), "NewRequestDog location must be given");
+        Assert.hasText(newRequestDog.getLocationName(), "NewRequestDog locationName must be given");
         Assert.hasText(newRequestDog.getNumberOfDogs().toString(), "NewRequestDog numberOfDogs must be given");
         if (breedRepository.countByBreedId(newRequestDog.getBreedId()) == 0)
             throw new RequestDeniedException(

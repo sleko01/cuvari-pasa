@@ -83,14 +83,14 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
         requestGuardian.setGuardTimeEnd(newRequestGuardian.getGuardTimeEnd());
         if (newRequestGuardian.getGuardTimeBegin().toLocalDateTime().toLocalDate().isAfter(newRequestGuardian.getGuardTimeEnd().toLocalDateTime().toLocalDate()))
             throw new RequestDeniedException(
-                    "Date of begining must be before date of ending"
+                    "Date of beginning must be before date of ending"
             );
         requestGuardian.setHasExperience(newRequestGuardian.getHasExperience());
         requestGuardian.setHasDog(newRequestGuardian.getHasDog());
-        //za sada zbog testiranja (inace ce po defaultu ce biti false)
-            requestGuardian.setPublished(true);
-            requestGuardian.setReviewed(true);
-        //
+
+        requestGuardian.setPublished(false);
+        requestGuardian.setReviewed(false);
+
         requestGuardian.setAppUser(appUser);
 
         requestGuardianRepository.save(requestGuardian);
@@ -126,6 +126,7 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
         Assert.notNull(newRequestGuardian.getGuardTimeEnd(), "NewRequestGuardian guardTimeEnd must be given");
         Assert.notNull(newRequestGuardian.getHasExperience(), "NewRequestGuardian hasExperience must be given");
         Assert.notNull(newRequestGuardian.getHasDog(), "NewRequestGuardian hasDog must be given");
+        Assert.notNull(newRequestGuardian.getLocationName(), "NewRequestGuardian locationName must be given");
 
         for(Long dogId: newRequestGuardian.getDogId()){
             if(dogRepository.findByDogId(dogId)==null){
