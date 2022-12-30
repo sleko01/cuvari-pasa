@@ -13,4 +13,6 @@ public interface RequestGuardiansDogRepository extends JpaRepository<RequestGuar
     @Query(value = "SELECT dog_id FROM request_guardians_dog r WHERE r.request_guardian_id = :i", nativeQuery = true)
     List<Long> findALlIdsByRequestGuardianId(@Param("i") Long id);
 
+    @Query(value = "SELECT dog_id FROM request_guardians_dog WHERE request_guardian_id = :i", nativeQuery = true)
+    List<Long> findAllDogIdByRequestGuardianId(@Param("i") Long id);
 }

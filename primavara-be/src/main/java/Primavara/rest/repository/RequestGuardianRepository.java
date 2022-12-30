@@ -27,4 +27,13 @@ public interface RequestGuardianRepository extends JpaRepository<RequestGuardian
     RequestGuardian findByRequestGuardianId(Long id);
 
     Long countByRequestGuardianId(Long id);
+
+    @Query(value = "SELECT *\n" +
+                    "FROM request_guardian as r\n" +
+                    "WHERE r.is_reviewed = true and r.is_published = true and r.user_id <> :i and r.request_guardian_id not in (\n" +
+                    "\tSELECT request_guardian_id\n" +
+                    "\tFROM agreed_request\n" +
+                    "\tWHERE is_agreed = true\n" +
+                    ")", nativeQuery = true)
+    List<Optional<RequestGuardian>> findAllReviewedAndPublishedAndNotMineAndNotAgreed(@Param("i") Long user_id);
 }

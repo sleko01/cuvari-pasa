@@ -2,6 +2,7 @@ package Primavara.rest.repository;
 
 
 import Primavara.rest.domain.RequestDog;
+import Primavara.rest.domain.RequestGuardian;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -28,4 +29,13 @@ public interface RequestDogRepository extends JpaRepository<RequestDog, Long> {
     RequestDog findByRequestDogId(Long id);
 
     Long countByRequestDogId(Long id);
+
+    @Query(value = "SELECT *\n" +
+            "FROM request_dog as r\n" +
+            "WHERE r.is_reviewed = true and r.is_published = true and r.user_id <> :i and r.request_dog_id not in (\n" +
+            "\tSELECT request_dog_id\n" +
+            "\tFROM agreed_request\n" +
+            "\tWHERE is_agreed = true\n" +
+            ")", nativeQuery = true)
+    List<Optional<RequestDog>> findAllReviewedAndPublishedAndNotMineAndNotAgreed(@Param("i") Long user_id);
 }

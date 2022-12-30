@@ -65,6 +65,9 @@ public class DogServiceImpl implements DogService{
         dog.setAppUser(appUser);
         dog.setBreed(breed);
         dogRepository.save(dog);
+
+        appUser.setHasDog(true);
+        appUserRepository.save(appUser);
     }
 
     @Override

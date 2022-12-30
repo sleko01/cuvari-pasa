@@ -58,6 +58,8 @@ public class AppUserServiceImpl implements AppUserService{
         appUser.setRatingCount(Long.valueOf(0));
         appUser.setRatingSum(Long.valueOf(0));
         appUser.setBlocked(false);
+        appUser.setHasDog(false);
+        appUser.setHasExperience(false);
         Role role = roleRepository.findByRoleId(registerUser.getRoleId());
         appUser.setRole(role);
         appUserRepository.save(appUser);
@@ -160,6 +162,7 @@ public class AppUserServiceImpl implements AppUserService{
                 AppUser initiator = agreedRequest.getInitiatorUser();
                 initiator.setRatingSum(initiator.getRatingSum() + value);
                 initiator.setRatingCount(initiator.getRatingCount() + 1);
+                initiator.setHasExperience(true);
                 appUserRepository.save(initiator);
                 agreedRequest.setUserRated(true);
                 agreedRequestRepository.save(agreedRequest);
@@ -167,6 +170,7 @@ public class AppUserServiceImpl implements AppUserService{
                 AppUser appUser = agreedRequest.getAppUser();
                 appUser.setRatingSum(appUser.getRatingSum() + value);
                 appUser.setRatingCount(appUser.getRatingCount() + 1);
+                appUser.setHasExperience(true);
                 appUserRepository.save(appUser);
                 agreedRequest.setInitiatorRated(true);
                 agreedRequestRepository.save(agreedRequest);
@@ -178,6 +182,7 @@ public class AppUserServiceImpl implements AppUserService{
                     AppUser appUser = agreedRequest.getAppUser();
                     appUser.setRatingSum(appUser.getRatingSum() + value);
                     appUser.setRatingCount(appUser.getRatingCount() + 1);
+                    appUser.setHasExperience(true);
                     appUserRepository.save(appUser);
                     agreedRequest.setUserRated(true);
                     agreedRequestRepository.save(agreedRequest);
@@ -187,6 +192,7 @@ public class AppUserServiceImpl implements AppUserService{
                     AppUser initiator = agreedRequest.getInitiatorUser();
                     initiator.setRatingSum(initiator.getRatingSum() + value);
                     initiator.setRatingCount(initiator.getRatingCount() + 1);
+                    initiator.setHasExperience(true);
                     appUserRepository.save(initiator);
                     agreedRequest.setInitiatorRated(true);
                     agreedRequestRepository.save(agreedRequest);
