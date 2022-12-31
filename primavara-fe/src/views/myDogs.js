@@ -26,7 +26,7 @@ function MyDogs(){
     return(
         <div className="page-container">
             <Helmet>
-                <title>CuvariPasa | Naslovnica</title>
+                <title>CuvariPasa | Moji psi</title>
             </Helmet>
 
             <Navbar/>
