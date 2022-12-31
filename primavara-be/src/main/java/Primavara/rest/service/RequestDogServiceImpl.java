@@ -27,7 +27,7 @@ public class RequestDogServiceImpl implements RequestDogService{
 
     @Override
     public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs() {
-        return requestDogRepository.findAllReviewedAndPublished();
+        return requestDogRepository.findAllReviewedAndPublishedAndNotGone();
     }
 
     @Override

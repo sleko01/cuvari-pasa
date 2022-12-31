@@ -15,6 +15,13 @@ public interface RequestGuardianRepository extends JpaRepository<RequestGuardian
     nativeQuery = true)
     List<Optional<RequestGuardian>> findAllReviewedAndPublished();
 
+    @Query(value = "SELECT * FROM request_guardian r WHERE r.is_reviewed = true AND r.is_published = true and r.request_guardian_id not in (\n" +
+            "\tSELECT request_guardian_id\n" +
+            "\tFROM agreed_request\n" +
+            "\tWHERE is_agreed = true\n" +
+            ")", nativeQuery = true)
+    List<Optional<RequestGuardian>> findAllReviewedAndPublishedAndNotGone();
+
     @Query(value= "SELECT * FROM request_guardian r WHERE r.user_id = :i", nativeQuery = true)
     List<Optional<RequestGuardian>> findAllByUserId(@Param("i") Long user_id);
 

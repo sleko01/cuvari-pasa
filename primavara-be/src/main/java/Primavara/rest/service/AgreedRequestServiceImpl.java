@@ -1,8 +1,12 @@
 package Primavara.rest.service;
 
 import Primavara.rest.domain.*;
+import Primavara.rest.dto.RequestBothDTO;
+import Primavara.rest.dto.RequestDogDTO;
+import Primavara.rest.dto.RequestGuardianDTO;
 import Primavara.rest.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -10,9 +14,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class AgreedRequestServiceImpl implements AgreedRequestService{
@@ -52,7 +54,7 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
             );
 
         AgreedRequest agreedRequest = new AgreedRequest();
-        agreedRequest.setAgreed(false);
+        agreedRequest.setAgreed(null);
         agreedRequest.setAgreedTimeBegin(requestDog.getDogTimeBegin());
         agreedRequest.setAgreedTimeEnd(requestDog.getDogTimeEnd());
         agreedRequest.setRequestGuardian(null);
@@ -81,7 +83,7 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
             );
 
         AgreedRequest agreedRequest = new AgreedRequest();
-        agreedRequest.setAgreed(false);
+        agreedRequest.setAgreed(null);
         agreedRequest.setAgreedTimeBegin(requestGuardian.getGuardTimeBegin());
         agreedRequest.setAgreedTimeEnd(requestGuardian.getGuardTimeEnd());
         agreedRequest.setRequestGuardian(requestGuardian);
@@ -94,7 +96,7 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
     }
 
     @Override
-    public void responseToRequest(Long idUser, Long idRequest) {
+    public void responseToRequest(Long idUser, Long idRequest, Long value) {
         if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
             throw new RequestDeniedException(
                     "AgreedRequest with id " + idRequest + " does not exists"
@@ -109,7 +111,11 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
             throw new RequestDeniedException(
                     "Not the right user to respond"
             );
-        agreedRequest.setAgreed(true);
+
+        if (value == 1)
+            agreedRequest.setAgreed(true);
+        else
+            agreedRequest.setAgreed(false);
         agreedRequestRepository.save(agreedRequest);
     }
 
@@ -136,7 +142,7 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
                     "Can not initiate on your own request"
             );
         AgreedRequest agreedRequest = new AgreedRequest();
-        agreedRequest.setAgreed(false);
+        agreedRequest.setAgreed(null);
         agreedRequest.setAgreedTimeBegin(requestDog.getDogTimeBegin());
         agreedRequest.setAgreedTimeEnd(requestDog.getDogTimeEnd());
         agreedRequest.setRequestGuardian(requestGuardian);
@@ -193,6 +199,19 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
             }
         }
         return requestDogRepository.findByRequestDogId(idBest);
+    }
+
+    @Override
+    public HashMap<Long, List> getMyOffers(Long id) {
+
+        HashMap<Long, List> map = new HashMap<>();
+        List<RequestGuardianDTO> list1 = agreedRequestRepository.findAllMyOffers(id);
+        map.put(1L, list1);
+        List<RequestDogDTO> list2 = agreedRequestRepository.findAllMyOffers2(id);
+        map.put(2L, list2);
+        List<RequestBothDTO> list3 = agreedRequestRepository.findAllMyOffers3(id);
+        map.put(3L, list3);
+        return map;
     }
 
     private Double compare(RequestDog requestDog, RequestGuardian requestGuardian) {

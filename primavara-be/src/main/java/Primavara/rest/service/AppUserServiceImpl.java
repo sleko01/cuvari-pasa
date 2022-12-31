@@ -153,7 +153,7 @@ public class AppUserServiceImpl implements AppUserService{
                         "Request with id " + idRequest + " does not exist"
                 );
             AgreedRequest agreedRequest = agreedRequestRepository.findByAgreedRequestId(idRequest);
-            if (!agreedRequest.getAgreed())
+            if (agreedRequest.getAgreed() != null && !agreedRequest.getAgreed())
                 throw  new RequestDeniedException(
                         "Can not rate not agreed request"
                 );

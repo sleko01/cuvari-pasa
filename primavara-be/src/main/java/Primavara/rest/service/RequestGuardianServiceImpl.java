@@ -32,7 +32,7 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
 
     @Override
     public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians() {
-        return requestGuardianRepository.findAllReviewedAndPublished();
+        return requestGuardianRepository.findAllReviewedAndPublishedAndNotGone();
     }
 
     @Override
