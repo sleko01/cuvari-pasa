@@ -7,6 +7,8 @@ import Footer from './partials/footer'
 
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
 import '../styles/requestsAndOffers.css'
 
 function Requests(){
@@ -49,27 +51,32 @@ function Requests(){
                         {requests && requests.map(request =>
                             <div className='panel-content background-white'>
                                 <div className='panel-info-item'>
-                                    <span className='panel-info-item-name'>Korisnik: </span>
-                                    <span className='panel-info-item-value'>{request.appUser.username}</span>
-                                </div>
-                                <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Lokacija: </span>
-                                    <span className='panel-info-item-value'>{request.location}</span>
+                                    <span className='panel-info-item-value'>{request.locationName}</span>
                                 </div>
-
+                                <div className="empty-space-small"></div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Početak: </span>
-                                    <span className='panel-info-item-value'>{request.guardTimeBegin.substring(0,10)}</span>
+                                    {<span className='panel-info-item-value'>{request.guardTimeBegin.split("T")[0]}</span>}
                                 </div>
                                 <div className='panel-info-item'>
-                                    <span className='panel-info-item-name'>Kraj: </span>
-                                    <span className='panel-info-item-value'>{request.guardTimeEnd.substring(0,10)}</span>
+                                    <span className='panel-info-item-name'></span>
+                                    {<span className='panel-info-item-value'>{request.guardTimeBegin.split("T")[1].substring(0, request.guardTimeBegin.split("T")[1].length - 10)}</span>}
                                 </div>
+                                <div className="empty-space-small"></div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Kraj: </span>
+                                    {<span className='panel-info-item-value'>{request.guardTimeEnd.split("T")[0]}</span>}
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'></span>
+                                    {<span className='panel-info-item-value'>{request.guardTimeEnd.split("T")[1].substring(0, request.guardTimeEnd.split("T")[1].length - 10)}</span>}
+                                </div>
+                                <div className="empty-space-small"></div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Broj pasa: </span>
                                     <span className='panel-info-item-value'>{request.numberOfDogs}</span>
                                 </div>
-
                                 <div className="empty-space"></div>
                                 <div className='profile-button-container'>
                                     <button className="button button-primary">Javi se</button>
@@ -77,13 +84,8 @@ function Requests(){
                             </div>
                         )}
                     </div>
-
-
                 </div>
             </div>
-            
-
-            
 
             <Footer/>
         </div>

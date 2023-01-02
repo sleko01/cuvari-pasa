@@ -53,6 +53,10 @@ body {
   min-width: 100%;
 }
 
+.empty-space-small{
+  min-height: 1.5vh;
+  min-width: 100%;
+}
 
 
 /* BACKGROUNDS */

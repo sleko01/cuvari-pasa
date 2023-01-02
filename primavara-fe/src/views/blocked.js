@@ -1,7 +1,11 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
+import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 function Blocked(){
     function logout() {

@@ -3,8 +3,12 @@ import { Helmet } from 'react-helmet'
 import PasswordChecklist from "react-password-checklist"
 import Footer from './partials/footer'
 import Navbar from './partials/navbar'
+
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -75,6 +79,7 @@ function NewOffer(){
                     "dogTimeEnd": form.endDate,
                     "flexible": form.flexible,
                     "location": location,
+                    "locationName" : form.address,
                     "numberOfDogs": form.numberOfDogs,
                     "breedId": form.breed,
                     "id": idOfUser
@@ -146,9 +151,9 @@ function NewOffer(){
                                         required
                                         fullWidth
                                         id="startDate"
-                                        label="Datum početka"
+                                        label="Datum i vrijeme početka"
                                         name="startDate"
-                                        type="date"
+                                        type="datetime-local"
                                         onChange={onChange}
                                         value={form.startDate}
                                         focused
@@ -159,9 +164,9 @@ function NewOffer(){
                                         required
                                         fullWidth
                                         id="endDate"
-                                        label="Datum završetka"
+                                        label="Datum i vrijeme završetka"
                                         name="endDate"
-                                        type="date"
+                                        type="datetime-local"
                                         onChange={onChange}
                                         value={form.endDate}
                                         focused

@@ -4,8 +4,12 @@ import axios, {AxiosError} from "axios";
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
+
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 
 import TextField from '@mui/material/TextField';

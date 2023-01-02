@@ -8,10 +8,31 @@ import Footer from './partials/footer'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 function Moderation(){
     const [pendingRequests, setPendingRequests] = React.useState([])
     const [users, setUsers] = React.useState([])
+    
+
+    function CheckIfBlocked(user){
+        if(user.blocked){
+            return null
+        }
+        else if (!user.blocked){
+            return <button className="button-primary button button-size" onClick={() => blockUser(user.userId)}>Blokiraj</button>
+        }
+    }
+    
+    function CheckIfAdmin(user){
+        if(user.role.roleId == 4){
+            return null
+        }
+        else if (user.role.roleId != 4){
+            return <button className="button-primary button button-size" onClick={() => addAdmin(user.userId)}>Dodaj admina</button>
+        }
+    }
 
 
     // function approveRequest()
@@ -27,6 +48,8 @@ function Moderation(){
             console.log(err);
         });
     }
+
+
     function addAdmin(id){
         console.log("addAdmin")
         axios.post('/api/users/moderation/give-admin/' + id, {
@@ -38,6 +61,7 @@ function Moderation(){
             console.log(err);
         });
     }
+
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
@@ -59,6 +83,8 @@ function Moderation(){
         })
     }, []);
 
+
+
     return (
         <div className="page-container">
             <Helmet>
@@ -67,7 +93,7 @@ function Moderation(){
 
             <Navbar/>
             {(pendingRequests.length > 0 &&
-                <div className='container'>
+                <div className='moderation-container'>
                     <table className='request-table'>
                         <th>Zahtjev</th>
                         <th>Godine psa</th>
@@ -91,7 +117,7 @@ function Moderation(){
                 </div>
             )}
             {(users.length > 0 &&
-                <div className='container'>
+                <div className='moderation-container'>
                     <table className='user-table'>
                         <th>Username</th>
                         <th>Ime i prezime</th>
@@ -104,8 +130,8 @@ function Moderation(){
                                 <td>{user.username}</td>
                                 <td>{user.firstName} {user.lastName}</td>
                                 <td>{user.email}</td>
-                                <td className='block-button'><button className="button-primary button button-size" onClick={() => blockUser(user.userId)}>Blokiraj</button></td>
-                                <td className='admin-button'><button className="button-primary button button-size" onClick={() => addAdmin(user.userId)}>Dodaj admina</button></td>
+                                <td className='block-button'>{CheckIfBlocked(user)}</td>
+                                <td className='admin-button'>{CheckIfAdmin(user)}</td>
                             </tr>
                         )}
                         </tbody>

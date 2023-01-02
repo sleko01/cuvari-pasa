@@ -7,6 +7,9 @@ import Footer from './partials/footer'
 
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 function MyDogs(){
     const [dogs, setDogs] = React.useState([])

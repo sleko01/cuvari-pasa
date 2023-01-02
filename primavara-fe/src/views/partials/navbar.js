@@ -72,7 +72,6 @@ function Navbar(){
           </a>
           
           <div className="navbar-links">
-            <a href="/" className="navbar-text navbar-link">Kontakt</a>
             <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
             <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
                 {dropdownMenu}

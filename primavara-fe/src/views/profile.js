@@ -6,7 +6,9 @@ import Navbar from './partials/navbar'
 
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
 import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 function Profile(){
     //samo jedan od ova 2 ispod smije biti otkomentiran

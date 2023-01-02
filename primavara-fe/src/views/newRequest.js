@@ -2,11 +2,15 @@ import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
 
 import Navbar from './partials/navbar'
-import '../styles/home.css'
-import '../styles/index.css'
 import { Select } from '@mui/material'
 import { MenuItem } from '@mui/material'
 import { InputLabel } from '@mui/material'
+
+import '../styles/home.css'
+import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -15,7 +19,6 @@ import Typography from '@mui/material/Typography';
 import NativeSelect from '@mui/material/NativeSelect';
 import { alpha, styled } from '@mui/material/styles';
 import axios, {AxiosError} from "axios";
-
 
 
 import Geocode from "react-geocode";
@@ -102,6 +105,7 @@ function NewRequest(){
                     "guardTimeBegin": form.startDate,
                     "guardTimeEnd": form.endDate,
                     "location": location,
+                    "locationName" : form.address,
                     "hasDog": form.hasDog,
                     "hasExperience": form.hasExperience,
                     "id": idOfUser,
@@ -181,9 +185,9 @@ function NewRequest(){
                                         required
                                         fullWidth
                                         id="startDate"
-                                        label="Datum početka"
+                                        label="Datum i vrijeme početka"
                                         name="startDate"
-                                        type="date"
+                                        type="datetime-local"
                                         onChange={onChange}
                                         value={form.startDate}
                                         focused
@@ -196,9 +200,9 @@ function NewRequest(){
                                         required
                                         fullWidth
                                         id="endDate"
-                                        label="Datum završetka"
+                                        label="Datum i vrijeme završetka"
                                         name="endDate"
-                                        type="date"
+                                        type="datetime-local"
                                         onChange={onChange}
                                         value={form.endDate}
                                         focused

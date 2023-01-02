@@ -7,6 +7,9 @@ import Footer from './partials/footer'
 
 import '../styles/home.css'
 import '../styles/index.css'
+import '../styles/moderation.css'
+import '../styles/profile.css'
+import '../styles/requestsAndOffers.css'
 
 function MyOffers(){
     const [offers, setOffers] = React.useState([])
@@ -49,17 +52,27 @@ function MyOffers(){
                             <div className='panel-content background-white'>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Lokacija: </span>
-                                    <span className='panel-info-item-value'>{offer.location}</span>
+                                    <span className='panel-info-item-value'>{offer.locationName}</span>
                                 </div>
-
+                                <div className='empty-space-small'/>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Početak: </span>
-                                    <span className='panel-info-item-value'>{offer.dogTimeBegin.substring(0,10)}</span>
+                                    <span className='panel-info-item-value'>{offer.dogTimeBegin.split("T")[0]}</span>
                                 </div>
                                 <div className='panel-info-item'>
-                                    <span className='panel-info-item-name'>Kraj: </span>
-                                    <span className='panel-info-item-value'>{offer.dogTimeEnd.substring(0,10)}</span>
+                                    <span className='panel-info-item-name'></span>
+                                    {<span className='panel-info-item-value'>{offer.dogTimeBegin.split("T")[1].substring(0, offer.dogTimeBegin.split("T")[1].length - 10)}</span>}
                                 </div>
+                                <div className='empty-space-small'/>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Kraj: </span>
+                                    <span className='panel-info-item-value'>{offer.dogTimeEnd.split("T")[0]}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'></span>
+                                    {<span className='panel-info-item-value'>{offer.dogTimeEnd.split("T")[1].substring(0, offer.dogTimeEnd.split("T")[1].length - 10)}</span>}
+                                </div>
+                                <div className='empty-space-small'/>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Fleksibilno:  </span>
                                     <span className='panel-info-item-value'>{offer.flexible == true ? "Je" : "Nije"}</span>
@@ -83,10 +96,6 @@ function MyOffers(){
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Željena pasmina: </span>
                                     <span className='panel-info-item-value'>{offer.breed.name}</span>
-                                </div>
-                                <div className="empty-space"></div>
-                                <div className='profile-button-container'>
-                                    <button className="button button-primary">Javi se</button>
                                 </div>
                             </div>
                         )}
