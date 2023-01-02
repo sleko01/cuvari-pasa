@@ -5,6 +5,7 @@ import Primavara.rest.dto.NewRequestGuardian;
 import Primavara.rest.service.AgreedRequestService;
 import Primavara.rest.service.RequestGuardianService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,14 +25,17 @@ public class RequestGuardianController {
                 return requestGuardianService.getAllReviewedAndPublishedRequestGuardians();
         }
 
+        @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
         @PostMapping("new/{id}")
         public void addNewRequestGuardian (@RequestBody NewRequestGuardian newRequestGuardian, @PathVariable(required = true) Long id) {requestGuardianService.addNewRequestGuardian(newRequestGuardian, id);}
 
+        @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
         @GetMapping("my/{id}")
         public List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(@PathVariable(required = true) Long id){
                 return requestGuardianService.getAllRequestGuardiansByUserId(id);
         }
 
+        @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
         @PostMapping("initiate/{idReqGua}/{idInitiator}")
         public void initiateToRequestGuardian(@PathVariable(required = true) Long idReqGua, @PathVariable(required = true) Long idInitiator) {
                 agreedRequestService.initiateToRequestGuardian(idReqGua, idInitiator);
