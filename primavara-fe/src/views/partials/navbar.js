@@ -36,7 +36,7 @@ function Navbar(){
     
     
     var myDogs = <a href="/users/dogs">Moji psi</a>
-    var myReceived = <a href="#neznamputanju">Pristigle ponude</a>
+    var myReceived = <a href="/users/incoming">Pristigle ponude</a>
     var myLogout = <a href="#" onClick={logout}>Odjava</a>
     
 

@@ -16,6 +16,7 @@ import Requests from "./views/requests.js";
 import Offers from "./views/offers.js";
 import Moderation from "./views/moderation.js";
 import Blocked from "./views/blocked.js";
+import Incoming from "./views/incoming.js";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
 
           <Route path="/requests/new" element={<NewRequest />} />
           <Route path="/offers/new" element={<NewOffer />} />
+          <Route path="/users/incoming" element={<Incoming />} />
           
           <Route path="/users/requests" element={<MyRequests />} />
           <Route path="/users/offers" element={<MyOffers />} />

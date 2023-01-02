@@ -24,6 +24,13 @@ function MyOffers(){
         })
     }, []);
 
+
+    function FindBestOffer(offer){
+
+    }
+
+
+    
     return(
         <div className="page-container">
             <Helmet>
@@ -97,6 +104,12 @@ function MyOffers(){
                                     <span className='panel-info-item-name'>Željena pasmina: </span>
                                     <span className='panel-info-item-value'>{offer.breed.name}</span>
                                 </div>
+                                <div className='empty-space-small'/>
+                                <div className='profile-button-container'>
+                                    <button className="button button-primary" onClick={FindBestOffer(offer)}>Najbolja ponuda</button>
+                                </div>
+
+
                             </div>
                         )}
                     </div>

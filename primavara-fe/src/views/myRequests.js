@@ -14,8 +14,6 @@ import '../styles/requestsAndOffers.css'
 function MyRequests(){
     const [requests, setRequests] = React.useState([])
 
-
-
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/reqgua/my/' + id).then(response => {
@@ -26,6 +24,10 @@ function MyRequests(){
         })
     }, []);
 
+
+    function FindBestOffer(request){
+
+    }
 
     return(
         <div className="page-container">
@@ -80,6 +82,10 @@ function MyRequests(){
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Broj pasa: </span>
                                     <span className='panel-info-item-value'>{request.numberOfDogs}</span>
+                                </div>
+                                <div className='empty-space-small'/>
+                                <div className='profile-button-container'>
+                                    <button className="button button-primary" onClick={FindBestOffer(request)}>Najbolja ponuda</button>
                                 </div>
                             </div>
                         )}

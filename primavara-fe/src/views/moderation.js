@@ -14,7 +14,7 @@ import '../styles/requestsAndOffers.css'
 function Moderation(){
     const [pendingRequests, setPendingRequests] = React.useState([])
     const [users, setUsers] = React.useState([])
-    
+    var pendingArray = []
 
     function CheckIfBlocked(user){
         if(user.blocked){
@@ -27,7 +27,7 @@ function Moderation(){
     
     function CheckIfAdmin(user){
         if(user.role.roleId == 4){
-            return null
+            return null;
         }
         else if (user.role.roleId != 4){
             return <button className="button-primary button button-size" onClick={() => addAdmin(user.userId)}>Dodaj admina</button>
@@ -35,10 +35,25 @@ function Moderation(){
     }
 
 
-    // function approveRequest()
-    // function denyRequest()
+    function CheckRequestType(request){
+        if(request.requestGuardianId){
+            return "Zahtjev"
+        }
+        else if (request.requestDogId){
+            return "Oglas"
+        }
+    }
+
+    function approveRequest(){
+        //forsajte refresh
+    }
+    
+    function denyRequest(){
+        //forsajte refresh
+    }   
+
+
     function blockUser(id){
-        console.log("blockUser");
         axios.post('/api/users/moderation/block/' + id, {
             "id": id
         }).then((response) => {
@@ -51,7 +66,6 @@ function Moderation(){
 
 
     function addAdmin(id){
-        console.log("addAdmin")
         axios.post('/api/users/moderation/give-admin/' + id, {
             "id": id
         }).then((response) => {
@@ -66,8 +80,10 @@ function Moderation(){
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/users/moderation/' + id + '/r').then(response => {
-            console.log(response.data);
-            setPendingRequests(response.data);
+            for(const[key, value] of Object.entries(response.data)){
+                pendingArray.push(value)
+            }
+            setPendingRequests(pendingArray);
         }).catch(err => {
             alert(err.response.data.message);
         })
@@ -76,7 +92,6 @@ function Moderation(){
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/users/moderation/' + id + '/u').then(response => {
-            console.log(response.data);
             setUsers(response.data);
         }).catch(err => {
             alert(err.response.data.message);
@@ -92,54 +107,76 @@ function Moderation(){
             </Helmet>
 
             <Navbar/>
+
             {(pendingRequests.length > 0 &&
                 <div className='moderation-container'>
-                    <table className='request-table'>
-                        <th>Zahtjev</th>
-                        <th>Godine psa</th>
-                        <th>Broj pasa</th>
-                        <th>Fleksibilno?</th>
-                        <th>Lokacija</th>
-                        <tbody>
-                        {pendingRequests.map(request =>
-                            <tr key={request.requestDogId}>
-                                <td>{request.dogAge}</td>
-                                <td>{request.numberOfDogs}</td>
-                                <td>{request.dogTimeBegin}-{request.dogTimeEnd}</td>
-                                <td>{request.isFlexible}</td>
-                                <td>{request.location}</td>
-                                {/* <td className='confirm-button'><button className="button-primary button button-size" onClick={approveRequest()}>Odobri</button></td>
-                                    <td className="deny-button"><button className="button-primary button button-size" onClick={denyRequest()}>Odbij</button></td> */}
-                            </tr>
-                        )}
-                        </tbody>
-                    </table>
-                </div>
-            )}
-            {(users.length > 0 &&
-                <div className='moderation-container'>
+                    
                     <table className='user-table'>
-                        <th>Username</th>
-                        <th>Ime i prezime</th>
-                        <th>Email</th>
-                        <th></th>
-                        <th></th>
+                        <caption>
+                            <h2>Moderacija oglasa i zahtjeva</h2>
+                            <div className='empty-space-small'/>
+                        </caption>
+                        
                         <tbody>
-                        {users.map(user =>
-                            <tr key={user.userId}>
-                                <td>{user.username}</td>
-                                <td>{user.firstName} {user.lastName}</td>
-                                <td>{user.email}</td>
-                                <td className='block-button'>{CheckIfBlocked(user)}</td>
-                                <td className='admin-button'>{CheckIfAdmin(user)}</td>
+                            <tr>
+                                <th>Tip</th>
+                                <th>Korisnik</th>
+                                <th>Lokacija</th>
+                                <th>Broj pasa</th>
+                                <th className='text-citrus'>asdsa</th>
+                                <th className='text-citrus'>sadsa</th>
                             </tr>
-                        )}
+
+                            {pendingRequests.map(requestType =>
+                                requestType.map(requests => 
+                                    requests.map(request =>
+                                        <tr key = {request.appUser.userId}>
+                                            <td>{CheckRequestType(request)}</td>
+                                            <td>{request.appUser.username}</td>
+                                            <td>{request.locationName}</td>
+                                            <td>{request.numberOfDogs}</td>
+                                            <td><button className="button-primary button button-size" onClick={() => approveRequest(request)}>Odobri</button></td>
+                                            <td><button className="button-primary button button-size" onClick={() => denyRequest(request)}>Odbij</button></td>
+                                        </tr>
+                                    )
+                                )
+                            )}
                         </tbody>
                     </table>
                 </div>
             )}
 
-            <Footer/>
+            <div className='empty-space-small'/>
+
+            {(users.length &&
+                <div className='moderation-container'>
+                    <table className='user-table'>
+                        <caption>
+                            <h2>Moderacija korisnika</h2>
+                            <div className='empty-space-small'/>
+                        </caption>
+                        
+                        <tbody>
+                            <tr>
+                                <th>Username</th>
+                                <th>Ime i prezime</th>
+                                <th>Email</th>
+                                <th className='text-citrus'>asdsasdsda</th>
+                                <th className='text-citrus'>sadasdsdsa</th>
+                            </tr>
+                            {users.map(user =>
+                                <tr key={user.userId}>
+                                    <td>{user.username}</td>
+                                    <td>{user.firstName} {user.lastName}</td>
+                                    <td>{user.email}</td>
+                                    <td className='block-button'>{CheckIfBlocked(user)}</td>
+                                    <td className='admin-button'>{CheckIfAdmin(user)}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     )
 }

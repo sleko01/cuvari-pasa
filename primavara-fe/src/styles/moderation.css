@@ -14,7 +14,7 @@
     padding-top: 0.5vw;
     margin: 2vw;
     background-color: var(--color-citrus);
-    font-size: 1.3vw;
+    font-size: 2vmin;
 
 }
 
@@ -29,8 +29,8 @@
     padding-top: 0.5vw;
     margin: 2vw;
     color: var(--color-blackolive);
-    background-color: #fc9d01;
-    font-size: 1.3vw;
+    background-color: var(--color-citrus);
+    font-size: 2vmin;
 }
 
 
