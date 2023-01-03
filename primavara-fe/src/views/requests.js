@@ -23,6 +23,20 @@ function Requests(){
         })
     }, []);
 
+    function InitiateRequest(request) {
+        let idOfUser = localStorage.getItem("id");
+        axios.post('/api/reqgua/initiate/' + request.requestGuardianId + '/' + idOfUser, {
+            "idReqGua": request.requestGuardianId,
+            "idInitiator": idOfUser
+        }).then(async response => {
+            console.log(response)
+            window.alert("Uspješno!")
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
+    }
+
     return(
         <div className="page-container">
             <Helmet>
@@ -79,7 +93,7 @@ function Requests(){
                                 </div>
                                 <div className="empty-space"></div>
                                 <div className='profile-button-container'>
-                                    <button className="button button-primary">Javi se</button>
+                                    <button className="button button-primary" onClick={() => InitiateRequest(request)}>Javi se</button>
                                 </div>
                             </div>
                         )}

@@ -82,6 +82,7 @@ function NewRequest(){
 
     function onSubmit(e){
         e.preventDefault();
+        setIsDisabled(true);
         Geocode.fromAddress(form.address).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;

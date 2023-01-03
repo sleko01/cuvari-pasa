@@ -44,12 +44,34 @@ function Moderation(){
         }
     }
 
-    function approveRequest(){
-        //forsajte refresh
+    function approveRequest(request){
+        let userId = request.requestGuardianId === undefined ? request.requestDogId : request.requestGuardianId
+        let path = CheckRequestType(request) == "Zahtjev" ? '/api/users/moderation/reqgua/' + userId + '/1' : '/api/users/moderation/reqdog/' + userId + '/1'
+        axios.post(path, {
+            "id": userId,
+            "val": 1
+        }).then(async response => {
+            console.log(response)
+            window.location.reload();
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
     }
     
-    function denyRequest(){
-        //forsajte refresh
+    function denyRequest(request){
+        let userId = request.requestGuardianId === undefined ? request.requestDogId : request.requestGuardianId
+        let path = CheckRequestType(request) == "Zahtjev" ? '/api/users/moderation/reqgua/' + userId + '/0' : '/api/users/moderation/reqdog/' + userId + '/0'
+        axios.post(path, {
+            "id": userId,
+            "val": 0
+        }).then(async response => {
+            console.log(response)
+            window.location.reload();
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
     }   
 
 

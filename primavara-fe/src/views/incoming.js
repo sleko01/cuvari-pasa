@@ -14,7 +14,15 @@ import '../styles/requestsAndOffers.css'
 function MyOffers(){
     const [offers, setOffers] = React.useState([])
 
-    //React.useEffect
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/agreedRequest/myOfferings/' + id).then(response => {
+            console.log(response.data);
+            setOffers(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return(
         <div className="page-container">

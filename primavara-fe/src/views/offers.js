@@ -23,6 +23,20 @@ function Offers(){
         })
     }, []);
 
+    function InitiateOffer(offer) {
+        let idOfUser = localStorage.getItem("id");
+        axios.post('/api/reqdog/initiate/' + offer.requestDogId + '/' + idOfUser, {
+            "idReqDog": offer.requestDogId,
+            "idInitiator": idOfUser
+        }).then(async response => {
+            console.log(response)
+            window.alert("Uspješno!")
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
+    }
+
     return(
         <div className="page-container">
             <Helmet>
@@ -102,7 +116,7 @@ function Offers(){
                                 </div>
                                 <div className="empty-space"></div>
                                 <div className='profile-button-container'>
-                                        <button className="button button-primary">Javi se</button>
+                                        <button className="button button-primary" onClick={() => InitiateOffer(offer)}>Javi se</button>
                                 </div>
                             </div>
                         )}

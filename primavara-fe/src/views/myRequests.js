@@ -26,7 +26,18 @@ function MyRequests(){
 
 
     function FindBestOffer(request){
-
+        let idOfUser = localStorage.getItem("id");
+        axios.post('/api/agreedRequest/initiate/' + request.requestGuardianId + '/null/' + idOfUser, {
+            "idReqGua": request.requestGuardianId,
+            "idReqDog": null,
+            "idInitiator": idOfUser
+        }).then(async response => {
+            console.log(response)
+            window.alert("Uspješno!")
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
     }
 
     return(
@@ -85,7 +96,7 @@ function MyRequests(){
                                 </div>
                                 <div className='empty-space-small'/>
                                 <div className='profile-button-container'>
-                                    <button className="button button-primary" onClick={FindBestOffer(request)}>Najbolja ponuda</button>
+                                    <button className="button button-primary" onClick={() => FindBestOffer(request)}>Najbolja ponuda</button>
                                 </div>
                             </div>
                         )}

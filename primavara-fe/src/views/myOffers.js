@@ -26,9 +26,19 @@ function MyOffers(){
 
 
     function FindBestOffer(offer){
-
+        let idOfUser = localStorage.getItem("id");
+        axios.post('/api/agreedRequest/initiate/null/' + offer.requestDogId + '/' + idOfUser, {
+            "idReqGua": null,
+            "idReqDog": offer.requestDogId,
+            "idInitiator": idOfUser
+        }).then(async response => {
+            console.log(response)
+            window.alert("Uspješno!")
+        }).catch(err => {
+            console.log(err);
+            alert(err.response.data.message)
+        })
     }
-
 
     
     return(

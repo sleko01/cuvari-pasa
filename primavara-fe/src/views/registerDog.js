@@ -81,6 +81,7 @@ function RegisterDog(){
 
     function onSubmit(e) {
         e.preventDefault()
+        // setIsDisabled(true);
         /*var breedId;
         console.log(images[0])
         breeds.forEach(breed => {
@@ -99,10 +100,41 @@ function RegisterDog(){
             "id": idOfUser,
         }).then(async response => {
             window.location.href = "/users/dogs"
+            setIsDisabled(false);
         }).catch(err => {
             alert(err.response.data.message)
             console.log(blob)
+            setIsDisabled(false);
         })
+
+        // var formData = new FormData();
+        // let dog = {
+        //     "name": form.name,
+        //     "dateOfBirth": form.dateOfBirth,
+        //     "photo": blob[0],
+        //     "breedId": form.breed,
+        // }
+        // // formData.append("name", form.name)
+        // // formData.append("dateOfBirth", form.dateOfBirth)
+        // // formData.append("photo", blob[0])
+        // // formData.append("breedId", form.breed)
+        // formData.append("registerDog", dog)
+        // formData.append("id", idOfUser)
+        // console.log(formData);
+
+        // axios({
+        //     method: "put",
+        //     url: "/api/dogs/register/" + idOfUser,
+        //     data: formData,
+        //     headers: { "Content-Type": "multipart/form-data" },
+        // }).then(response => {
+        //     console.log(response);
+        //     window.alert("Great success!")
+        // }).catch(error => {
+        //     console.log(error);
+        // })
+
+
 
     }
 
