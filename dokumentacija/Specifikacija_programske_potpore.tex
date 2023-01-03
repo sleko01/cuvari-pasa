@@ -56,6 +56,10 @@
 						\item Ocjenjivati ponašanje psa
 						\item Pregledavati vlastite oglase
 					\end{packed_enum}
+					\item Imati ulogu vlasnika i čuvara pasa:
+					\begin{packed_enum}
+						\item Ima sve navedene funkcionalnosti vlasnika pasa i čuvara pasa
+					\end{packed_enum}
 				\end{packed_enum}
 			
 				\item \underbar{Administrator (inicijator) može:}
@@ -774,11 +778,12 @@
 				
 				\textbf{Obrazac uporabe UC23 - Blokiranje korisnika}\\
 				
-				Administrator sustava na početnoj stranici putem padajućeg izbornika odabire opciju za pristupanje stranici za administratorsko upravljanje korisnicima. Web aplikacija šalje upit za potrebnim elementima (svi korisnici sustava) bazi podataka. Primitkom istih, web aplikacija otvara stranicu administratoru. Administrator u listi korisnika pronalazi željenog korisnika te kraj njega odabire opciju za njegovo blokiranje. Web aplikacija šalje upit za brisanjem korisnika bazi podataka. Baza podataka briše korisnika i šalje ažuriranu listu korisnika web aplikaciji. Web aplikacija otvara ponovno stranicu administratoru, ali sada s ažuriranom listom korisnika.
+				Administrator sustava na početnoj stranici putem padajućeg izbornika odabire opciju za pristupanje stranici za administratorsko upravljanje korisnicima. Web aplikacija šalje upit za potrebnim elementima (svi korisnici sustava) bazi podataka. Primitkom istih, web aplikacija otvara stranicu administratoru. Administrator u listi korisnika pronalazi željenog korisnika te kraj njega odabire opciju za njegovo blokiranje. Web aplikacija šalje upit za ažuriranjem korisnika bazi podataka. Baza podataka postavlja atribut "blocked" na istinit i šalje ažuriranu listu korisnika web aplikaciji.
+				Web aplikacija otvara ponovno stranicu administratoru, ali sada blokirani korisnik kraj sebe nema gumb za blokiranje.
 				
 				\begin{figure}[htb]
 					\centering
-					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC23}
+					\includegraphics[width=14cm]{slike/Sekvencijski_dijagram_-_UC23}
 					\caption{Sekvencijski dijagram za UC23}
 					\label{fig:Sekvencijski-UC23}
 				\end{figure}
