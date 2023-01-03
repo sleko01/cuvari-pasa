@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  3 JAN 2023 14:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  3 JAN 2023 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1883,6 +1883,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+
+
+! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
+
+Type <return> to continue.
+ ...                                              
+                                                  
+l.71 			\end
+            {longtblr}
+
+LaTeX does not know anything more about this error, sorry.
+
+Try typing <return> to proceed.
+If that doesn't work, type X <return> to quit.
+
+
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -1896,8 +1920,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.57 			
-         <./slike/arhitekturaaa.png>]
+l.71 			\end
+            {longtblr} <./slike/arhitekturaaa.png>]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1911,30 +1935,7 @@ l.57
 Type <return> to continue.
  ...                                              
                                                   
-l.73 			\end
-            {longtblr}
-
-LaTeX does not know anything more about this error, sorry.
-
-Try typing <return> to proceed.
-If that doesn't work, type X <return> to quit.
-
-
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-
-! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
-
-Type <return> to continue.
- ...                                              
-                                                  
-l.98 				\end
+l.99 				\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -1944,7 +1945,17 @@ If that doesn't work, type X <return> to quit.
 
 
 > Step: calculate cell and line sizes.
+
+Overfull \hbox (4.74088pt too wide) in paragraph at lines 99--99
+[]\OT1/jkp/m/n/12 has[]experience  
+ []
+
 > Step: build the whole table.
+
+Overfull \hbox (4.74088pt too wide) in paragraph at lines 99--99
+[]\OT1/jkp/m/n/12 has[]experience  
+ []
+
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1957,7 +1968,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.115 			\end
+l.116 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -1990,7 +2001,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.130 			\end
+l.138 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2001,37 +2012,10 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
 
-! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
-
-Type <return> to continue.
- ...                                              
-                                                  
-l.147 			\end
-             {longtblr}
-
-LaTeX does not know anything more about this error, sorry.
-
-Try typing <return> to proceed.
-If that doesn't work, type X <return> to quit.
-
-
-> Step: calculate cell and line sizes.
-
-Overfull \hbox (2.01688pt too wide) in paragraph at lines 147--147
-[]\OT1/jkp/m/n/12 hasExperience  
- []
-
-> Step: build the whole table.
-
-Overfull \hbox (2.01688pt too wide) in paragraph at lines 147--147
-[]\OT1/jkp/m/n/12 hasExperience  
+Overfull \hbox (41.9728pt too wide) in paragraph at lines 119--138
+\OT1/jkp/m/n/12 preko atri-buta breed[]id. Ve-zom Many-To-One po-ve-zan je s ta
+-bli-com requ-est[]guardians[]dog
  []
 
 > Step: init table outer spec.
@@ -2046,7 +2030,7 @@ Overfull \hbox (2.01688pt too wide) in paragraph at lines 147--147
 Type <return> to continue.
  ...                                              
                                                   
-l.168 			\end
+l.163 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2056,6 +2040,11 @@ If that doesn't work, type X <return> to quit.
 
 
 > Step: calculate cell and line sizes.
+
+Overfull \hbox (1.45738pt too wide) in paragraph at lines 163--163
+[]\OT1/jkp/m/n/12 number[]of[]dogs  
+ []
+
 > Step: build the whole table.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2066,6 +2055,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [31]
+Overfull \hbox (1.45738pt too wide) in paragraph at lines 163--163
+[]\OT1/jkp/m/n/12 number[]of[]dogs  
+ []
+
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -2073,13 +2066,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 > Step: parse table inner spec.
 > Step: execute table commands.
 
-
 ! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
 
 Type <return> to continue.
  ...                                              
                                                   
-l.192 			\end
+l.186 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -2090,24 +2082,19 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (2.6529pt too wide) in paragraph at lines 192--192
-[]\OT1/jkp/m/n/12 dogTimeBegin  
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 186--186
+[]\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
-Overfull \hbox (1.47688pt too wide) in paragraph at lines 192--192
-[]\OT1/jkp/m/n/12 numberOfDos  
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 186--186
+[]\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (2.6529pt too wide) in paragraph at lines 192--192
-[]\OT1/jkp/m/n/12 dogTimeBegin  
- []
-
-
-Overfull \hbox (1.47688pt too wide) in paragraph at lines 192--192
-[]\OT1/jkp/m/n/12 numberOfDos  
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 186--186
+[]\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
@@ -2119,47 +2106,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [32]
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-
-
-! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
-
-Type <return> to continue.
- ...                                              
-                                                  
-l.216 			\end
-             {longtblr}
-
-LaTeX does not know anything more about this error, sorry.
-
-Try typing <return> to proceed.
-If that doesn't work, type X <return> to quit.
-
-
-> Step: calculate cell and line sizes.
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 216--216
-[]\OT1/jkp/m/n/12 TIMESTAMP  
- []
-
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 216--216
-[]\OT1/jkp/m/n/12 TIMESTAMP  
- []
-
-> Step: build the whole table.
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 216--216
-[]\OT1/jkp/m/n/12 TIMESTAMP  
- []
-
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 216--216
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 186--186
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
@@ -2175,7 +2122,7 @@ Overfull \hbox (3.87682pt too wide) in paragraph at lines 216--216
 Type <return> to continue.
  ...                                              
                                                   
-l.234 			\end
+l.203 			\end
              {longtblr}			
 
 LaTeX does not know anything more about this error, sorry.
@@ -2186,10 +2133,38 @@ If that doesn't work, type X <return> to quit.
 
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (2.65225pt too wide) in paragraph at lines 234--234
-[]\OT1/jkp/m/n/12 requestGuardiansDogId  
+Overfull \hbox (10.20027pt too wide) in paragraph at lines 203--203
+[]\OT1/jkp/m/n/12 request[]guardians[]dog[]id  
  []
 
+> Step: build the whole table.
+
+Overfull \hbox (10.20027pt too wide) in paragraph at lines 203--203
+[]\OT1/jkp/m/n/12 request[]guardians[]dog[]id  
+ []
+
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+
+! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
+
+Type <return> to continue.
+ ...                                              
+                                                  
+l.219 			\end
+             {longtblr}			
+
+LaTeX does not know anything more about this error, sorry.
+
+Try typing <return> to proceed.
+If that doesn't work, type X <return> to quit.
+
+
+> Step: calculate cell and line sizes.
 > Step: build the whole table.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2200,8 +2175,46 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [33]
-Overfull \hbox (2.65225pt too wide) in paragraph at lines 234--234
-[]\OT1/jkp/m/n/12 requestGuardiansDogId  
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+
+
+! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
+
+Type <return> to continue.
+ ...                                              
+                                                  
+l.237 		\end
+            {longtblr}	
+
+LaTeX does not know anything more about this error, sorry.
+
+Try typing <return> to proceed.
+If that doesn't work, type X <return> to quit.
+
+
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
+Overfull \hbox (2.96931pt too wide) in paragraph at lines 221--237
+\OT1/jkp/m/n/12 preko atri-buta requ-est[]guardian[]id. Sadr[]zi atri-bute: req
+u-est[]activity[]id, ac-ti-vity[]id,
+ []
+
+
+Overfull \hbox (18.44081pt too wide) in paragraph at lines 239--240
+\OT1/jkp/m/n/12 tje-vima vlas-nika i []cuvara. Po-ve-zan je ve-zom One-To-Many 
+s ta-bli-com requ-est[]guardian
+ []
+
+
+Overfull \hbox (6.66092pt too wide) in paragraph at lines 239--240
+\OT1/jkp/m/n/12 est[]guardian[]id, requ-est[]dog[]id, ini-ti-ator[]user[]id, us
+er[]id, ini-ti-ator[]rated, user[]rated 
  []
 
 > Step: init table outer spec.
@@ -2216,30 +2229,7 @@ Overfull \hbox (2.65225pt too wide) in paragraph at lines 234--234
 Type <return> to continue.
  ...                                              
                                                   
-l.251 			\end
-             {longtblr}			
-
-LaTeX does not know anything more about this error, sorry.
-
-Try typing <return> to proceed.
-If that doesn't work, type X <return> to quit.
-
-
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-
-! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
-
-Type <return> to continue.
- ...                                              
-                                                  
-l.268 		\end
+l.261 		\end
             {longtblr}	
 
 LaTeX does not know anything more about this error, sorry.
@@ -2249,6 +2239,16 @@ If that doesn't work, type X <return> to quit.
 
 
 > Step: calculate cell and line sizes.
+
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 261--261
+[]\OT1/jkp/m/n/12 TIMESTAMP  
+ []
+
+
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 261--261
+[]\OT1/jkp/m/n/12 TIMESTAMP  
+ []
+
 > Step: build the whole table.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2259,47 +2259,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [34]
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-
-
-! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
-
-Type <return> to continue.
- ...                                              
-                                                  
-l.291 		\end
-            {longtblr}	
-
-LaTeX does not know anything more about this error, sorry.
-
-Try typing <return> to proceed.
-If that doesn't work, type X <return> to quit.
-
-
-> Step: calculate cell and line sizes.
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 291--291
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 261--261
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
 
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 291--291
-[]\OT1/jkp/m/n/12 TIMESTAMP  
- []
-
-> Step: build the whole table.
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 291--291
-[]\OT1/jkp/m/n/12 TIMESTAMP  
- []
-
-
-Overfull \hbox (3.87682pt too wide) in paragraph at lines 291--291
+Overfull \hbox (3.87682pt too wide) in paragraph at lines 261--261
 []\OT1/jkp/m/n/12 TIMESTAMP  
  []
 
@@ -2312,13 +2277,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [35]
-<slike/dijagramASCP.png, id=501, 744.98325pt x 481.8pt>
-File: slike/dijagramASCP.png Graphic file (type png)
-<use slike/dijagramASCP.png>
-Package pdftex.def Info: slike/dijagramASCP.png  used on input line 300.
-(pdftex.def)             Requested size: 455.24408pt x 294.41953pt.
+<slike/drawsql REL.png, id=501, 1132.98282pt x 641.39626pt>
+File: slike/drawsql REL.png Graphic file (type png)
+<use slike/drawsql REL.png>
+Package pdftex.def Info: slike/drawsql REL.png  used on input line 270.
+(pdftex.def)             Requested size: 455.24408pt x 257.7186pt.
 
-Overfull \hbox (19.63329pt too wide) in paragraph at lines 300--301
+Overfull \hbox (19.63329pt too wide) in paragraph at lines 270--271
  [][] 
  []
 
@@ -2335,20 +2300,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.305 			\eject
-                <./slike/dijagramASCP.png>]
+l.275 			\eject
+                <./slike/drawsql REL.png>]
 <slike/Class Diagram.png, id=510, 1269.24188pt x 782.925pt>
 File: slike/Class Diagram.png Graphic file (type png)
 <use slike/Class Diagram.png>
-Package pdftex.def Info: slike/Class Diagram.png  used on input line 314.
+Package pdftex.def Info: slike/Class Diagram.png  used on input line 284.
 (pdftex.def)             Requested size: 455.24408pt x 280.81345pt.
 
-Overfull \hbox (19.63329pt too wide) in paragraph at lines 314--315
+Overfull \hbox (19.63329pt too wide) in paragraph at lines 284--285
  [][] 
  []
 
 
-Overfull \hbox (10.90878pt too wide) in paragraph at lines 319--321
+Overfull \hbox (10.90878pt too wide) in paragraph at lines 289--291
 \OT1/jkp/m/n/12 Razred Ap-pU-ser pred-stav-lja ko-ris-nika web apli-ka-cije koj
 i se mo[]ze re-gis-tri-rati unose[]ci
  []
@@ -2366,7 +2331,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.321 			
+l.291 			
           <./slike/Class Diagram.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2377,7 +2342,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
@@ -2390,7 +2355,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
 
  []
 
@@ -2403,7 +2368,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
 
  []
 
@@ -2416,7 +2381,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
+Underfull \hbox (badness 10000) in paragraph at lines 321--322
 
  []
 
@@ -2759,21 +2724,18 @@ AED: lastpage setting LastPage
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
 (./Arhitektura.aux) (./Implementacija.aux) (./Zakljucak.aux) (./Literatura.aux)
 (./Dodatak.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
  ) 
 Here is how much of TeX's memory you used:
- 17905 strings out of 475066
- 317821 string characters out of 5782772
- 842419 words of memory out of 5000000
- 38704 multiletter control sequences out of 15000+600000
- 537703 words of font info for 175 fonts, out of 8000000 for 9000
+ 17900 strings out of 475066
+ 317684 string characters out of 5782772
+ 840940 words of memory out of 5000000
+ 38699 multiletter control sequences out of 15000+600000
+ 536017 words of font info for 169 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,116p,1211b,1044s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,116p,1211b,1044s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
@@ -2783,7 +2745,7 @@ dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
 pmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (55 pages, 850291 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (55 pages, 921010 bytes).
 PDF statistics:
  725 PDF objects out of 1000 (max. 8388607)
  633 compressed objects within 7 object streams
