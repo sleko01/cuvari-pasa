@@ -277,26 +277,42 @@
 			
 		\section{Dijagram razreda}
 		
-			Na slici 4.2 prikazani su razredi koji pripadaju backend dijelu MVC arhitekture.  Zbog lakše organizacije, razredi su podijeljeni logički po pravu pristupa metodama određenih aktora, kako bi se smanjila prenapučenost unutar dijagrama, prikazane su samo ovisnosti između razreda koji pripadaju istom dijelu dijagrama. Iz naziva i tipova atributa u razredima može se zaključiti vrsta ovisnosti među različitim razredima.
+			Na slikama 4.3, 4.4 i 4.5 prikazani su razredi koji pripadaju backend dijelu s arhitekturom podijeljenom na kontrolere, repozitorije i servise te uključujući Domain i DTO (Data Transfer Object) modele.\\
+			Na slici 4.3 prikazani du razredi koji nsljeđuju Controller razred. Metode implementirane u tim razredima mainpuliraju s DTO-ima, a oni su dohvaćeni pomoću metoda implemntiranih u Domain razredima.
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/Class Diagram}
-				\caption{Dijagram razreda - dio Models} 
+				\includegraphics[width=16cm]{slike/class_diagram_controllers}
+				\caption{Dijagram razreda - dio Controllers} 
 				\label{fig:Class-Diagram}
 			\end{figure}
 		
-			Model razredi preslikavaju strukturu baze podataka u aplikaciji. Implementirane metode direktno komuniciraju s bazom podataka te vraćaju tražene podatke.\\
-			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unoseći potrebne informacije. Odabravši pritom ulogu (razred Role), on se priključuje web aplikaciji kao vlasnik pasa (razred Owner) i/ili kao čuvar pasa (razred Guardian). Administrator je korisnik aplikacije koji ima sve mogućnosti App Usera. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik i čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može još pregledati ima li čuvar pasa (razred RequestGuardiansDog) i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest.
-			
+		
+			Data Transfer Objects služe za razmjenu podataka između procesa ili slojeva.\\
+			RegistertUser i ReqisterDog služe za stvaranje novog objekta User odnosno Dog.
+			NewRequestDog i NewRequestGuardian služa za stvaranje novog objekta RequestDog odnosno RequestGuardian.
+			RatedDogsList služi za primanje podaka o ocijenjenim psima.
+			RequestDogDTO, RequestGuardianDTO, RequestBothDTO služe kao pomoćni objekti za čitanje tih objekata iz baze.
 			\eject
 			
-			\textbf{\textit{dio 2. revizije}}\\			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=16cm]{slike/class_diagrams_dtos}
+				\caption{Dijagram razreda - dio Data Transfer Objects}
+				\label{fig:Class-Diagram}
+			\end{figure}
+		
+		
+			Domain razredi preslikavaju strukturu baze podataka u aplikaciji. Implementirane metode direktno komuniciraju s bazom podataka te vraćaju tražene podatke.\\
+			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unoseći potrebne informacije. On može izabrati svoju ulogu pri registraciji (razred Role). Administrator je korisnik aplikacije koji ima sve mogućnosti App Usera. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik odnosno čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest. U RequestGuardiansDog se popisuju psi koju se koriste u zahtjevu RequestGuardian.
 			
-			\textit{Prilikom druge predaje projekta dijagram razreda i opisi moraju odgovarati stvarnom stanju implementacije}
-			
-			
-			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=16cm]{slike/class_diagram_domain}
+				\caption{Dijagram razreda - dio Domain}
+				\label{fig:Class-Diagram}
+			\end{figure}
+	
 			\eject
 		
 		\section{Dijagram stanja}
