@@ -92,47 +92,51 @@ function RegisterDog(){
         let idOfUser = localStorage.getItem('id');
         // var blob = new Blob([images[0]], {type: "file"})
         //or const file = document.querySelector('input[type=file]').files[0];
-        axios.put('/api/dogs/register/' + idOfUser, {
-            "name": form.name,
-            "dateOfBirth": form.dateOfBirth,
-            "photo": blob,
-            "breedId": form.breed,
-            "id": idOfUser,
-        }).then(async response => {
-            window.location.href = "/users/dogs"
-            setIsDisabled(false);
-        }).catch(err => {
-            alert(err.response.data.message)
-            console.log(blob)
-            setIsDisabled(false);
-        })
-
-        // var formData = new FormData();
-        // let dog = {
+        // axios.put('/api/dogs/register/' + idOfUser, {
         //     "name": form.name,
         //     "dateOfBirth": form.dateOfBirth,
-        //     "photo": blob[0],
+        //     "photo": blob,
         //     "breedId": form.breed,
-        // }
-        // // formData.append("name", form.name)
-        // // formData.append("dateOfBirth", form.dateOfBirth)
-        // // formData.append("photo", blob[0])
-        // // formData.append("breedId", form.breed)
-        // formData.append("registerDog", dog)
-        // formData.append("id", idOfUser)
-        // console.log(formData);
-
-        // axios({
-        //     method: "put",
-        //     url: "/api/dogs/register/" + idOfUser,
-        //     data: formData,
-        //     headers: { "Content-Type": "multipart/form-data" },
-        // }).then(response => {
-        //     console.log(response);
-        //     window.alert("Great success!")
-        // }).catch(error => {
-        //     console.log(error);
+        //     "id": idOfUser,
+        // }).then(async response => {
+        //     window.location.href = "/users/dogs"
+        //     setIsDisabled(false);
+        // }).catch(err => {
+        //     alert(err.response.data.message)
+        //     console.log(blob)
+        //     setIsDisabled(false);
         // })
+
+        var formData = new FormData();
+        let dog = {
+            "name": form.name,
+            "dateOfBirth": form.dateOfBirth,
+            "photo": {},
+            "breedId": form.breed,
+        }
+        // formData.append("name", form.name)
+        // formData.append("dateOfBirth", form.dateOfBirth)
+        // formData.append("photo", blob[0])
+        // formData.append("breedId", form.breed)
+        formData.append("registerDog", dog)
+        formData.append("id", idOfUser)
+        console.log(formData);
+
+        axios({
+            method: "put",
+            url: "/api/dogs/register/" + idOfUser,
+            data: formData,
+            headers: {
+                'accept': 'application/json',
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+              },
+        }).then(response => {
+            console.log(response);
+            window.alert("Great success!")
+        }).catch(error => {
+            console.log(error);
+        })
 
 
 

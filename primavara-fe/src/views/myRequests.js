@@ -27,10 +27,8 @@ function MyRequests(){
 
     function FindBestOffer(request){
         let idOfUser = localStorage.getItem("id");
-        axios.post('/api/agreedRequest/initiate/' + request.requestGuardianId + '/null/' + idOfUser, {
-            "idReqGua": request.requestGuardianId,
-            "idReqDog": null,
-            "idInitiator": idOfUser
+        axios.post('/api/agreedRequest/bestDogsForGuardian/' + request.requestGuardianId, {
+            "idReqGua": request.requestGuardianId
         }).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
