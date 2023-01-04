@@ -3,6 +3,9 @@
 
 %prostor izmedu naredbi \documentclass i \begin{document} se zove uvod. U njemu se nalaze naredbe koje se odnose na cijeli dokument
 
+\usepackage{atbegshi}
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+
 %osnovni LaTex ne može riješiti sve probleme, pa se koriste različiti paketi koji olakšavaju izradu željenog dokumenta
 \usepackage[croatian]{babel} 
 \usepackage{amssymb}
@@ -84,10 +87,7 @@
 \renewcommand{\footrulewidth}{0.2pt}
 
 
-\begin{document} 
-	
-	
-	
+\begin{document} 	
 	\begin{titlepage}
 		\begin{center}
 			\vspace*{\stretch{1.0}} %u kombinaciji s ostalim \vspace naredbama definira razmak između redaka teksta
