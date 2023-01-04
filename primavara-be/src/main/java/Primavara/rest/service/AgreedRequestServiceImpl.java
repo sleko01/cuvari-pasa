@@ -1,6 +1,7 @@
 package Primavara.rest.service;
 
 import Primavara.rest.domain.*;
+import Primavara.rest.dto.RatedRequestsDTO;
 import Primavara.rest.dto.RequestBothDTO;
 import Primavara.rest.dto.RequestDogDTO;
 import Primavara.rest.dto.RequestGuardianDTO;
@@ -237,6 +238,38 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
         List<RequestBothDTO> list3 = agreedRequestRepository.findAllMyOffers3(id);
         map.put(3L, list3);
         return map;
+    }
+
+    @Override
+    public List<Pair<Long, Boolean>> getMyRatedGuardians(Long id) {
+        List<RatedRequestsDTO> list = agreedRequestRepository.getRatedListGuardians(id);
+        List<Pair<Long, Boolean>> giving = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            Boolean isIt;
+            if (list.get(i).getUserId() == id)
+                isIt = list.get(i).getUserRated();
+            else
+                isIt = list.get(i).getInitiatorRated();
+            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
+            giving.add(par);
+        }
+        return giving;
+    }
+
+    @Override
+    public List<Pair<Long, Boolean>> getMyRatedDogs(Long id) {
+        List<RatedRequestsDTO> list = agreedRequestRepository.getRatedListDogs(id);
+        List<Pair<Long, Boolean>> giving = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            Boolean isIt;
+            if (list.get(i).getUserId() == id)
+                isIt = list.get(i).getUserRated();
+            else
+                isIt = list.get(i).getInitiatorRated();
+            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
+            giving.add(par);
+        }
+        return giving;
     }
 
     private Double compare(RequestDog requestDog, RequestGuardian requestGuardian) {

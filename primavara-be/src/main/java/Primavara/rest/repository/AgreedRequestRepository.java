@@ -2,6 +2,7 @@ package Primavara.rest.repository;
 
 import Primavara.rest.domain.AgreedRequest;
 import Primavara.rest.domain.AppUser;
+import Primavara.rest.dto.RatedRequestsDTO;
 import Primavara.rest.dto.RequestBothDTO;
 import Primavara.rest.dto.RequestDogDTO;
 import Primavara.rest.dto.RequestGuardianDTO;
@@ -41,4 +42,14 @@ public interface AgreedRequestRepository extends JpaRepository<AgreedRequest, Lo
 
     @Query(value = "SELECT agreed_request_id FROM agreed_request where initiator_user_id = :i and user_id = :j and request_dog_id = :k", nativeQuery = true)
     Long respondToDog(@Param("i") Long idInitiator, @Param("j") Long idUser, @Param("k") Long idReqDog);
+
+    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rg.requestGuardianId, rg.appUser.userId, ar.userRated, ar.initiatorRated) " +
+            "from AgreedRequest as ar join RequestGuardian as rg on ar.requestGuardian.requestGuardianId = rg.requestGuardianId " +
+            "where ar.isAgreed = true and rg.requestGuardianId is not null and (ar.appUser.userId = :i or ar.initiatorUser.userId = :i) and current_timestamp > ar.agreedTimeBegin")
+    List<RatedRequestsDTO> getRatedListGuardians(@Param("i") Long idUser);
+
+    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rd.requestDogId, rd.appUser.userId, ar.userRated, ar.initiatorRated) " +
+            "from AgreedRequest as ar join RequestDog as rd on ar.requestDog.requestDogId = rd.requestDogId " +
+            "where ar.isAgreed = true and rd.requestDogId is not null and (ar.appUser.userId = :i or ar.initiatorUser.userId = :i) and current_timestamp > ar.agreedTimeEnd")
+    List<RatedRequestsDTO> getRatedListDogs(@Param("i") Long idUser);
 }

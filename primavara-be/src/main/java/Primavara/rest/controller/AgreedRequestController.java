@@ -2,8 +2,10 @@ package Primavara.rest.controller;
 
 import Primavara.rest.domain.RequestDog;
 import Primavara.rest.domain.RequestGuardian;
+import Primavara.rest.dto.RatedRequestsDTO;
 import Primavara.rest.service.AgreedRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,5 +53,17 @@ public class AgreedRequestController {
     @GetMapping("myOfferings/{id}")
     public HashMap<Long, List> getMyoffers(@PathVariable Long id) {
         return agreedRequestService.getMyOffers(id);
+    }
+
+    //vraca samo za one kojoma je proslo vrijeme zavrsetka!!!
+    @GetMapping("myRatedGuardians/{id}")
+    public List<Pair<Long, Boolean>> getMyRatedGuardians(@PathVariable Long id) {
+        return agreedRequestService.getMyRatedGuardians(id);
+    }
+
+    //vraca samo za one kojoma je proslo vrijeme zavrsetka!!! ako me netko pita zato nista ne vraca polomit cu ga, ako hocete za bilo koje vrijeme morate u agreedrequest repozitorij sql upit za koji se pita maknuti zadnji uvjet currenttimetamp
+    @GetMapping("myRatedDogs/{id}")
+    public List<Pair<Long, Boolean>> getMyRatedDogs(@PathVariable Long id) {
+        return agreedRequestService.getMyRatedDogs(id);
     }
 }

@@ -20,7 +20,7 @@ public interface RequestDogRepository extends JpaRepository<RequestDog, Long> {
     @Query(value = "SELECT * FROM request_dog r WHERE r.is_reviewed = true AND r.is_published = true and r.request_dog_id not in (\n" +
             "\tSELECT request_dog_id\n" +
             "\tFROM agreed_request\n" +
-            "\tWHERE is_agreed = true\n" +
+            "\tWHERE is_agreed = true and request_dog_id is not null\n" +
             ")", nativeQuery = true)
     List<Optional<RequestDog>> findAllReviewedAndPublishedAndNotGone();
 
@@ -42,7 +42,7 @@ public interface RequestDogRepository extends JpaRepository<RequestDog, Long> {
             "WHERE r.is_reviewed = true and r.is_published = true and r.user_id <> :i and r.request_dog_id not in (\n" +
             "\tSELECT request_dog_id\n" +
             "\tFROM agreed_request\n" +
-            "\tWHERE is_agreed = true\n" +
+            "\tWHERE is_agreed = true and request_dog_id is not null\n" +
             ")", nativeQuery = true)
     List<Optional<RequestDog>> findAllReviewedAndPublishedAndNotMineAndNotAgreed(@Param("i") Long user_id);
 
