@@ -9,6 +9,7 @@ import '../styles/index.css'
 import '../styles/moderation.css'
 import '../styles/profile.css'
 import '../styles/requestsAndOffers.css'
+import { useNavigate } from 'react-router-dom'
 
 
 function MyRequests(){
@@ -24,7 +25,7 @@ function MyRequests(){
         })
     }, []);
 
-
+        const navigate = useNavigate()
     function FindBestOffer(request){
         let idOfUser = localStorage.getItem("id");
         axios.post('/api/agreedRequest/bestDogsForGuardian/' + request.requestGuardianId, {
@@ -32,6 +33,7 @@ function MyRequests(){
         }).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
+            navigate('/bestOffer', {bestOffer: response.data, reqGua : request.requestGuardianId})
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)

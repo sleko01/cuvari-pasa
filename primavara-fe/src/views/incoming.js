@@ -11,7 +11,7 @@ import '../styles/moderation.css'
 import '../styles/profile.css'
 import '../styles/requestsAndOffers.css'
 
-function MyOffers(){
+function Incoming(){
     const [offers, setOffers] = React.useState()
     var offersPending = []
 
@@ -27,12 +27,80 @@ function MyOffers(){
             alert(err.response.data.message);
         })
     }, []);
-    function acceptRequest(offer) {
 
+    function acceptRequest(offer) {
+        console.log(offer)
+        console.log(offer.initiator_user.userId)
+        let type = offer.requestDog === undefined ? "g" : "d"
+        let requestType = type == "g" ? offer.requestGuardian.requestGuardianId : offer.requestDog.requestDogId
+        console.log(requestType)
+        // console.log(type)
+        let idOfUser = localStorage.getItem('id');
+        if (type == "d") {
+            axios.post('/api/agreedRequest/respond/' + offer.initiator_user.userId + '/' + idOfUser + '/' + requestType + '/1/' + type, {
+                "idInitiator": offer.initiator_user.userId,
+                "idUser": idOfUser,
+                "idReqDog": offer.requestDog.requestDogId,
+                "value": 1
+            }).then((response) => {
+                window.alert("Uspješno prihvaćeno!")
+                window.location.reload();
+                console.log(response);
+            }).catch(err => {
+                console.log(err);
+            });
+        } else {
+            axios.post('/api/agreedRequest/respond/' + offer.initiator_user.userId + '/' + idOfUser + '/' + requestType + '/1/' + type, {
+                "idInitiator": offer.initiator_user.userId,
+                "idUser": idOfUser,
+                "idReqGua": offer.requestDog.requestGuardianId,
+                "value": 1
+            }).then((response) => {
+                window.alert("Uspješno prihvaćeno!")
+                window.location.reload();
+                console.log(response);
+            }).catch(err => {
+                console.log(err);
+            });
+        }
+        
     }
 
     function denyRequest(offer) {
-
+        console.log(offer)
+        console.log(offer.initiator_user.userId)
+        let type = offer.requestDog === undefined ? "g" : "d"
+        let requestType = type == "g" ? offer.requestGuardian.requestGuardianId : offer.requestDog.requestDogId
+        console.log(requestType)
+        // console.log(type)
+        let idOfUser = localStorage.getItem('id');
+        if (type == "d") {
+            axios.post('/api/agreedRequest/respond/' + offer.initiator_user.userId + '/' + idOfUser + '/' + requestType + '/0/' + type, {
+                "idInitiator": offer.initiator_user.userId,
+                "idUser": idOfUser,
+                "idReqDog": offer.requestDog.requestDogId,
+                "value": 0
+            }).then((response) => {
+                window.alert("Uspješno odbijeno!")
+                window.location.reload();
+                console.log(response);
+            }).catch(err => {
+                console.log(err);
+            });
+        } else {
+            axios.post('/api/agreedRequest/respond/' + offer.initiator_user.userId + '/' + idOfUser + '/' + requestType + '/0' + type, {
+                "idInitiator": offer.initiator_user.userId,
+                "idUser": idOfUser,
+                "idReqGua": offer.requestDog.requestGuardianId,
+                "value": 0
+            }).then((response) => {
+                window.alert("Uspješno odbijeno!")
+                window.location.reload();
+                console.log(response);
+            }).catch(err => {
+                console.log(err);
+            });
+        }
     }
 
     function displayOffer(offer){
@@ -192,4 +260,4 @@ function MyOffers(){
     )
 }
 
-export default MyOffers;
+export default Incoming;

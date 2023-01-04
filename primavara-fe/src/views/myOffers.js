@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
+import { useNavigate } from 'react-router-dom'
 
 import '../styles/home.css'
 import '../styles/index.css'
@@ -24,14 +25,16 @@ function MyOffers(){
         })
     }, []);
 
+    const navigate = useNavigate();
 
     function FindBestOffer(offer){
         // let idOfUser = localStorage.getItem("id");
-        axios.post('/api/agreedRequest/bestGuardianForDogs/' + offer.requestDogId, {
+        axios.get('/api/agreedRequest/bestGuardianForDogs/' + offer.requestDogId, {
             "idReqDog": offer.requestDogId
         }).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
+            navigate('/bestRequest', {bestRequest: response.data, reqDog : offer.requestDogId})
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
