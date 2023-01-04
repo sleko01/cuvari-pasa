@@ -38,3 +38,10 @@
     display: flex;
     align-self: center;
 }
+
+.profile-button-container-centered {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    gap: 3px;
+}

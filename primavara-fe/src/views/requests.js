@@ -65,6 +65,10 @@ function Requests(){
                         {requests && requests.map(request =>
                             <div className='panel-content background-white'>
                                 <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Korisnik: </span>
+                                    <span className='panel-info-item-value'>{request.appUser.username}</span>
+                                </div>
+                                <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Lokacija: </span>
                                     <span className='panel-info-item-value'>{request.locationName}</span>
                                 </div>
