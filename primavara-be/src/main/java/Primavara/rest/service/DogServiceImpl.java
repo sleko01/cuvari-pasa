@@ -86,7 +86,14 @@ public class DogServiceImpl implements DogService{
     }
 
     @Override
-    public void rateDogs(Long idRequest, HashMap<Long, Long> dogs) {
+    public void rateDogs(Long idInitiator, Long idUser, Long idReq, String type, HashMap<Long, Long> dogs) {
+        Long idRequest;
+        if (type == "d") {
+            idRequest = agreedRequestRepository.respondToDog(idInitiator, idUser, idReq);
+        }
+        else {
+            idRequest = agreedRequestRepository.respondToGuardian(idInitiator, idUser, idReq);
+        }
         if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
             throw new RequestDeniedException(
                     "Request with id " + idRequest + " does not exist"

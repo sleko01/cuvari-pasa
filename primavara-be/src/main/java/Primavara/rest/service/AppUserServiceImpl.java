@@ -146,7 +146,12 @@ public class AppUserServiceImpl implements AppUserService{
     }
 
     @Override
-    public void rateAppUser(Long idRequest, Long value) {
+    public void rateAppUser(Long idInitiator, Long idUser, Long idReq, Long value, String type) {
+        Long idRequest;
+        if (type == "d")
+            idRequest = agreedRequestRepository.respondToDog(idInitiator, idUser, idReq);
+        else
+            idRequest = agreedRequestRepository.respondToGuardian(idInitiator, idUser, idReq);
         if (value != -1) {
             if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
                 throw new RequestDeniedException(

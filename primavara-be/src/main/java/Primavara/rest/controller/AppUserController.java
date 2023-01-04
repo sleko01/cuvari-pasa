@@ -59,9 +59,9 @@ public class AppUserController {
     }
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
-    @PostMapping("rate/{idRequest}/{value}")
-    public void rateAppUser(@PathVariable(required = true) Long idRequest, @PathVariable(required = true) Long value) {
-        appUserService.rateAppUser(idRequest, value);
+    @PostMapping("rate/{idInitiator}/{idUser}/{idRequest}/{value}/{type}")
+    public void rateAppUser(@PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idRequest, @PathVariable Long value, @PathVariable String type) {
+        appUserService.rateAppUser(idInitiator, idUser, idRequest, value, type);
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN')")

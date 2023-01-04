@@ -36,9 +36,9 @@ public interface AgreedRequestRepository extends JpaRepository<AgreedRequest, Lo
             "where ar.appUser.userId = :i and ar.isAgreed is null and ar.requestGuardian.requestGuardianId is not null and ar.requestDog.requestDogId is not null")
     List<RequestBothDTO> findAllMyOffers3(@Param("i") Long id);
 
-    @Query(value = "SELECT agreed_request_id FROM agreed_request_id where initiator_user_id = :i and user_id = :j and request_guardian_id = :k", nativeQuery = true)
+    @Query(value = "SELECT agreed_request_id FROM agreed_request where initiator_user_id = :i and user_id = :j and request_guardian_id = :k", nativeQuery = true)
     Long respondToGuardian(@Param("i") Long idInitiator, @Param("j") Long idUser, @Param("k") Long idReqGua);
 
-    @Query(value = "SELECT agreed_request_id FROM agreed_request_id where initiator_user_id = :i and user_id = :j and request_dog_id = :k", nativeQuery = true)
+    @Query(value = "SELECT agreed_request_id FROM agreed_request where initiator_user_id = :i and user_id = :j and request_dog_id = :k", nativeQuery = true)
     Long respondToDog(@Param("i") Long idInitiator, @Param("j") Long idUser, @Param("k") Long idReqDog);
 }

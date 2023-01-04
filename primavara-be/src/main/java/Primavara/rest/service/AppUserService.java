@@ -21,7 +21,7 @@ public interface AppUserService {
 
     void blockAppUser(Long id);
 
-    void rateAppUser(Long idRequest, Long value);
+    void rateAppUser(Long idInitiator, Long idUser, Long idRequest, Long value, String type);
 
     void approveRequestGuardian(Long id, Long val);
 

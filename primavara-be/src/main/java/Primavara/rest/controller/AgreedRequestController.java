@@ -25,7 +25,7 @@ public class AgreedRequestController {
 
     @PostMapping("respond/{idInitiator}/{idUser}/{idReqDog}/{value}/d")
     public void respondToAgreedRequestDog(@PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idReqDog, @PathVariable Long value) {
-        agreedRequestService.responseToRequestGuardian(idInitiator, idUser, idReqDog, value);
+        agreedRequestService.responseToRequestDog(idInitiator, idUser, idReqDog, value);
     }
 
 

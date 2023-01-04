@@ -41,8 +41,8 @@ public class DogController {
     }
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
-    @PostMapping("rate/{idRequest}")
-    public void rateDogs(@RequestBody RatedDogsList ratedDogsList, @PathVariable(required = true) Long idRequest) throws JsonProcessingException {
+    @PostMapping("rate/{idInitiator}/{idUser}/{idRequest}/{type}")
+    public void rateDogs(@RequestBody RatedDogsList ratedDogsList, @PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idRequest, @PathVariable String type) {
         /*ObjectMapper mapper = new ObjectMapper();
         TypeReference<HashMap<Long, Long>> typeRef = new TypeReference<HashMap<Long, Long>>() {};
         HashMap<Long, Long> map = mapper.readValue(dogs, typeRef);*/
@@ -50,6 +50,6 @@ public class DogController {
         for (int i = 0; i < ratedDogsList.length(); i++) {
             map.put(ratedDogsList.getListId().get(i), ratedDogsList.getListValue().get(i));
         }
-        dogService.rateDogs(idRequest, map);
+        dogService.rateDogs(idInitiator, idUser, idRequest, type, map);
     }
 }
