@@ -18,10 +18,16 @@ public class AgreedRequestController {
     private AgreedRequestService agreedRequestService;
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
-    @PostMapping("respond/{idUser}/{idRequest}/{value}")
-    public void respondToAgreedRequest(@PathVariable(required = true) Long idUser, @PathVariable(required = true) Long idRequest, @PathVariable(required = true) Long value) {
-        agreedRequestService.responseToRequest(idUser, idRequest, value);
+    @PostMapping("respond/{idInitiator}/{idUser}/{idReqGua}/{value}/g")
+    public void respondToAgreedRequestGuardian(@PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idReqGua, @PathVariable Long value) {
+        agreedRequestService.responseToRequestGuardian(idInitiator, idUser, idReqGua, value);
     }
+
+    @PostMapping("respond/{idInitiator}/{idUser}/{idReqDog}/{value}/d")
+    public void respondToAgreedRequestDog(@PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idReqDog, @PathVariable Long value) {
+        agreedRequestService.responseToRequestGuardian(idInitiator, idUser, idReqDog, value);
+    }
+
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("initiate/{idReqGua}/{idReqDog}/{idInitiator}")

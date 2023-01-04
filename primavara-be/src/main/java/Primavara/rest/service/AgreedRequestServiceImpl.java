@@ -18,7 +18,6 @@ import java.util.*;
 
 @Service
 public class AgreedRequestServiceImpl implements AgreedRequestService{
-
     @Autowired
     private AgreedRequestRepository agreedRequestRepository;
 
@@ -96,7 +95,33 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
     }
 
     @Override
-    public void responseToRequest(Long idUser, Long idRequest, Long value) {
+    public void responseToRequestGuardian(Long idInitiator, Long idUser, Long idReqGua, Long value) {
+        Long idRequest = agreedRequestRepository.respondToGuardian(idInitiator, idUser, idReqGua);
+        if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
+            throw new RequestDeniedException(
+                    "AgreedRequest with id " + idRequest + " does not exists"
+            );
+        if (appUserRepository.countByUserId(idUser) == 0)
+            throw new RequestDeniedException(
+                    "User with id " + idUser + " does not exists"
+            );
+
+        AgreedRequest agreedRequest = agreedRequestRepository.findByAgreedRequestId(idRequest);
+        if (appUserRepository.findByUserId(idUser).getUserId() != agreedRequest.getAppUser().getUserId())
+            throw new RequestDeniedException(
+                    "Not the right user to respond"
+            );
+
+        if (value == 1)
+            agreedRequest.setAgreed(true);
+        else
+            agreedRequest.setAgreed(false);
+        agreedRequestRepository.save(agreedRequest);
+    }
+
+    @Override
+    public void responseToRequestDog(Long idInitiator, Long idUser, Long idReqDog, Long value) {
+        Long idRequest = agreedRequestRepository.respondToDog(idInitiator, idUser, idReqDog);
         if (agreedRequestRepository.countByAgreedRequestId(idRequest) == 0)
             throw new RequestDeniedException(
                     "AgreedRequest with id " + idRequest + " does not exists"
