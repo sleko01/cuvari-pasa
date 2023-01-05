@@ -142,7 +142,15 @@ public class DogServiceImpl implements DogService{
         }
     }
 
+    @Override
+    public String getPhoto(Long id) {
+        String ime = dogRepository.getPhotoById(id);
+        System.out.println(ime);
+        return ime;
+    }
+
     private void validate(RegisterDog registerDog) {
+        System.out.println(registerDog.toString());
         Assert.notNull(registerDog, "RegisterDog object must be given");
         Assert.hasText(registerDog.getName(), "RegisterDog name must be given");
         Assert.notNull(registerDog.getDateOfBirth(), "RegisterDog dateOfBirth must be given");

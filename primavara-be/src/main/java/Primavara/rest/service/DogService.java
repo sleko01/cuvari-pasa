@@ -19,4 +19,6 @@ public interface DogService {
     List<Optional<Breed>> getAllSortedBreeds();
 
     void rateDogs(Long idInitiator, Long idUser, Long idRequest, String type, HashMap<Long, Long> dogs);
+
+    String getPhoto(Long id);
 }

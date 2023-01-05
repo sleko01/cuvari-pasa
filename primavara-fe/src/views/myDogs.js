@@ -13,6 +13,7 @@ import '../styles/requestsAndOffers.css'
 
 function MyDogs(){
     const [dogs, setDogs] = React.useState([])
+    const [images, setImages] = React.useState([])
 
 
     React.useEffect(() => {
@@ -24,7 +25,15 @@ function MyDogs(){
             alert(err.response.data.message);
         })
     }, []);
-    
+
+    React.useEffect(() => {
+        axios.get('/api/dogs/getPhoto/' + 12).then(response => response.json()).then(data => {
+            console.log(data);
+            setImages(data)
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
 
     return(
         <div className="page-container">
@@ -51,7 +60,7 @@ function MyDogs(){
                         {dogs && dogs.map(dog =>
                             <div className='panel-content background-white'>
                                 <div className='panel-info-item'>
-                                    <span className='panel-info-item-value'>{dog.photo}</span>
+                                    <img src={`${dog.photo}`}></img>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Ime: </span>

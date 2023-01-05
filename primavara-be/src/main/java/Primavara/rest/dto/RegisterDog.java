@@ -1,6 +1,7 @@
 package Primavara.rest.dto;
 
 import org.hibernate.annotations.Type;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Lob;
 import java.sql.Blob;
@@ -13,9 +14,7 @@ public class RegisterDog {
 
     private Date dateOfBirth;
 
-    @Lob
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] photo;
+    private String photo;
 
     private Long breedId;
 
@@ -35,11 +34,11 @@ public class RegisterDog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public byte[] getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
@@ -49,5 +48,15 @@ public class RegisterDog {
 
     public void setBreedId(Long breedId) {
         this.breedId = breedId;
+    }
+
+    @Override
+    public String toString() {
+        return "RegisterDog{" +
+                "name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", photo=" + photo +
+                ", breedId=" + breedId +
+                '}';
     }
 }
