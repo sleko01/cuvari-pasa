@@ -21,4 +21,5 @@ public interface DogService {
     void rateDogs(Long idInitiator, Long idUser, Long idRequest, String type, HashMap<Long, Long> dogs);
 
     Dog getDogById(Long dogId);
+    String getPhoto(Long id);
 }
