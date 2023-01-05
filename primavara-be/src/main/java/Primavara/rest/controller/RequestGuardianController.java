@@ -45,6 +45,7 @@ public class RequestGuardianController {
                 agreedRequestService.initiateToRequestGuardian(idReqGua, idInitiator);
         }
 
+        //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
         @GetMapping("getDogsInRequest/{idReqGua}")
         public List<Long> getDogsInRequest(@PathVariable Long idReqGua){
                 return agreedRequestService.getDogsInRequest(idReqGua);
