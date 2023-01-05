@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface RequestGuardianService {
     List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians();
 
+    List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndNotInitiatedByMe(Long id);
+
     void addNewRequestGuardian(NewRequestGuardian newRequestGuardian, Long id);
 
     List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(Long id);

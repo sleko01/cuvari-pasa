@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface RequestDogService {
     List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs();
 
+    List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogsAndNotInitiatedByMe(Long id);
+
     void addNewRequestDog(NewRequestDog newRequestDog, Long id);
 
     List<Optional<RequestDog>> getAllRequestDogsByUserId(Long id);

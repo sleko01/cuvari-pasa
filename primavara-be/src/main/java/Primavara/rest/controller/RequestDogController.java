@@ -20,9 +20,12 @@ public class RequestDogController {
     @Autowired
     private AgreedRequestService agreedRequestService;
 
-    @GetMapping("")
-    public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs() {
-        return requestDogService.getAllReviewedAndPublishedRequestDogs();
+    @GetMapping(value = {"", "{idUser}"})
+    public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs(@PathVariable(required = false) Long idUser) {
+        if (idUser == null)
+            return requestDogService.getAllReviewedAndPublishedRequestDogs();
+        else
+            return requestDogService.getAllReviewedAndPublishedRequestDogsAndNotInitiatedByMe(idUser);
     }
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")

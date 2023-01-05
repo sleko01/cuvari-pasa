@@ -20,9 +20,12 @@ public class RequestGuardianController {
         @Autowired
         private AgreedRequestService agreedRequestService;
 
-        @GetMapping("")
-        public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians() {
-                return requestGuardianService.getAllReviewedAndPublishedRequestGuardians();
+        @GetMapping(value ={"", "{idUser}"})
+        public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardians(@PathVariable(required = false) Long idUser) {
+                if (idUser == null)
+                        return requestGuardianService.getAllReviewedAndPublishedRequestGuardians();
+                else
+                        return requestGuardianService.getAllReviewedAndPublishedRequestGuardiansAndNotInitiatedByMe(idUser);
         }
 
         //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")

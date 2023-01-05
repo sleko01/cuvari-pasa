@@ -36,6 +36,11 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
     }
 
     @Override
+    public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndNotInitiatedByMe(Long id) {
+        return requestGuardianRepository.findAllReviewedAndPublishedAndNotGoneAndNotInitiatedByMe(id);
+    }
+
+    @Override
     public void addNewRequestGuardian(NewRequestGuardian newRequestGuardian, Long id){
         validate(newRequestGuardian);
         Long counter=0L;
