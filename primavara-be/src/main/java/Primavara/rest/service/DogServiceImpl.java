@@ -142,6 +142,11 @@ public class DogServiceImpl implements DogService{
         }
     }
 
+    @Override
+    public Dog getDogById(Long dogId) {
+        return dogRepository.findByDogId(dogId);
+    }
+
     private void validate(RegisterDog registerDog) {
         Assert.notNull(registerDog, "RegisterDog object must be given");
         Assert.hasText(registerDog.getName(), "RegisterDog name must be given");

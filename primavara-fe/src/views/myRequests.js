@@ -24,16 +24,18 @@ function MyRequests(){
             alert(err.response.data.message);
         })
     }, []);
-
-        const navigate = useNavigate()
+    //
+        const navigate = useNavigate();
     function FindBestOffer(request){
         let idOfUser = localStorage.getItem("id");
-        axios.post('/api/agreedRequest/bestDogsForGuardian/' + request.requestGuardianId, {
+        let reqGuaId = request.requestGuardianId;
+        axios.get('/api/agreedRequest/bestDogsForGuardian/' + request.requestGuardianId, {
             "idReqGua": request.requestGuardianId
         }).then(async response => {
             console.log(response)
-            window.alert("Uspješno!")
-            navigate('/bestOffer', {bestOffer: response.data, reqGua : request.requestGuardianId})
+            navigate('/bestOffer', {state : {
+                    bestOffer: response.data, reqGua : reqGuaId
+                }})
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)

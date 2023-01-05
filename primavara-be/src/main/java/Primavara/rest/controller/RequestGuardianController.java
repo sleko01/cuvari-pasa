@@ -1,5 +1,6 @@
 package Primavara.rest.controller;
 
+import Primavara.rest.domain.Dog;
 import Primavara.rest.domain.RequestGuardian;
 import Primavara.rest.dto.NewRequestGuardian;
 import Primavara.rest.service.AgreedRequestService;
@@ -42,5 +43,10 @@ public class RequestGuardianController {
         @PostMapping("initiate/{idReqGua}/{idInitiator}")
         public void initiateToRequestGuardian(@PathVariable(required = true) Long idReqGua, @PathVariable(required = true) Long idInitiator) {
                 agreedRequestService.initiateToRequestGuardian(idReqGua, idInitiator);
+        }
+
+        @GetMapping("getDogsInRequest/{idReqGua}")
+        public List<Long> getDogsInRequest(@PathVariable Long idReqGua){
+                return agreedRequestService.getDogsInRequest(idReqGua);
         }
 }

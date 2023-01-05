@@ -52,4 +52,9 @@ public class DogController {
         }
         dogService.rateDogs(idInitiator, idUser, idRequest, type, map);
     }
+
+    @GetMapping("/dog/{dogId}")
+    public Dog getDogById(@PathVariable Long dogId){
+        return dogService.getDogById(dogId);
+    }
 }

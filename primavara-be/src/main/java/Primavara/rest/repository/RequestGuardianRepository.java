@@ -24,7 +24,7 @@ public interface RequestGuardianRepository extends JpaRepository<RequestGuardian
     List<Optional<RequestGuardian>> findAllReviewedAndPublishedAndNotGone();
 
     @Query(value = "SELECT * FROM request_guardian r WHERE r.is_reviewed = true AND r.is_published = true and r.request_guardian_id not in (\n" +
-            "\tSELECT request_dog_id\n" +
+            "\tSELECT request_guardian_id\n" +
             "\tFROM agreed_request\n" +
             "\tWHERE is_agreed = true and request_guardian_id is not null\n" +
             ") and (:i, request_guardian_id) not in (" +
@@ -51,7 +51,7 @@ public interface RequestGuardianRepository extends JpaRepository<RequestGuardian
                     "WHERE r.is_reviewed = true and r.is_published = true and r.user_id <> :i and r.request_guardian_id not in (\n" +
                     "\tSELECT request_guardian_id\n" +
                     "\tFROM agreed_request\n" +
-                    "\tWHERE is_agreed = true and reqeust_guardian_id is not null\n" +
+                    "\tWHERE is_agreed = true and request_guardian_id is not null\n" +
                     ")", nativeQuery = true)
     List<Optional<RequestGuardian>> findAllReviewedAndPublishedAndNotMineAndNotAgreed(@Param("i") Long user_id);
 }

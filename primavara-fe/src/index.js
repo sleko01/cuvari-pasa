@@ -17,6 +17,8 @@ import Offers from "./views/offers.js";
 import Moderation from "./views/moderation.js";
 import Blocked from "./views/blocked.js";
 import Incoming from "./views/incoming.js";
+import BestOffer from "./views/bestOffer";
+import BestRequest from "./views/bestRequest";
 
 export default function App() {
   return (
@@ -37,6 +39,8 @@ export default function App() {
           
           <Route path="/users/requests" element={<MyRequests />} />
           <Route path="/users/offers" element={<MyOffers />} />
+          <Route path="/bestOffer" element={<BestOffer />} />
+          <Route path="/bestRequest" element={<BestRequest />} />
           
           <Route path="/dogs/register" element={<RegisterDog />} />
           <Route path="/users/dogs" element={<MyDogs />} />

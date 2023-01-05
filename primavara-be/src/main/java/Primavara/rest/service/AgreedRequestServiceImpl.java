@@ -241,35 +241,40 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
     }
 
     @Override
-    public List<Pair<Long, Boolean>> getMyRatedGuardians(Long id) {
+    public List<RatedRequestsDTO> getMyRatedGuardians(Long id) {
         List<RatedRequestsDTO> list = agreedRequestRepository.getRatedListGuardians(id);
-        List<Pair<Long, Boolean>> giving = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            Boolean isIt;
-            if (list.get(i).getUserId() == id)
-                isIt = list.get(i).getUserRated();
-            else
-                isIt = list.get(i).getInitiatorRated();
-            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
-            giving.add(par);
-        }
-        return giving;
+//        List<Pair<Long, Boolean>> giving = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            Boolean isIt;
+//            if (list.get(i).getUserId() == id)
+//                isIt = list.get(i).getUserRated();
+//            else
+//                isIt = list.get(i).getInitiatorRated();
+//            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
+//            giving.add(par);
+//        }
+        return list;
     }
 
     @Override
-    public List<Pair<Long, Boolean>> getMyRatedDogs(Long id) {
+    public List<RatedRequestsDTO> getMyRatedDogs(Long id) {
         List<RatedRequestsDTO> list = agreedRequestRepository.getRatedListDogs(id);
-        List<Pair<Long, Boolean>> giving = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            Boolean isIt;
-            if (list.get(i).getUserId() == id)
-                isIt = list.get(i).getUserRated();
-            else
-                isIt = list.get(i).getInitiatorRated();
-            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
-            giving.add(par);
-        }
-        return giving;
+//        List<Pair<Long, Boolean>> giving = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            Boolean isIt;
+//            if (list.get(i).getUserId() == id)
+//                isIt = list.get(i).getUserRated();
+//            else
+//                isIt = list.get(i).getInitiatorRated();
+//            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
+//            giving.add(par);
+//        }
+        return list;
+    }
+
+    @Override
+    public List<Long> getDogsInRequest(Long reqGuaId) {
+        return agreedRequestRepository.getDogsInRequest(reqGuaId);
     }
 
     private Double compare(RequestDog requestDog, RequestGuardian requestGuardian) {

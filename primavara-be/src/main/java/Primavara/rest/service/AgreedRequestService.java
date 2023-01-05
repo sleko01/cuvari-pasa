@@ -1,7 +1,9 @@
 package Primavara.rest.service;
 
+import Primavara.rest.domain.Dog;
 import Primavara.rest.domain.RequestDog;
 import Primavara.rest.domain.RequestGuardian;
+import Primavara.rest.dto.RatedRequestsDTO;
 import org.springframework.data.util.Pair;
 
 import java.util.*;
@@ -27,7 +29,9 @@ public interface AgreedRequestService {
 
     HashMap<Long, List> getMyOffers(Long id);
 
-    List<Pair<Long, Boolean>> getMyRatedGuardians(Long id);
+    List<RatedRequestsDTO> getMyRatedGuardians(Long id);
 
-    List<Pair<Long, Boolean>> getMyRatedDogs(Long id);
+    List<RatedRequestsDTO> getMyRatedDogs(Long id);
+
+    List<Long> getDogsInRequest(Long reqGuaId);
 }

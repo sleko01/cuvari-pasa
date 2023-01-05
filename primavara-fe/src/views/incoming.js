@@ -13,12 +13,17 @@ import '../styles/requestsAndOffers.css'
 
 function Incoming(){
     const [offers, setOffers] = React.useState()
-    var offersPending = []
+    const [unratedGuardians, setUnratedGuardians] = React.useState()
+    const [unratedDogs, setUnratedDogs] = React.useState()
+    const [ratings, setRatings] = React.useState()
+    let offersPending = []
+    let dogsTemp = []
+    let unratedDogsTemp = []
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/agreedRequest/myOfferings/' + id).then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             for (const [key, value] of Object.entries(response.data)){
                 offersPending.push(value)
             }
@@ -27,6 +32,47 @@ function Incoming(){
             alert(err.response.data.message);
         })
     }, []);
+
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/agreedRequest/myRatedGuardians/' + id).then(response => {
+            // console.log(response.data);
+            unratedDogsTemp = []
+            let tempObject
+            for (const [key, value] of Object.entries(response.data)){
+                axios.get("/api/reqgua/getDogsInRequest/" + value.requestId).then(response => {
+                    dogsTemp = []
+                    response.data.forEach(dogId => {
+                        axios.get("/api/dogs/dog/" + dogId).then(response => {
+                            dogsTemp.push(response.data)
+                        })
+                    })
+                }).then(() => {
+                    tempObject = {
+                        "userId": id==value.userId ? value.initiatorUserId : value.userId,
+                        "dogs": dogsTemp
+                    }
+                    unratedDogsTemp.push(tempObject)
+                })
+            }
+            console.log(unratedDogsTemp)
+            setUnratedDogs(unratedDogsTemp)
+
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
+
+    React.useEffect(() => {
+        let id = localStorage.getItem('id');
+        axios.get('/api/agreedRequest/myRatedDogs/' + id).then(response => {
+            // console.log(response.data);
+        }).catch(err => {
+            alert(err.response.data.message);
+        })
+    }, []);
+
+
 
     function acceptRequest(offer) {
         console.log(offer)
@@ -53,7 +99,7 @@ function Incoming(){
             axios.post('/api/agreedRequest/respond/' + offer.initiator_user.userId + '/' + idOfUser + '/' + requestType + '/1/' + type, {
                 "idInitiator": offer.initiator_user.userId,
                 "idUser": idOfUser,
-                "idReqGua": offer.requestDog.requestGuardianId,
+                "idReqGua": offer.requestGuardian.requestGuardianId,
                 "value": 1
             }).then((response) => {
                 window.alert("Uspješno prihvaćeno!")
