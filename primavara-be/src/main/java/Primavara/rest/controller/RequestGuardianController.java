@@ -36,7 +36,7 @@ public class RequestGuardianController {
         //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
         @GetMapping("my/{id}")
         public List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(@PathVariable(required = true) Long id){
-                return requestGuardianService.getAllRequestGuardiansByUserId(id);
+                return requestGuardianService.getAllReviewedAndPublishedRequestGuardiansAndMine(id);
         }
 
         //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")

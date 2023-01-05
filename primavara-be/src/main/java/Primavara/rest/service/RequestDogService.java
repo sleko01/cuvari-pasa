@@ -1,6 +1,7 @@
 package Primavara.rest.service;
 
 import Primavara.rest.domain.RequestDog;
+import Primavara.rest.domain.RequestGuardian;
 import Primavara.rest.dto.NewRequestDog;
 
 import java.util.List;
@@ -15,5 +16,5 @@ public interface RequestDogService {
 
     List<Optional<RequestDog>> getAllRequestDogsByUserId(Long id);
 
-
+    List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogsAndMine(Long id);
 }

@@ -35,7 +35,7 @@ public class RequestDogController {
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("my/{id}")
     public List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
-        return requestDogService.getAllRequestDogsByUserId(id);
+        return requestDogService.getAllReviewedAndPublishedRequestDogsAndMine(id);
     }
 
     //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")

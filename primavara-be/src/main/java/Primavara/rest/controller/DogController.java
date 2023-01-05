@@ -28,7 +28,7 @@ public class DogController {
     @Autowired
     private DogService dogService;
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
 //    @PutMapping("register/{id}")
     @RequestMapping(path = "register/{id}", method = PUT, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public void addDog(@ModelAttribute RegisterDog registerDog, @PathVariable(required = true) Long id){
@@ -58,10 +58,14 @@ public class DogController {
         }
         dogService.rateDogs(idInitiator, idUser, idRequest, type, map);
     }
+
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR','ROLE_VLASNIKČUVAR')")
     @GetMapping("/dog/{dogId}")
     public Dog getDogById(@PathVariable Long dogId) {
         return dogService.getDogById(dogId);
     }
+
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("getPhoto/{id}")
     public String getPhoto(@PathVariable Long id) {
         String ime = dogService.getPhoto(id);

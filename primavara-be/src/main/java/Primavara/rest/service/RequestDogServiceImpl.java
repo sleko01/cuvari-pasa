@@ -31,6 +31,11 @@ public class RequestDogServiceImpl implements RequestDogService{
     }
 
     @Override
+    public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogsAndMine(Long id) {
+        return requestDogRepository.findAllReviewedAndPublishedAndNotGoneAndMine(id);
+    }
+
+    @Override
     public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogsAndNotInitiatedByMe(Long id) {
         return requestDogRepository.findAllReviewedAndPublishedAndNotGoneAndNotInitiatedByMe(id);
     }

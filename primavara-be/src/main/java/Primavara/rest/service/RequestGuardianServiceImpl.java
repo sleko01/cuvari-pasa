@@ -36,6 +36,11 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
     }
 
     @Override
+    public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndMine(Long id) {
+        return requestGuardianRepository.findAllReviewedAndPublishedAndNotGoneAndMine(id);
+    }
+
+    @Override
     public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndNotInitiatedByMe(Long id) {
         return requestGuardianRepository.findAllReviewedAndPublishedAndNotGoneAndNotInitiatedByMe(id);
     }

@@ -25,6 +25,7 @@ public class AgreedRequestController {
         agreedRequestService.responseToRequestGuardian(idInitiator, idUser, idReqGua, value);
     }
 
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("respond/{idInitiator}/{idUser}/{idReqDog}/{value}/d")
     public void respondToAgreedRequestDog(@PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idReqDog, @PathVariable Long value) {
         agreedRequestService.responseToRequestDog(idInitiator, idUser, idReqDog, value);
@@ -56,12 +57,14 @@ public class AgreedRequestController {
     }
 
     //vraca samo za one kojoma je proslo vrijeme zavrsetka!!!
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("myRatedGuardians/{id}")
     public List<RatedRequestsDTO> getMyRatedGuardians(@PathVariable Long id) {
         return agreedRequestService.getMyRatedGuardians(id);
     }
 
     //vraca samo za one kojoma je proslo vrijeme zavrsetka!!! ako me netko pita zato nista ne vraca polomit cu ga, ako hocete za bilo koje vrijeme morate u agreedrequest repozitorij sql upit za koji se pita maknuti zadnji uvjet currenttimetamp
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("myRatedDogs/{id}")
     public List<RatedRequestsDTO> getMyRatedDogs(@PathVariable Long id) {
         return agreedRequestService.getMyRatedDogs(id);
