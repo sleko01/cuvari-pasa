@@ -10,15 +10,21 @@ import '../styles/index.css'
 import '../styles/moderation.css'
 import '../styles/profile.css'
 import '../styles/requestsAndOffers.css'
+import {NativeSelect} from "@mui/material";
 
 function Incoming(){
     const [offers, setOffers] = React.useState()
     const [unratedGuardians, setUnratedGuardians] = React.useState()
     const [unratedDogs, setUnratedDogs] = React.useState()
-    const [ratings, setRatings] = React.useState()
+    const [userRatings, setUserRatings] = React.useState({})
+    const [dogRatings, setDogRatings] = React.useState({})
     let offersPending = []
     let dogsTemp = []
     let unratedDogsTemp = []
+    let unratedGuardiansTemp = []
+    let temp = ""
+    let dogsTemp1 = []
+
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
@@ -36,27 +42,47 @@ function Incoming(){
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/agreedRequest/myRatedGuardians/' + id).then(response => {
-            // console.log(response.data);
-            unratedDogsTemp = []
+            //console.log(response.data);
+            unratedGuardiansTemp = []
             let tempObject
             for (const [key, value] of Object.entries(response.data)){
-                axios.get("/api/reqgua/getDogsInRequest/" + value.requestId).then(response => {
-                    dogsTemp = []
-                    response.data.forEach(dogId => {
-                        axios.get("/api/dogs/dog/" + dogId).then(response => {
-                            dogsTemp.push(response.data)
+                if (id == value.initiatorUserId && !value.initiatorRated) {
+                    axios.get("/api/reqgua/getDogsInRequest/" + value.requestId).then(response => {
+                        dogsTemp = []
+                        response.data.forEach(dogId => {
+                            axios.get("/api/dogs/dog/" + dogId).then(response => {
+                                dogsTemp.push(response.data)
+                                temp = value.requestId.toString() + "_" + dogId.toString()
+                                setDogRatings(oldDogRatings => ({...oldDogRatings, [temp]: -1}))
+                            })
+                        })
+                    }).then(() => {
+                        axios.get("/api/users/profile/" + value.userId).then(response => {
+                            tempObject = {
+                                "userId": value.userId,
+                                "username": response.data.username,
+                                "dogs": dogsTemp,
+                                "requestId": value.requestId
+                            }
+                            unratedGuardiansTemp.push(tempObject)
                         })
                     })
-                }).then(() => {
-                    tempObject = {
-                        "userId": id==value.userId ? value.initiatorUserId : value.userId,
-                        "dogs": dogsTemp
-                    }
-                    unratedDogsTemp.push(tempObject)
-                })
+                } else if (id == value.userId && !value.userRated) {
+                    axios.get("/api/users/profile/" + value.initiatorUserId).then(response => {
+                        tempObject = {
+                            "userId": value.initiatorUserId,
+                            "username": response.data.username,
+                            "dogs": null,
+                            "requestId": value.requestId
+                        }
+                        temp = value.requestId.toString() + "_" + value.initiatorUserId.toString()
+                        setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
+                        unratedGuardiansTemp.push(tempObject)
+                    })
+                }
             }
-            console.log(unratedDogsTemp)
-            setUnratedDogs(unratedDogsTemp)
+            console.log(unratedGuardiansTemp)
+            setUnratedDogs(unratedGuardiansTemp)
 
         }).catch(err => {
             alert(err.response.data.message);
@@ -66,12 +92,62 @@ function Incoming(){
     React.useEffect(() => {
         let id = localStorage.getItem('id');
         axios.get('/api/agreedRequest/myRatedDogs/' + id).then(response => {
-            // console.log(response.data);
+            //console.log(response.data)
+            unratedDogsTemp = []
+            let tempObject
+            for (const [key, value] of Object.entries(response.data)){
+                if (id == value.userId && !value.userRated) {
+                    axios.get("/api/dogs/my/" + value.initiatorUserId).then(response => {
+                        dogsTemp1 = response.data
+                        axios.get("/api/users/profile/" + value.initiatorUserId).then(response => {
+                            tempObject = {
+                                "userId": value.initiatorUserId,
+                                "username": response.data.username,
+                                "dogs": dogsTemp1,
+                                "requestId": value.requestId
+                            }
+                            dogsTemp1.forEach(dog => {
+                                temp = value.requestId.toString() + "_" + dog.dogId.toString()
+                                setDogRatings(oldDogRatings => ({...oldDogRatings, [temp]: -1}))
+                            })
+                            unratedDogsTemp.push(tempObject)
+                            })
+                    })
+                } else if (id == value.initiatorUserId && !value.initiatorRated) {
+                    axios.get("/api/users/profile/" + value.userId).then(response => {
+                        tempObject = {
+                            "userId": value.userId,
+                            "username": response.data.username,
+                            "dogs": null,
+                            "requestId": value.requestId
+                        }
+                        temp = value.requestId.toString() + "_" + value.userId.toString()
+                        setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
+                        unratedDogsTemp.push(tempObject)
+                    })
+
+                }
+            }
+            console.log(unratedDogsTemp)
+            setUnratedGuardians(unratedDogsTemp)
         }).catch(err => {
             alert(err.response.data.message);
         })
     }, []);
+    function onChangeGuardians(e){
+        const {name, value} = e.target;
+        setUserRatings(oldUserRatings => ({...oldUserRatings, [name]:value}))
+    }
+    function onChangeDogs(e){
+        const {name, value} = e.target;
+        setDogRatings(oldDogRatings => ({...oldDogRatings, [name]:value}))
+    }
+    function rateUser(reqId, userId){
 
+    }
+    function rateDog(reqId, dogId){
+
+    }
 
 
     function acceptRequest(offer) {
@@ -254,6 +330,75 @@ function Incoming(){
         }
     }
 
+    function displayRating(a) {
+        if (a.dogs){
+            return(
+                <div>
+                    {a.dogs.map(dog =>
+                        <div>
+                            <div className='panel-info-item'>
+                                <span className='panel-info-item-name'>Pas: </span>
+                                <span className='panel-info-item-value'>{dog.name}</span>
+                            </div>
+                            <div className='panel-info-item'>
+                                <NativeSelect
+                                    inputProps={{
+                                        name:a.requestId.toString() + "_" + dog.dogId.toString(),
+                                        id: "rating" + a.requestId.toString() + "_" + dog.name
+                                    }}
+                                    required
+                                    onChange = {onChangeDogs}
+                                    value = {dogRatings[a.requestId.toString() + "_" + dog.dogId.toString()]}
+                                >
+                                    <option value={-1}>Ne želim ocijeniti</option>
+                                    <option value={1}>1</option>
+                                    <option value={2}>2</option>
+                                    <option value={3}>3</option>
+                                    <option value={4}>4</option>
+                                    <option value={5}>5</option>
+                                </NativeSelect>
+                            </div>
+                            <div className='empty-space-small'></div>
+                            <div className='profile-button-container-centered'>
+                                <button className="button button-primary" onClick={() => rateDog(a.requestId, dog.dogId)}>Ocijeni</button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )
+        } else {
+            return(
+                <div>
+                    <div className='panel-info-item'>
+                        <span className='panel-info-item-name'>Korisnik: </span>
+                        <span className='panel-info-item-value'>{a.username}</span>
+                    </div>
+                    <div className='panel-info-item'>
+                        <NativeSelect
+                            inputProps={{
+                                name:a.requestId.toString() + "_" + a.userId.toString(),
+                                id: "rating" + a.requestId.toString() + "_" + a.username
+                            }}
+                            required
+                            onChange = {onChangeGuardians}
+                            value = {userRatings[a.requestId.toString() + "_" + a.userId.toString()]}
+                        >
+                            <option value={-1}>Ne želim ocijeniti</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                        </NativeSelect>
+                    </div>
+                    <div className='empty-space-small'></div>
+                    <div className='profile-button-container-centered'>
+                        <button className="button button-primary" onClick={() => rateUser(a.requestId, a.userId)}>Ocijeni</button>
+                    </div>
+                </div>)
+        }
+    }
+
     return(
         <div className="page-container">
             <Helmet>
@@ -293,8 +438,16 @@ function Incoming(){
                     <hr className='hr-color-apricot'/>
 
                     <div className='panel-container'>
-                        {//-II- + zvezde
-                        }
+                        {unratedDogs && unratedDogs.map(dogs=>
+                            <div className="panel-content background-white">
+                                {displayRating(dogs)}
+                            </div>
+                        )}
+                        {unratedGuardians && unratedGuardians.map(guardian =>
+                            <div className="panel-content background-white">
+                                {displayRating(guardian)}
+                            </div>
+                        )}
                     </div>
 
                 </div>
