@@ -265,7 +265,7 @@
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/class_diagram_controllers}
+				\includegraphics[width=16cm]{slike/dijagram_razreda_controllers}
 				\caption{Dijagram razreda - dio Controllers} 
 				\label{fig:Class-Diagram}
 			\end{figure}
@@ -275,12 +275,12 @@
 			RegistertUser i ReqisterDog služe za stvaranje novog objekta User odnosno Dog.
 			NewRequestDog i NewRequestGuardian služa za stvaranje novog objekta RequestDog odnosno RequestGuardian.
 			RatedDogsList služi za primanje podaka o ocijenjenim psima.
-			RequestDogDTO, RequestGuardianDTO, RequestBothDTO služe kao pomoćni objekti za čitanje tih objekata iz baze.
+			RequestGuardianDTO, RequestBothDTO, RatedRequestsDTO služe kao pomoćni objekti za čitanje tih objekata iz baze.
 			\eject
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/class_diagrams_dtos}
+				\includegraphics[width=16cm]{slike/dijagram_razreda_DTO}
 				\caption{Dijagram razreda - dio Data Transfer Objects}
 				\label{fig:Class-Diagram}
 			\end{figure}
@@ -310,9 +310,20 @@
 		
 		\section{Dijagram aktivnosti}
 			
-			\textbf{\textit{dio 2. revizije}}\\
+			Dijagram aktivnosti primjenjuje se za opis modela toka upravljanja ili toka podataka. Ne upotrebljava se za modeliranje događajima poticanog ponašanja. U
+			modeliranju toka upravljanja svaki novi korak poduzima se nakon završenog prethodnog, a naglasak je na jednostavnosti. Na dijagramu aktivnosti sa slike 4.6 prikazan je proces sinkronizacije vlasnika i čuvara, odobravanje upita te ocjenjivanje. Vlasnik, čuvar i administrator se prijave u sustav. Vlasnik dodaje svog psa te radi zahtjev dok čuvar radi svoj oglas.
+			Ako je sve uredu administrator potvrđuje te upite te započinje sinkronizacija između vlasnika i čuvara. Nakon što je šetnja završila, vlasnik može ocijeniti čuvara dok čuvar može ocijeniti pse.
 			
-			 \textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.}
+			\newpage
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=15cm]{slike/dijagram_aktivnosti}
+				\caption{Dijagram aktivnosti}
+				\label{fig:Activity-Diagram}
+			\end{figure}
+			
+			 
 			
 			\eject
 		\section{Dijagram komponenti}
