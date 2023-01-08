@@ -5,6 +5,7 @@ import PasswordChecklist from "react-password-checklist"
 import Footer from './partials/footer'
 import Navbar from './partials/navbar'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -257,7 +258,7 @@ function NewOffer(){
                                     <div className="form-button-container">
                                         <button
                                             type="submit"
-                                            className="button button-primary"
+                                            className="button button-primary resp-button"
                                             variant="contained"
                                             disabled={!isValid() || isDisabled}
                                             onClick={onSubmit}

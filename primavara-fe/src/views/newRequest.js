@@ -7,6 +7,7 @@ import { Select } from '@mui/material'
 import { MenuItem } from '@mui/material'
 import { InputLabel } from '@mui/material'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -319,7 +320,7 @@ function NewRequest(){
                                     <div className="form-button-container">
                                         <button
                                             type="submit"
-                                            className="button button-primary"
+                                            className="button button-primary resp-button"
                                             variant="contained"
                                             disabled={!isValid() || isDisabled}
                                             onClick={onSubmit}

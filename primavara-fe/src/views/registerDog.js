@@ -5,6 +5,7 @@ import CryptoJS from 'crypto-js'
 
 import Navbar from './partials/navbar'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -140,7 +141,7 @@ function RegisterDog(){
             <Navbar/>
 
             <div className="form-section-container ">
-                <div className="form-container background-citrus">
+                <div className="form-container form-container-dog background-citrus">
 
                     <Box
                         sx={{

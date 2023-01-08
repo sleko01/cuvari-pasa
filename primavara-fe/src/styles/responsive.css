@@ -1,0 +1,249 @@
+/* home */
+@media only screen and (max-width: 1200px) {
+  .home-third-image {
+    height: 65vh;
+    width: 40vh;
+    margin-top: 5vw;
+    margin-right: 5vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .home-main-image {
+      height: 50vh;
+      margin-top: 5vw;
+  }
+  .home-second-image {
+    height: 50vh;
+    width: 30vh;
+    margin-top: 1vw;
+    object-fit: fill;
+  }
+  .home-third-image {
+    height: 60vh;
+    width: 45vh;
+    margin-top: 8vw;
+    margin-right: 20vw;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .home-second-image {
+      height: 40vh;
+      width: 30vh;
+      margin-top: 10vw;
+      margin-left:  -5vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .home-main-image {
+    height: 40vh;
+    width: 37vw;
+    margin-top: 5vw;
+    margin-right: 10vw;
+  }
+  .home-second-image {
+    height: 30vh;
+    width: 20vh;
+    margin-top: 10vw;
+    margin-left: 0vw;
+  }
+  .home-third-image {
+    height: 40vh;
+    width: 20vh;
+    margin-top: 25vw;
+    margin-left: -10vw;
+    margin-right: 10vw;
+  } 
+  .dropdown-username {
+    margin-top: 1.5vw;
+  }
+}
+
+/* forms - register, login, newOffer, newRequest */
+/* u index.css ubacit form-container-login koji ima iste atribute ko o form-container, i staviti taj tag na login.js */
+/* u index.css ubacit form-container-dog koji ima iste atribute ko o form-container, i staviti taj tag na registerDog.js */
+/* resp-button class dodati u "Predaj" buttone na newOffer i newRequest */
+
+
+/*SVAKO MJESTO KOJE GAZI NESTO STO JE PRIJE NAPISANO MORA IMATI !important (u form-container-login width treba jer je bio zadan prije, a height ne treba jer nije bio zadan css-om)*/
+@media only screen and (max-width: 1200px) {
+  .form-container {
+    width: 25vw;
+    height: 65vw;
+    font-size: 11px;
+  }
+  .form-container-login {
+    width: 35vw !important;
+    height: 27vw;
+    font-size: 11px;
+  }
+  .form-container-dog {
+    width: 50vw;
+    height: 38vw;
+  }
+  .MuiGrid-item {
+    height: 6vw;
+  }
+  .MuiInputBase-root {
+    height: 4vw;
+  }  
+  .resp-button {
+    margin-top: 4vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .form-container {
+    width: 35vw;
+    height: 80vw;
+    font-size: 10px;
+  }
+  .form-container-login {
+    width: 40vw;
+    height: 32vw;
+    font-size: 10px;
+  }
+  .form-container-dog {
+    width: 40vw;
+    height: 45vw;
+  }
+  .MuiGrid-item {
+    height: 7vw;
+  }
+  .MuiInputBase-root {
+    height: 6vw;
+  } 
+  .resp-button {
+    margin-top: 5vw;
+    width: 14vw;
+    height: 8vw;
+    font-size: 21px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .form-container {
+    width: 50vw;
+    height: 100vw;
+    font-size: 13px;
+  }
+  .form-container-login {
+    width: 55vw;
+    height: 40vw;
+    font-size: 13px;
+  }
+  .form-container-dog {
+    width: 50vw;
+    height: 58vw;
+  }
+  .MuiGrid-item {
+    height: 9vw;
+  }
+  .MuiInputBase-root {
+    height: 6vw;
+  }  
+  .resp-button {
+    margin-top: 5vw;
+    width: 15vw;
+    height: 8vw;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .form-container {
+    width: 60vw;
+    height: 130vw;
+    font-size: 10px;
+  }
+  .form-container-login {
+    width: 62vw;
+    height: 58vw;
+    font-size: 10px;
+  }
+  .form-container-dog {
+    width: 80vw;
+    height: 85vw;
+  }
+  .MuiGrid-item {
+    height: 12vw;
+  }
+  .MuiInputBase-root {
+    height: 8vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+  }  
+  .resp-button {
+    margin-top: 5vw;
+    width: 15vw;
+    height: 8vw;
+    font-size: 16px;
+  }
+  .MuiFormLabel {
+    margin-top: 1vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .form-container {
+    width: 75vw;
+    height: 150vw;
+    font-size: 9px;
+  }
+  .form-container-login {
+    width: 75vw;
+    height: 65vw;
+    font-size: 9px;
+  }
+  .form-container-dog {
+    margin-top: -15vw;
+    width: 85vw;
+    height: 95vw;
+    font-size: 9px;
+  }
+  .MuiGrid-item {
+    height: 14vw;
+  }
+  .MuiInputBase-root {
+    height: 10vw;
+  }  
+  .resp-button {
+    margin-top: 7vw;
+    width: 17vw;
+    height: 10vw;
+    font-size: 14px;
+  }
+}
+
+/* moderacija */
+@media only screen and (max-width: 1200px) {
+  .user-table {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .user-table {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .user-table {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .user-table {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .user-table {
+    width: 90%;
+  } 
+}
