@@ -38,13 +38,13 @@ public class AgreedRequestController {
         agreedRequestService.initiateToAgreedRequestByBestOption(idReqGua, idReqDog, idInitiator);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("bestGuardianForDogs/{idReqDog}")
     public RequestGuardian getBestRequestGuardian(@PathVariable Long idReqDog) {
         return agreedRequestService.getBestRequestGuardian(idReqDog);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("bestDogsForGuardian/{idReqGua}")
     public RequestDog getBestRequestDog(@PathVariable Long idReqGua) {
         return agreedRequestService.getBestRequestDog(idReqGua);

@@ -187,7 +187,7 @@ public class AppUserServiceImpl implements AppUserService{
             } else {
                 RequestDog requestDog = agreedRequest.getRequestDog();
                 RequestGuardian requestGuardian = agreedRequest.getRequestGuardian();
-                if (agreedRequest.getAppUser().getUserId() == requestDog.getAppUser().getUserId()) {
+                if (Objects.equals(agreedRequest.getAppUser().getUserId(), requestDog.getAppUser().getUserId())) {
                     //ako je appuser jednak cuvaru
                     AppUser appUser = agreedRequest.getAppUser();
                     appUser.setRatingSum(appUser.getRatingSum() + value);

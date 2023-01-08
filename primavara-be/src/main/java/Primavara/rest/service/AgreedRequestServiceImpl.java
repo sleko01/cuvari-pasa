@@ -163,7 +163,13 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
             );
         Long prvi = requestDog.getAppUser().getUserId();
         Long drugi = requestGuardian.getAppUser().getUserId();
-        if (!(((idInitiator != prvi && idInitiator == drugi) || (idInitiator == prvi && idInitiator != drugi)) && prvi != drugi))
+        System.out.println("prvi");
+        System.out.println(prvi);
+        System.out.println("drugi");
+        System.out.println(drugi);
+        System.out.println("idInitiator");
+        System.out.println(idInitiator);
+        if (!(((!Objects.equals(idInitiator, prvi) && Objects.equals(idInitiator, drugi)) || (Objects.equals(idInitiator, prvi) && !Objects.equals(idInitiator, drugi))) && !Objects.equals(prvi, drugi)))
             throw new RequestDeniedException(
                     "Can not initiate on your own request"
             );

@@ -22,12 +22,13 @@ function BestRequest(){
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         axios.post('/api/agreedRequest/initiate/' + state.reqGua + '/' + state.bestOffer.requestDogId + '/' + idOfUser, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response)
+            window.location.href = "/users/incoming"
         }).catch(err => {
             window.alert(err.response.data.message)
         })
     }
     function denyRequest(offer, requestId){
-        window.location.href("/requests")
+        window.location.href = "/requests"
     }
 
     function decrypt(password) {

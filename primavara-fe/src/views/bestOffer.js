@@ -24,14 +24,15 @@ function BestOffer(){
         console.log(state)
         let idOfUser = localStorage.getItem('id');
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
-        axios.post('/api/agreedRequest/initiate/' + state.reqGua + '/' + state.bestOffer.requestDogId + '/' + idOfUser, { headers : {'Authorization': basicAuth}}).then(response => {
+        axios.post('/api/agreedRequest/initiate/' + state.reqGua + '/' + state.bestOffer.requestDogId + '/' + idOfUser, {}, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response)
+            window.location.href = "/users/incoming"
         }).catch(err => {
             window.alert(err.response.data.message)
         })
     }
     function denyOffer(offer, requestId){
-        window.location.href("/offers")
+        window.location.href = "/offers"
     }
 
     return(

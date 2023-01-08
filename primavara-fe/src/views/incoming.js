@@ -49,7 +49,7 @@ function Incoming(){
         let id = localStorage.getItem('id');
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         axios.get('/api/agreedRequest/myRatedGuardians/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
-            //console.log(response.data);
+            console.log(response.data);
             unratedGuardiansTemp = []
             let tempObject
             for (const [key, value] of Object.entries(response.data)){
@@ -161,11 +161,11 @@ function Incoming(){
             let temp = key.split("_")
             // console.log(temp)
             if (temp[0] == reqId) {
-                axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/g', { headers : {'Authorization': basicAuth}})
+                axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/g', {},{ headers : {'Authorization': basicAuth}})
                 .then(response => {
                     console.log(response)
                 }).catch(err => {
-                    axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/d', { headers : {'Authorization': basicAuth}}).then(response => {
+                    axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/d', {},{ headers : {'Authorization': basicAuth}}).then(response => {
                         console.log(response)
                     }).catch(err => {
                         if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
@@ -225,7 +225,7 @@ function Incoming(){
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         if (offer.requestDog && offer.requestGuardian) {
             if (offer.requestDog.appUser.userId == localStorage.getItem('id')){
-                axios.post('/api/agreedRequest/respond/' + offer.requestGuardian.appUser.userId + '/' + idOfUser + '/' + offer.requestGuardian.requestGuardianId + '/1/g', { headers : {'Authorization': basicAuth}}).then(response => {
+                axios.post('/api/agreedRequest/respond/' + offer.requestGuardian.appUser.userId + '/' + idOfUser + '/' + offer.requestGuardian.requestGuardianId + '/1/g', {},{ headers : {'Authorization': basicAuth}}).then(response => {
                     window.alert("Uspješno prihvaćeno!")
                     window.location.reload();
                     console.log(response);
@@ -233,7 +233,7 @@ function Incoming(){
                     console.log(err)
                 })
             } else {
-                axios.post('/api/agreedRequest/respond/' + offer.requestDog.appUser.userId + '/' + idOfUser + '/' + offer.requestDog.requestDogId + '/1/d', { headers : {'Authorization': basicAuth}}).then(response => {
+                axios.post('/api/agreedRequest/respond/' + offer.requestDog.appUser.userId + '/' + idOfUser + '/' + offer.requestDog.requestDogId + '/1/d', {},{ headers : {'Authorization': basicAuth}}).then(response => {
                     window.alert("Uspješno prihvaćeno!")
                     window.location.reload();
                     console.log(response);
@@ -616,7 +616,7 @@ function Incoming(){
                     </div>
                     <div className='empty-space-small'></div>
                     <div className='profile-button-container-centered'>
-                        <button className="button button-primary" onClick={() => rateUser(a.requestId, a.userId)}>Ocijeni</button>
+                        <button className="button button-primary" onClick={() => rateUser(a.requestId, a.userId, a)}>Ocijeni</button>
                     </div>
                 </div>)
         }

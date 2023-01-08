@@ -44,15 +44,25 @@ public interface AgreedRequestRepository extends JpaRepository<AgreedRequest, Lo
     @Query(value = "SELECT agreed_request_id FROM agreed_request where initiator_user_id = :i and user_id = :j and request_dog_id = :k", nativeQuery = true)
     Long respondToDog(@Param("i") Long idInitiator, @Param("j") Long idUser, @Param("k") Long idReqDog);
 
-    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rg.requestGuardianId, rg.appUser.userId, ar.userRated, ar.initiatorRated, ar.initiatorUser.userId) " +
+    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rg.requestGuardianId, ar.appUser.userId, ar.userRated, ar.initiatorRated, ar.initiatorUser.userId) " +
             "from AgreedRequest as ar join RequestGuardian as rg on ar.requestGuardian.requestGuardianId = rg.requestGuardianId " +
             "where ar.isAgreed = true and rg.requestGuardianId is not null and (ar.appUser.userId = :i or ar.initiatorUser.userId = :i) and current_timestamp > ar.agreedTimeBegin")
     List<RatedRequestsDTO> getRatedListGuardians(@Param("i") Long idUser);
 
-    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rd.requestDogId, rd.appUser.userId, ar.userRated, ar.initiatorRated, ar.initiatorUser.userId) " +
+    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rd.requestDogId, ar.appUser.userId, ar.userRated, ar.initiatorRated, ar.initiatorUser.userId) " +
             "from AgreedRequest as ar join RequestDog as rd on ar.requestDog.requestDogId = rd.requestDogId " +
             "where ar.isAgreed = true and rd.requestDogId is not null and (ar.appUser.userId = :i or ar.initiatorUser.userId = :i) and current_timestamp > ar.agreedTimeEnd")
     List<RatedRequestsDTO> getRatedListDogs(@Param("i") Long idUser);
+
+    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rg.requestGuardianId, rg.appUser.userId, ar.userRated, ar.initiatorRated, ar.initiatorUser.userId) " +
+            "from AgreedRequest as ar join RequestGuardian as rg on ar.requestGuardian.requestGuardianId = rg.requestGuardianId " +
+            "where ar.isAgreed = true and rg.requestGuardianId is not null and (ar.appUser.userId = :i or ar.initiatorUser.userId = :i) and current_timestamp < ar.agreedTimeBegin")
+    List<RatedRequestsDTO> getInProgressListGuardians(@Param("i") Long idUser);
+
+    @Query(value = "SELECT new Primavara.rest.dto.RatedRequestsDTO(rd.requestDogId, rd.appUser.userId, ar.userRated, ar.initiatorRated, ar.initiatorUser.userId) " +
+            "from AgreedRequest as ar join RequestDog as rd on ar.requestDog.requestDogId = rd.requestDogId " +
+            "where ar.isAgreed = true and rd.requestDogId is not null and (ar.appUser.userId = :i or ar.initiatorUser.userId = :i) and current_timestamp < ar.agreedTimeEnd")
+    List<RatedRequestsDTO> getInProgressListDogs(@Param("i") Long idUser);
 
     @Query(value = "SELECT d.dog_id from request_guardians_dog as rgd join dog as d on rgd.dog_id = d.dog_id WHERE rgd.request_guardian_id = :i", nativeQuery = true)
     List<Long> getDogsInRequest(@Param("i") Long idReqGua);
