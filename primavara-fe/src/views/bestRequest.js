@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import CryptoJS from 'crypto-js'
 
 import '../styles/home.css'
 import '../styles/index.css'
@@ -8,11 +9,29 @@ import '../styles/profile.css'
 import '../styles/requestsAndOffers.css'
 import Navbar from "./partials/navbar";
 import {useLocation} from "react-router-dom";
+import axios from 'axios'
 
 function BestRequest(){
     const { state } = useLocation();
-    function acceptRequest(offer, requestId){}
-    function denyRequest(offer, requestId){}
+    console.log(state)
+
+    function acceptRequest(offer, requestId){
+        console.log(state)
+        let idOfUser = localStorage.getItem('id');
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.post('/api/agreedRequest/initiate/' + state.reqGua + '/' + state.bestOffer.requestDogId + '/' + idOfUser, { headers : {'Authorization': basicAuth}}).then(response => {
+            console.log(response)
+        }).catch(err => {
+            window.alert(err.response.data.message)
+        })
+    }
+    function denyRequest(offer, requestId){
+        window.location.href("/requests")
+    }
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
 
     return(
         <div className="page-container">

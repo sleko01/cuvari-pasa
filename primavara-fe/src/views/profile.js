@@ -23,7 +23,8 @@ function Profile(){
             console.log(response.data);
             setUser(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            console.log(err)
+            if(localStorage.getItem('id') == undefined) window.location.href = "/users/login"
         })
     }, []);
 

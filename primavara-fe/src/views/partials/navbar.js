@@ -6,6 +6,7 @@ function Navbar(){
     function logout() {
         localStorage.removeItem("username");
         localStorage.removeItem("id")
+        localStorage.removeItem("encryptedPassword");
         window.location.href = "/";
     }
 

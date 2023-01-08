@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import CryptoJS from 'crypto-js'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -24,6 +25,7 @@ function Moderation(){
             return <button className="button-primary button button-size" onClick={() => blockUser(user.userId)}>Blokiraj</button>
         }
     }
+
     
     function CheckIfAdmin(user){
         if(user.role.roleId == 4){
@@ -44,79 +46,98 @@ function Moderation(){
         }
     }
 
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
+
+
     function approveRequest(request){
-        let userId = request.requestGuardianId === undefined ? request.requestDogId : request.requestGuardianId
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        let userId = request.requestGuardianId == undefined ? request.requestDogId : request.requestGuardianId
         let path = CheckRequestType(request) == "Zahtjev" ? '/api/users/moderation/reqgua/' + userId + '/1' : '/api/users/moderation/reqdog/' + userId + '/1'
         axios.post(path, {
             "id": userId,
             "val": 1
-        }).then(async response => {
+        }, { headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.location.reload();
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }
     
+    
     function denyRequest(request){
-        let userId = request.requestGuardianId === undefined ? request.requestDogId : request.requestGuardianId
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        let userId = request.requestGuardianId == undefined ? request.requestDogId : request.requestGuardianId
         let path = CheckRequestType(request) == "Zahtjev" ? '/api/users/moderation/reqgua/' + userId + '/0' : '/api/users/moderation/reqdog/' + userId + '/0'
         axios.post(path, {
             "id": userId,
             "val": 0
-        }).then(async response => {
+        }, { headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.location.reload();
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }   
 
 
     function blockUser(id){
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         axios.post('/api/users/moderation/block/' + id, {
             "id": id
-        }).then((response) => {
+        }, { headers : {'Authorization': basicAuth}}).then((response) => {
             window.alert("Uspješno blokirano!")
             console.log(response);
         }).catch(err => {
             console.log(err);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         });
     }
 
 
     function addAdmin(id){
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         axios.post('/api/users/moderation/give-admin/' + id, {
             "id": id
-        }).then((response) => {
+        }, { headers : {'Authorization': basicAuth}}).then((response) => {
             window.alert("Uspješno davanje admina!")
             console.log(response);
         }).catch(err => {
             console.log(err);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         });
     }
 
 
     React.useEffect(() => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         let id = localStorage.getItem('id');
-        axios.get('/api/users/moderation/' + id + '/r').then(response => {
+        axios.get('/api/users/moderation/' + id + '/r', { headers : {'Authorization': basicAuth}}).then(response => {
             for(const[key, value] of Object.entries(response.data)){
                 pendingArray.push(value)
             }
             setPendingRequests(pendingArray);
         }).catch(err => {
             alert(err.response.data.message);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 
     React.useEffect(() => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         let id = localStorage.getItem('id');
-        axios.get('/api/users/moderation/' + id + '/u').then(response => {
+        axios.get('/api/users/moderation/' + id + '/u', { headers : {'Authorization': basicAuth}}).then(response => {
             setUsers(response.data);
         }).catch(err => {
             alert(err.response.data.message);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 

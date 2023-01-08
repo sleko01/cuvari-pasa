@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import PasswordChecklist from "react-password-checklist"
 import { Helmet } from 'react-helmet'
+import CryptoJS from 'crypto-js'
 
 import Navbar from './partials/navbar'
 
@@ -69,6 +70,9 @@ function RegisterDog(){
         };
      }
 
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
     
 
     function onChange(event) {
@@ -84,6 +88,7 @@ function RegisterDog(){
     function onSubmit(e) {
         e.preventDefault()
         let idOfUser = localStorage.getItem('id');
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
 
         var formData = new FormData();
         console.log(form.name + "name")
@@ -103,12 +108,15 @@ function RegisterDog(){
             headers: {
                 'Accept-Language': 'en-US,en;q=0.8',
                 'Content-Type': `multipart/form-data`,
+                'Authorization': basicAuth
               },
         }).then(response => {
             console.log(response);
-            window.alert("Great success!")
+            window.location.href = "/users/dogs"
         }).catch(error => {
             console.log(error);
+            if(error.response.status = 403) window.alert("Nemate odgovarajuće ovlasti!")
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
 
 

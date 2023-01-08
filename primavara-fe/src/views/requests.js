@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import CryptoJS from 'crypto-js'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -15,25 +16,30 @@ function Requests(){
     const [requests, setRequests] = React.useState([])
 
     React.useEffect(() => {
-        axios.get('/api/reqgua').then(response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        var id = localStorage.getItem("id") == undefined ? "" : localStorage.getItem("id")
+        axios.get('/api/reqgua/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response.data);
             setRequests(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            console.log(err);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
+
     function InitiateRequest(request) {
         let idOfUser = localStorage.getItem("id");
-        axios.post('/api/reqgua/initiate/' + request.requestGuardianId + '/' + idOfUser, {
-            "idReqGua": request.requestGuardianId,
-            "idInitiator": idOfUser
-        }).then(async response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.post('/api/reqgua/initiate/' + request.requestGuardianId + '/' + idOfUser, { headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
         }).catch(err => {
             console.log(err);
-            alert(err.response.data.message)
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }
 

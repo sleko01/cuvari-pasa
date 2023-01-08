@@ -28,14 +28,14 @@ public class DogController {
     @Autowired
     private DogService dogService;
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
 //    @PutMapping("register/{id}")
     @RequestMapping(path = "register/{id}", method = PUT, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public void addDog(@ModelAttribute RegisterDog registerDog, @PathVariable(required = true) Long id){
         dogService.addDog(registerDog, id);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("my/{id}")
     public List<Optional<Dog>> getAllMyDogs(@PathVariable(required = true) Long id) {
         return dogService.getAllMyDogs(id);
@@ -46,7 +46,7 @@ public class DogController {
         return dogService.getAllSortedBreeds();
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("rate/{idInitiator}/{idUser}/{idRequest}/{type}")
     public void rateDogs(@RequestBody RatedDogsList ratedDogsList, @PathVariable Long idInitiator, @PathVariable Long idUser, @PathVariable Long idRequest, @PathVariable String type) {
         /*ObjectMapper mapper = new ObjectMapper();
@@ -59,13 +59,13 @@ public class DogController {
         dogService.rateDogs(idInitiator, idUser, idRequest, type, map);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR','ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR','ROLE_VLASNIKČUVAR')")
     @GetMapping("/dog/{dogId}")
     public Dog getDogById(@PathVariable Long dogId) {
         return dogService.getDogById(dogId);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("getPhoto/{id}")
     public String getPhoto(@PathVariable Long id) {
         String ime = dogService.getPhoto(id);

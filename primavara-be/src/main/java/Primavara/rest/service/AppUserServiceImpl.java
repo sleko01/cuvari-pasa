@@ -148,7 +148,12 @@ public class AppUserServiceImpl implements AppUserService{
     @Override
     public void rateAppUser(Long idInitiator, Long idUser, Long idReq, Long value, String type) {
         Long idRequest;
-        if (type == "d")
+        System.out.println(idInitiator);
+        System.out.println(idUser);
+        System.out.println(idReq);
+        System.out.println(value);
+        System.out.println(type);
+        if (Objects.equals(type, "d"))
             idRequest = agreedRequestRepository.respondToDog(idInitiator, idUser, idReq);
         else
             idRequest = agreedRequestRepository.respondToGuardian(idInitiator, idUser, idReq);

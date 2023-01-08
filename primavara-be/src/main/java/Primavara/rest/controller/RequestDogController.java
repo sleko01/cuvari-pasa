@@ -28,17 +28,17 @@ public class RequestDogController {
             return requestDogService.getAllReviewedAndPublishedRequestDogsAndNotInitiatedByMe(idUser);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("new/{id}")
     public void addNewRequestDog (@RequestBody NewRequestDog newRequestDog, @PathVariable(required = true) Long id) {requestDogService.addNewRequestDog(newRequestDog, id);}
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("my/{id}")
     public List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
         return requestDogService.getAllReviewedAndPublishedRequestDogsAndMine(id);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("initiate/{idReqDog}/{idInitiator}")
     public void initiateToRequestDog(@PathVariable(required = true) Long idReqDog, @PathVariable(required = true) Long idInitiator) {
         agreedRequestService.initiateToRequestDog(idReqDog, idInitiator);

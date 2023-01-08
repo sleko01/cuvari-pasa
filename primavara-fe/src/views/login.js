@@ -1,5 +1,7 @@
 import React from 'react'
 import axios, {AxiosError} from "axios";
+import CryptoJS from 'crypto-js'
+
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -57,6 +59,10 @@ function Login(){
         return password.length >= 8;
     }
 
+    function encrypt(password) {
+        return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password))
+    }
+
     function onSubmit(e) {
         e.preventDefault()
         // alert("Tu trebas implementirat vezu frontenda i bekenda")
@@ -78,6 +84,8 @@ function Login(){
                 console.log(response)
                 console.log(response.data + " ja sam response.data");
                 localStorage.setItem("id", response.data)
+                form.password = encrypt(form.password)
+                localStorage.setItem('encryptedPassword', form.password)
                 axios({
                     method: "get",
                     url: "/api/users/profile/" + localStorage.getItem("id")

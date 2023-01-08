@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import CryptoJS from 'crypto-js'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -13,27 +14,24 @@ import '../styles/requestsAndOffers.css'
 
 function MyDogs(){
     const [dogs, setDogs] = React.useState([])
-    const [images, setImages] = React.useState([])
+
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
 
 
     React.useEffect(() => {
-        let id = localStorage.getItem('id');
-        axios.get('/api/dogs/my/' + id).then(response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        let id = localStorage.getItem('id')
+        axios.get('/api/dogs/my/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response.data);
             setDogs(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 
-    React.useEffect(() => {
-        axios.get('/api/dogs/getPhoto/' + 12).then(response => response.json()).then(data => {
-            console.log(data);
-            setImages(data)
-        }).catch(err => {
-            alert(err.response.data.message);
-        })
-    }, []);
 
     return(
         <div className="page-container">

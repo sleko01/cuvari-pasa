@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import CryptoJS from 'crypto-js'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
@@ -15,13 +16,20 @@ import '../styles/requestsAndOffers.css'
 function MyOffers(){
     const [offers, setOffers] = React.useState([])
 
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
+
+
     React.useEffect(() => {
         let id = localStorage.getItem('id');
-        axios.get('/api/reqdog/my/' + id).then(response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.get('/api/reqdog/my/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response.data);
             setOffers(response.data);
         }).catch(err => {
             alert(err.response.data.message);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 
@@ -29,9 +37,8 @@ function MyOffers(){
 
     function FindBestRequest(offer){
         // let idOfUser = localStorage.getItem("id");
-        axios.get('/api/agreedRequest/bestGuardianForDogs/' + offer.requestDogId, {
-            "idReqDog": offer.requestDogId
-        }).then(async response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.get('/api/agreedRequest/bestGuardianForDogs/' + offer.requestDogId, { headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             navigate('/bestRequest', { state:
             {
@@ -41,6 +48,7 @@ function MyOffers(){
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }
 
