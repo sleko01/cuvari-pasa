@@ -67,9 +67,11 @@ function Incoming(){
                         axios.get("/api/users/profile/" + value.userId, { headers : {'Authorization': basicAuth}}).then(response => {
                             tempObject = {
                                 "userId": value.userId,
+                                "initiatorUserId": null,
                                 "username": response.data.username,
                                 "dogs": dogsTemp,
-                                "requestId": value.requestId
+                                "requestId": value.requestId,
+                                "type": "g"
                             }
                             unratedGuardiansTemp.push(tempObject)
                         })
@@ -77,10 +79,12 @@ function Incoming(){
                 } else if (id == value.userId && !value.userRated) {
                     axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
                         tempObject = {
-                            "userId": value.initiatorUserId,
+                            "userId": null,
+                            "initiatorUserId": value.initiatorUserId,
                             "username": response.data.username,
                             "dogs": null,
-                            "requestId": value.requestId
+                            "requestId": value.requestId,
+                            "type": "g"
                         }
                         temp = value.requestId.toString() + "_" + value.initiatorUserId.toString()
                         setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
@@ -100,7 +104,7 @@ function Incoming(){
         let id = localStorage.getItem('id');
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         axios.get('/api/agreedRequest/myRatedDogs/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
-            //console.log(response.data)
+            console.log(response.data)
             unratedDogsTemp = []
             let tempObject
             for (const [key, value] of Object.entries(response.data)){
@@ -109,10 +113,12 @@ function Incoming(){
                         dogsTemp1 = response.data
                         axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
                             tempObject = {
-                                "userId": value.initiatorUserId,
+                                "userId": null,
+                                "initiatorUserId": value.initiatorUserId,
                                 "username": response.data.username,
                                 "dogs": dogsTemp1,
-                                "requestId": value.requestId
+                                "requestId": value.requestId,
+                                "type": "d"
                             }
                             dogsTemp1.forEach(dog => {
                                 temp = value.requestId.toString() + "_" + dog.dogId.toString()
@@ -125,9 +131,11 @@ function Incoming(){
                     axios.get("/api/users/profile/" + value.userId, { headers : {'Authorization': basicAuth}}).then(response => {
                         tempObject = {
                             "userId": value.userId,
+                            "initiatorUserId": null,
                             "username": response.data.username,
                             "dogs": null,
-                            "requestId": value.requestId
+                            "requestId": value.requestId,
+                            "type": "d"
                         }
                         temp = value.requestId.toString() + "_" + value.userId.toString()
                         setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
@@ -153,25 +161,27 @@ function Incoming(){
     function rateUser(reqId, userId, a){
         let idOfUser = localStorage.getItem('id');
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
-        console.log(reqId)
-        console.log(userId)
-        console.log(a);
-        console.log(userRatings)
+
         for (const key in userRatings) {
             let temp = key.split("_")
             // console.log(temp)
             if (temp[0] == reqId) {
-                axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/g', {},{ headers : {'Authorization': basicAuth}})
-                .then(response => {
-                    console.log(response)
-                }).catch(err => {
-                    axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/d', {},{ headers : {'Authorization': basicAuth}}).then(response => {
-                        console.log(response)
-                    }).catch(err => {
-                        if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
-                        alert(err.response.data.message);
+                if (a.userId){
+                    axios.post('/api/users/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + userRatings[key] + '/' + a.type, {},{ headers : {'Authorization': basicAuth}})
+                        .then(response => {
+                            console.log(response)
+                            window.location.reload()
+                        }).catch(err => {
+                        console.log(err)
                     })
-                })
+                } else if (a.initiatorUserId){
+                    axios.post('/api/users/rate/' + a.initiatorUserId + '/' + idOfUser + '/' + a.requestId + '/' + userRatings[key] + '/' + a.type, {},{ headers : {'Authorization': basicAuth}}).then(response => {
+                        console.log(response)
+                        window.location.reload()
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                }
             }
         }
     }
@@ -198,8 +208,32 @@ function Incoming(){
         console.log(listId)
         console.log(listValue)
         console.log(a)
+
+        if (a.userId){
+            axios.post('/api/dogs/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/' + a.type, {
+                "listId": listId,
+                "listValue": listValue
+            },{ headers : {'Authorization': basicAuth}})
+                .then(response => {
+                    console.log(response)
+                    //window.location.reload()
+                }).catch(err => {
+                console.log(err)
+            })
+        } else if (a.initiatorUserId){
+            axios.post('/api/dogs/rate/' + a.initiatorUserId + '/' + idOfUser + '/' + a.requestId + '/' + a.type, {
+                "listId": listId,
+                "listValue": listValue
+            },{ headers : {'Authorization': basicAuth}}).then(response => {
+                console.log(response)
+                //window.location.reload()
+            }).catch(err => {
+                console.log(err)
+            })
+        }
+
         
-        axios.post('/api/dogs/rate/' + a.userId + '/' + idOfUser + '/' + a.requestId + '/d', {
+/*        axios.post('/api/dogs/rate/' + a.userId + '/' + idOfUser + '/' + a.requestId + '/d', {
             "listId": listId,
             "listValue": listValue
         }, { headers : {'Authorization': basicAuth}}).then(response => {
@@ -211,10 +245,25 @@ function Incoming(){
             }, { headers : {'Authorization': basicAuth}}).then(response => {
                 console.log(response)
             }).catch(err => {
-                alert(err.response.data.message)
-                if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
+                axios.post('/api/dogs/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/g', {
+                    "listId": listId,
+                    "listValue": listValue
+                }, { headers : {'Authorization': basicAuth}}).then(response => {
+                    console.log(response)
+                }).catch(err => {
+                    axios.post('/api/dogs/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/d', {
+                        "listId": listId,
+                        "listValue": listValue
+                    }, { headers : {'Authorization': basicAuth}}).then(response => {
+                        console.log(response)
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                })
             })
-        })
+        }).finally( () => {
+            window.location.reload()
+        })*/
 
 
     }
@@ -582,11 +631,12 @@ function Incoming(){
                                 </NativeSelect>
                             </div>
                             <div className='empty-space-small'></div>
-                            <div className='profile-button-container-centered'>
-                                <button className="button button-primary" onClick={() => rateDog(a.requestId, dog.dogId)}>Ocijeni</button>
-                            </div>
+
                         </div>
                     )}
+                    <div className='profile-button-container-centered'>
+                        <button className="button button-primary" onClick={() => rateDog(a.requestId, a)}>Ocijeni</button>
+                    </div>
                 </div>
             )
         } else {

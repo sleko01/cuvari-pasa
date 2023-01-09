@@ -116,7 +116,7 @@ function RegisterDog(){
             window.location.href = "/users/dogs"
         }).catch(error => {
             console.log(error);
-            if(error.response.status = 403) window.alert("Nemate odgovarajuće ovlasti!")
+            if(error.response.status = 403) window.alert("Slika je prevelika!")
             if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
 

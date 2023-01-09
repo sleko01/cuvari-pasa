@@ -35,7 +35,7 @@ function Requests(){
     function InitiateRequest(request) {
         let idOfUser = localStorage.getItem("id");
         var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
-        axios.post('/api/reqgua/initiate/' + request.requestGuardianId + '/' + idOfUser, { headers : {'Authorization': basicAuth}}).then(async response => {
+        axios.post('/api/reqgua/initiate/' + request.requestGuardianId + '/' + idOfUser, {},{ headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
         }).catch(err => {

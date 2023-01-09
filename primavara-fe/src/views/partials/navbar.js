@@ -38,6 +38,7 @@ function Navbar(){
     
     var myDogs = <a href="/users/dogs">Moji psi</a>
     var myReceived = <a href="/users/incoming">Pristigle ponude</a>
+    var myCurrent = <a href="/users/current">Čuvanja u tijeku</a>
     var myLogout = <a href="#" onClick={logout}>Odjava</a>
     
 
@@ -53,6 +54,7 @@ function Navbar(){
                                     {myOffers}
                                     {myDogs}
                                     {myReceived}
+                                    {myCurrent}
                                     {myLogout}
                                 </div>
                             </div>

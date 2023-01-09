@@ -137,7 +137,7 @@ public class DogServiceImpl implements DogService{
                     dog.setRatingSum(dog.getRatingSum() + entry.getValue());
                     dog.setRatingCount(dog.getRatingCount() + 1);
                     dogRepository.save(dog);
-                    agreedRequest.setInitiatorRated(true);
+                    agreedRequest.setUserRated(true);
                     agreedRequestRepository.save(agreedRequest);
                 }
             }
