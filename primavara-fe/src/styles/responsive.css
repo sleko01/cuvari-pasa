@@ -1,8 +1,8 @@
 /* home */
 @media only screen and (max-width: 1200px) {
   .home-third-image {
-    height: 65vh;
-    width: 40vh;
+    height: 65vh !important;
+    width: 40vh !important;
     margin-top: 5vw;
     margin-right: 5vw;
   }
@@ -10,18 +10,18 @@
 
 @media only screen and (max-width: 1000px) {
   .home-main-image {
-      height: 50vh;
+      height: 50vh !important;
       margin-top: 5vw;
   }
   .home-second-image {
-    height: 50vh;
-    width: 30vh;
+    height: 50vh !important;
+    width: 30vh !important;
     margin-top: 1vw;
     object-fit: fill;
   }
   .home-third-image {
-    height: 60vh;
-    width: 45vh;
+    height: 60vh !important;
+    width: 45vh !important;
     margin-top: 8vw;
     margin-right: 20vw;
   }
@@ -29,8 +29,8 @@
 
 @media only screen and (max-width: 768px) {
   .home-second-image {
-      height: 40vh;
-      width: 30vh;
+      height: 40vh !important;
+      width: 30vh !important;
       margin-top: 10vw;
       margin-left:  -5vw;
   }
@@ -38,26 +38,26 @@
 
 @media only screen and (max-width: 600px) {
   .home-main-image {
-    height: 40vh;
-    width: 37vw;
+    height: 40vh !important;
+    width: 37vw !important;
     margin-top: 5vw;
     margin-right: 10vw;
   }
   .home-second-image {
-    height: 30vh;
-    width: 20vh;
+    height: 30vh !important;
+    width: 20vh !important;
     margin-top: 10vw;
     margin-left: 0vw;
   }
   .home-third-image {
-    height: 40vh;
-    width: 20vh;
+    height: 40vh !important;
+    width: 20vh !important;
     margin-top: 25vw;
     margin-left: -10vw;
     margin-right: 10vw;
   } 
   .dropdown-username {
-    margin-top: 1.5vw;
+    margin-top: 1.5vw !important;
   }
 }
 
@@ -70,180 +70,180 @@
 /*SVAKO MJESTO KOJE GAZI NESTO STO JE PRIJE NAPISANO MORA IMATI !important (u form-container-login width treba jer je bio zadan prije, a height ne treba jer nije bio zadan css-om)*/
 @media only screen and (max-width: 1200px) {
   .form-container {
-    width: 25vw;
+    width: 25vw !important;
     height: 65vw;
-    font-size: 11px;
+    font-size: 11px !important;
   }
   .form-container-login {
     width: 35vw !important;
     height: 27vw;
-    font-size: 11px;
+    font-size: 11px !important;
   }
   .form-container-dog {
-    width: 50vw;
+    width: 50vw !important;
     height: 38vw;
   }
   .MuiGrid-item {
-    height: 6vw;
+    height: 6vw !important;
   }
   .MuiInputBase-root {
-    height: 4vw;
+    height: 4vw !important;
   }  
   .resp-button {
-    margin-top: 4vw;
+    margin-top: 4vw !important;
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .form-container {
-    width: 35vw;
+    width: 35vw !important;
     height: 80vw;
-    font-size: 10px;
+    font-size: 10px !important;
   }
   .form-container-login {
-    width: 40vw;
+    width: 40vw !important;
     height: 32vw;
-    font-size: 10px;
+    font-size: 10px !important;
   }
   .form-container-dog {
-    width: 40vw;
+    width: 40vw !important;
     height: 45vw;
   }
   .MuiGrid-item {
-    height: 7vw;
+    height: 7vw !important;
   }
   .MuiInputBase-root {
-    height: 6vw;
+    height: 6vw !important;
   } 
   .resp-button {
-    margin-top: 5vw;
-    width: 14vw;
-    height: 8vw;
-    font-size: 21px;
+    margin-top: 5vw !important;
+    width: 14vw !important;
+    height: 8vw !important;
+    font-size: 21px !important;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .form-container {
-    width: 50vw;
+    width: 50vw !important;
     height: 100vw;
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .form-container-login {
-    width: 55vw;
+    width: 55vw !important;
     height: 40vw;
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .form-container-dog {
-    width: 50vw;
+    width: 50vw !important;
     height: 58vw;
   }
   .MuiGrid-item {
-    height: 9vw;
+    height: 9vw !important;
   }
   .MuiInputBase-root {
-    height: 6vw;
+    height: 6vw !important;
   }  
   .resp-button {
     margin-top: 5vw;
-    width: 15vw;
+    width: 15vw !important;
     height: 8vw;
-    font-size: 18px;
+    font-size: 18px !important;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .form-container {
-    width: 60vw;
+    width: 60vw !important;
     height: 130vw;
-    font-size: 10px;
+    font-size: 10px !important;
   }
   .form-container-login {
-    width: 62vw;
+    width: 62vw !important;
     height: 58vw;
-    font-size: 10px;
+    font-size: 10px !important;
   }
   .form-container-dog {
-    width: 80vw;
+    width: 80vw !important;
     height: 85vw;
   }
   .MuiGrid-item {
-    height: 12vw;
+    height: 12vw !important;
   }
   .MuiInputBase-root {
-    height: 8vw;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
+    height: 8vw !important;
+    margin-top: 1vw !important;
+    margin-bottom: 1vw !important;
   }  
   .resp-button {
-    margin-top: 5vw;
-    width: 15vw;
-    height: 8vw;
-    font-size: 16px;
+    margin-top: 5vw !important;
+    width: 15vw !important;
+    height: 8vw !important;
+    font-size: 16px !important;
   }
   .MuiFormLabel {
-    margin-top: 1vw;
+    margin-top: 1vw !important;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .form-container {
-    width: 75vw;
+    width: 75vw !important;
     height: 150vw;
-    font-size: 9px;
+    font-size: 9px !important;
   }
   .form-container-login {
-    width: 75vw;
+    width: 75vw !important;
     height: 65vw;
-    font-size: 9px;
+    font-size: 9px !important;
   }
   .form-container-dog {
-    margin-top: -15vw;
-    width: 85vw;
+    margin-top: -15vw !important;
+    width: 85vw !important;
     height: 95vw;
-    font-size: 9px;
+    font-size: 9px !important;
   }
   .MuiGrid-item {
-    height: 14vw;
+    height: 14vw !important;
   }
   .MuiInputBase-root {
-    height: 10vw;
+    height: 10vw !important;
   }  
   .resp-button {
-    margin-top: 7vw;
-    width: 17vw;
-    height: 10vw;
-    font-size: 14px;
+    margin-top: 7vw !important;
+    width: 17vw !important;
+    height: 10vw !important;
+    font-size: 14px !important;
   }
 }
 
 /* moderacija */
 @media only screen and (max-width: 1200px) {
   .user-table {
-    width: 90%;
+    width: 90% !important;
   }
 }
 
 @media only screen and (max-width: 1000px) {
   .user-table {
-    width: 90%;
+    width: 90% !important;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .user-table {
-    width: 90%;
+    width: 90% !important;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .user-table {
-    width: 90%;
+    width: 90% !important;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .user-table {
-    width: 90%;
+    width: 90% !important;
   } 
 }
