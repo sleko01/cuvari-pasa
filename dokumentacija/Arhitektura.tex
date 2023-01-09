@@ -250,7 +250,7 @@
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/drawsql REL}
+				\includegraphics[width=15cm]{slike/drawsql REL}
 				\caption{Relacijski dijagram baze podataka} 
 				\label{fig:E-Rdijagram}
 			\end{figure}
@@ -260,38 +260,38 @@
 			
 		\section{Dijagram razreda}
 		
-			Na slikama 4.3, 4.4 i 4.5 prikazani su razredi koji pripadaju backend dijelu s arhitekturom podijeljenom na kontrolere, repozitorije i servise te uključujući Domain i DTO (Data Transfer Object) modele.\\
-			Na slici 4.3 prikazani du razredi koji nsljeđuju Controller razred. Metode implementirane u tim razredima mainpuliraju s DTO-ima, a oni su dohvaćeni pomoću metoda implemntiranih u Domain razredima.
+			Na slikama 4.3, 4.4 i 4.5 prikazani su razredi koji pripadaju backend dijelu s arhitekturom podijeljenom na kontrolere, repozitorije i servise te uključuju Domain i DTO (Data Transfer Object) modele.\\
+			Na slici 4.3 prikazani su razredi koji nasljeđuju Controller razred. Metode implementirane u tim razredima manipuliraju s DTO-ima, a oni su dohvaćeni pomoću metoda implementiranih u Domain razredima.
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/dijagram_razreda_controllers}
+				\includegraphics[width=15cm]{slike/dijagram_razreda_controllers}
 				\caption{Dijagram razreda - dio Controllers} 
 				\label{fig:Class-Diagram}
 			\end{figure}
 		
 		
 			Data Transfer Objects služe za razmjenu podataka između procesa ili slojeva.\\
-			RegistertUser i ReqisterDog služe za stvaranje novog objekta User odnosno Dog.
-			NewRequestDog i NewRequestGuardian služa za stvaranje novog objekta RequestDog odnosno RequestGuardian.
-			RatedDogsList služi za primanje podaka o ocijenjenim psima.
-			RequestGuardianDTO, RequestBothDTO, RatedRequestsDTO služe kao pomoćni objekti za čitanje tih objekata iz baze.
+			RegisterUser i ReqisterDog služe za stvaranje novog objekta User odnosno Dog.
+			NewRequestDog i NewRequestGuardian služe za stvaranje novog objekta RequestDog odnosno RequestGuardian.
+			RatedDogsList služi za primanje podataka o ocijenjenim psima.
+			RequestGuardianDTO, RequestBothDTO, RatedRequestsDTO služe kao pomoćni objekti za čitanje tih objekata iz baze podataka.
 			\eject
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/dijagram_razreda_DTO}
+				\includegraphics[width=15cm]{slike/dijagram_razreda_DTO}
 				\caption{Dijagram razreda - dio Data Transfer Objects}
 				\label{fig:Class-Diagram}
 			\end{figure}
 		
 		
 			Domain razredi preslikavaju strukturu baze podataka u aplikaciji. Implementirane metode direktno komuniciraju s bazom podataka te vraćaju tražene podatke.\\
-			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unoseći potrebne informacije. On može izabrati svoju ulogu pri registraciji (razred Role). Administrator je korisnik aplikacije koji ima sve mogućnosti App Usera. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik odnosno čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest. U RequestGuardiansDog se popisuju psi koju se koriste u zahtjevu RequestGuardian.
+			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unos-eći potrebne informacije. On može izabrati svoju ulogu pri registraciji (razred Role). Administrator je korisnik aplikacije koji ima sve mogućnosti razreda AppUser. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik odnosno čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest. U RequestGuardiansDog se popisuju psi koju se koriste u zahtjevu RequestGuardian.
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=16cm]{slike/class_diagram_domain}
+				\includegraphics[width=15cm]{slike/class_diagram_domain}
 				\caption{Dijagram razreda - dio Domain}
 				\label{fig:Class-Diagram}
 			\end{figure}
@@ -301,18 +301,27 @@
 		\section{Dijagram stanja}
 			
 			
-			\textbf{\textit{dio 2. revizije}}\\
+			%\textbf{\textit{dio 2. revizije}}\\
 			
-			\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu. }
+			%\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu. }
 			
+			Dijagram stanja prikazuje stanja objekta te prijelaze među stanjima koji su potaknuti okidačima. Na slici 4.6 prikazan je dijagram stanja prijavljenog korisnika s ulogom administratora. Nakon prijave u sustav korisnik se nalazi na početnoj stranici na kojoj može pročitati više informacija o samom sustavu. Kroz zaglavlje aplikacije može pristupiti svim objavljenim zahtjevima i oglasima, a kroz padajući izbornik u zaglavlju može pristupiti svom računu, stranici za upravljanje korisnicima te zahtjevima i oglasima, vlastitim zahtjevima i oglasima, vlastitim psima, pristiglim ponudama te se može odjaviti iz sustava. Pošto se zaglavlje nalazi na svim stranicama aplikacije, korisnik prethodno navedenim opcijama ima pristup gdje god da se nalazi u aplikaciji. Na stranici sa svim objavljenim zahtjevima ima mogućnost dodavanja novog zahtjeva te mogućnost javljanja na pojedine zahtjeve, a na stranici sa svim objavljenim oglasima ima mogućnost dodavanja novog oglasa te mogućnost javljanja na pojedine oglase. Na stranici s vlastitim zahtjevima ima mogućnost odabira najbolje ponude oglasa za pojedini zahtjev koju potom može prihvatiti ili odbiti, a isto može i na stranici s vlastitim oglasima. Stranici za pregled vlastitih pasa korisnik može pristupiti kroz padajući izbornik, ali i kroz pregled vlastitog računa te potom tamo ima mogućnost dodavanja novog psa.
+			
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=15cm]{slike/dijagramStanja}
+				\caption{Dijagram stanja}
+				\label{fig:Class-Diagram}
+			\end{figure}
 			
 			\eject 
 		
 		\section{Dijagram aktivnosti}
 			
 			Dijagram aktivnosti primjenjuje se za opis modela toka upravljanja ili toka podataka. Ne upotrebljava se za modeliranje događajima poticanog ponašanja. U
-			modeliranju toka upravljanja svaki novi korak poduzima se nakon završenog prethodnog, a naglasak je na jednostavnosti. Na dijagramu aktivnosti sa slike 4.6 prikazan je proces sinkronizacije vlasnika i čuvara, odobravanje upita te ocjenjivanje. Vlasnik, čuvar i administrator se prijave u sustav. Vlasnik dodaje svog psa te radi zahtjev dok čuvar radi svoj oglas.
-			Ako je sve uredu administrator potvrđuje te upite te započinje sinkronizacija između vlasnika i čuvara. Nakon što je šetnja završila, vlasnik može ocijeniti čuvara dok čuvar može ocijeniti pse.
+			modeliranju toka upravljanja svaki novi korak poduzima se nakon završenog prethodnog, a naglasak je na jednostavnosti. Na dijagramu aktivnosti sa slike 4.7 prikazan je proces sinkronizacije vlasnika i čuvara, odobravanje upita te ocjenjivanje. Vlasnik, čuvar i administrator se prijave u sustav. Vlasnik dodaje svog psa te radi zahtjev dok čuvar radi svoj oglas.
+			Ako je sve u redu administrator potvrđuje te upite i započinje sinkronizacija između vlasnika i čuvara. Nakon što je šetnja završila, vlasnik može ocijeniti čuvara dok čuvar može ocijeniti pse.
 			
 			\newpage
 			
