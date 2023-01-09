@@ -33,5 +33,9 @@ public interface AgreedRequestService {
 
     List<RatedRequestsDTO> getMyRatedDogs(Long id);
 
+    List<RatedRequestsDTO> getMyInProgressGuardians(Long id);
+
+    List<RatedRequestsDTO> getMyInProgressDogs(Long id);
+
     List<Long> getDogsInRequest(Long reqGuaId);
 }

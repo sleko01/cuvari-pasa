@@ -69,4 +69,16 @@ public class AgreedRequestController {
     public List<RatedRequestsDTO> getMyRatedDogs(@PathVariable Long id) {
         return agreedRequestService.getMyRatedDogs(id);
     }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @GetMapping("myInProgressGuardians/{id}")
+    public List<RatedRequestsDTO> getMyInProgressGuardians(@PathVariable Long id) {
+        return agreedRequestService.getMyInProgressGuardians(id);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @GetMapping("myInProgressDogs/{id}")
+    public List<RatedRequestsDTO> getMyInProgressDogs(@PathVariable Long id) {
+        return agreedRequestService.getMyInProgressDogs(id);
+    }
 }

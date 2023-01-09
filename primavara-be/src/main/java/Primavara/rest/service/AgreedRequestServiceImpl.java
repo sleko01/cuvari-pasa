@@ -279,6 +279,16 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
     }
 
     @Override
+    public List<RatedRequestsDTO> getMyInProgressGuardians(Long id) {
+        return agreedRequestRepository.getInProgressListGuardians(id);
+    }
+
+    @Override
+    public List<RatedRequestsDTO> getMyInProgressDogs(Long id) {
+        return agreedRequestRepository.getInProgressListDogs(id);
+    }
+
+    @Override
     public List<Long> getDogsInRequest(Long reqGuaId) {
         return agreedRequestRepository.getDogsInRequest(reqGuaId);
     }
