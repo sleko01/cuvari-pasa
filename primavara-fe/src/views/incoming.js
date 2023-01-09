@@ -336,7 +336,7 @@ function Incoming(){
         let idOfUser = localStorage.getItem('id')
         if (offer.requestDog && offer.requestGuardian) {
             if (offer.requestDog.appUser.userId == localStorage.getItem('id')){
-                axios.post('/api/agreedRequest/respond/' + offer.requestGuardian.appUser.userId + '/' + idOfUser + '/' + offer.requestGuardian.requestGuardianId + '/0/g', { headers : {'Authorization': basicAuth}}).then(response => {
+                axios.post('/api/agreedRequest/respond/' + offer.requestGuardian.appUser.userId + '/' + idOfUser + '/' + offer.requestGuardian.requestGuardianId + '/0/g', {}, { headers : {'Authorization': basicAuth}}).then(response => {
                     window.alert("Uspješno odbijeno!")
                     window.location.reload();
                     console.log(response);
@@ -344,7 +344,7 @@ function Incoming(){
                     console.log(err)
                 })
             } else {
-                axios.post('/api/agreedRequest/respond/' + offer.requestDog.appUser.userId + '/' + idOfUser + '/' + offer.requestDog.requestDogId + '/0/d', { headers : {'Authorization': basicAuth}}).then(response => {
+                axios.post('/api/agreedRequest/respond/' + offer.requestDog.appUser.userId + '/' + idOfUser + '/' + offer.requestDog.requestDogId + '/0/d', {}, { headers : {'Authorization': basicAuth}}).then(response => {
                     window.alert("Uspješno odbijeno!")
                     window.location.reload();
                     console.log(response);

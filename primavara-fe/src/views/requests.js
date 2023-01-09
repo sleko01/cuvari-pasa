@@ -38,6 +38,7 @@ function Requests(){
         axios.post('/api/reqgua/initiate/' + request.requestGuardianId + '/' + idOfUser, {},{ headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
+            window.location.reload()
         }).catch(err => {
             console.log(err);
             if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";

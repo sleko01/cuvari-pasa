@@ -41,6 +41,7 @@ function Offers(){
         axios.post('/api/reqdog/initiate/' + offer.requestDogId + '/' + idOfUser, {},{ headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
+            window.location.reload()
         }).catch(err => {
             console.log(err);
             if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
