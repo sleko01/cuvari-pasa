@@ -44,6 +44,7 @@ function Offers(){
             window.location.reload()
         }).catch(err => {
             console.log(err);
+            window.alert("Nemate odgovarajuće ovlasti")
             if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }

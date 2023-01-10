@@ -27,7 +27,7 @@ function MyDogs(){
         let id = localStorage.getItem('id')
         axios.get('/api/dogs/my/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response.data);
-            setDogs(response.data);
+            setDogs(response.data)
         }).catch(err => {
             if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
@@ -59,7 +59,7 @@ function MyDogs(){
                         {dogs && dogs.map(dog =>
                             <div className='panel-content background-white'>
                                 <div className='panel-info-item'>
-                                    <img src={`${dog.photo}`}></img>
+                                    <img className={"dog-photo"} src={`${dog.photo}`}></img>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Ime: </span>

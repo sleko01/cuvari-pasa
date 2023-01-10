@@ -216,7 +216,7 @@ function Incoming(){
             },{ headers : {'Authorization': basicAuth}})
                 .then(response => {
                     console.log(response)
-                    //window.location.reload()
+                    window.location.reload()
                 }).catch(err => {
                 console.log(err)
             })
@@ -226,7 +226,7 @@ function Incoming(){
                 "listValue": listValue
             },{ headers : {'Authorization': basicAuth}}).then(response => {
                 console.log(response)
-                //window.location.reload()
+                window.location.reload()
             }).catch(err => {
                 console.log(err)
             })

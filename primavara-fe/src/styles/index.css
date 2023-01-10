@@ -130,6 +130,7 @@ body {
   border-color: var(--color-apricot);
   border-width: 0.4vmin;
   justify-content: space-evenly;
+  width: 33%;
 }
 
 .panel-info-item {
@@ -435,6 +436,16 @@ body {
   margin-bottom: 0em;
 }
 
+
+.dog-photo {
+  width: 50%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  justify-self: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* RESPONSIVENESS */

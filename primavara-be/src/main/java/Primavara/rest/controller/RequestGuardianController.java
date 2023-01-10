@@ -39,7 +39,7 @@ public class RequestGuardianController {
                 return requestGuardianService.getAllReviewedAndPublishedRequestGuardiansAndMine(id);
         }
 
-        @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+        @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
         @PostMapping("initiate/{idReqGua}/{idInitiator}")
         public void initiateToRequestGuardian(@PathVariable(required = true) Long idReqGua, @PathVariable(required = true) Long idInitiator) {
                 agreedRequestService.initiateToRequestGuardian(idReqGua, idInitiator);

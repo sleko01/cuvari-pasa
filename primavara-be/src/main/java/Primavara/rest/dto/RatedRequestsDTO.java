@@ -11,13 +11,37 @@ public class RatedRequestsDTO {
 
     Long initiatorUserId;
 
-    public RatedRequestsDTO(Long requestId, Long userId, Boolean userRated, Boolean initiatorRated, Long initiatorUserId) {
+    Long requestGuardianId;
+
+    Long requestDogId;
+
+    public RatedRequestsDTO(Long requestId, Long userId, Boolean userRated, Boolean initiatorRated, Long initiatorUserId, Long requestGuardianId, Long requestDogId) {
         this.requestId = requestId;
         this.userId = userId;
         this.userRated = userRated;
         this.initiatorRated = initiatorRated;
         this.initiatorUserId = initiatorUserId;
+        this.requestGuardianId = requestGuardianId;
+        this.requestDogId = requestDogId;
     }
+
+    public Long getRequestGuardianId() {
+        return requestGuardianId;
+    }
+
+    public void setRequestGuardianId(Long requestGuardianId) {
+        this.requestGuardianId = requestGuardianId;
+    }
+
+    public Long getRequestDogId() {
+        return requestDogId;
+    }
+
+    public void setRequestDogId(Long requestDogId) {
+        this.requestDogId = requestDogId;
+    }
+
+
 
     public Long getRequestId() {
         return requestId;

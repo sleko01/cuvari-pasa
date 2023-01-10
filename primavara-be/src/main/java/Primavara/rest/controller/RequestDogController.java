@@ -38,7 +38,7 @@ public class RequestDogController {
         return requestDogService.getAllReviewedAndPublishedRequestDogsAndMine(id);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("initiate/{idReqDog}/{idInitiator}")
     public void initiateToRequestDog(@PathVariable(required = true) Long idReqDog, @PathVariable(required = true) Long idInitiator) {
         agreedRequestService.initiateToRequestDog(idReqDog, idInitiator);
