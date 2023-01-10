@@ -21,16 +21,22 @@ function Navbar(){
         var myModeration = <a href="/moderation">Moderacija</a>
         var myOffers = <a href="/users/offers">Moji oglasi</a>
         var myRequests = <a href="/users/requests">Moji zahtjevi</a>
+        var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
+        var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
     }
     else if(roleId == 3){
         var myOffers = <a href="/users/offers">Moji oglasi</a>
         var myRequests = <a href="/users/requests">Moji zahtjevi</a>
+        var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
+        var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
     }
     else if(roleId == 2){
         var myOffers = <a href="/users/offers">Moji oglasi</a>
+        var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
     }
     else if(roleId == 1){
         var myRequests = <a href="/users/requests">Moji zahtjevi</a>
+        var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
     }
 
     var myProfile = <a href="/users/profile">Moj račun</a>
@@ -75,8 +81,8 @@ function Navbar(){
           </a>
           
           <div className="navbar-links">
-            <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
-            <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
+                {requests}
+                {offers}
                 {dropdownMenu}
                 {loginButton}
                 {registerButton}

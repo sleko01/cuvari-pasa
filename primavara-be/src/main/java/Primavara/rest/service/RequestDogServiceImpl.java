@@ -116,4 +116,9 @@ public class RequestDogServiceImpl implements RequestDogService{
 
         return requestDogRepository.findAllByUserId(id);
     }
+
+    @Override
+    public RequestDog findByRequestDogId(Long id){
+        return requestDogRepository.findByRequestDogId(id);
+    }
 }

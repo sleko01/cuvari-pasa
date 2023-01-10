@@ -16,4 +16,6 @@ public interface RequestGuardianService {
     List<Optional<RequestGuardian>> getAllRequestGuardiansByUserId(Long id);
 
     List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndMine(Long id);
+
+    RequestGuardian findByRequestGuardianId(Long id);
 }

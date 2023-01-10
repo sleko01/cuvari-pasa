@@ -17,4 +17,6 @@ public interface RequestDogService {
     List<Optional<RequestDog>> getAllRequestDogsByUserId(Long id);
 
     List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogsAndMine(Long id);
+
+    RequestDog findByRequestDogId(Long id);
 }

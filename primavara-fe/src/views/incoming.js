@@ -53,7 +53,7 @@ function Incoming(){
             unratedGuardiansTemp = []
             let tempObject
             for (const [key, value] of Object.entries(response.data)){
-                if (id == value.initiatorUserId && !value.initiatorRated) {
+                if (id == value.initiatorUserId && !value.initiatorRated && !value.requestDogId) {
                     axios.get("/api/reqgua/getDogsInRequest/" + value.requestId, { headers : {'Authorization': basicAuth}}).then(response => {
                         dogsTemp = []
                         response.data.forEach(dogId => {
@@ -76,7 +76,7 @@ function Incoming(){
                             unratedGuardiansTemp.push(tempObject)
                         })
                     })
-                } else if (id == value.userId && !value.userRated) {
+                } else if (id == value.userId && !value.userRated && !value.requestDogId) {
                     axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
                         tempObject = {
                             "userId": null,
@@ -89,6 +89,40 @@ function Incoming(){
                         temp = value.requestId.toString() + "_" + value.initiatorUserId.toString()
                         setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
                         unratedGuardiansTemp.push(tempObject)
+                    })
+                } else if ((!value.userRated || !value.initiatorRated) && value.requestDogId) {
+                    axios.get('/api/reqdog/get/' + value.requestDogId, {headers: {'Authorization': basicAuth}}).then(response => {
+                        if (response.data.appUser.userId != id){
+                            if (id == value.initiatorUserId && !value.initiatorRated){
+                                axios.get("/api/users/profile/" + value.userId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                    tempObject = {
+                                        "userId": value.userId,
+                                        "initiatorUserId": null,
+                                        "username": response.data.username,
+                                        "dogs": null,
+                                        "requestId": value.requestId,
+                                        "type": "g"
+                                    }
+                                    temp = value.requestId.toString() + "_" + value.initiatorUserId.toString()
+                                    setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
+                                    unratedGuardiansTemp.push(tempObject)
+                                })
+                            } else if (id == value.userId && !value.userRated){
+                                axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                    tempObject = {
+                                        "userId": value.userId,
+                                        "initiatorUserId": null,
+                                        "username": response.data.username,
+                                        "dogs": null,
+                                        "requestId": value.requestId,
+                                        "type": "g"
+                                    }
+                                    temp = value.requestId.toString() + "_" + value.initiatorUserId.toString()
+                                    setUserRatings(oldUserRatings => ({...oldUserRatings, [temp]: -1}))
+                                    unratedGuardiansTemp.push(tempObject)
+                                })
+                            }
+                        }
                     })
                 }
             }
@@ -108,7 +142,7 @@ function Incoming(){
             unratedDogsTemp = []
             let tempObject
             for (const [key, value] of Object.entries(response.data)){
-                if (id == value.userId && !value.userRated) {
+                if (id == value.userId && !value.userRated && !value.requestGuardianId) {
                     axios.get("/api/dogs/my/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
                         dogsTemp1 = response.data
                         axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
@@ -127,7 +161,7 @@ function Incoming(){
                             unratedDogsTemp.push(tempObject)
                             })
                     })
-                } else if (id == value.initiatorUserId && !value.initiatorRated) {
+                } else if (id == value.initiatorUserId && !value.initiatorRated && !value.requestGuardianId) {
                     axios.get("/api/users/profile/" + value.userId, { headers : {'Authorization': basicAuth}}).then(response => {
                         tempObject = {
                             "userId": value.userId,
@@ -142,6 +176,50 @@ function Incoming(){
                         unratedDogsTemp.push(tempObject)
                     })
 
+                } else if ((!value.initiatorRated || !value.userRated) && value.requestGuardianId){
+                    axios.get("/api/reqgua/get/" + value.requestGuardianId, { headers : {'Authorization': basicAuth}}).then(response => {
+                        if (response.data.appUser.userId != id){
+                            if (id == value.initiatorUserId && !value.initiatorRated){
+                                axios.get("/api/dogs/my/" + value.userId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                    dogsTemp1 = response.data
+                                    axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                        tempObject = {
+                                            "userId": null,
+                                            "initiatorUserId": value.initiatorUserId,
+                                            "username": response.data.username,
+                                            "dogs": dogsTemp1,
+                                            "requestId": value.requestId,
+                                            "type": "d"
+                                        }
+                                        dogsTemp1.forEach(dog => {
+                                            temp = value.requestId.toString() + "_" + dog.dogId.toString()
+                                            setDogRatings(oldDogRatings => ({...oldDogRatings, [temp]: -1}))
+                                        })
+                                        unratedDogsTemp.push(tempObject)
+                                    })
+                                })
+                            } else if (id == value.userId && !value.userRated){
+                                axios.get("/api/dogs/my/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                    dogsTemp1 = response.data
+                                    axios.get("/api/users/profile/" + value.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                        tempObject = {
+                                            "userId": null,
+                                            "initiatorUserId": value.initiatorUserId,
+                                            "username": response.data.username,
+                                            "dogs": dogsTemp1,
+                                            "requestId": value.requestId,
+                                            "type": "d"
+                                        }
+                                        dogsTemp1.forEach(dog => {
+                                            temp = value.requestId.toString() + "_" + dog.dogId.toString()
+                                            setDogRatings(oldDogRatings => ({...oldDogRatings, [temp]: -1}))
+                                        })
+                                        unratedDogsTemp.push(tempObject)
+                                    })
+                                })
+                            }
+                        }
+                    })
                 }
             }
             console.log(unratedDogsTemp)
@@ -231,39 +309,6 @@ function Incoming(){
                 console.log(err)
             })
         }
-
-        
-/*        axios.post('/api/dogs/rate/' + a.userId + '/' + idOfUser + '/' + a.requestId + '/d', {
-            "listId": listId,
-            "listValue": listValue
-        }, { headers : {'Authorization': basicAuth}}).then(response => {
-            console.log(response)
-        }).catch(err => {
-            axios.post('/api/dogs/rate/' + a.userId + '/' + idOfUser + '/' + a.requestId + '/g', {
-                "listId": listId,
-                "listValue": listValue
-            }, { headers : {'Authorization': basicAuth}}).then(response => {
-                console.log(response)
-            }).catch(err => {
-                axios.post('/api/dogs/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/g', {
-                    "listId": listId,
-                    "listValue": listValue
-                }, { headers : {'Authorization': basicAuth}}).then(response => {
-                    console.log(response)
-                }).catch(err => {
-                    axios.post('/api/dogs/rate/' + idOfUser + '/' + a.userId + '/' + a.requestId + '/d', {
-                        "listId": listId,
-                        "listValue": listValue
-                    }, { headers : {'Authorization': basicAuth}}).then(response => {
-                        console.log(response)
-                    }).catch(err => {
-                        console.log(err)
-                    })
-                })
-            })
-        }).finally( () => {
-            window.location.reload()
-        })*/
 
 
     }
@@ -631,6 +676,9 @@ function Incoming(){
                                 </NativeSelect>
                             </div>
                             <div className='empty-space-small'></div>
+                            <div className='panel-info-item'>
+                                <span className='panel-info-item-name'>{a.requestId}</span>
+                            </div>
 
                         </div>
                     )}
@@ -646,29 +694,61 @@ function Incoming(){
                         <span className='panel-info-item-name'>Korisnik: </span>
                         <span className='panel-info-item-value'>{a.username}</span>
                     </div>
-                    <div className='panel-info-item'>
-                        <NativeSelect
-                            inputProps={{
-                                name:a.requestId.toString() + "_" + a.userId.toString(),
-                                id: "rating" + a.requestId.toString() + "_" + a.username
-                            }}
-                            required
-                            onChange = {onChangeGuardians}
-                            value = {userRatings[a.requestId.toString() + "_" + a.userId.toString()]}
-                        >
-                            <option value={-1}>Ne želim ocijeniti</option>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-                        </NativeSelect>
-                    </div>
+                    {displaySelect(a)}
                     <div className='empty-space-small'></div>
                     <div className='profile-button-container-centered'>
                         <button className="button button-primary" onClick={() => rateUser(a.requestId, a.userId, a)}>Ocijeni</button>
                     </div>
+                    <div className='panel-info-item'>
+                        <span className='panel-info-item-name'>{a.requestId}</span>
+                    </div>
                 </div>)
+        }
+    }
+
+    function displaySelect(a){
+        if (a.userId){
+            return(
+                <div className='panel-info-item'>
+                    <NativeSelect
+                        inputProps={{
+                            name:a.requestId.toString() + "_" + a.userId.toString(),
+                            id: "rating" + a.requestId.toString() + "_" + a.username
+                        }}
+                        required
+                        onChange = {onChangeGuardians}
+                        value = {userRatings[a.requestId.toString() + "_" + a.userId.toString()]}
+                    >
+                        <option value={-1}>Ne želim ocijeniti</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                    </NativeSelect>
+                </div>
+            )
+        } else {
+            return(
+                <div className='panel-info-item'>
+                    <NativeSelect
+                        inputProps={{
+                            name:a.requestId.toString() + "_" + a.initiatorUserId.toString(),
+                            id: "rating" + a.requestId.toString() + "_" + a.username
+                        }}
+                        required
+                        onChange = {onChangeGuardians}
+                        value = {userRatings[a.requestId.toString() + "_" + a.initiatorUserId.toString()]}
+                    >
+                        <option value={-1}>Ne želim ocijeniti</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                    </NativeSelect>
+                </div>
+            )
         }
     }
 

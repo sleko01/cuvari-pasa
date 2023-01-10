@@ -166,4 +166,9 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
 
         return requestGuardianRepository.findAllByUserId(id);
     }
+
+    @Override
+    public RequestGuardian findByRequestGuardianId(Long id){
+        return requestGuardianRepository.findByRequestGuardianId(id);
+    }
 }
