@@ -676,9 +676,6 @@ function Incoming(){
                                 </NativeSelect>
                             </div>
                             <div className='empty-space-small'></div>
-                            <div className='panel-info-item'>
-                                <span className='panel-info-item-name'>{a.requestId}</span>
-                            </div>
 
                         </div>
                     )}
@@ -698,9 +695,6 @@ function Incoming(){
                     <div className='empty-space-small'></div>
                     <div className='profile-button-container-centered'>
                         <button className="button button-primary" onClick={() => rateUser(a.requestId, a.userId, a)}>Ocijeni</button>
-                    </div>
-                    <div className='panel-info-item'>
-                        <span className='panel-info-item-name'>{a.requestId}</span>
                     </div>
                 </div>)
         }
