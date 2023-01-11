@@ -44,7 +44,7 @@ public class RequestDogController {
         agreedRequestService.initiateToRequestDog(idReqDog, idInitiator);
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("get/{idReqDog}")
     public RequestDog findByRequestDogId(@PathVariable Long idReqDog){
         return requestDogService.findByRequestDogId(idReqDog);

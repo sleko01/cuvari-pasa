@@ -16,8 +16,10 @@ function Current(){
     const [dogs, setDogs] = React.useState([])
     let tempGuardians = []
     let tempDogs = []
-    let tempGuardians1 = []
-    let tempDogs1 = []
+    let tempObject1 = {}
+    let tempObject2 = {}
+    let temp1 = {}
+    let temp2 = {}
 
     function decrypt(password) {
         return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
@@ -35,15 +37,49 @@ function Current(){
                         axios.get('/api/reqdog/get/' + t.requestDogId, {headers: {'Authorization': basicAuth}}).then(response => {
                             if (response.data.appUser.userId == id){
                                 axios.get('/api/reqgua/get/' + t.requestGuardianId, {headers: {'Authorization': basicAuth}}).then(response =>{
-                                    setGuardians(oldGuardians => ({...oldGuardians, [response.data.requestGuardianId]: response.data}))
+                                    tempObject1 = {
+                                        "displayUser": response.data.appUser,
+                                        "data": response.data
+                                    }
+                                    setGuardians(oldGuardians => ({...oldGuardians, [response.data.requestGuardianId]: tempObject1}))
                                 })
                             } else {
-                                setDogs(oldDogs => ({...oldDogs, [response.data.requestDogId]: response.data}))
+                                tempObject1 = {
+                                    "displayUser": response.data.appUser,
+                                    "data": response.data
+                                }
+                                setDogs(oldDogs => ({...oldDogs, [response.data.requestDogId]: tempObject1}))
                             }
                         })
                     } else {
                         axios.get('/api/reqgua/get/' + t.requestGuardianId, {headers: {'Authorization': basicAuth}}).then(response =>{
-                            setGuardians(oldGuardians => ({...oldGuardians, [response.data.requestGuardianId]: response.data}))
+                            temp1 = response.data
+                            if (response.data.appUser.userId == id){
+                                if (id ==t.initiatorUserId){
+                                    axios.get("/api/users/profile/" + t.userId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                        tempObject1 = {
+                                            "displayUser": response.data,
+                                            "data": temp1
+                                        }
+                                        setGuardians(oldGuardians => ({...oldGuardians, [temp1.requestGuardianId]: tempObject1}))
+                                    })
+                                } else {
+                                    axios.get("/api/users/profile/" +t.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                        tempObject1 = {
+                                            "displayUser": response.data,
+                                            "data": temp1
+                                        }
+                                        setGuardians(oldGuardians => ({...oldGuardians, [temp1.requestGuardianId]: tempObject1}))
+                                    })
+                                }
+                            } else {
+                                tempObject1 = {
+                                    "displayUser": response.data.appUser,
+                                    "data": response.data
+                                }
+                                setGuardians(oldGuardians => ({...oldGuardians, [temp1.requestGuardianId]: tempObject1}))
+                            }
+
                         })
                     }
                 })
@@ -64,17 +100,50 @@ function Current(){
                     if (t.requestGuardianId) {
                         axios.get('/api/reqgua/get/' + t.requestGuardianId, {headers: {'Authorization': basicAuth}}).then(response =>{
                             if (response.data.appUser.userId == id){
-                                axios.get('/api/reqdog/get/' + t.requestDogId, {headers: {'Authorization': basicAuth}}).then(response =>
-                                    setDogs(oldDogs => ({...oldDogs, [response.data.requestDogId]: response.data}))
-                                )
+                                axios.get('/api/reqdog/get/' + t.requestDogId, {headers: {'Authorization': basicAuth}}).then(response => {
+                                    tempObject2 = {
+                                        "displayUser": response.data.appUser,
+                                        "data": response.data
+                                    }
+                                    setDogs(oldDogs => ({...oldDogs, [response.data.requestDogId]: tempObject2}))
+                                })
                             } else {
-                                setGuardians(oldGuardians => ({...oldGuardians, [response.data.requestGuardianId]: response.data}))
+                                tempObject2 = {
+                                    "displayUser": response.data.appUser,
+                                    "data": response.data
+                                }
+                                setGuardians(oldGuardians => ({...oldGuardians, [response.data.requestGuardianId]: tempObject2}))
                             }
                         })
                     } else {
-                        axios.get('/api/reqdog/get/' + t.requestDogId, {headers: {'Authorization': basicAuth}}).then(response =>
-                            setDogs(oldDogs => ({...oldDogs, [response.data.requestDogId]: response.data}))
-                        )
+                        axios.get('/api/reqdog/get/' + t.requestDogId, {headers: {'Authorization': basicAuth}}).then(response =>{
+                            temp2 = response.data
+                            if (response.data.appUser.userId == id){
+                                if (id == t.initiatorUserId){
+                                    axios.get("/api/users/profile/" + t.userId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                        tempObject2 = {
+                                            "displayUser": response.data,
+                                            "data": temp2
+                                        }
+                                        setDogs(oldDogs => ({...oldDogs, [temp2.requestDogId]: tempObject2}))
+                                    })
+                                } else {
+                                    axios.get("/api/users/profile/" + t.initiatorUserId, { headers : {'Authorization': basicAuth}}).then(response => {
+                                        tempObject2 = {
+                                            "displayUser": response.data,
+                                            "data": temp2
+                                        }
+                                        setDogs(oldDogs => ({...oldDogs, [temp2.requestDogId]: tempObject2}))
+                                    })
+                                }
+                            } else {
+                                tempObject2 = {
+                                    "displayUser": response.data.appUser,
+                                    "data": response.data
+                                }
+                                setDogs(oldDogs => ({...oldDogs, [temp2.requestDogId]: tempObject2}))
+                            }
+                        })
                     }
                 })
             }).catch(err => {
@@ -82,6 +151,7 @@ function Current(){
             })
         }
     }, [])
+
 
 
     return(
@@ -105,58 +175,76 @@ function Current(){
                         {dogs && Object.entries(dogs).map(([key, dog]) =>
                             <div className="panel-content background-white">
                                 <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Korisnik: </span>
+                                    <span className='panel-info-item-value'>{dog.displayUser.username}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>E-mail: </span>
+                                    <span className='panel-info-item-value'>{dog.displayUser.email}</span>
+                                </div>
+                                <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Lokacija: </span>
-                                    <span className='panel-info-item-value'>{dog.locationName}</span>
+                                    <span className='panel-info-item-value'>{dog.data.locationName}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Broj pasa: </span>
-                                    <span className='panel-info-item-value'>{dog.numberOfDogs}</span>
+                                    <span className='panel-info-item-value'>{dog.data.numberOfDogs}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Početak: </span>
-                                    <span className='panel-info-item-value'>{dog.dogTimeBegin.split("T")[0]}</span>
+                                    <span className='panel-info-item-value'>{dog.data.dogTimeBegin.split("T")[0]}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'></span>
-                                    {<span className='panel-info-item-value'>{dog.dogTimeBegin.split("T")[1].substring(0, dog.dogTimeBegin.split("T")[1].length - 10)}</span>}
+                                    {<span className='panel-info-item-value'>{dog.data.dogTimeBegin.split("T")[1].substring(0, dog.data.dogTimeBegin.split("T")[1].length - 10)}</span>}
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Kraj: </span>
-                                    <span className='panel-info-item-value'>{dog.dogTimeEnd.split("T")[0]}</span>
+                                    <span className='panel-info-item-value'>{dog.data.dogTimeEnd.split("T")[0]}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'></span>
-                                    {<span className='panel-info-item-value'>{dog.dogTimeEnd.split("T")[1].substring(0, dog.dogTimeEnd.split("T")[1].length - 10)}</span>}
+                                    {<span className='panel-info-item-value'>{dog.data.dogTimeEnd.split("T")[1].substring(0, dog.data.dogTimeEnd.split("T")[1].length - 10)}</span>}
                                 </div>
                             </div>
+
                         )}
                         {guardians && Object.entries(guardians).map(([key, guardian]) =>
                             <div className="panel-content background-white">
                                 <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>Korisnik: </span>
+                                    <span className='panel-info-item-value'>{guardian.displayUser.username}</span>
+                                </div>
+                                <div className='panel-info-item'>
+                                    <span className='panel-info-item-name'>E-mail: </span>
+                                    <span className='panel-info-item-value'>{guardian.displayUser.email}</span>
+                                </div>
+                                <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Lokacija: </span>
-                                    <span className='panel-info-item-value'>{guardian.locationName}</span>
+                                    <span className='panel-info-item-value'>{guardian.data.locationName}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Broj pasa: </span>
-                                    <span className='panel-info-item-value'>{guardian.numberOfDogs}</span>
+                                    <span className='panel-info-item-value'>{guardian.data.numberOfDogs}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Početak: </span>
-                                    <span className='panel-info-item-value'>{guardian.guardTimeBegin.split("T")[0]}</span>
+                                    <span className='panel-info-item-value'>{guardian.data.guardTimeBegin.split("T")[0]}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'></span>
-                                    {<span className='panel-info-item-value'>{guardian.guardTimeBegin.split("T")[1].substring(0, guardian.guardTimeBegin.split("T")[1].length - 10)}</span>}
+                                    {<span className='panel-info-item-value'>{guardian.data.guardTimeBegin.split("T")[1].substring(0, guardian.data.guardTimeBegin.split("T")[1].length - 10)}</span>}
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'>Kraj: </span>
-                                    <span className='panel-info-item-value'>{guardian.guardTimeEnd.split("T")[0]}</span>
+                                    <span className='panel-info-item-value'>{guardian.data.guardTimeEnd.split("T")[0]}</span>
                                 </div>
                                 <div className='panel-info-item'>
                                     <span className='panel-info-item-name'></span>
-                                    {<span className='panel-info-item-value'>{guardian.guardTimeEnd.split("T")[1].substring(0, guardian.guardTimeEnd.split("T")[1].length - 10)}</span>}
+                                    {<span className='panel-info-item-value'>{guardian.data.guardTimeEnd.split("T")[1].substring(0, guardian.data.guardTimeEnd.split("T")[1].length - 10)}</span>}
                                 </div>
                             </div>
+
                         )}
                     </div>
 
