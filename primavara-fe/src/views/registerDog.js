@@ -195,7 +195,7 @@ function RegisterDog(){
                                         value={form.breed}
                                     >
                                         {breeds.map(breed =>
-                                            <option value={breed.breedId} key={breed.breedId}>{breed.name}</option>)}
+                                            <option value={breed.breedId} key={breed.breedId} id={breed.breedId.toString()}>{breed.name}</option>)}
                                     </NativeSelect>
 
                                 </Grid>
