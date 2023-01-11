@@ -21,7 +21,7 @@
 		
 		\begin{figure}[htb]
 			\centering
-			\includegraphics[width=14cm]{slike/arhitekturaaa}
+			\includegraphics[width=14cm]{slike/Arhitektura}
 			\caption{Dijagram arhitekture web aplikacije} 
 			\label{fig:arhitektura-dijagram}
 		\end{figure}
@@ -265,33 +265,33 @@
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=15cm]{slike/dijagram_razreda_controllers}
+				\includegraphics[width=15cm]{slike/Dijagram razreda - Controllers}
 				\caption{Dijagram razreda - dio Controllers} 
 				\label{fig:Class-Diagram}
 			\end{figure}
 		
 		
-			Data Transfer Objects služe za razmjenu podataka između procesa ili slojeva.\\
-			RegisterUser i ReqisterDog služe za stvaranje novog objekta User odnosno Dog.
-			NewRequestDog i NewRequestGuardian služe za stvaranje novog objekta RequestDog odnosno RequestGuardian.
+			Data Transfer Objects služe za razmjenu podataka između procesa ili slojeva.
+			RegisterUser i ReqisterDog služe za stvaranje novog objekta User, odnosno Dog.
+			NewRequestDog i NewRequestGuardian služe za stvaranje novog objekta RequestDog, odnosno RequestGuardian.
 			RatedDogsList služi za primanje podataka o ocijenjenim psima.
 			RequestGuardianDTO, RequestBothDTO, RatedRequestsDTO služe kao pomoćni objekti za čitanje tih objekata iz baze podataka.
 			\eject
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=15cm]{slike/dijagram_razreda_DTO}
+				\includegraphics[width=15cm]{slike/Dijagram razreda - DTO}
 				\caption{Dijagram razreda - dio Data Transfer Objects}
 				\label{fig:Class-Diagram}
 			\end{figure}
 		
 		
 			Domain razredi preslikavaju strukturu baze podataka u aplikaciji. Implementirane metode direktno komuniciraju s bazom podataka te vraćaju tražene podatke.\\
-			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unos-eći potrebne informacije. On može izabrati svoju ulogu pri registraciji (razred Role). Administrator je korisnik aplikacije koji ima sve mogućnosti razreda AppUser. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik odnosno čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian) odnosno psa za čuvanje (razred RequestDog). Vlasnik može i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest. U RequestGuardiansDog se popisuju psi koju se koriste u zahtjevu RequestGuardian.
+			Razred AppUser predstavlja korisnika web aplikacije koji se može registrirati unos-eći potrebne informacije. On može izabrati svoju ulogu pri registraciji (razred Role). Administrator je korisnik aplikacije koji ima sve mogućnosti razreda AppUser. Vlasnik pasa može dodati vlastitog psa u sustav (razred Dog). Vlasnik, odnosno čuvar mogu tražiti čuvara za svog pasa (razred RequestGuardian), odnosno psa za čuvanje (razred RequestDog). Vlasnik može i tražiti koju aktivnost će čuvar raditi sa psom (razredi Activity i RequestActivity). Dogovor vlasnika i čuvara predstavlja razred AgreedRequest. U RequestGuardiansDog se popisuju psi koju se koriste u zahtjevu RequestGuardian.
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=15cm]{slike/class_diagram_domain}
+				\includegraphics[width=15cm]{slike/Dijagram razreda - Domain}
 				\caption{Dijagram razreda - dio Domain}
 				\label{fig:Class-Diagram}
 			\end{figure}
@@ -310,7 +310,7 @@
 			
 			\begin{figure}[htb]
 				\centering
-				\includegraphics[width=15cm]{slike/dijagramStanja}
+				\includegraphics[width=15cm]{slike/Dijagram stanja}
 				\caption{Dijagram stanja}
 				\label{fig:Class-Diagram}
 			\end{figure}
@@ -321,13 +321,13 @@
 			
 			Dijagram aktivnosti primjenjuje se za opis modela toka upravljanja ili toka podataka. Ne upotrebljava se za modeliranje događajima poticanog ponašanja. U
 			modeliranju toka upravljanja svaki novi korak poduzima se nakon završenog prethodnog, a naglasak je na jednostavnosti. Na dijagramu aktivnosti sa slike 4.7 prikazan je proces sinkronizacije vlasnika i čuvara, odobravanje upita te ocjenjivanje. Vlasnik, čuvar i administrator se prijave u sustav. Vlasnik dodaje svog psa te radi zahtjev dok čuvar radi svoj oglas.
-			Ako je sve u redu administrator potvrđuje te upite i započinje sinkronizacija između vlasnika i čuvara. Nakon što je šetnja završila, vlasnik može ocijeniti čuvara dok čuvar može ocijeniti pse.
+			Ako je sve u redu administrator potvrđuje te upite i započinje sinkronizacija između vlasnika i čuvara. Nakon što je čuvanje završilo, vlasnik može ocijeniti čuvara dok čuvar može ocijeniti pse.
 			
 			\newpage
 			
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=15cm]{slike/dijagram_aktivnosti}
+				\includegraphics[width=15cm]{slike/Dijagram aktivnosti}
 				\caption{Dijagram aktivnosti}
 				\label{fig:Activity-Diagram}
 			\end{figure}

@@ -25,29 +25,31 @@
 				
 				\begin{packed_enum}
 					
-					\item Na početnoj stranici pregledavati zahtjeve i oglase
-					\item Odabrati željeni zahtjev/oglas i vidjeti pojedinosti tog zahtjeva/oglasa (pasmina, dob, lokacija itd.)
-					\item Registrirati se u sustav, stvoriti novi korisnički račun za koji mu trebaju ime, prezime, korisničko ime, e-mail adresa, lozinka, broj telefona i uloga.
+					\item Pregledavati objavljene zahtjeve i oglase te njihove pojedinosti (pasmina, dob, lokacija itd.)
+					\item Registrirati se u sustav, stvoriti novi korisnički račun za koji mu trebaju ime, prezime, korisničko ime, e-mail adresa, lozinka i uloga.
 				\end{packed_enum}
 				
 				\item  \underbar{Registrirani korisnik (inicijator) može:}
 				
 				\begin{packed_enum}
 					
-					\item Pregledavati i mijenjati osobne podatke
+					\item Pregledavati osobne podatke
 					\item Odjaviti se s korisničkog računa i prijaviti se nekim drugim računom
 					\item Imati ulogu vlasnika pasa:
 					\begin{packed_enum}
+						\item Spremiti podatke o svom psu
 						\item Pregledavati sve odobrene oglase čuvara pasa
+						\item Pregledavati vlastite zahtjeve
 						\item Stvarati novi zahtjev za čuvanje pasa
 						\item Pronaći najbolji odabir čuvara pasa
+						\item Pregledavati pristigle ponude za čuvanje
 						\item Stupiti u kontakt s čuvarom pasa
-						\item Spremiti podatke o svom psu
+						\item Pregledavati trenutna čuvanja
 						\item Ocjenjivati uslugu čuvara pasa
-						\item Pregledavati vlastite zahtjeve
 					\end{packed_enum}
 					\item Imati ulogu čuvara pasa:
 					\begin{packed_enum}
+						\item Spremiti podatke o svom psu
 						\item Pregledavati sve odobrene zahtjeve vlasnika pasa
 						\item Stvarati novi oglas za čuvanje pasa
 						\item Pronaći najbolji odabir vlasnika pasa
@@ -99,8 +101,8 @@
 						
 						\item[] \begin{packed_enum}
 	
-							\item Prilikom učitavanja aplikacije prikazuje se lista zahtjeva i lista oglasa
-							\item Klikom na zahtjev/oglas prikazuju se dodatne informacije o tom zahtjevu/oglasu
+							\item Korisnik putem zaglavlja aplikacije odabire opciju za pregled objavljenih zahtjeva/oglasa
+							\item Korisniku se otvara stranica s objavljenim zahtjevima/oglasima koje potom može pregledavati
 				
 						\end{packed_enum}
 					\end{packed_item}
@@ -116,10 +118,9 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za registraciju 
+							\item Korisnik putem zaglavlja aplikacije odabire opciju za registraciju 
 							\item Korisnik unosi korisničke podatke potrebne za registraciju i potvrđuje unos
-							\item Korisnik dobiva povratnu informaciju o uspješnoj registraciji i preusmjerava se na početnu stranicu
-							\item Korisnik se upisuje u bazu podataka
+							\item Korisnik se upisuje u bazu podataka i preusmjerava na početnu stranicu
 							
 						\end{packed_enum}
 						
@@ -150,9 +151,9 @@
 					
 						\item[] \begin{packed_enum}
 						
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za prijavu 
+							\item Korisnik putem zaglavlja aplikacije odabire opciju za prijavu 
 							\item Korisnik unosi korisničko ime i lozinku te potvrđuje upis
-							\item Korisnik dobiva povratnu informaciju o uspješnoj prijavi i preusmjerava se na početnu stranicu
+							\item Korisnik se preusmjerava na početnu stranicu
 						
 						\end{packed_enum}
 					
@@ -181,9 +182,9 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za odjavljivanje iz sustava
+							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za odjavljivanje iz sustava
 							\item Aplikacija korisnika odjavljuje s trenutnog korisničkog računa
-							\item Korisnik se preusmjerava na početnu stranicu gdje mu se pruža lista zahtjeva i oglasa
+							\item Korisnik se preusmjerava na početnu stranicu 
 							
 						\end{packed_enum}
 					\end{packed_item}
@@ -199,7 +200,7 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za pregled vlastitog računa 
+							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za pregled vlastitog računa 
 							\item Aplikacija prikazuje osobne podatke korisnika
 							
 						\end{packed_enum}
@@ -209,18 +210,17 @@
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
-						\item  \textbf{Cilj:} Dodavanje pasa na web stranicu
+						\item  \textbf{Cilj:} Dodavanje psa na vlastiti račun
 						\item  \textbf{Sudionici:} Baza podataka 
 						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu vlasnika pasa
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik na padajućem izborniku odabire opciju za pregled vlastitih pasa
+							\item Korisnik na padajućem izborniku u zaglavlju aplikacije ili na stranici s osobnim podacima odabire opciju za pregled vlastitih pasa 
 							\item Korisnik na stranici s prikazom vlastitih pasa odabire opciju za dodavanje psa
-							\item Korisnik ispunjava podatke o psu
-							\item Korisnik odabire gumb za spremanje podataka o psu
-							\item Podaci o psu se pohranjuju
+							\item Korisnik ispunjava podatke o psu te potvrđuje unos
+							\item Podaci o psu se pohranjuju u bazu podataka
 							
 						\end{packed_enum}
 					
@@ -229,9 +229,10 @@
 		
 						\item[] \begin{packed_item}
 	
-							\item[4.a] Korisnik zaboravlja pritisnuti gumb za spremanje podataka o psu
+							\item[4.a] Korisnik unosi ime psa koji već postoji na njegovom računu
 							\item[] \begin{packed_enum}
-								\item Podaci o psu se ne spremaju u sustav
+								\item Sustav obavještava korisnika o neuspjelom unosu i vraća ga na stranicu za dodavanje psa  
+								\item Korisnik unosi nove podatke za psa ili odustaje od dodavanja
 							\end{packed_enum}
 						\end{packed_item}
 					\end{packed_item}
@@ -246,10 +247,8 @@
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
-							
-							\item Korisnik na početnoj stranici prolazi kroz listu tuđih zahtjeva 
-							\item Korisnik odabire odgovarajući zahtjev
-							\item Korisnik pregledava dodatne podatke o tom zahtjevu
+							\item Korisnik putem zaglavlja aplikacije pristupa objavljenim zahtjevima
+							\item Korisnik na stranici s objavljenim zahtjevima prolazi kroz listu tuđih zahtjeva te pregledava podatke pojedinih zahtjeva
 							
 						\end{packed_enum}
 					\end{packed_item}
@@ -264,10 +263,8 @@
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
-							
-							\item Korisnik na početnoj stranici prolazi kroz listu tuđih oglasa  
-							\item Korisnik odabire odgovarajući oglas
-							\item Korisnik pregledava dodatne podatke o tom oglasu
+							\item Korisnik putem zaglavlja aplikacije pristupa objavljenim oglasima
+							\item Korisnik na na stranici s objavljenim oglasima prolazi kroz listu tuđih oglasa te pregledava podatke pojedinih oglasa  
 							
 						\end{packed_enum}
 					\end{packed_item}
@@ -283,22 +280,11 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za prikaz vlastitih zahtjeva 
+							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za prikaz vlastitih zahtjeva 
 							\item Korisniku se prikazuje lista zahtjeva
 							
 						\end{packed_enum}
 					
-						\item  \textbf{Opis mogućih odstupanja:}
-						
-						\item[] \begin{packed_item}
-							
-							\item[2.a] Korisnik nema kreiranih zahtjeva
-							\item[] \begin{packed_enum}
-								
-								\item Korisniku se prikazuje prikladna poruka
-								
-							\end{packed_enum}
-						\end{packed_item}
 					\end{packed_item}	
 				
 					\noindent \underbar{\textbf{UC10 – Pregledavanje vlastitih oglasa}}
@@ -312,22 +298,11 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za prikaz vlastitih oglasa 
+							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za prikaz vlastitih oglasa 
 							\item Korisniku se prikazuje lista oglasa
 							
 						\end{packed_enum}
 						
-						\item  \textbf{Opis mogućih odstupanja:}
-						
-						\item[] \begin{packed_item}
-							
-							\item[2.a] Korisnik nema kreiranih oglasa
-							\item[] \begin{packed_enum}
-								
-								\item Korisniku se prikazuje prikladna poruka
-								
-							\end{packed_enum}
-						\end{packed_item}
 					\end{packed_item}	
 				
 					\noindent \underbar{\textbf{UC11 – Kreiranje novog zahtjeva}}
@@ -340,12 +315,10 @@
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
-							
-							\item Korisnik na početnoj stranici odabire opciju za kreiranje novog zahtjeva   
-							\item Korisniku se otvara stranica za kreiranje zahtjeva
-							\item Korisnik unosi sve tražene podatke za kreiranje zahtjeva (pasmina, dob, period čuvanja itd.)
-							\item Korisnik odabire opciju za objavljivanje zahtjeva
-							\item Zahtjev se šalje administratoru na uvid
+							\item Korisnik putem zaglavlja aplikacije pristupa padajućem izborniku na kojem odabire opciju za prikaz vlastitih zahtjeva
+							\item Korisnik na stranici s vlastitim zahtjevima odabire opciju za kreiranje novog zahtjeva
+							\item Korisnik unosi sve tražene podatke za kreiranje zahtjeva (period čuvanja, potrebne aktivnosti itd.) i potvrđuje unos
+							\item Zahtjev se pohranjuje u bazu podataka i šalje administratoru na uvid
 							
 						\end{packed_enum}
 						
@@ -356,7 +329,8 @@
 							\item[4.a] Korisnik nije ispravno unio sve podatke
 							\item[] \begin{packed_enum}
 								
-								\item Korisnika se ponovno vraća na stranicu za kreiranje zahtjeva s odgovarajućom porukom o greški 
+								\item Korisnika se ponovno vraća na stranicu za kreiranje zahtjeva s odgovarajućom porukom o greški
+								\item Korisnik unosi ispravne podatke ili odustaje od kreiranja zahtjeva
 								
 							\end{packed_enum}
 						\end{packed_item}
@@ -373,11 +347,10 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik na početnoj stranici odabire opciju za kreiranje novog oglasa     
-							\item Korisniku se otvara stranica za kreiranje oglasa  
-							\item Korisnik unosi sve tražene podatke za kreiranje oglasa (preferirana pasmina, preferirana dob, period čuvanja itd.)
-							\item Korisnik odabire opciju za objavljivanje oglasa
-							\item Oglas se šalje administratoru na uvid
+							\item Korisnik putem zaglavlja aplikacije pristupa padajućem izborniku na kojem odabire opciju za prikaz vlastitih oglasa
+							\item Korisnik na stranici s vlastitim oglasima odabire opciju za kreiranje novog oglasa
+							\item Korisnik unosi sve tražene podatke za kreiranje oglasa (preferirana pasmina, preferirana dob, period čuvanja itd.) i potvrđuje unos
+							\item Oglas se pohranjuje u bazu podataka i šalje administratoru na uvid
 							
 						\end{packed_enum}
 						
@@ -389,6 +362,7 @@
 							\item[] \begin{packed_enum}
 								
 								\item Korisnika se ponovno vraća na stranicu za kreiranje oglasa s odgovarajućom porukom o greški 
+								\item Korisnik unosi ispravne podatke ili odustaje od kreiranja oglasa
 								
 							\end{packed_enum}
 						\end{packed_item}
@@ -405,10 +379,10 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za prikaz vlastitih zahtjeva   
-							\item Korisnik na listi zahtjeva pokraj željenog zahtjeva odabire opciju za pronalaženje najboljeg odabira 
-							\item Čuvar pasa dobiva obavijest sa najpogodnijim zahtjevom
-							\item Korisnici prihvaćaju odabir
+							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za prikaz vlastitih zahtjeva   
+							\item Korisnik na listi vlastitih zahtjeva pokraj željenog zahtjeva odabire opciju za pronalaženje najboljeg odabira
+							\item Korisniku se prikazuje najbolji odabir kojeg on potom prihvaća
+							\item Čuvaru pasa se na stranici za pristigle ponude pojavljuje ponuđeni zahtjev kojeg on potom prihvaća
 							\item Korisnici razmjenjuju detalje
 							
 						\end{packed_enum}
@@ -423,7 +397,7 @@
 			
 							\end{packed_enum}
 						
-							\item[4.b] Čuvar pasa odbija pronađeni odabir
+							\item[4.b] Čuvar pasa odbija ponuđeni zahtjev
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
@@ -443,10 +417,10 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik pristupa padajućem izborniku i odabire opciju za prikaz vlastitih oglasa   
-							\item Korisnik na listi oglasa pokraj željenog oglasa odabire opciju za pronalaženje najboljeg odabira  
-							\item Vlasnik pasa dobiva obavijest sa najpogodnijim oglasom
-							\item Korisnici prihvaćaju odabir
+							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za prikaz vlastitih oglasa   
+							\item Korisnik na listi vlastitih oglasa pokraj željenog oglasa odabire opciju za pronalaženje najboljeg odabira 
+							\item Korisniku se prikazuje najbolji odabir kojeg on potom prihvaća
+							\item Vlasniku pasa se na stranici za pristigle ponude pojavljuje ponuđeni oglas kojeg on potom prihvaća
 							\item Korisnici razmjenjuju detalje
 							
 						\end{packed_enum}
@@ -455,13 +429,14 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[4.a] Vlasnik pasa odbija pronađeni odabir
+							\item[4.a] Čuvar pasa odbija pronađeni odabir
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
 								
 							\end{packed_enum}
-							\item[4.b] Čuvar pasa odbija pronađeni odabir
+							\item[4.b] Vlasnik pasa odbija ponuđeni oglas
+							
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
@@ -554,38 +529,7 @@
 						\end{packed_item}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC17 - Unos dogovorenih termina u kalendar}}	
-					\begin{packed_item}
-						
-						\item \textbf{Glavni sudionik: } Čuvar pasa
-						\item  \textbf{Cilj:} Popunjavanje kalendara radi bolje organizacije vremena
-						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu čuvara pasa, vlasnik pasa i čuvar pasa su dogovorili termin 
-						\item  \textbf{Opis osnovnog tijeka:}
-						
-						\item[] \begin{packed_enum}
-							
-							\item Korisnik u padajućem izborniku odabire opciju za pregled vlastitog računa   
-							\item Korisnik pohranjuje dogovoreni termin u kalendar
-							\item Korisnik sprema kalendar
-							
-						\end{packed_enum}
-						
-						\item  \textbf{Opis mogućih odstupanja:}
-						
-						\item[] \begin{packed_item}
-							
-							\item[3.a] Korisnik ne odabire opciju za spremanje kalendara
-							\item[] \begin{packed_enum}
-								
-								\item Promjene se ne spremaju
-								
-							\end{packed_enum}
-							
-						\end{packed_item}
-					\end{packed_item}	
-					
-					\noindent \underbar{\textbf{UC18 - Ocjenjivanje usluge čuvanja}}
+					\noindent \underbar{\textbf{UC17 - Ocjenjivanje usluge čuvanja}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
@@ -603,7 +547,7 @@
 						\end{packed_enum}
 					\end{packed_item}	
 					
-					\noindent \underbar{\textbf{UC19 - Ocjenjivanje ponašanja psa}}
+					\noindent \underbar{\textbf{UC18 - Ocjenjivanje ponašanja psa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Čuvar pasa
@@ -621,7 +565,7 @@
 						\end{packed_enum}
 					\end{packed_item}	
 					
-					\noindent \underbar{\textbf{UC20 - Dodjeljivanje administratorske uloge korisniku}}
+					\noindent \underbar{\textbf{UC19 - Dodjeljivanje administratorske uloge korisniku}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
@@ -632,14 +576,14 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje korisnicima
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
 							\item Administrator u listi korisnika pronalazi željenog korisnika
 							\item Administrator odabranom korisniku dodjeljuje administratorsku ulogu
 							
 						\end{packed_enum}
 					\end{packed_item}	
 					
-					\noindent \underbar{\textbf{UC21 - Potvrđivanje stvorenog zahtjeva}}
+					\noindent \underbar{\textbf{UC20 - Potvrđivanje stvorenog zahtjeva}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
@@ -650,8 +594,8 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje zahtjevima i oglasima
-							\item Administrator u listi prikazanih zahtjeva pronalazi željeni zahtjev
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator u listi prikazanih zahtjeva i oglasa pronalazi željeni zahtjev
 							\item Administrator odabirom opcije za potvrđivanje potvrđuje zahtjev
 							\item Zahtjev se objavljuje
 							
@@ -671,7 +615,7 @@
 						\end{packed_item}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC22 - Potvrđivanje stvorenog oglasa}}
+					\noindent \underbar{\textbf{UC21 - Potvrđivanje stvorenog oglasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
@@ -682,8 +626,8 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje zahtjevima i oglasima
-							\item Administrator u listi prikazanih oglasa pronalazi željeni oglas
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator u listi prikazanih zahtjeva i oglasa pronalazi željeni oglas
 							\item Administrator odabirom opcije za potvrđivanje potvrđuje oglas
 							\item Oglas se objavljuje
 							
@@ -703,7 +647,7 @@
 						\end{packed_item}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC23 - Blokiranje korisnika}}
+					\noindent \underbar{\textbf{UC22 - Blokiranje korisnika}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
@@ -714,7 +658,7 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje korisnicima
+							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
 							\item Administrator u listi korisnika pronalazi željenog korisnika
 							\item Administrator blokira odabranog korisnika
 							
@@ -725,14 +669,14 @@
 					
 					\begin{figure}[htb]
 						\centering
-						\includegraphics[width=14cm]{slike/korisnikExport(new)}
+						\includegraphics[width=14cm]{slike/Dijagram obrazaca uporabe - korisnik}
 						\caption{Dijagram obrasca uporabe - Funkcionalnost neregistriranog korisnika i registriranog korisnika (vlasnika pasa i čuvara pasa)}
 						\label{fig:DOU-korisnici}
 					\end{figure}
 				\eject		
 					\begin{figure}[htb]
 						\centering
-						\includegraphics[width=14cm]{slike/dijagramExport(new)}
+						\includegraphics[width=14cm]{slike/Dijagram obrazaca uporabe - administrator}
 						\caption{Dijagram obrasca uporabe - Funkcionalnost administratora}
 						\label{fig:DOU-administrator}
 					\end{figure}
@@ -742,7 +686,7 @@
 				
 				\textbf{Obrazac uporabe UC11 - Kreiranje novog zahtjeva}\\
 				
-				Vlasnik pasa na početnoj stranici odabire opciju za kreiranje novog zahtjeva. Web aplikacija mu otvara stranicu za kreiranje zahtjeva. Korisnik tamo unosi tražene podatke (pasmina, dob, period čuvanja, itd.) za kreiranje zahtjeva. Potom korisnik potvrđuje kreiranje zahtjeva. Ako korisnik nije ispravno unio podatke, prilikom potvrde web aplikacija ga ponovno usmjerava na istu stranicu s prikladnom porukom o greški. Ako su svi podaci uneseni ispravno, web aplikacija mu daje odgovor o uspješnom kreiranju zahtjeva. Potom se zahtjev pohranjuje u bazu podataka.
+				Vlasnik pasa na stranici s prikazom vlastitih zahtjeva odabire opciju za kreiranje novog zahtjeva. Web aplikacija mu otvara stranicu za kreiranje zahtjeva. Korisnik tamo unosi tražene podatke (period čuvanja, potrebne aktivnosti itd.) za kreiranje zahtjeva. Potom korisnik potvrđuje kreiranje zahtjeva. Ako korisnik nije ispravno unio podatke, prilikom potvrde web aplikacija ga ponovno usmjerava na istu stranicu s prikladnom porukom o greški. Ako su svi podaci uneseni ispravno, web aplikacija mu daje odgovor o uspješnom kreiranju zahtjeva. Potom se zahtjev pohranjuje u bazu podataka.
 				
 				\begin{figure}[htb]
 					\centering
@@ -754,7 +698,7 @@
 				
 				\textbf{Obrazac uporabe UC14 - Pronalaženje najboljeg odabira vlasnika pasa}\\
 				
-				Čuvar pasa na početnoj stranici putem padajućeg izbornika odabire opciju za prikaz vlastitih oglasa. Web aplikacija mu otvara stranicu s njegovim oglasima. Korisnik tamo pokraj željenog oglasa odabire opciju za pronalaženje najboljeg odabira. Web aplikacija pronalazi najboljeg vlasnika pasa i šalje ga korisniku. Korisnik ima mogućnost prihvatiti ga, ali i odbiti. Ako korisnik odbije, nema daljnje suradnje s vlasnikom pasa. Ako ga korisnik prihvati, obavijest se šalje vlasniku pasa da je došlo do najboljeg odabira. Tada vlasnik pasa ima također opciju prihvatiti suradnju kao i odbiti ju.
+				Čuvar pasa u zaglavlju aplikacije putem padajućeg izbornika odabire opciju za prikaz vlastitih oglasa. Web aplikacija mu otvara stranicu s njegovim oglasima. Korisnik tamo pokraj željenog oglasa odabire opciju za pronalaženje najboljeg odabira. Web aplikacija pronalazi najboljeg vlasnika pasa i šalje ga korisniku. Korisnik ima mogućnost prihvatiti ga, ali i odbiti. Ako korisnik odbije, nema daljnje suradnje s vlasnikom pasa. Ako ga korisnik prihvati, oglas nad kojim je zatražen najbolji odabir se šalje vlasniku pasa. Tada vlasnik pasa ima također opciju prihvatiti suradnju kao i odbiti ju.
 				
 				\begin{figure}[htb]
 					\centering
@@ -783,7 +727,7 @@
 				
 				\begin{figure}[htb]
 					\centering
-					\includegraphics[width=14cm]{slike/Sekvencijski_dijagram_-_UC23}
+					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC23}
 					\caption{Sekvencijski dijagram za UC23}
 					\label{fig:Sekvencijski-UC23}
 				\end{figure}

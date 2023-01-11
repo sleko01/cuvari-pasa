@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  9 JAN 2023 18:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  11 JAN 2023 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1648,6 +1648,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (./Opis_projektnog_zadatka.tex
 Poglavlje 2.
 
+Overfull \hbox (5.02722pt too wide) in paragraph at lines 24--25
+[]\OT1/jkp/m/n/12 cuvanja/brige. Na te-me-lju zah-tjeva vlas-nika i uvjeta []cu
+vara, apli-ka-cija mo[]ze prona[]ci
+ []
+
+
+Overfull \hbox (0.86723pt too wide) in paragraph at lines 28--29
+\OT1/jkp/m/n/12 datke te se od-ja-viti iz sus-tava, a u nas-tavku su opi-sane f
+unk-ci-onal-nosti i mogu[]cnosti
+ []
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
 (fancyhdr)                \setlength{\headheight}{15.19202pt}.
@@ -1675,6 +1687,12 @@ LaTeX Font Info:    Trying to load font information for TS1+jkp on input line 4
  (c:/texlive/2022/texmf-dist/tex/latex/kpfonts/ts1jkp.fd
 File: ts1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkp.
 )
+Overfull \hbox (31.83551pt too wide) in paragraph at lines 47--48
+\OT1/jkp/m/n/12 koji mu se najvi[]se svi[]da i oda-bi-rom jav-lja-nja na is-tog
+ []salje oba-vi-jest []cuvaru/vlasniku
+ []
+
+
 Overfull \hbox (2.04971pt too wide) in paragraph at lines 53--54
 []\OT1/jkp/m/n/12 Aplikacija treba biti iz-ve-dena kao web apli-ka-cija prilago
 []dena mo-bil-nom ure[]daju
@@ -1686,9 +1704,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
  []
 
 
-Overfull \hbox (7.52484pt too wide) in paragraph at lines 57--59
-\OT1/jkp/m/n/12 ko-ris-nika (uz to bi se i na-do-gra-dile mogu[]cnosti ure[]div
-anja sa-mog ko-risni[]ckog ra[]cuna
+Overfull \hbox (7.34485pt too wide) in paragraph at lines 57--59
+\OT1/jkp/m/n/12 dru-gih ko-ris-nika (uz to bi se i na-do-gra-dile mogu[]cnosti 
+ure[]divanja sa-mog ko-risni[]ckog
  []
 
 
@@ -1768,6 +1786,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [13]
+Overfull \hbox (0.8652pt too wide) in paragraph at lines 320--321
+[]\OT1/jkp/m/n/12 Korisnik unosi sve tra[]zene po-datke za kre-ira-nje zah-tjev
+a (pe-riod []cuvanja,
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -1804,19 +1827,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [17]
-Overfull \hbox (11.37726pt too wide) in paragraph at lines 568--569
-[]\OT1/jkp/m/n/12 Korisnik u pa-daju[]cem iz-bor-niku oda-bire op-ciju za pre-g
-led vlas-ti-tog ra[]cuna 
- []
-
-
-Overfull \hbox (1.33328pt too wide) in paragraph at lines 599--600
+Overfull \hbox (1.33328pt too wide) in paragraph at lines 543--544
 []\OT1/jkp/m/n/12 Korisnik u pa-daju[]cem iz-bor-niku oda-bire op-ciju za pri-k
 az pro[]slih []cuvanja
  []
 
 
-Overfull \hbox (1.33328pt too wide) in paragraph at lines 617--618
+Overfull \hbox (1.33328pt too wide) in paragraph at lines 561--562
 []\OT1/jkp/m/n/12 Korisnik u pa-daju[]cem iz-bor-niku oda-bire op-ciju za pri-k
 az pro[]slih []cuvanja 
  []
@@ -1848,11 +1865,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [20]
-<slike/korisnikExport(new).png, id=401, 1124.70187pt x 1006.51031pt>
-File: slike/korisnikExport(new).png Graphic file (type png)
-<use slike/korisnikExport(new).png>
-Package pdftex.def Info: slike/korisnikExport(new).png  used on input line 728.
-
+<slike/Dijagram obrazaca uporabe - korisnik.png, id=394, 1124.70187pt x 1006.51
+031pt>
+File: slike/Dijagram obrazaca uporabe - korisnik.png Graphic file (type png)
+<use slike/Dijagram obrazaca uporabe - korisnik.png>
+Package pdftex.def Info: slike/Dijagram obrazaca uporabe - korisnik.png  used o
+n input line 672.
 (pdftex.def)             Requested size: 398.33858pt x 356.47664pt.
 
 
@@ -1868,13 +1886,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.732 				\eject
-                		 <./slike/korisnikExport(new).png>]
-<slike/dijagramExport(new).png, id=411, 838.63312pt x 501.37312pt>
-File: slike/dijagramExport(new).png Graphic file (type png)
-<use slike/dijagramExport(new).png>
-Package pdftex.def Info: slike/dijagramExport(new).png  used on input line 735.
-
+l.676 				\eject
+                		 <./slike/Dijagram obrazaca uporabe - korisnik.png>]
+<slike/Dijagram obrazaca uporabe - administrator.png, id=404, 838.63312pt x 501
+.37312pt>
+File: slike/Dijagram obrazaca uporabe - administrator.png Graphic file (type pn
+g)
+<use slike/Dijagram obrazaca uporabe - administrator.png>
+Package pdftex.def Info: slike/Dijagram obrazaca uporabe - administrator.png  u
+sed on input line 679.
 (pdftex.def)             Requested size: 398.33858pt x 238.1394pt.
 
 
@@ -1890,17 +1910,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.739 				\eject
-                		 <./slike/dijagramExport(new).png>]
-Underfull \hbox (badness 10000) in paragraph at lines 743--744
+l.683 				\eject
+                		 <./slike/Dijagram obrazaca uporabe - administrator.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 687--688
 
  []
 
-<slike/Sekvencijski dijagram - UC11.png, id=419, 807.7678pt x 753.5653pt>
+<slike/Sekvencijski dijagram - UC11.png, id=412, 807.7678pt x 753.5653pt>
 File: slike/Sekvencijski dijagram - UC11.png Graphic file (type png)
 <use slike/Sekvencijski dijagram - UC11.png>
 Package pdftex.def Info: slike/Sekvencijski dijagram - UC11.png  used on input 
-line 749.
+line 693.
 (pdftex.def)             Requested size: 369.88582pt x 345.06895pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1915,17 +1935,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.753 				\eject
+l.697 				\eject
                 		 <./slike/Sekvencijski dijagram - UC11.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 755--756
+Underfull \hbox (badness 10000) in paragraph at lines 699--700
 
  []
 
-<slike/Sekvencijski dijagram - UC14.png, id=427, 959.08313pt x 997.47656pt>
+<slike/Sekvencijski dijagram - UC14.png, id=420, 959.08313pt x 997.47656pt>
 File: slike/Sekvencijski dijagram - UC14.png Graphic file (type png)
 <use slike/Sekvencijski dijagram - UC14.png>
 Package pdftex.def Info: slike/Sekvencijski dijagram - UC14.png  used on input 
-line 761.
+line 705.
 (pdftex.def)             Requested size: 398.33858pt x 414.2799pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1940,17 +1960,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.765 				\eject
+l.709 				\eject
                 		 <./slike/Sekvencijski dijagram - UC14.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 767--768
+Underfull \hbox (badness 10000) in paragraph at lines 711--712
 
  []
 
-<slike/Sekvencijski dijagram - UC21.png, id=436, 963.6pt x 885.3075pt>
+<slike/Sekvencijski dijagram - UC21.png, id=429, 963.6pt x 885.3075pt>
 File: slike/Sekvencijski dijagram - UC21.png Graphic file (type png)
 <use slike/Sekvencijski dijagram - UC21.png>
 Package pdftex.def Info: slike/Sekvencijski dijagram - UC21.png  used on input 
-line 773.
+line 717.
 (pdftex.def)             Requested size: 398.33858pt x 365.96384pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1965,17 +1985,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.777 				\eject
+l.721 				\eject
                 	 <./slike/Sekvencijski dijagram - UC21.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 779--780
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 
  []
 
-<slike/Sekvencijski_dijagram_-_UC23.png, id=444, 918.43124pt x 623.32875pt>
-File: slike/Sekvencijski_dijagram_-_UC23.png Graphic file (type png)
-<use slike/Sekvencijski_dijagram_-_UC23.png>
-Package pdftex.def Info: slike/Sekvencijski_dijagram_-_UC23.png  used on input 
-line 786.
+<slike/Sekvencijski dijagram - UC23.png, id=437, 918.43124pt x 623.32875pt>
+File: slike/Sekvencijski dijagram - UC23.png Graphic file (type png)
+<use slike/Sekvencijski dijagram - UC23.png>
+Package pdftex.def Info: slike/Sekvencijski dijagram - UC23.png  used on input 
+line 730.
 (pdftex.def)             Requested size: 398.33858pt x 270.34688pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1990,9 +2010,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.790 				\eject
-                	 <./slike/Sekvencijski_dijagram_-_UC23.png>]
-Overfull \hbox (13.79959pt too wide) in paragraph at lines 796--797
+l.734 				\eject
+                	 <./slike/Sekvencijski dijagram - UC23.png>]
+Overfull \hbox (13.79959pt too wide) in paragraph at lines 740--741
 []\OT1/jkp/m/n/12 Aplikacija treba biti iz-ve-dena kao web apli-ka-cija prilago
 []dena mo-bil-nom ure[]daju
  []
@@ -2016,10 +2036,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--21
 
  []
 
-<slike/arhitekturaaa.png, id=457, 413.29407pt x 172.39406pt>
-File: slike/arhitekturaaa.png Graphic file (type png)
-<use slike/arhitekturaaa.png>
-Package pdftex.def Info: slike/arhitekturaaa.png  used on input line 24.
+<slike/Arhitektura.png, id=450, 413.29407pt x 172.39406pt>
+File: slike/Arhitektura.png Graphic file (type png)
+<use slike/Arhitektura.png>
+Package pdftex.def Info: slike/Arhitektura.png  used on input line 24.
 (pdftex.def)             Requested size: 398.33858pt x 166.1593pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2073,7 +2093,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 			\end
-            {longtblr} <./slike/arhitekturaaa.png>]
+            {longtblr} <./slike/Arhitektura.png>]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -2405,7 +2425,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [35]
-<slike/drawsql REL.png, id=501, 1132.98282pt x 641.39626pt>
+<slike/drawsql REL.png, id=494, 1132.98282pt x 641.39626pt>
 File: slike/drawsql REL.png Graphic file (type png)
 <use slike/drawsql REL.png>
 Package pdftex.def Info: slike/drawsql REL.png  used on input line 253.
@@ -2426,12 +2446,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.258 			\eject
                 <./slike/drawsql REL.png>]
-<slike/dijagram_razreda_controllers.png, id=510, 1412.27625pt x 612.78937pt>
-File: slike/dijagram_razreda_controllers.png Graphic file (type png)
-<use slike/dijagram_razreda_controllers.png>
-Package pdftex.def Info: slike/dijagram_razreda_controllers.png  used on input 
-line 268.
-(pdftex.def)             Requested size: 426.79134pt x 185.18468pt.
+<slike/Dijagram razreda - Controllers.png, id=503, 1412.27625pt x 816.80156pt>
+File: slike/Dijagram razreda - Controllers.png Graphic file (type png)
+<use slike/Dijagram razreda - Controllers.png>
+Package pdftex.def Info: slike/Dijagram razreda - Controllers.png  used on inpu
+t line 268.
+(pdftex.def)             Requested size: 426.79134pt x 246.83708pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2447,24 +2467,24 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.279 			\eject
-                <./slike/dijagram_razreda_controllers.png>]
-<slike/dijagram_razreda_DTO.png, id=519, 1334.73656pt x 581.92406pt>
-File: slike/dijagram_razreda_DTO.png Graphic file (type png)
-<use slike/dijagram_razreda_DTO.png>
-Package pdftex.def Info: slike/dijagram_razreda_DTO.png  used on input line 283
-.
-(pdftex.def)             Requested size: 426.79134pt x 186.06854pt.
+                <./slike/Dijagram razreda - Controllers.png>]
+<slike/Dijagram razreda - DTO.png, id=511, 1467.23157pt x 727.21687pt>
+File: slike/Dijagram razreda - DTO.png Graphic file (type png)
+<use slike/Dijagram razreda - DTO.png>
+Package pdftex.def Info: slike/Dijagram razreda - DTO.png  used on input line 2
+83.
+(pdftex.def)             Requested size: 426.79134pt x 211.53108pt.
 
 Overfull \hbox (0.4928pt too wide) in paragraph at lines 289--291
 \OT1/jkp/m/n/12 Razred Ap-pU-ser pred-stav-lja ko-ris-nika web apli-ka-cije koj
 i se mo[]ze re-gis-tri-rati unos-
  []
 
-<slike/class_diagram_domain.png, id=520, 1388.93906pt x 763.35187pt>
-File: slike/class_diagram_domain.png Graphic file (type png)
-<use slike/class_diagram_domain.png>
-Package pdftex.def Info: slike/class_diagram_domain.png  used on input line 294
-.
+<slike/Dijagram razreda - Domain.png, id=512, 1388.93906pt x 763.35187pt>
+File: slike/Dijagram razreda - Domain.png Graphic file (type png)
+<use slike/Dijagram razreda - Domain.png>
+Package pdftex.def Info: slike/Dijagram razreda - Domain.png  used on input lin
+e 294.
 (pdftex.def)             Requested size: 426.79134pt x 234.56332pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2480,11 +2500,11 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.299 			\eject
-                <./slike/dijagram_razreda_DTO.png>]
-<slike/dijagramStanja.png, id=528, 1764.5925pt x 1091.57813pt>
-File: slike/dijagramStanja.png Graphic file (type png)
-<use slike/dijagramStanja.png>
-Package pdftex.def Info: slike/dijagramStanja.png  used on input line 313.
+                <./slike/Dijagram razreda - DTO.png>]
+<slike/Dijagram stanja.png, id=521, 1764.5925pt x 1091.57813pt>
+File: slike/Dijagram stanja.png Graphic file (type png)
+<use slike/Dijagram stanja.png>
+Package pdftex.def Info: slike/Dijagram stanja.png  used on input line 313.
 (pdftex.def)             Requested size: 426.79134pt x 264.01614pt.
 
 
@@ -2501,7 +2521,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.318 			\eject
-                <./slike/class_diagram_domain.png>]
+                <./slike/Dijagram razreda - Domain.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -2516,11 +2536,11 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.326 			\newpage
-                  <./slike/dijagramStanja.png>]
-<slike/dijagram_aktivnosti.png, id=543, 1336.995pt x 2045.39156pt>
-File: slike/dijagram_aktivnosti.png Graphic file (type png)
-<use slike/dijagram_aktivnosti.png>
-Package pdftex.def Info: slike/dijagram_aktivnosti.png  used on input line 330.
+                  <./slike/Dijagram stanja.png>]
+<slike/Dijagram aktivnosti.png, id=536, 1336.995pt x 2045.39156pt>
+File: slike/Dijagram aktivnosti.png Graphic file (type png)
+<use slike/Dijagram aktivnosti.png>
+Package pdftex.def Info: slike/Dijagram aktivnosti.png  used on input line 330.
 
 (pdftex.def)             Requested size: 426.79134pt x 652.91576pt.
 
@@ -2541,7 +2561,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.334 			
-          <./slike/dijagram_aktivnosti.png>]
+          <./slike/Dijagram aktivnosti.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 340--341
 
  []
@@ -2624,10 +2644,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [46]
-<slike/dijagramRazmjestaja.png, id=599, 928.97063pt x 769.37437pt>
-File: slike/dijagramRazmjestaja.png Graphic file (type png)
-<use slike/dijagramRazmjestaja.png>
-Package pdftex.def Info: slike/dijagramRazmjestaja.png  used on input line 65.
+<slike/Dijagram razmjestaja.png, id=592, 928.97063pt x 769.37437pt>
+File: slike/Dijagram razmjestaja.png Graphic file (type png)
+<use slike/Dijagram razmjestaja.png>
+Package pdftex.def Info: slike/Dijagram razmjestaja.png  used on input line 65.
+
 (pdftex.def)             Requested size: 426.79134pt x 353.4704pt.
 
 
@@ -2644,7 +2665,7 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.70 			\eject
-               <./slike/dijagramRazmjestaja.png>]
+               <./slike/Dijagram razmjestaja.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
@@ -2928,9 +2949,9 @@ anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
  ) 
 Here is how much of TeX's memory you used:
- 17965 strings out of 475066
- 319717 string characters out of 5782772
- 842635 words of memory out of 5000000
+ 17957 strings out of 475066
+ 320196 string characters out of 5782772
+ 843635 words of memory out of 5000000
  38751 multiletter control sequences out of 15000+600000
  536342 words of font info for 169 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2944,10 +2965,10 @@ dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
 pmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (57 pages, 1616429 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (57 pages, 1630801 bytes).
 PDF statistics:
- 775 PDF objects out of 1000 (max. 8388607)
- 670 compressed objects within 7 object streams
- 264 named destinations out of 1000 (max. 500000)
+ 767 PDF objects out of 1000 (max. 8388607)
+ 662 compressed objects within 7 object streams
+ 257 named destinations out of 1000 (max. 500000)
  279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
