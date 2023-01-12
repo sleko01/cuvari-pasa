@@ -25,7 +25,7 @@
 				
 				\begin{packed_enum}
 					
-					\item Pregledavati objavljene zahtjeve i oglase te njihove pojedinosti (pasmina, dob, lokacija itd.)
+					\item Pregledavati objavljene zahtjeve i oglase te njihove pojedinosti (lokacija, period čuvanja itd.)
 					\item Registrirati se u sustav, stvoriti novi korisnički račun za koji mu trebaju ime, prezime, korisničko ime, e-mail adresa, lozinka i uloga.
 				\end{packed_enum}
 				
@@ -35,28 +35,26 @@
 					
 					\item Pregledavati osobne podatke
 					\item Odjaviti se s korisničkog računa i prijaviti se nekim drugim računom
+					\item Pregledavati pristigle ponude i povijest ponuda
+					\item Pregledavati trenutna čuvanja i stupiti u kontakt s drugim korisnikom
 					\item Imati ulogu vlasnika pasa:
 					\begin{packed_enum}
 						\item Spremiti podatke o svom psu
-						\item Pregledavati sve odobrene oglase čuvara pasa
+						\item Pregledavati svoje pse
+						\item Pregledavati sve odobrene oglase čuvara pasa i sve odobrene zahtjeve drugih vlasnika pasa
 						\item Pregledavati vlastite zahtjeve
 						\item Stvarati novi zahtjev za čuvanje pasa
 						\item Pronaći najbolji odabir čuvara pasa
-						\item Pregledavati pristigle ponude za čuvanje
-						\item Stupiti u kontakt s čuvarom pasa
-						\item Pregledavati trenutna čuvanja
 						\item Ocjenjivati uslugu čuvara pasa
 					\end{packed_enum}
 					\item Imati ulogu čuvara pasa:
 					\begin{packed_enum}
-						\item Spremiti podatke o svom psu
-						\item Pregledavati sve odobrene zahtjeve vlasnika pasa
+						\item Pregledavati sve odobrene zahtjeve vlasnika pasa i sve odobrene oglase drugih čuvara pasa
+						\item Pregledavati vlastite oglase
 						\item Stvarati novi oglas za čuvanje pasa
 						\item Pronaći najbolji odabir vlasnika pasa
-						\item Stupiti u kontakt s vlasnikom pasa
-						\item Termine čuvanja pasa spremati u svoj kalendar
 						\item Ocjenjivati ponašanje psa
-						\item Pregledavati vlastite oglase
+						
 					\end{packed_enum}
 					\item Imati ulogu vlasnika i čuvara pasa:
 					\begin{packed_enum}
@@ -206,7 +204,55 @@
 						\end{packed_enum}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC06 – Dodavanje pasa}}
+					\noindent \underbar{\textbf{UC06 – Pregledavanje tuđih zahtjeva}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Registrirani korisnik
+						\item  \textbf{Cilj:} Pronalaženje odgovarajućeg zahtjeva
+						\item  \textbf{Sudionici:} Baza podataka 
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							\item Korisnik putem zaglavlja aplikacije pristupa objavljenim zahtjevima
+							\item Korisnik na stranici s objavljenim zahtjevima prolazi kroz listu tuđih zahtjeva te pregledava podatke pojedinih zahtjeva
+							
+						\end{packed_enum}
+					\end{packed_item}
+				
+					\noindent \underbar{\textbf{UC07 – Pregledavanje tuđih oglasa}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Registrirani korisnik
+						\item  \textbf{Cilj:} Pronalaženje odgovarajućeg oglasa
+						\item  \textbf{Sudionici:} Baza podataka 
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							\item Korisnik putem zaglavlja aplikacije pristupa objavljenim oglasima
+							\item Korisnik na stranici s objavljenim oglasima prolazi kroz listu tuđih oglasa te pregledava podatke pojedinih oglasa  
+							
+						\end{packed_enum}
+					\end{packed_item}
+				
+					\noindent \underbar{\textbf{UC08 – Pregledavanje vlastitih pasa}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Vlasnik pasa
+						\item  \textbf{Cilj:} Pregledavanje informacija o psima
+						\item  \textbf{Sudionici:} Baza podataka 
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu vlasnika pasa
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							\item Korisnik na padajućem izborniku u zaglavlju aplikacije ili na stranici s osobnim podacima odabire opciju za pregled vlastitih pasa 
+							\item Korisnik na stranici s prikazom vlastitih pasa pregledava informacije o pojedinim psima
+							
+						\end{packed_enum}
+					\end{packed_item}
+				
+					\noindent \underbar{\textbf{UC09 – Dodavanje pasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
@@ -223,53 +269,21 @@
 							\item Podaci o psu se pohranjuju u bazu podataka
 							
 						\end{packed_enum}
-					
-				
+						
+						
 						\item  \textbf{Opis mogućih odstupanja:}
-		
+						
 						\item[] \begin{packed_item}
-	
-							\item[4.a] Korisnik unosi ime psa koji već postoji na njegovom računu
+							
+							\item[3.a] Korisnik unosi ime psa koji već postoji na njegovom računu ili unosi neispravan datum rođenja
 							\item[] \begin{packed_enum}
 								\item Sustav obavještava korisnika o neuspjelom unosu i vraća ga na stranicu za dodavanje psa  
 								\item Korisnik unosi nove podatke za psa ili odustaje od dodavanja
 							\end{packed_enum}
 						\end{packed_item}
 					\end{packed_item}
-					
-					\noindent \underbar{\textbf{UC07 – Pregledavanje tuđih zahtjeva}}
-					\begin{packed_item}
-						
-						\item \textbf{Glavni sudionik: } Čuvar pasa
-						\item  \textbf{Cilj:} Pronalaženje najprikladnijeg zahtjeva
-						\item  \textbf{Sudionici:} Baza podataka 
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu čuvara pasa
-						\item  \textbf{Opis osnovnog tijeka:}
-						
-						\item[] \begin{packed_enum}
-							\item Korisnik putem zaglavlja aplikacije pristupa objavljenim zahtjevima
-							\item Korisnik na stranici s objavljenim zahtjevima prolazi kroz listu tuđih zahtjeva te pregledava podatke pojedinih zahtjeva
-							
-						\end{packed_enum}
-					\end{packed_item}
-				
-					\noindent \underbar{\textbf{UC08 – Pregledavanje tuđih oglasa}}
-					\begin{packed_item}
-						
-						\item \textbf{Glavni sudionik: } Vlasnik pasa
-						\item  \textbf{Cilj:} Pronalaženje najprikladnijeg oglasa
-						\item  \textbf{Sudionici:} Baza podataka 
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu vlasnika pasa
-						\item  \textbf{Opis osnovnog tijeka:}
-						
-						\item[] \begin{packed_enum}
-							\item Korisnik putem zaglavlja aplikacije pristupa objavljenim oglasima
-							\item Korisnik na na stranici s objavljenim oglasima prolazi kroz listu tuđih oglasa te pregledava podatke pojedinih oglasa  
-							
-						\end{packed_enum}
-					\end{packed_item}
 
-					\noindent \underbar{\textbf{UC09 – Pregledavanje vlastitih zahtjeva}}
+					\noindent \underbar{\textbf{UC10 – Pregledavanje vlastitih zahtjeva}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
@@ -287,7 +301,7 @@
 					
 					\end{packed_item}	
 				
-					\noindent \underbar{\textbf{UC10 – Pregledavanje vlastitih oglasa}}
+					\noindent \underbar{\textbf{UC11 – Pregledavanje vlastitih oglasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Čuvar pasa
@@ -305,7 +319,7 @@
 						
 					\end{packed_item}	
 				
-					\noindent \underbar{\textbf{UC11 – Kreiranje novog zahtjeva}}
+					\noindent \underbar{\textbf{UC12 – Kreiranje novog zahtjeva}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
@@ -326,7 +340,7 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[4.a] Korisnik nije ispravno unio sve podatke
+							\item[3.a] Korisnik nije ispravno unio sve podatke
 							\item[] \begin{packed_enum}
 								
 								\item Korisnika se ponovno vraća na stranicu za kreiranje zahtjeva s odgovarajućom porukom o greški
@@ -336,7 +350,7 @@
 						\end{packed_item}
 					\end{packed_item}		
 				
-					\noindent \underbar{\textbf{UC12 – Kreiranje novog oglasa}}
+					\noindent \underbar{\textbf{UC13 – Kreiranje novog oglasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Čuvar pasa
@@ -358,7 +372,7 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[4.a] Korisnik nije ispravno unio sve podatke
+							\item[3.a] Korisnik nije ispravno unio sve podatke
 							\item[] \begin{packed_enum}
 								
 								\item Korisnika se ponovno vraća na stranicu za kreiranje oglasa s odgovarajućom porukom o greški 
@@ -368,7 +382,7 @@
 						\end{packed_item}
 					\end{packed_item}	
 				
-					\noindent \underbar{\textbf{UC13 – Pronalaženje najboljeg odabira čuvara pasa}}
+					\noindent \underbar{\textbf{UC14 – Pronalaženje najboljeg odabira čuvara pasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
@@ -383,21 +397,21 @@
 							\item Korisnik na listi vlastitih zahtjeva pokraj željenog zahtjeva odabire opciju za pronalaženje najboljeg odabira
 							\item Korisniku se prikazuje najbolji odabir kojeg on potom prihvaća
 							\item Čuvaru pasa se na stranici za pristigle ponude pojavljuje ponuđeni zahtjev kojeg on potom prihvaća
-							\item Korisnici razmjenjuju detalje
+							\item Vlasniku i čuvaru se na stranici s čuvanjima u tijeku prikazuju osobni podaci za stupanje u kontakt
 							
 						\end{packed_enum}
 					
 						\item  \textbf{Opis mogućih odstupanja:}
 			
 							\item[] \begin{packed_item}
-							\item[4.a] Vlasnik pasa odbija pronađeni odabir
+							\item[3.a] Vlasnik pasa odbija pronađeni odabir
 							\item[] \begin{packed_enum}
 			
 								\item Daljnja suradnja između korisnika nije moguća
 			
 							\end{packed_enum}
 						
-							\item[4.b] Čuvar pasa odbija ponuđeni zahtjev
+							\item[4.a] Čuvar pasa odbija ponuđeni zahtjev
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
@@ -406,7 +420,7 @@
 						\end{packed_item}
 					\end{packed_item}	
 				
-					\noindent \underbar{\textbf{UC14 – Pronalaženje najboljeg odabira vlasnika pasa}}
+					\noindent \underbar{\textbf{UC15 – Pronalaženje najboljeg odabira vlasnika pasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Čuvar pasa
@@ -421,7 +435,7 @@
 							\item Korisnik na listi vlastitih oglasa pokraj željenog oglasa odabire opciju za pronalaženje najboljeg odabira 
 							\item Korisniku se prikazuje najbolji odabir kojeg on potom prihvaća
 							\item Vlasniku pasa se na stranici za pristigle ponude pojavljuje ponuđeni oglas kojeg on potom prihvaća
-							\item Korisnici razmjenjuju detalje
+							\item Čuvaru pasa i vlasniku pasa se na stranici s čuvanjima u tijeku prikazuju osobni podaci za stupanje u kontakt
 							
 						\end{packed_enum}
 						
@@ -429,13 +443,13 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[4.a] Čuvar pasa odbija pronađeni odabir
+							\item[3.a] Čuvar pasa odbija pronađeni odabir
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
 								
 							\end{packed_enum}
-							\item[4.b] Vlasnik pasa odbija ponuđeni oglas
+							\item[4.a] Vlasnik pasa odbija ponuđeni oglas
 							
 							\item[] \begin{packed_enum}
 								
@@ -445,24 +459,23 @@
 						\end{packed_item}
 					\end{packed_item}		
 
-					\noindent \underbar{\textbf{UC15 – Javljanje na zahtjev}}
+					\noindent \underbar{\textbf{UC16 – Javljanje na zahtjev}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Čuvar pasa
 						\item  \textbf{Cilj:} Pronalaženje najprikladnijeg psa za čuvanje
 						\item  \textbf{Sudionici:} Baza podataka, vlasnik pasa
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu čuvara pasa, korisnikov oglas je potvrđen od strane administratora
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu čuvara pasa
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik na početnoj stranici prolazi kroz listu tuđih zahtjeva   
-							\item Korisnik odabire odgovarajući zahtjev
-							\item Korisnik pregledava dodatne podatke o tom zahtjevu
-							\item Korisnik odlučuje javiti se na odabrani zahtjev 
-							\item Vlasniku pasa se šalje obavijest o odabiru
-							\item Vlasnik pasa prihvaća odabir
-							\item Korisnici razmjenjuju detalje
+							\item Korisnik u zaglavlju aplikacije pristupa svim objavljenim zahtjevima  
+							\item Korisnik prolazi kroz listu objavljenih zahtjeva i pregledava informacije o pojedinim zahtjevima
+							\item Korisnik na željenom zahtjevu odabire opciju za javljanje 
+							\item Vlasniku pasa se na stranici za pristigle ponude pojavljuje zahtjev na koji se čuvar odlučio javiti
+							\item Vlasnik pasa prihvaća javljanje
+							\item Čuvaru pasa i vlasniku pasa se na stranici s čuvanjima u tijeku prikazuju osobni podaci za stupanje u kontakt
 							
 						\end{packed_enum}
 						
@@ -470,15 +483,7 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[4.a] Korisniku se ne sviđa zahtjev (ne odabire zahtjev)
-							\item[] \begin{packed_enum}
-								
-								\item Korisnik se vraća na početnu listu
-								\item Korisnik nastavlja s pretraživanjem
-								
-							\end{packed_enum}
-							
-							\item[6.a] Vlasnik pasa odbija zahtjev 
+							\item[5.a] Vlasnik pasa odbija javljanje 
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
@@ -487,24 +492,23 @@
 						\end{packed_item}
 					\end{packed_item}	
 				
-					\noindent \underbar{\textbf{UC16 – Javljanje na oglas}}
+					\noindent \underbar{\textbf{UC17 – Javljanje na oglas}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
 						\item  \textbf{Cilj:} Pronalaženje najprikladnijeg čuvara pasa
 						\item  \textbf{Sudionici:} Baza podataka, čuvar pasa
-						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu vlasnika pasa, korisnikov zahtjev je potvrđen od strane administratora
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, korisnik ima ulogu vlasnika pasa
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik na početnoj stranici prolazi kroz listu tuđih oglasa   
-							\item Korisnik odabire odgovarajući oglas
-							\item Korisnik pregledava dodatne podatke o tom oglasu
-							\item Korisnik odlučuje javiti se na odabrani oglas 
-							\item Čuvaru pasa se šalje obavijest o odabiru
-							\item Čuvar pasa prihvaća odabir
-							\item Korisnici razmjenjuju detalje
+							\item Korisnik u zaglavlju aplikacije pristupa svim objavljenim oglasima  
+							\item Korisnik prolazi kroz listu objavljenih oglasa i pregledava informacije o pojedinim oglasima
+							\item Korisnik na željenom oglasu odabire opciju za javljanje 
+							\item Čuvaru pasa se na stranici za pristigle ponude pojavljuje oglas na koji se čuvar odlučio javiti
+							\item Čuvar pasa prihvaća javljanje
+							\item Čuvaru i vlasniku se na stranici s čuvanjima u tijeku prikazuju osobni podaci za stupanje u kontakt
 							
 						\end{packed_enum}
 						
@@ -512,15 +516,7 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[4.a] Korisniku se ne sviđa oglas (ne odabire oglas)
-							\item[] \begin{packed_enum}
-								
-								\item Korisnik se vraća na početnu listu
-								\item Korisnik nastavlja s pretraživanjem
-								
-							\end{packed_enum}
-							
-							\item[6.a] Čuvar pasa odbija zahtjev 
+							\item[5.a] Čuvar pasa odbija javljanje 
 							\item[] \begin{packed_enum}
 								
 								\item Daljnja suradnja između korisnika nije moguća
@@ -528,8 +524,59 @@
 							\end{packed_enum}
 						\end{packed_item}
 					\end{packed_item}
+				
+					\noindent \underbar{\textbf{UC18 – Pregledavanje pristiglih ponuda}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Registrirani korisnik
+						\item  \textbf{Cilj:} Pregledavanje mogućih suradnji te potencijalno sklapanje dogovora između čuvara pasa i vlasnika pasa
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, vlasnik pasa ili čuvar pasa je inicirao želju za suradnjom
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Korisnik putem padajućeg izbornika u zaglavlju aplikacije pristupa stranici s pristiglim ponudama  
+							\item Korisnik pregledava listu pristiglih ponuda te ima opciju prihvatiti ili odbiti pojedinu ponudu
+							
+						\end{packed_enum}
+					\end{packed_item}
+				
+					\noindent \underbar{\textbf{UC19 – Pregledavanje povijesti ponuda}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Registrirani korisnik
+						\item  \textbf{Cilj:} Pregledavanje prošlih suradnji te moguće ocjenjivanje iskustva
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, vlasnik pasa i čuvar pasa imali su poslovni odnos
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Korisnik putem padajućeg izbornika u zaglavlju aplikacije pristupa stranici s pristiglim ponudama  
+							\item Korisnik pregledava listu povijesti ponuda te ima opciju ocijeniti iskustvo
 					
-					\noindent \underbar{\textbf{UC17 - Ocjenjivanje usluge čuvanja}}
+						\end{packed_enum}
+					\end{packed_item}
+				
+					\noindent \underbar{\textbf{UC20 – Pregledavanje čuvanja u tijeku}}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: } Registrirani korisnik
+						\item  \textbf{Cilj:} Praćenje aktivnih suradnji i dobivanje podataka za ostvarenje kontakta
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav, vlasnik pasa i čuvar pasa imaju poslovni odnos u tijeku
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Korisnik putem padajućeg izbornika u zaglavlju aplikacije pristupa stranici s čuvanjima u tijeku  
+							\item Korisnik pregledava listu čuvanja u tijeku te saznaje potrebne informacije
+							
+						\end{packed_enum}
+					\end{packed_item}
+					
+					\noindent \underbar{\textbf{UC21 - Ocjenjivanje usluge čuvanja}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Vlasnik pasa
@@ -540,14 +587,14 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik u padajućem izborniku odabire opciju za prikaz prošlih čuvanja pasa
-							\item Korisnik odabire željeno čuvanje
+							\item Korisnik preko padajućeg izbornika u zaglavlju aplikacije odabire opciju za prikaz pristiglih ponuda 
+							\item Korisnik u listi povijesti ponuda pronalazi željenog čuvara s kojim je poslovao
 							\item Korisnik ocjenjuje iskustvo s čuvarom pasa
 							
 						\end{packed_enum}
 					\end{packed_item}	
 					
-					\noindent \underbar{\textbf{UC18 - Ocjenjivanje ponašanja psa}}
+					\noindent \underbar{\textbf{UC22 - Ocjenjivanje ponašanja psa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Čuvar pasa
@@ -558,43 +605,43 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik u padajućem izborniku odabire opciju za prikaz prošlih čuvanja
-							\item Korisnik odabire željeno čuvanje
+							\item Korisnik preko padajućeg izbornika u zaglavlju aplikacije odabire opciju za prikaz pristiglih ponuda
+							\item Korisnik u listi povijesti ponuda pronalazi željeno čuvanje koje je odradio
 							\item Korisnik ocjenjuje iskustvo sa  psom
 							
 						\end{packed_enum}
 					\end{packed_item}	
 					
-					\noindent \underbar{\textbf{UC19 - Dodjeljivanje administratorske uloge korisniku}}
+					\noindent \underbar{\textbf{UC23 - Dodjeljivanje administratorske uloge korisniku}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
 						\item  \textbf{Cilj:} Pružiti korisniku administratorsku ulogu
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Korisnik nema administratorsku ulogu
+						\item  \textbf{Preduvjet:} Administrator je prijavljen u sustav, korisnik nema ulogu administratora 
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator preko padajućeg izbornika u zaglavlju aplikacije pristupa stranici za administratorsko upravljanje
 							\item Administrator u listi korisnika pronalazi željenog korisnika
 							\item Administrator odabranom korisniku dodjeljuje administratorsku ulogu
 							
 						\end{packed_enum}
 					\end{packed_item}	
 					
-					\noindent \underbar{\textbf{UC20 - Potvrđivanje stvorenog zahtjeva}}
+					\noindent \underbar{\textbf{UC24 - Potvrđivanje stvorenog zahtjeva}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
 						\item  \textbf{Cilj:} Potvrditi stvoreni zahtjev da se može objaviti
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Vlasnik pasa je stvorio zahtjev
+						\item  \textbf{Preduvjet:} Administrator je prijavljen u sustav, vlasnik pasa je stvorio zahtjev
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator preko padajućeg izbornika u zaglavlju aplikacije pristupa stranici za administratorsko upravljanje
 							\item Administrator u listi prikazanih zahtjeva i oglasa pronalazi željeni zahtjev
 							\item Administrator odabirom opcije za potvrđivanje potvrđuje zahtjev
 							\item Zahtjev se objavljuje
@@ -615,18 +662,18 @@
 						\end{packed_item}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC21 - Potvrđivanje stvorenog oglasa}}
+					\noindent \underbar{\textbf{UC25 - Potvrđivanje stvorenog oglasa}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
 						\item  \textbf{Cilj:} Potvrditi stvoreni oglas da se može objaviti
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Čuvar pasa je stvorio oglas
+						\item  \textbf{Preduvjet:} Administrator je prijavljen u sustav, čuvar pasa je stvorio oglas
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator preko padajućeg izbornika u zaglavlju aplikacije pristupa stranici za administratorsko upravljanje
 							\item Administrator u listi prikazanih zahtjeva i oglasa pronalazi željeni oglas
 							\item Administrator odabirom opcije za potvrđivanje potvrđuje oglas
 							\item Oglas se objavljuje
@@ -647,18 +694,18 @@
 						\end{packed_item}
 					\end{packed_item}
 					
-					\noindent \underbar{\textbf{UC22 - Blokiranje korisnika}}
+					\noindent \underbar{\textbf{UC26 - Blokiranje korisnika}}
 					\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: } Administrator
 						\item  \textbf{Cilj:} Blokirati korisnika radi narušavanja pravila sustava
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Korisnik je narušio pravila sustava
+						\item  \textbf{Preduvjet:} Administrator je prijavljen u sustav, korisnik je narušio pravila sustava
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator preko padajućeg izbornika pristupa stranici za administratorsko upravljanje
+							\item Administrator preko padajućeg izbornika u zaglavlju aplikacije pristupa stranici za administratorsko upravljanje
 							\item Administrator u listi korisnika pronalazi željenog korisnika
 							\item Administrator blokira odabranog korisnika
 							
