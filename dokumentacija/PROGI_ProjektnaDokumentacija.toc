@@ -23,6 +23,6 @@
 \contentsline {section}{\numberline {5.3}Dijagram razmještaja}{47}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Upute za puštanje u pogon}{48}{section.5.4}%
 \contentsline {chapter}{\numberline {6}Zaključak i budući rad}{49}{chapter.6}%
-\contentsline {chapter}{Popis literature}{50}{chapter*.4}%
-\contentsline {chapter}{Indeks slika i dijagrama}{51}{chapter*.5}%
-\contentsline {chapter}{Dodatak: Prikaz aktivnosti grupe}{52}{chapter*.6}%
+\contentsline {chapter}{Popis literature}{51}{chapter*.4}%
+\contentsline {chapter}{Indeks slika i dijagrama}{52}{chapter*.5}%
+\contentsline {chapter}{Dodatak: Prikaz aktivnosti grupe}{53}{chapter*.6}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  11 JAN 2023 13:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  12 JAN 2023 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1153,7 +1153,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 ...: Prikaz aktivnosti grupe}{52}{chapter*.6}
+l.28 ...: Prikaz aktivnosti grupe}{53}{chapter*.6}
                                                   % [1
 
 ])
@@ -2684,7 +2684,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (./Zakljucak.tex
 Poglavlje 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
 
  []
 
@@ -2701,7 +2701,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-])
+]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.19202pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.19202pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
+
+[50])
 \openout2 = `Literatura.aux'.
 
  (./Literatura.tex
@@ -2725,7 +2734,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[50
+[51
 
 
 
@@ -2743,7 +2752,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[51
+[52
 
 
 
@@ -2759,7 +2768,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[52
+[53
 
 
 ]
@@ -2771,7 +2780,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[53]
+[54]
 Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
@@ -2912,7 +2921,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[54]
+[55]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -2921,7 +2930,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[55]
+[56]
 Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
@@ -2935,7 +2944,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[56] 
+[57] 
 AED: lastpage setting LastPage
 (./PROGI_ProjektnaDokumentacija.aux (./Dnevnik_promjena_dokumentacije.aux)
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
@@ -2949,9 +2958,9 @@ anged.
 (rerunfilecheck)             Checksum: B400BABF613DD36682E3DFEA3F6CD11D;4419.
  ) 
 Here is how much of TeX's memory you used:
- 17957 strings out of 475066
- 320196 string characters out of 5782772
- 843635 words of memory out of 5000000
+ 17958 strings out of 475066
+ 320203 string characters out of 5782772
+ 842635 words of memory out of 5000000
  38751 multiletter control sequences out of 15000+600000
  536342 words of font info for 169 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2965,10 +2974,10 @@ dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
 pmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (57 pages, 1630801 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (58 pages, 1634049 bytes).
 PDF statistics:
- 767 PDF objects out of 1000 (max. 8388607)
- 662 compressed objects within 7 object streams
- 257 named destinations out of 1000 (max. 500000)
+ 772 PDF objects out of 1000 (max. 8388607)
+ 666 compressed objects within 7 object streams
+ 258 named destinations out of 1000 (max. 500000)
  279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
