@@ -1,9 +1,13 @@
 import React from 'react'
 import axios from 'axios'
+import CryptoJS from 'crypto-js'
+
+
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -17,27 +21,35 @@ function MyRequests(){
 
     React.useEffect(() => {
         let id = localStorage.getItem('id');
-        axios.get('/api/reqgua/my/' + id).then(response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.get('/api/reqgua/my/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response.data);
             setRequests(response.data);
         }).catch(err => {
             alert(err.response.data.message);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
-
-        const navigate = useNavigate()
+    //
+        const navigate = useNavigate();
     function FindBestOffer(request){
         let idOfUser = localStorage.getItem("id");
-        axios.post('/api/agreedRequest/bestDogsForGuardian/' + request.requestGuardianId, {
-            "idReqGua": request.requestGuardianId
-        }).then(async response => {
+        let reqGuaId = request.requestGuardianId;
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.get('/api/agreedRequest/bestDogsForGuardian/' + request.requestGuardianId, { headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
-            window.alert("Uspješno!")
-            navigate('/bestOffer', {bestOffer: response.data, reqGua : request.requestGuardianId})
+            navigate('/bestOffer', {state : {
+                    bestOffer: response.data, reqGua : reqGuaId
+                }})
         }).catch(err => {
             console.log(err);
             alert(err.response.data.message)
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
+    }
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
     }
 
     return(

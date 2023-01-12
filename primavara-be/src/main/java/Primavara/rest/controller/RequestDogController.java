@@ -20,25 +20,34 @@ public class RequestDogController {
     @Autowired
     private AgreedRequestService agreedRequestService;
 
-    @GetMapping("")
-    public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs() {
-        return requestDogService.getAllReviewedAndPublishedRequestDogs();
+    @GetMapping(value = {"", "{idUser}"})
+    public List<Optional<RequestDog>> getAllReviewedAndPublishedRequestDogs(@PathVariable(required = false) Long idUser) {
+        if (idUser == null)
+            return requestDogService.getAllReviewedAndPublishedRequestDogs();
+        else
+            return requestDogService.getAllReviewedAndPublishedRequestDogsAndNotInitiatedByMe(idUser);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("new/{id}")
     public void addNewRequestDog (@RequestBody NewRequestDog newRequestDog, @PathVariable(required = true) Long id) {requestDogService.addNewRequestDog(newRequestDog, id);}
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
     @GetMapping("my/{id}")
     public List<Optional<RequestDog>> getAllRequestDogsByUserId(@PathVariable(required = true) Long id){
-        return requestDogService.getAllRequestDogsByUserId(id);
+        return requestDogService.getAllReviewedAndPublishedRequestDogsAndMine(id);
     }
 
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_VLASNIKČUVAR')")
     @PostMapping("initiate/{idReqDog}/{idInitiator}")
     public void initiateToRequestDog(@PathVariable(required = true) Long idReqDog, @PathVariable(required = true) Long idInitiator) {
         agreedRequestService.initiateToRequestDog(idReqDog, idInitiator);
+    }
+
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_VLASNIK', 'ROLE_ČUVAR', 'ROLE_VLASNIKČUVAR')")
+    @GetMapping("get/{idReqDog}")
+    public RequestDog findByRequestDogId(@PathVariable Long idReqDog){
+        return requestDogService.findByRequestDogId(idReqDog);
     }
 
 }

@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import { Helmet } from 'react-helmet'
+import CryptoJS from 'crypto-js'
 
 import Navbar from './partials/navbar'
 import { Select } from '@mui/material'
 import { MenuItem } from '@mui/material'
 import { InputLabel } from '@mui/material'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -80,6 +82,11 @@ function NewRequest(){
         return startDate && endDate && address.length>0;
     }
 
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
+
     function onSubmit(e){
         e.preventDefault();
         setIsDisabled(true);
@@ -102,6 +109,8 @@ function NewRequest(){
                         if(dog.name == selectedDog && !sendingDogs.includes(dog.dogId)) sendingDogs.push(dog.dogId)
                     })
                 });
+                var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+                console.log(basicAuth)
                 axios.post('/api/reqgua/new/' + idOfUser, {
                     "guardTimeBegin": form.startDate,
                     "guardTimeEnd": form.endDate,
@@ -114,14 +123,17 @@ function NewRequest(){
                     "numberOfDogs": selectedDogs.length,
                     "activityId": sendingActivities,
                     "quantity": selectedActivities.includes("Hranjenje") ? form.foodAmount : 0
-                }).then(async response => {
+                }, { headers : {'Authorization': basicAuth}}).then(async response => {
                     console.log(response)
                     setIsDisabled(false);
                     window.location.href = "/users/requests";
                 }).catch(err => {
                     console.log(err);
-                    alert(err.response.data.message)
+                    console.log(err.response.headers)
+                    if(err.response.status == "401") window.alert("Nemate odgovarajuće ovlasti.")
+                    else window.alert(err.response.data.message)
                     setIsDisabled(false);
+                    if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
                 })
             },
             (error) => {
@@ -142,12 +154,12 @@ function NewRequest(){
     }, []);
 
     React.useEffect(() => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
         let id = localStorage.getItem('id');
-        axios.get('/api/dogs/my/' + id).then(response => {
-            // console.log(response.data);
+        axios.get('/api/dogs/my/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             setDogs(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 
@@ -308,7 +320,7 @@ function NewRequest(){
                                     <div className="form-button-container">
                                         <button
                                             type="submit"
-                                            className="button button-primary"
+                                            className="button button-primary resp-button"
                                             variant="contained"
                                             disabled={!isValid() || isDisabled}
                                             onClick={onSubmit}

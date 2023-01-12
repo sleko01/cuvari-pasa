@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
+import CryptoJS from 'crypto-js'
 import { Helmet } from 'react-helmet'
 import PasswordChecklist from "react-password-checklist"
 import Footer from './partials/footer'
 import Navbar from './partials/navbar'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -63,6 +65,11 @@ function NewOffer(){
         const {userId, startDate, endDate, flexible, address, lat, lng, dogNumber} = form;
         return startDate && endDate && address.length>0;
     }
+    
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
 
 		
     function onSubmit(e){
@@ -74,6 +81,7 @@ function NewOffer(){
                 var location = lat + "|"+ lng
                 let idOfUser = localStorage.getItem('id');
                 console.log(form.flexible + " ovo je ")
+                var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
                 axios.post('/api/reqdog/new/' + idOfUser, {
                     "dogAge": form.dogAge,
                     "dogTimeBegin": form.startDate,
@@ -84,7 +92,7 @@ function NewOffer(){
                     "numberOfDogs": form.numberOfDogs,
                     "breedId": form.breed,
                     "id": idOfUser
-                }).then(async response => {
+                }, { headers : {'Authorization': basicAuth}}).then(async response => {
                     console.log(response)
                     setIsDisabled(false);
                     window.location.href = "/users/offers";
@@ -92,6 +100,7 @@ function NewOffer(){
                     console.log(err);
                     alert(err.response.data.message)
                     setIsDisabled(false);
+                    if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
                 })
             },
             (error) => {
@@ -116,7 +125,7 @@ function NewOffer(){
             console.log(response.data);
             setUser(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            if(err.response.status == 400 && localStorage.getItem('id') == undefined) window.location.href = "/users/login"
         })
     }, []);
 
@@ -249,7 +258,7 @@ function NewOffer(){
                                     <div className="form-button-container">
                                         <button
                                             type="submit"
-                                            className="button button-primary"
+                                            className="button button-primary resp-button"
                                             variant="contained"
                                             disabled={!isValid() || isDisabled}
                                             onClick={onSubmit}

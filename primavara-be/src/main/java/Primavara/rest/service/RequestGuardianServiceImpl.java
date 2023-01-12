@@ -36,6 +36,16 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
     }
 
     @Override
+    public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndMine(Long id) {
+        return requestGuardianRepository.findAllReviewedAndPublishedAndNotGoneAndMine(id);
+    }
+
+    @Override
+    public List<Optional<RequestGuardian>> getAllReviewedAndPublishedRequestGuardiansAndNotInitiatedByMe(Long id) {
+        return requestGuardianRepository.findAllReviewedAndPublishedAndNotGoneAndNotInitiatedByMe(id);
+    }
+
+    @Override
     public void addNewRequestGuardian(NewRequestGuardian newRequestGuardian, Long id){
         validate(newRequestGuardian);
         Long counter=0L;
@@ -155,5 +165,10 @@ public class RequestGuardianServiceImpl implements RequestGuardianService {
         }
 
         return requestGuardianRepository.findAllByUserId(id);
+    }
+
+    @Override
+    public RequestGuardian findByRequestGuardianId(Long id){
+        return requestGuardianRepository.findByRequestGuardianId(id);
     }
 }

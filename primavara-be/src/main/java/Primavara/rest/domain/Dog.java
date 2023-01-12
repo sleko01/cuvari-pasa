@@ -3,6 +3,7 @@ package Primavara.rest.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import org.hibernate.annotations.Type;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.sql.Blob;
@@ -22,9 +23,7 @@ public class Dog {
     @NotNull
     private Date dateOfBirth;
 
-    @Lob
-    @Type(type="org.hibernate.type.BinaryType")
-    private byte[] photo;
+    private String photo;
 
     @NotNull
     private Long ratingSum;
@@ -65,11 +64,11 @@ public class Dog {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public byte[] getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

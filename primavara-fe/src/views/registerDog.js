@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import PasswordChecklist from "react-password-checklist"
 import { Helmet } from 'react-helmet'
+import CryptoJS from 'crypto-js'
 
 import Navbar from './partials/navbar'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -47,27 +49,32 @@ function RegisterDog(){
     const [form, setForm] = React.useState({userId: localStorage.id, name: '', dateOfBirth: '', breed: '1', image: []})
     const [breeds, setBreeds] = React.useState([])
     const [images, setImages] = React.useState([])
-
-    const [blob, setBlob] = React.useState()
+    const [image, setImage] = React.useState([])
 
     function onImageChange(e) {
         const {name, value} = e.target;
         setForm(oldForm => ({...oldForm, [name]: value}))
         setImages([...e.target.files])
-        console.log(images[0])
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            console.log(e.target.result);
-            // setBlob(new Blob([new Uint8Array(e.target.result)], {type: images[0].type }));
-            const blob1 = new Blob([new Uint8Array(e.target.result)], {type: images[0].type })
-            setBlob(blob1);
-            console.log(blob1)
-
-        };
-        console.log(reader.readAsArrayBuffer(images[0]));
+        getBase64(...e.target.files)
     }
 
+    function getBase64(file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          localStorage.setItem('photo', reader.result);
+          setImage(reader.result);
+          console.log(typeof(reader.result))
+        };
+        reader.onerror = function (error) {
+          console.log('Error: ', error);
+        };
+     }
 
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
+    
 
     function onChange(event) {
         const {name, value} = event.target;
@@ -81,62 +88,37 @@ function RegisterDog(){
 
     function onSubmit(e) {
         e.preventDefault()
-        // setIsDisabled(true);
-        /*var breedId;
-        console.log(images[0])
-        breeds.forEach(breed => {
-            if (breed.name == form.breed) {
-                breedId = breed.breedId;
-            }
-        })*/
         let idOfUser = localStorage.getItem('id');
-        // var blob = new Blob([images[0]], {type: "file"})
-        //or const file = document.querySelector('input[type=file]').files[0];
-        axios.put('/api/dogs/register/' + idOfUser, {
-            "name": form.name,
-            "dateOfBirth": form.dateOfBirth,
-            "photo": blob,
-            "breedId": form.breed,
-            "id": idOfUser,
-        }).then(async response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+
+        var formData = new FormData();
+        console.log(form.name + "name")
+        
+        formData.append("name", form.name)
+        formData.append("dateOfBirth", form.dateOfBirth)
+        formData.append("photo", image)
+        localStorage.removeItem('photo')
+        formData.append("breedId", form.breed)
+    
+        console.log(formData.get('photo'));
+
+        axios({
+            method: "put",
+            url: "/api/dogs/register/" + idOfUser,
+            data: formData,
+            headers: {
+                'Accept-Language': 'en-US,en;q=0.8',
+                'Content-Type': `multipart/form-data`,
+                'Authorization': basicAuth
+              },
+        }).then(response => {
+            console.log(response);
             window.location.href = "/users/dogs"
-            setIsDisabled(false);
-        }).catch(err => {
-            alert(err.response.data.message)
-            console.log(blob)
-            setIsDisabled(false);
+        }).catch(error => {
+            console.log(error);
+            if(error.response.status = 403) window.alert("Slika je prevelika!")
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
-
-        // var formData = new FormData();
-        // let dog = {
-        //     "name": form.name,
-        //     "dateOfBirth": form.dateOfBirth,
-        //     "photo": {},
-        //     "breedId": form.breed,
-        // }
-        // formData.append("name", form.name)
-        // formData.append("dateOfBirth", form.dateOfBirth)
-        // formData.append("photo", blob[0])
-        // formData.append("breedId", form.breed)
-        // formData.append("registerDog", dog)
-        // formData.append("id", idOfUser)
-        // console.log(formData);
-
-        // axios({
-        //     method: "put",
-        //     url: "/api/dogs/register/" + idOfUser,
-        //     data: formData,
-        //     headers: {
-        //         'accept': 'application/json',
-        //         'Accept-Language': 'en-US,en;q=0.8',
-        //         'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
-        //       },
-        // }).then(response => {
-        //     console.log(response);
-        //     window.alert("Great success!")
-        // }).catch(error => {
-        //     console.log(error);
-        // })
 
 
 
@@ -159,7 +141,7 @@ function RegisterDog(){
             <Navbar/>
 
             <div className="form-section-container ">
-                <div className="form-container background-citrus">
+                <div className="form-container form-container-dog background-citrus">
 
                     <Box
                         sx={{
@@ -213,7 +195,7 @@ function RegisterDog(){
                                         value={form.breed}
                                     >
                                         {breeds.map(breed =>
-                                            <option value={breed.breedId} key={breed.breedId}>{breed.name}</option>)}
+                                            <option value={breed.breedId} key={breed.breedId} id={breed.breedId.toString()}>{breed.name}</option>)}
                                     </NativeSelect>
 
                                 </Grid>

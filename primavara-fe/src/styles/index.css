@@ -130,6 +130,7 @@ body {
   border-color: var(--color-apricot);
   border-width: 0.4vmin;
   justify-content: space-evenly;
+  width: 33%;
 }
 
 .panel-info-item {
@@ -153,6 +154,22 @@ body {
 
 /* FORMS */
 .form-container {
+  border-radius: 5vmin;
+  border-style: solid;
+  width: 25vw;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.form-container-login {
+  border-radius: 5vmin;
+  border-style: solid;
+  width: 25vw;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.form-container-dog{
   border-radius: 5vmin;
   border-style: solid;
   width: 25vw;
@@ -419,6 +436,16 @@ body {
   margin-bottom: 0em;
 }
 
+
+.dog-photo {
+  width: 50%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  justify-self: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* RESPONSIVENESS */

@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'

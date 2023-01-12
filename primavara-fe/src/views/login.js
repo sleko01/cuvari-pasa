@@ -1,10 +1,13 @@
 import React from 'react'
 import axios, {AxiosError} from "axios";
+import CryptoJS from 'crypto-js'
+
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -57,6 +60,10 @@ function Login(){
         return password.length >= 8;
     }
 
+    function encrypt(password) {
+        return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password))
+    }
+
     function onSubmit(e) {
         e.preventDefault()
         // alert("Tu trebas implementirat vezu frontenda i bekenda")
@@ -78,6 +85,8 @@ function Login(){
                 console.log(response)
                 console.log(response.data + " ja sam response.data");
                 localStorage.setItem("id", response.data)
+                form.password = encrypt(form.password)
+                localStorage.setItem('encryptedPassword', form.password)
                 axios({
                     method: "get",
                     url: "/api/users/profile/" + localStorage.getItem("id")
@@ -105,7 +114,7 @@ function Login(){
 
 
             <div className="form-section-container snap-center">
-                <div className='form-container background-citrus'>
+                <div className='form-container form-container-login background-citrus'>
                     <Box
                         sx={{
                             padding: 5,
@@ -147,6 +156,7 @@ function Login(){
                                 <Grid item xs={12}>
                                     <div className="form-button-container">
                                     <button
+                                        id="login"
                                         type="submit"
                                         fullWidth
                                         className="button button-primary"

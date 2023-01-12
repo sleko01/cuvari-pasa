@@ -1,6 +1,7 @@
 package Primavara.rest.service;
 
 import Primavara.rest.domain.*;
+import Primavara.rest.dto.RatedRequestsDTO;
 import Primavara.rest.dto.RequestBothDTO;
 import Primavara.rest.dto.RequestDogDTO;
 import Primavara.rest.dto.RequestGuardianDTO;
@@ -162,7 +163,13 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
             );
         Long prvi = requestDog.getAppUser().getUserId();
         Long drugi = requestGuardian.getAppUser().getUserId();
-        if (!(((idInitiator != prvi && idInitiator == drugi) || (idInitiator == prvi && idInitiator != drugi)) && prvi != drugi))
+        System.out.println("prvi");
+        System.out.println(prvi);
+        System.out.println("drugi");
+        System.out.println(drugi);
+        System.out.println("idInitiator");
+        System.out.println(idInitiator);
+        if (!(((!Objects.equals(idInitiator, prvi) && Objects.equals(idInitiator, drugi)) || (Objects.equals(idInitiator, prvi) && !Objects.equals(idInitiator, drugi))) && !Objects.equals(prvi, drugi)))
             throw new RequestDeniedException(
                     "Can not initiate on your own request"
             );
@@ -237,6 +244,53 @@ public class AgreedRequestServiceImpl implements AgreedRequestService{
         List<RequestBothDTO> list3 = agreedRequestRepository.findAllMyOffers3(id);
         map.put(3L, list3);
         return map;
+    }
+
+    @Override
+    public List<RatedRequestsDTO> getMyRatedGuardians(Long id) {
+        List<RatedRequestsDTO> list = agreedRequestRepository.getRatedListGuardians(id);
+//        List<Pair<Long, Boolean>> giving = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            Boolean isIt;
+//            if (list.get(i).getUserId() == id)
+//                isIt = list.get(i).getUserRated();
+//            else
+//                isIt = list.get(i).getInitiatorRated();
+//            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
+//            giving.add(par);
+//        }
+        return list;
+    }
+
+    @Override
+    public List<RatedRequestsDTO> getMyRatedDogs(Long id) {
+        List<RatedRequestsDTO> list = agreedRequestRepository.getRatedListDogs(id);
+//        List<Pair<Long, Boolean>> giving = new ArrayList<>();
+//        for (int i = 0; i < list.size(); i++) {
+//            Boolean isIt;
+//            if (list.get(i).getUserId() == id)
+//                isIt = list.get(i).getUserRated();
+//            else
+//                isIt = list.get(i).getInitiatorRated();
+//            Pair<Long, Boolean> par = Pair.of(list.get(i).getRequestId(), isIt);
+//            giving.add(par);
+//        }
+        return list;
+    }
+
+    @Override
+    public List<RatedRequestsDTO> getMyInProgressGuardians(Long id) {
+        return agreedRequestRepository.getInProgressListGuardians(id);
+    }
+
+    @Override
+    public List<RatedRequestsDTO> getMyInProgressDogs(Long id) {
+        return agreedRequestRepository.getInProgressListDogs(id);
+    }
+
+    @Override
+    public List<Long> getDogsInRequest(Long reqGuaId) {
+        return agreedRequestRepository.getDogsInRequest(reqGuaId);
     }
 
     private Double compare(RequestDog requestDog, RequestGuardian requestGuardian) {

@@ -1,10 +1,12 @@
 import React from 'react'
 import axios from 'axios'
+import CryptoJS from 'crypto-js'
 
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 import Footer from './partials/footer'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -14,26 +16,36 @@ import '../styles/requestsAndOffers.css'
 function Offers(){
     const [offers, setOffers] = React.useState([])
 
+
+    function decrypt(password) {
+        return CryptoJS.enc.Base64.parse(password).toString(CryptoJS.enc.Utf8);
+    }
+
+
+
     React.useEffect(() => {
-        axios.get('/api/reqdog').then(response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        var id = localStorage.getItem("id") == undefined ? "" : localStorage.getItem("id")
+        axios.get('/api/reqdog/' + id, { headers : {'Authorization': basicAuth}}).then(response => {
             console.log(response.data);
             setOffers(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            console.log(err)
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }, []);
 
     function InitiateOffer(offer) {
         let idOfUser = localStorage.getItem("id");
-        axios.post('/api/reqdog/initiate/' + offer.requestDogId + '/' + idOfUser, {
-            "idReqDog": offer.requestDogId,
-            "idInitiator": idOfUser
-        }).then(async response => {
+        var basicAuth = localStorage.getItem("id") == undefined ? '' : 'Basic ' + window.btoa(localStorage.getItem("username") + ":" + decrypt(localStorage.getItem("encryptedPassword")));
+        axios.post('/api/reqdog/initiate/' + offer.requestDogId + '/' + idOfUser, {},{ headers : {'Authorization': basicAuth}}).then(async response => {
             console.log(response)
             window.alert("Uspješno!")
+            window.location.reload()
         }).catch(err => {
             console.log(err);
-            alert(err.response.data.message)
+            window.alert("Nemate odgovarajuće ovlasti")
+            if(localStorage.getItem("id") == undefined) window.location.href = "/users/login";
         })
     }
 

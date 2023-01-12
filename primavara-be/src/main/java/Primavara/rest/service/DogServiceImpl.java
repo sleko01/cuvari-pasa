@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class DogServiceImpl implements DogService{
@@ -88,7 +85,12 @@ public class DogServiceImpl implements DogService{
     @Override
     public void rateDogs(Long idInitiator, Long idUser, Long idReq, String type, HashMap<Long, Long> dogs) {
         Long idRequest;
-        if (type == "d") {
+        System.out.println(idInitiator);
+        System.out.println(idUser);
+        System.out.println(idReq);
+        System.out.println(type);
+        System.out.println(dogs.toString());
+        if (Objects.equals(type, "d")) {
             idRequest = agreedRequestRepository.respondToDog(idInitiator, idUser, idReq);
         }
         else {
@@ -123,7 +125,7 @@ public class DogServiceImpl implements DogService{
             }
         }
         else if (agreedRequest.getRequestDog() != null) {
-            List<Long> allAppUsersDogIds = dogRepository.findAllAppUsersDogsId(agreedRequest.getAppUser().getUserId());
+            List<Long> allAppUsersDogIds = dogRepository.findAllAppUsersDogsId(agreedRequest.getInitiatorUser().getUserId());
 
             for (Map.Entry<Long, Long> entry: dogs.entrySet()) {
                 if (!allAppUsersDogIds.contains(entry.getKey()))
@@ -135,14 +137,26 @@ public class DogServiceImpl implements DogService{
                     dog.setRatingSum(dog.getRatingSum() + entry.getValue());
                     dog.setRatingCount(dog.getRatingCount() + 1);
                     dogRepository.save(dog);
-                    agreedRequest.setInitiatorRated(true);
+                    agreedRequest.setUserRated(true);
                     agreedRequestRepository.save(agreedRequest);
                 }
             }
         }
     }
 
+    @Override
+    public Dog getDogById(Long dogId) {
+        return dogRepository.findByDogId(dogId);
+    }
+
+    public String getPhoto(Long id) {
+        String ime = dogRepository.getPhotoById(id);
+        System.out.println(ime);
+        return ime;
+    }
+
     private void validate(RegisterDog registerDog) {
+        System.out.println(registerDog.toString());
         Assert.notNull(registerDog, "RegisterDog object must be given");
         Assert.hasText(registerDog.getName(), "RegisterDog name must be given");
         Assert.notNull(registerDog.getDateOfBirth(), "RegisterDog dateOfBirth must be given");

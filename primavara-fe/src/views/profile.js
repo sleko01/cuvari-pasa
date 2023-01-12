@@ -4,6 +4,7 @@ import axios, {AxiosError} from "axios";
 import { Helmet } from 'react-helmet'
 import Navbar from './partials/navbar'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -23,7 +24,8 @@ function Profile(){
             console.log(response.data);
             setUser(response.data);
         }).catch(err => {
-            alert(err.response.data.message);
+            console.log(err)
+            if(localStorage.getItem('id') == undefined) window.location.href = "/users/login"
         })
     }, []);
 

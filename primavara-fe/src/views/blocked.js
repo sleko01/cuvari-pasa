@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
+import '../styles/responsive.css'
 import '../styles/home.css'
 import '../styles/index.css'
 import '../styles/moderation.css'
@@ -11,6 +12,7 @@ function Blocked(){
     function logout() {
         localStorage.removeItem("username");
         localStorage.removeItem("id")
+        localStorage.removeItem("encryptedPassword")
         window.location.href = "/";
     }
 
