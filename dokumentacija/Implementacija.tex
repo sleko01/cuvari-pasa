@@ -70,13 +70,39 @@
 			\eject 
 		
 		\section{Upute za puštanje u pogon}
-		
-			\textbf{\textit{dio 2. revizije}}\\
-		
-			 \textit{U ovom poglavlju potrebno je dati upute za puštanje u pogon (engl. deployment) ostvarene aplikacije. Na primjer, za web aplikacije, opisati postupak kojim se od izvornog kôda dolazi do potpuno postavljene baze podataka i poslužitelja koji odgovara na upite korisnika. Za mobilnu aplikaciju, postupak kojim se aplikacija izgradi, te postavi na neku od trgovina. Za stolnu (engl. desktop) aplikaciju, postupak kojim se aplikacija instalira na računalo. Ukoliko mobilne i stolne aplikacije komuniciraju s poslužiteljem i/ili bazom podataka, opisati i postupak njihovog postavljanja. Pri izradi uputa preporučuje se \textbf{naglasiti korake instalacije uporabom natuknica} te koristiti što je više moguće \textbf{slike ekrana} (engl. screenshots) kako bi upute bile jasne i jednostavne za slijediti.}
+			
+			\subsection{Konfiguracija poslužitelja baze podataka}
+			
+			Na poslužitelju Render potrebno je konfigurirati PostgreSQL bazu podataka. Potrebno je postaviti ime baze, korisničko ime korisnika baze, regiju postaviti na Frankfurt (EU Central) i kliknuti Create Database. Pri prvom pokretanju backenda, automatski će se kreirati svi elementi baze Flyway migracijama.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=12cm]{slike/konfiguracijaBazeNaRenderu}
+				\caption{Konfiguracija baze na Renderu}
+				\label{fig:Baza-Render}
+			\end{figure}
+			
+			\subsection{Konfiguracija backenda}
 			
 			
-			 \textit{Dovršenu aplikaciju potrebno je pokrenuti na javno dostupnom poslužitelju. Studentima se preporuča korištenje neke od sljedećih besplatnih usluga: \href{https://aws.amazon.com/}{Amazon AWS}, \href{https://azure.microsoft.com/en-us/}{Microsoft Azure} ili \href{https://www.heroku.com/}{Heroku}. Mobilne aplikacije trebaju biti objavljene na F-Droid, Google Play ili Amazon App trgovini.}
+			Na poslužitelju Render potrebno je konfigurirati backend. Potrebno je povezati GitLab račun s Renderom. Nakon toga potrebno je kreirati novi servis i odabrati projekt Čuvari pasa. Za regiju je potrebno odabrati Frankfurt (EU Central), za granu main, za root directory primavara-be. Environment je potrebno postaviti na Docker. Dockerfile Path je ./docker/maven/Dockerfile, a Docker Build Context Directory je . Potrebno je postaviti environment varijable sa slike 5.3 i nakon toga kliknuti Create Web Service.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=12cm]{slike/konfiguracijaBackenda}
+				\caption{Konfiguracija backenda na Renderu}
+				\label{fig:Backend-Render}
+			\end{figure}
+			
+			\subsection{Konfiguracija frontenda}
 			
 			
+			Na poslužitelju Render potrebno je konfigurirati frontend. Potrebno je povezati GitLab račun s Renderom. Nakon toga potrebno je kreirati novi servis i odabrati projekt Čuvari pasa. Za regiju je potrebno odabrati Frankfurt (EU Central), za granu main, za root directory primavara-fe. Environment je potrebno postaviti na Node. Build command je potrebno postaviti na yarn build, a start command na yarn start-prod. Potrebno je postaviti environment varijable sa slike 5.4 i nakon toga kliknuti Create Web Service.
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=12cm]{slike/konfiguracijaFrontenda}
+				\caption{Konfiguracija frontenda na Renderu}
+				\label{fig:Frontend-Render}
+			\end{figure}
 			\eject 
