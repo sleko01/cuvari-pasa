@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 22:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 22:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3285,7 +3285,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3300,7 +3300,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3315,7 +3315,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3330,7 +3330,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3345,7 +3345,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3360,7 +3360,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3375,7 +3375,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3390,7 +3390,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.165 			\end
+l.157 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3422,7 +3422,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 <slike/dijagramPromjena.png, id=902, 635.37375pt x 855.195pt>
 File: slike/dijagramPromjena.png Graphic file (type png)
 <use slike/dijagramPromjena.png>
-Package pdftex.def Info: slike/dijagramPromjena.png  used on input line 173.
+Package pdftex.def Info: slike/dijagramPromjena.png  used on input line 165.
 (pdftex.def)             Requested size: 398.33858pt x 536.16588pt.
 )
 
@@ -3454,11 +3454,11 @@ anged.
 (rerunfilecheck)             Checksum: 3B0BEB0DCFF9D08276255B4EE5895FA9;5051.
  ) 
 Here is how much of TeX's memory you used:
- 18460 strings out of 475066
- 336626 string characters out of 5782772
- 891579 words of memory out of 5000000
- 39161 multiletter control sequences out of 15000+600000
- 521092 words of font info for 129 fonts, out of 8000000 for 9000
+ 18236 strings out of 475066
+ 328242 string characters out of 5782772
+ 878370 words of memory out of 5000000
+ 38937 multiletter control sequences out of 15000+600000
+ 520124 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,116p,2144b,1072s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texm
@@ -3466,7 +3466,7 @@ f-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts
 /type1/public/kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publ
 ic/kpfonts/jkpmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/j
 kpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 2882997 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 2882139 bytes).
 PDF statistics:
  1004 PDF objects out of 1200 (max. 8388607)
  847 compressed objects within 9 object streams
