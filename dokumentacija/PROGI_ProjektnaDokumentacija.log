@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 20:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 21:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -983,9 +983,6 @@ LaTeX Warning: Label `fig:Class-Diagram' multiply defined.
 
 ) (./Implementacija.aux
 
-LaTeX Warning: Label `fig:Test-6' multiply defined.
-
-
 LaTeX Warning: Label `fig:Activity-Diagram' multiply defined.
 
 ) (./Zakljucak.aux) (./Literatura.aux) (./Dodatak.aux))
@@ -1153,7 +1150,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.36 ...hapter}{Popis literature}{61}{chapter*.11}
+l.40 ...hapter}{Popis literature}{67}{chapter*.15}
                                                   % [1
 
 ])
@@ -1182,348 +1179,383 @@ Poglavlje 1.
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 30.10.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 31.10.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 01.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 01.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Luki[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 02.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 05.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 11.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 14.11.2022. 
  []
 
 
-Underfull \hbox (badness 2644) in paragraph at lines 37--37
+Underfull \hbox (badness 2644) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Dodavanje os-ta-lih zah-tjeva, ar-hi-tek-ture i
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 14.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 16.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 18.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 03.01.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 04.01.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 07.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 09.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 10.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 10.01.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 10.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 12.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+[]\OT1/jkp/m/n/12 Sven
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Leko,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Ivan
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 12.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
+[]\OT1/jkp/m/n/12 13.01.2023. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+[]\OT1/jkp/m/n/12 Lovro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Ma-loj[]ci[]c,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Eugen
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 13.01.2023. 
  []
 
 > Step: build the whole table.
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 30.10.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 31.10.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 01.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 01.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Luki[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 02.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 05.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 11.11.2022. 
  []
 
@@ -1539,122 +1571,122 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 14.11.2022. 
  []
 
 
-Underfull \hbox (badness 2644) in paragraph at lines 37--37
+Underfull \hbox (badness 2644) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Dodavanje os-ta-lih zah-tjeva, ar-hi-tek-ture i
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 14.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 16.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 18.11.2022. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Kuzmi[]c,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 \OT1/jkp/m/n/12 Ma-rio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 03.01.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 04.01.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Antonio
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 07.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 09.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 10.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 10.01.2023. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 Ivan
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 10.01.2023. 
  []
 
@@ -1667,17 +1699,52 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [4]
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 12.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+[]\OT1/jkp/m/n/12 Sven
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Leko,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Ivan
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 12.01.2023. 
  []
 
 
-Overfull \hbox (6.59267pt too wide) in paragraph at lines 37--37
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
+[]\OT1/jkp/m/n/12 13.01.2023. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+[]\OT1/jkp/m/n/12 Lovro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Ma-loj[]ci[]c,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
+\OT1/jkp/m/n/12 Eugen
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 38--38
 []\OT1/jkp/m/n/12 13.01.2023. 
  []
 
@@ -3102,11 +3169,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-] (./PROGI_ProjektnaDokumentacija.lof)
-\tf@lof=\write5
-\openout5 = `PROGI_ProjektnaDokumentacija.lof'.
-
-
+] (./PROGI_ProjektnaDokumentacija.lof
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -3119,7 +3182,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-]
+])
+\tf@lof=\write5
+\openout5 = `PROGI_ProjektnaDokumentacija.lof'.
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 15.19202pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.19202pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
+
+[69]
 \openout2 = `Dodatak.aux'.
 
  (./Dodatak.tex
@@ -3131,7 +3207,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[69
+[70
 
 
 ]
@@ -3143,11 +3219,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[70]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
+[71]
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -3155,12 +3227,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--111
 > Step: parse table inner spec.
 > Step: execute table commands.
 
+
 ! Package tabularray Error: \multicolumn is obsolete; use \SetCell instead.
 
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3175,7 +3248,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3190,7 +3263,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3205,7 +3278,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3220,7 +3293,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3235,7 +3308,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3250,7 +3323,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3265,7 +3338,7 @@ If that doesn't work, type X <return> to quit.
 Type <return> to continue.
  ...                                              
                                                   
-l.159 			\end
+l.155 			\end
              {longtblr}
 
 LaTeX does not know anything more about this error, sorry.
@@ -3284,7 +3357,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[71]
+[72]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -3293,8 +3366,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[72]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+[73]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
 
  []
 
@@ -3307,7 +3380,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[73] 
+[74] 
 AED: lastpage setting LastPage
 (./PROGI_ProjektnaDokumentacija.aux (./Dnevnik_promjena_dokumentacije.aux)
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
@@ -3316,45 +3389,28 @@ AED: lastpage setting LastPage
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `PROGI_ProjektnaDokumentacija.out' has cha
-nged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `PROGI_ProjektnaDokumentacija.out':
-(rerunfilecheck)             Before: DEC187E40C82E41B539F803EB59152FA;5051
-(rerunfilecheck)             After:  3B0BEB0DCFF9D08276255B4EE5895FA9;5051.
+Package rerunfilecheck Info: File `PROGI_ProjektnaDokumentacija.out' has not ch
+anged.
+(rerunfilecheck)             Checksum: 3B0BEB0DCFF9D08276255B4EE5895FA9;5051.
  ) 
 Here is how much of TeX's memory you used:
- 18198 strings out of 475066
- 326874 string characters out of 5782772
- 846269 words of memory out of 5000000
+ 18196 strings out of 475066
+ 326848 string characters out of 5782772
+ 868801 words of memory out of 5000000
  38899 multiletter control sequences out of 15000+600000
- 521641 words of font info for 132 fonts, out of 8000000 for 9000
+ 521706 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,116p,2144b,1072s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{chapter*.13} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter*.12} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter*.11} has been referenced but does not exist
-, replaced by a fixed one
-
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texmf-
-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/fonts/
-type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
-/kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
-pmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (74 pages, 2848928 bytes).
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2022/texm
+f-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/font
+s/type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publ
+ic/kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/
+jkpmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pf
+b>
+Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 2848510 bytes).
 PDF statistics:
- 990 PDF objects out of 1000 (max. 8388607)
- 834 compressed objects within 9 object streams
- 340 named destinations out of 1000 (max. 500000)
+ 996 PDF objects out of 1000 (max. 8388607)
+ 839 compressed objects within 9 object streams
+ 338 named destinations out of 1000 (max. 500000)
  383 words of extra memory for PDF output out of 10000 (max. 10000000)
 
