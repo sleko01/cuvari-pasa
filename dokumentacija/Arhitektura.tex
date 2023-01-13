@@ -252,7 +252,7 @@
 				\centering
 				\includegraphics[width=15cm]{slike/drawsql REL}
 				\caption{Relacijski dijagram baze podataka} 
-				\label{fig:E-Rdijagram}
+				\label{fig:RelDiagram}
 			\end{figure}
 			
 			\eject
@@ -312,7 +312,7 @@
 				\centering
 				\includegraphics[width=15cm]{slike/Dijagram stanja}
 				\caption{Dijagram stanja}
-				\label{fig:Class-Diagram}
+				\label{fig:State-Diagram}
 			\end{figure}
 			
 			\eject 
@@ -323,7 +323,7 @@
 			modeliranju toka upravljanja svaki novi korak poduzima se nakon završenog prethodnog, a naglasak je na jednostavnosti. Na dijagramu aktivnosti sa slike 4.7 prikazan je proces sinkronizacije vlasnika i čuvara, odobravanje upita te ocjenjivanje. Vlasnik, čuvar i administrator se prijave u sustav. Vlasnik dodaje svog psa te radi zahtjev dok čuvar radi svoj oglas.
 			Ako je sve u redu administrator potvrđuje te upite i započinje sinkronizacija između vlasnika i čuvara. Nakon što je čuvanje završilo, vlasnik može ocijeniti čuvara dok čuvar može ocijeniti pse.
 			
-			\newpage
+			
 			
 			\begin{figure}[H]
 				\centering
@@ -337,6 +337,14 @@
 			\eject
 		\section{Dijagram komponenti}
 		
-			\textbf{\textit{dio 2. revizije}}\\
+			%\textbf{\textit{dio 2. revizije}}\\
 		
-			 \textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.}
+			 %\textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.}
+			 Dijagram komponenti je strukturni dijagram kojim se vizualizira organizacija i međuovisnost između implementacijskih komponenti te odnos programske potpore prema okolini. Dijagram komponenti na slici 4.8 sastoji se od komponente web preglednika, baze podataka, te same aplikacije koja ima svoje dvije glavne podkomponente, a to su frontend i backend. U web pregledniku se preko sučelja za dohvat vizualnih datoteka prikazuju pojedine stranice. O tome koja će se datoteka dohvatiti, odnosno stranica prikazati odlučuje React router komponenta frontenda na temelju URL-a kojem se pristupa. Frontend se još sastoji od komponenti React view, index.js i ReactJS koje su međusobno zavisne. ReactJS je sama biblioteka iz koje se dobivaju gotove komponente za prikaz. index.js služi kao početna komponenta unutar koje se nalazi organizirana hijerarhija ostalih elemenata za prikaz. Rect view komponenta pak komunicira s backendom preko REST API-ja i razmjenjuje podatke s backendom u JSON formatu, a ovisno o korisnikovim akcijama osvježava prikaz na stranici. Controller komponenta backenda prima zahtjeve, preovjerava ih te šalje odgovore na dobivene zahtjeve prema klijentskoj strani. Backend se još sastoji od komponente Service koja prima zahtjeve od Controllera, obrađuje ih i prosljeđuje komponenti Repository koja onda preko JPA sučelja komunicira sa PostgreSQL bazom podataka u koju se pohranjuju podaci.
+			 
+			 \begin{figure}[H]
+			 	\centering
+			 	\includegraphics[width=15cm]{slike/Dijagram komponenti}
+			 	\caption{Dijagram komponenti}
+			 	\label{fig:Component-Diagram}
+			 \end{figure}
