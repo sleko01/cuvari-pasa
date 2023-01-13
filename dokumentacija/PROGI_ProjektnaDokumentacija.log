@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 21:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1468,6 +1468,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--39
 []\OT1/jkp/m/n/12 Ivan
  []
 
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 39--39
+[]\OT1/jkp/m/n/12 13.01.2023. 
+ []
+
 > Step: build the whole table.
 
 Overfull \hbox (6.59267pt too wide) in paragraph at lines 39--39
@@ -1776,6 +1781,11 @@ Overfull \hbox (6.59267pt too wide) in paragraph at lines 39--39
 
 Underfull \hbox (badness 10000) in paragraph at lines 39--39
 []\OT1/jkp/m/n/12 Ivan
+ []
+
+
+Overfull \hbox (6.59267pt too wide) in paragraph at lines 39--39
+[]\OT1/jkp/m/n/12 13.01.2023. 
  []
 
 )
@@ -3409,110 +3419,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
 [73]
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.171 		\\b
-           egin{figure}[H]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: File `slike/dijagramPromjena' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.173 ...phics[width=16cm]{slike/dijagramPromjena}
-                                                  
-I could not locate the file with any of these extensions:
-.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.174 		\caption
-                {Dijagram pregleda promjena}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Undefined control sequence.
-\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
-                                                  \@captype }
-l.174 		\caption
-                {Dijagram pregleda promjena}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
-                                                  }
-l.174 		\caption
-                {Dijagram pregleda promjena}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Too many }'s.
-\@endfloatbox ...pagefalse \outer@nobreak \egroup 
-                                                  \color@endbox 
-l.176 	\end{figure}
-                   
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-! Extra \endgroup.
-\color@endgroup ->\endgraf \endgroup 
-                                     
-l.176 	\end{figure}
-                   
-Things are pretty mixed up, but I think the worst is over.
-
-! Too many }'s.
-\color@endbox ->\color@endgroup \egroup 
-                                        
-l.176 	\end{figure}
-                   
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-
-! LaTeX Error: \begin{document} ended by \end{figure}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.176 	\end{figure}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.176 	\end{figure}
-                   
-Things are pretty mixed up, but I think the worst is over.
-
+<slike/dijagramPromjena.png, id=902, 635.37375pt x 855.195pt>
+File: slike/dijagramPromjena.png Graphic file (type png)
+<use slike/dijagramPromjena.png>
+Package pdftex.def Info: slike/dijagramPromjena.png  used on input line 173.
+(pdftex.def)             Requested size: 398.33858pt x 536.16588pt.
 )
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3522,7 +3433,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-3.19202pt}.
 
-[74] 
+[74
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.149 	\include{Dodatak}
+                         <./slike/dijagramPromjena.png>]
+
 AED: lastpage setting LastPage
 (./PROGI_ProjektnaDokumentacija.aux (./Dnevnik_promjena_dokumentacije.aux)
 (./Opis_projektnog_zadatka.aux) (./Specifikacija_programske_potpore.aux)
@@ -3536,10 +3454,10 @@ anged.
 (rerunfilecheck)             Checksum: 3B0BEB0DCFF9D08276255B4EE5895FA9;5051.
  ) 
 Here is how much of TeX's memory you used:
- 18491 strings out of 475066
- 337323 string characters out of 5782772
- 891549 words of memory out of 5000000
- 39181 multiletter control sequences out of 15000+600000
+ 18460 strings out of 475066
+ 336626 string characters out of 5782772
+ 891579 words of memory out of 5000000
+ 39161 multiletter control sequences out of 15000+600000
  521092 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,116p,2144b,1072s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -3548,10 +3466,10 @@ f-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts
 /type1/public/kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publ
 ic/kpfonts/jkpmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/j
 kpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 2839371 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (75 pages, 2882997 bytes).
 PDF statistics:
- 1000 PDF objects out of 1000 (max. 8388607)
- 845 compressed objects within 9 object streams
- 341 named destinations out of 1000 (max. 500000)
- 383 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1004 PDF objects out of 1200 (max. 8388607)
+ 847 compressed objects within 9 object streams
+ 342 named destinations out of 1000 (max. 500000)
+ 388 words of extra memory for PDF output out of 10000 (max. 10000000)
 
