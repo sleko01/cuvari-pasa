@@ -1,6 +1,6 @@
 \chapter{Arhitektura i dizajn sustava}
 		
-		Arhitektura aplikacije "Čuvari pasa" može se podijeliti na web poslužitelj, web aplikaciju i bazu podataka.
+		Arhitektura aplikacije \textit{"Čuvari pasa"} može se podijeliti na web poslužitelj, web aplikaciju i bazu podataka.
 		\\
 		\newline
 		\textbf{Web poslužitelj} je zapravo funkcionalnost web aplikacije. On komunicira s klijentom preko web preglednika. Primarna uloga mu je "nabavljanje" HTTP zahtjeva i slanje HTTP odgovora. Ovisno o zahtjevu, web poslužitelj komunicira i s bazom podataka u kojoj se nalaze potrebni podaci. 
@@ -17,7 +17,7 @@
 		\newline
 		\textbf{Front-end} je prezentacijski dio aplikacije odnosno kako korisnik vidi aplikaciju u web pregledniku.
 		\newline
-		Front-end smo odlučili raditi u programskom jeziku JavaScript koristeći radni okvir React, a back-end u programskom jeziku Java s radnim okvirom Spring Boot. Razvojna okruženja u kojima radimo su Visual Studio Code i IntelliJ.
+		Front-end smo odlučili raditi u programskom jeziku JavaScript koristeći radni okvir React, a back-end u programskom jeziku Java s radnim okvirom Spring Boot. Razvojna okruženja u kojima radimo su Visual Studio Code i IntelliJ IDEA.
 		
 		\begin{figure}[htb]
 			\centering
@@ -122,11 +122,11 @@
 				\SetCell{LightBlue}user\_id	& INT &  Jedinstveni identifikator vlasnika psa (appuser.user\_id)	\\ \hline
 				\SetCell{LightBlue}breed\_id	& INT &  Jedinstveni identifikator pasmine (breed.breed\_id)	\\ \hline
 				date\_of\_birth	& DATE &  Datum rođenja psa	\\ \hline 
-				photo	& BYTEA &  Slika psa	\\ \hline	
+				photo	& TEXT &  Slika psa	\\ \hline	
 			\end{longtblr}
 
 
-			\textbf{request\_dog} je entitet koji sadrži sve važne informacije o oglasima koje čuvari pasa objavljuju. Sastoji se od atributa: request\_dog\_id, dog\_age, dog\_time\_begin, dog\_time\_end, is\_flexible, location, number\_of\_dogs, is\_published, is\_reviewed, bre-ed\_id, user\_id, location\_name. Povezan je vezom \textit{Many-To-One} s tablicom breed preko atributa breed\_id tablice breed i istom takvom vezom s tablicom appuser preko atributa user\_id tablice appuser. Vezom \textit{One-To-One} je povezan s tablicom agre-ed\_request preko vlastitog atributa request\_dog\_id. 
+			\textbf{request\_dog} je entitet koji sadrži sve važne informacije o oglasima koje čuvari pasa objavljuju. Sastoji se od atributa: request\_dog\_id, dog\_age, dog\_time\_begin, dog\_time\_end, is\_flexible, location, number\_of\_dogs, is\_published, is\_reviewed, bre-ed\_id, user\_id, location\_name. Povezan je vezom \textit{Many-To-One} s tablicom breed preko atributa breed\_id tablice breed i istom takvom vezom s tablicom appuser preko atributa user\_id tablice appuser. Vezom \textit{One-To-One} je povezan s tablicom agreed\_request preko vlastitog atributa request\_dog\_id. 
 			\begin{longtblr}[
 				label=none,
 				entry=none
@@ -191,7 +191,7 @@
 			\end{longtblr}			
 		
 		
-			\textbf{activity} je entitet koji sadrži sve važne informacije o aktivnosti koje bi pas i čuvar trebali raditi. Sastoji se od atributa: activity\_id, activity\_name. Povezan je vezom \textit{One-To-Many} s tablicom request\_activity preko vlastitog atributa activity\_id.
+			\textbf{activity} je entitet koji sadrži sve važne informacije o aktivnostima koje bi pas i čuvar trebali raditi. Sastoji se od atributa: activity\_id, activity\_name. Povezan je vezom \textit{One-To-Many} s tablicom request\_activity preko vlastitog atributa activity\_id.
 			\begin{longtblr}[
 				label=none,
 				entry=none
@@ -305,7 +305,7 @@
 			
 			%\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu. }
 			
-			Dijagram stanja prikazuje stanja objekta te prijelaze među stanjima koji su potaknuti okidačima. Na slici 4.6 prikazan je dijagram stanja prijavljenog korisnika s ulogom administratora. Nakon prijave u sustav korisnik se nalazi na početnoj stranici na kojoj može pročitati više informacija o samom sustavu. Kroz zaglavlje aplikacije može pristupiti svim objavljenim zahtjevima i oglasima, a kroz padajući izbornik u zaglavlju može pristupiti svom računu, stranici za upravljanje korisnicima te zahtjevima i oglasima, vlastitim zahtjevima i oglasima, vlastitim psima, pristiglim ponudama te se može odjaviti iz sustava. Pošto se zaglavlje nalazi na svim stranicama aplikacije, korisnik prethodno navedenim opcijama ima pristup gdje god da se nalazi u aplikaciji. Na stranici sa svim objavljenim zahtjevima ima mogućnost dodavanja novog zahtjeva te mogućnost javljanja na pojedine zahtjeve, a na stranici sa svim objavljenim oglasima ima mogućnost dodavanja novog oglasa te mogućnost javljanja na pojedine oglase. Na stranici s vlastitim zahtjevima ima mogućnost odabira najbolje ponude oglasa za pojedini zahtjev koju potom može prihvatiti ili odbiti, a isto može i na stranici s vlastitim oglasima. Stranici za pregled vlastitih pasa korisnik može pristupiti kroz padajući izbornik, ali i kroz pregled vlastitog računa te potom tamo ima mogućnost dodavanja novog psa.
+			Dijagram stanja prikazuje stanja objekta te prijelaze među stanjima koji su potaknuti okidačima. Na slici 4.6 prikazan je dijagram stanja prijavljenog korisnika s ulogom administratora. Nakon prijave u sustav korisnik se nalazi na početnoj stranici na kojoj može pročitati više informacija o samom sustavu. Kroz zaglavlje aplikacije može pristupiti svim objavljenim zahtjevima i oglasima, a kroz padajući izbornik u zaglavlju može pristupiti svom računu, stranici za upravljanje korisnicima te zahtjevima i oglasima, vlastitim zahtjevima i oglasima, vlastitim psima, pristiglim ponudama, čuvanjima u tijeku te se može odjaviti iz sustava. Pošto se zaglavlje nalazi na svim stranicama aplikacije, korisnik prethodno navedenim opcijama ima pristup gdje god da se nalazi u aplikaciji. Na stranici sa svim objavljenim zahtjevima ima mogućnost dodavanja novog zahtjeva te mogućnost javljanja na pojedine zahtjeve, a na stranici sa svim objavljenim oglasima ima mogućnost dodavanja novog oglasa te mogućnost javljanja na pojedine oglase. Na stranici s vlastitim zahtjevima ima mogućnost odabira najbolje ponude oglasa za pojedini zahtjev koju potom može prihvatiti ili odbiti, a isto može i na stranici s vlastitim oglasima. Također na stranicama s vlastitim zahtjevima i oglasima ima mogućnost dodavanja novog zahtjeva, odnosno oglasa. Stranici za pregled vlastitih pasa korisnik može pristupiti kroz padajući izbornik, ali i kroz pregled vlastitog računa te potom tamo ima mogućnost dodavanja novog psa. Ponude za moguću suradnju, kao i protekle suradnje korisnik može vidjeti na stranici za pristigle ponude na kojoj onda može prihvaćati ili odbijati suradnju te ocjenjivati protekla iskustva. Ukoliko korisnik ima aktivnu suradnju, onda potrebnim informacijama može pristupiti putem stranice za pregled čuvanja u tijeku. Za kraj, korisnik ima pristup stranici za upravljanje zahtjevima i oglasima te korisnicima na kojoj onda može odobravati ili odbijati zahtjeve i oglase te blokirati korisnike ili im davati administratorsku ulogu. 
 			
 			
 			\begin{figure}[htb]
