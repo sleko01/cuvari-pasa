@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 13:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.30)  13 JAN 2023 15:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1683,9 +1683,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
  (./Opis_projektnog_zadatka.tex
 Poglavlje 2.
 
-Overfull \hbox (5.02722pt too wide) in paragraph at lines 24--25
+Overfull \hbox (0.29922pt too wide) in paragraph at lines 24--25
 []\OT1/jkp/m/n/12 cuvanja/brige. Na te-me-lju zah-tjeva vlas-nika i uvjeta []cu
-vara, apli-ka-cija mo[]ze prona[]ci
+vara, apli-ka-cija mo[]ze prona-
  []
 
 
@@ -1730,12 +1730,6 @@ Overfull \hbox (2.04971pt too wide) in paragraph at lines 53--54
 
 Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
- []
-
-
-Overfull \hbox (7.34485pt too wide) in paragraph at lines 57--59
-\OT1/jkp/m/n/12 dru-gih ko-ris-nika (uz to bi se i na-do-gra-dile mogu[]cnosti 
-ure[]divanja sa-mog ko-risni[]ckog
  []
 
 
@@ -1953,10 +1947,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 734--735
 
  []
 
-<slike/Sekvencijski dijagram - UC11.png, id=437, 807.7678pt x 753.5653pt>
-File: slike/Sekvencijski dijagram - UC11.png Graphic file (type png)
-<use slike/Sekvencijski dijagram - UC11.png>
-Package pdftex.def Info: slike/Sekvencijski dijagram - UC11.png  used on input 
+<slike/Sekvencijski dijagram - UC12.png, id=437, 807.7678pt x 753.5653pt>
+File: slike/Sekvencijski dijagram - UC12.png Graphic file (type png)
+<use slike/Sekvencijski dijagram - UC12.png>
+Package pdftex.def Info: slike/Sekvencijski dijagram - UC12.png  used on input 
 line 740.
 (pdftex.def)             Requested size: 369.88582pt x 345.06895pt.
 
@@ -1973,15 +1967,15 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.744 				\eject
-                		 <./slike/Sekvencijski dijagram - UC11.png>]
+                		 <./slike/Sekvencijski dijagram - UC12.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 746--747
 
  []
 
-<slike/Sekvencijski dijagram - UC14.png, id=445, 959.08313pt x 997.47656pt>
-File: slike/Sekvencijski dijagram - UC14.png Graphic file (type png)
-<use slike/Sekvencijski dijagram - UC14.png>
-Package pdftex.def Info: slike/Sekvencijski dijagram - UC14.png  used on input 
+<slike/Sekvencijski dijagram - UC15.png, id=445, 959.08313pt x 997.47656pt>
+File: slike/Sekvencijski dijagram - UC15.png Graphic file (type png)
+<use slike/Sekvencijski dijagram - UC15.png>
+Package pdftex.def Info: slike/Sekvencijski dijagram - UC15.png  used on input 
 line 752.
 (pdftex.def)             Requested size: 398.33858pt x 414.2799pt.
 
@@ -1998,17 +1992,17 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.756 				\eject
-                		 <./slike/Sekvencijski dijagram - UC14.png>]
+                		 <./slike/Sekvencijski dijagram - UC15.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 758--759
 
  []
 
-<slike/Sekvencijski dijagram - UC21.png, id=453, 963.6pt x 885.3075pt>
-File: slike/Sekvencijski dijagram - UC21.png Graphic file (type png)
-<use slike/Sekvencijski dijagram - UC21.png>
-Package pdftex.def Info: slike/Sekvencijski dijagram - UC21.png  used on input 
+<slike/Sekvencijski dijagram - UC24.png, id=453, 962.09438pt x 849.92531pt>
+File: slike/Sekvencijski dijagram - UC24.png Graphic file (type png)
+<use slike/Sekvencijski dijagram - UC24.png>
+Package pdftex.def Info: slike/Sekvencijski dijagram - UC24.png  used on input 
 line 764.
-(pdftex.def)             Requested size: 398.33858pt x 365.96384pt.
+(pdftex.def)             Requested size: 398.33858pt x 351.8954pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.19202pt, for example:
@@ -2023,16 +2017,16 @@ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.768 				\eject
-                	 <./slike/Sekvencijski dijagram - UC21.png>]
+                	 <./slike/Sekvencijski dijagram - UC24.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 770--771
 
  []
 
-<slike/Sekvencijski dijagram - UC23.png, id=461, 918.43124pt x 623.32875pt>
-File: slike/Sekvencijski dijagram - UC23.png Graphic file (type png)
-<use slike/Sekvencijski dijagram - UC23.png>
-Package pdftex.def Info: slike/Sekvencijski dijagram - UC23.png  used on input 
-line 777.
+<slike/Sekvencijski dijagram - UC26.png, id=461, 918.43124pt x 623.32875pt>
+File: slike/Sekvencijski dijagram - UC26.png Graphic file (type png)
+<use slike/Sekvencijski dijagram - UC26.png>
+Package pdftex.def Info: slike/Sekvencijski dijagram - UC26.png  used on input 
+line 776.
 (pdftex.def)             Requested size: 398.33858pt x 270.34688pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2047,9 +2041,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.781 				\eject
-                	 <./slike/Sekvencijski dijagram - UC23.png>]
-Overfull \hbox (13.79959pt too wide) in paragraph at lines 787--788
+l.780 				\eject
+                	 <./slike/Sekvencijski dijagram - UC26.png>]
+Overfull \hbox (13.79959pt too wide) in paragraph at lines 786--787
 []\OT1/jkp/m/n/12 Aplikacija treba biti iz-ve-dena kao web apli-ka-cija prilago
 []dena mo-bil-nom ure[]daju
  []
@@ -3059,7 +3053,7 @@ anged.
 Here is how much of TeX's memory you used:
  18021 strings out of 475066
  322046 string characters out of 5782772
- 844915 words of memory out of 5000000
+ 844920 words of memory out of 5000000
  38799 multiletter control sequences out of 15000+600000
  536537 words of font info for 169 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -3073,7 +3067,7 @@ dist/fonts/type1/public/kpfonts/jkpbit8a.pfb><c:/texlive/2022/texmf-dist/fonts/
 type1/public/kpfonts/jkpbn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
 /kpfonts/jkpmit8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
 pmn8a.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on PROGI_ProjektnaDokumentacija.pdf (62 pages, 1752881 bytes).
+Output written on PROGI_ProjektnaDokumentacija.pdf (62 pages, 1748523 bytes).
 PDF statistics:
  823 PDF objects out of 1000 (max. 8388607)
  704 compressed objects within 8 object streams

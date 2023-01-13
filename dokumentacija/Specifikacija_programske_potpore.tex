@@ -295,7 +295,7 @@
 						\item[] \begin{packed_enum}
 							
 							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za prikaz vlastitih zahtjeva 
-							\item Korisniku se prikazuje lista zahtjeva
+							\item Korisniku se prikazuje lista zahtjeva koje potom može pregledavati
 							
 						\end{packed_enum}
 					
@@ -313,7 +313,7 @@
 						\item[] \begin{packed_enum}
 							
 							\item Korisnik pristupa padajućem izborniku u zaglavlju aplikacije i odabire opciju za prikaz vlastitih oglasa 
-							\item Korisniku se prikazuje lista oglasa
+							\item Korisniku se prikazuje lista oglasa koje potom može pregledavati
 							
 						\end{packed_enum}
 						
@@ -329,8 +329,8 @@
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
-							\item Korisnik putem zaglavlja aplikacije pristupa padajućem izborniku na kojem odabire opciju za prikaz vlastitih zahtjeva
-							\item Korisnik na stranici s vlastitim zahtjevima odabire opciju za kreiranje novog zahtjeva
+							\item Korisnik putem zaglavlja aplikacije pristupa padajućem izborniku na kojem odabire opciju za prikaz vlastitih zahtjeva ili na zaglavlju aplikacije pristupa stranici sa svim objavljenim zahtjevima
+							\item Korisnik na odgovarajućoj stranici odabire opciju za kreiranje novog zahtjeva
 							\item Korisnik unosi sve tražene podatke za kreiranje zahtjeva (period čuvanja, potrebne aktivnosti itd.) i potvrđuje unos
 							\item Zahtjev se pohranjuje u bazu podataka i šalje administratoru na uvid
 							
@@ -361,8 +361,8 @@
 						
 						\item[] \begin{packed_enum}
 							
-							\item Korisnik putem zaglavlja aplikacije pristupa padajućem izborniku na kojem odabire opciju za prikaz vlastitih oglasa
-							\item Korisnik na stranici s vlastitim oglasima odabire opciju za kreiranje novog oglasa
+							\item Korisnik putem zaglavlja aplikacije pristupa padajućem izborniku na kojem odabire opciju za prikaz vlastitih oglasa ili na zaglavlju aplikacije pristupa stranici sa svim objavljenim oglasima
+							\item Korisnik na odgovarajućoj stranici odabire opciju za kreiranje novog oglasa
 							\item Korisnik unosi sve tražene podatke za kreiranje oglasa (preferirana pasmina, preferirana dob, period čuvanja itd.) i potvrđuje unos
 							\item Oglas se pohranjuje u bazu podataka i šalje administratoru na uvid
 							
@@ -731,52 +731,51 @@
 				
 			\subsection{Sekvencijski dijagrami}
 				
-				\textbf{Obrazac uporabe UC11 - Kreiranje novog zahtjeva}\\
+				\textbf{Obrazac uporabe UC12 - Kreiranje novog zahtjeva}\\
 				
-				Vlasnik pasa na stranici s prikazom vlastitih zahtjeva odabire opciju za kreiranje novog zahtjeva. Web aplikacija mu otvara stranicu za kreiranje zahtjeva. Korisnik tamo unosi tražene podatke (period čuvanja, potrebne aktivnosti itd.) za kreiranje zahtjeva. Potom korisnik potvrđuje kreiranje zahtjeva. Ako korisnik nije ispravno unio podatke, prilikom potvrde web aplikacija ga ponovno usmjerava na istu stranicu s prikladnom porukom o greški. Ako su svi podaci uneseni ispravno, web aplikacija mu daje odgovor o uspješnom kreiranju zahtjeva. Potom se zahtjev pohranjuje u bazu podataka.
+				Vlasnik pasa na stranici s prikazom vlastitih zahtjeva ili na stranici sa svim objavljenim zahtjevima odabire opciju za kreiranje novog zahtjeva. Web aplikacija mu otvara stranicu za kreiranje zahtjeva. Korisnik tamo unosi tražene podatke (period čuvanja, potrebne aktivnosti itd.) za kreiranje zahtjeva. Potom korisnik potvrđuje kreiranje zahtjeva. Ako korisnik nije ispravno unio podatke, prilikom potvrde web aplikacija ga ponovno usmjerava na istu stranicu s prikladnom porukom o greški. Ako su svi podaci uneseni ispravno, web aplikacija mu daje odgovor o uspješnom kreiranju zahtjeva. Potom se zahtjev pohranjuje u bazu podataka.
 				
 				\begin{figure}[htb]
 					\centering
-					\includegraphics[width=13cm]{slike/Sekvencijski dijagram - UC11}
-					\caption{Sekvencijski dijagram za UC11}
-					\label{fig:Sekvencijski-UC11}
+					\includegraphics[width=13cm]{slike/Sekvencijski dijagram - UC12}
+					\caption{Sekvencijski dijagram za UC12}
+					\label{fig:Sekvencijski-UC12}
 				\end{figure}
 				\eject		
 				
-				\textbf{Obrazac uporabe UC14 - Pronalaženje najboljeg odabira vlasnika pasa}\\
+				\textbf{Obrazac uporabe UC15 - Pronalaženje najboljeg odabira vlasnika pasa}\\
 				
 				Čuvar pasa u zaglavlju aplikacije putem padajućeg izbornika odabire opciju za prikaz vlastitih oglasa. Web aplikacija mu otvara stranicu s njegovim oglasima. Korisnik tamo pokraj željenog oglasa odabire opciju za pronalaženje najboljeg odabira. Web aplikacija pronalazi najboljeg vlasnika pasa i šalje ga korisniku. Korisnik ima mogućnost prihvatiti ga, ali i odbiti. Ako korisnik odbije, nema daljnje suradnje s vlasnikom pasa. Ako ga korisnik prihvati, oglas nad kojim je zatražen najbolji odabir se šalje vlasniku pasa. Tada vlasnik pasa ima također opciju prihvatiti suradnju kao i odbiti ju.
 				
 				\begin{figure}[htb]
 					\centering
-					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC14}
-					\caption{Sekvencijski dijagram za UC14}
-					\label{fig:Sekvencijski-UC14}
+					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC15}
+					\caption{Sekvencijski dijagram za UC15}
+					\label{fig:Sekvencijski-UC15}
 				\end{figure}
 				\eject		
 				
-				\textbf{Obrazac uporabe UC21 - Potvrđivanje stvorenog zahtjeva}\\
+				\textbf{Obrazac uporabe UC24 - Potvrđivanje stvorenog zahtjeva}\\
 				
-				Administrator sustava na početnoj stranici putem padajućeg izbornika odabire opciju za pristupanje stranici za administratorsko upravljanje zahtjevima i oglasima. Web aplikacija šalje upit za potrebnim elementima (svi nepotvrđeni zahtjevi i oglasi) bazi podataka. Primitkom istih, web aplikacija otvara stranicu administratoru. Administrator u listi zahtjeva pronalazi željeni zahtjev te kraj njega odabire opciju za njegovo potvrđivanje. Web aplikacija šalje upit za ažuriranjem zahtjeva bazi podataka. Baza podataka ga ažurira i šalje ažuriranu listu zahtjeva web aplikaciji. Web aplikacija otvara ponovno stranicu administratoru, ali sada s ažuriranom listom zahtjeva i oglasa.
+				Administrator sustava putem padajućeg izbornika u zaglavlju aplikacije odabire opciju za pristupanje stranici za administratorsko upravljanje. Web aplikacija šalje upit za potrebnim elementima (svi nepotvrđeni zahtjevi i oglasi te svi korisnici) bazi podataka. Primitkom istih, web aplikacija otvara stranicu administratoru. Administrator u listi zahtjeva i oglasa pronalazi željeni zahtjev te kraj njega odabire opciju za njegovo potvrđivanje. Web aplikacija šalje upit za ažuriranjem zahtjeva bazi podataka. Baza podataka ga ažurira i šalje ažuriranu listu zahtjeva web aplikaciji. Web aplikacija otvara ponovno stranicu administratoru, ali sada s ažuriranom listom zahtjeva i oglasa.
 				
 				\begin{figure}[htb]
 					\centering
-					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC21}
-					\caption{Sekvencijski dijagram za UC21}
-					\label{fig:Sekvencijski-UC21}
+					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC24}
+					\caption{Sekvencijski dijagram za UC24}
+					\label{fig:Sekvencijski-UC24}
 				\end{figure}
 				\eject	
 				
-				\textbf{Obrazac uporabe UC23 - Blokiranje korisnika}\\
+				\textbf{Obrazac uporabe UC26 - Blokiranje korisnika}\\
 				
-				Administrator sustava na početnoj stranici putem padajućeg izbornika odabire opciju za pristupanje stranici za administratorsko upravljanje korisnicima. Web aplikacija šalje upit za potrebnim elementima (svi korisnici sustava) bazi podataka. Primitkom istih, web aplikacija otvara stranicu administratoru. Administrator u listi korisnika pronalazi željenog korisnika te kraj njega odabire opciju za njegovo blokiranje. Web aplikacija šalje upit za ažuriranjem korisnika bazi podataka. Baza podataka postavlja atribut kojim se označava da je korisnik blokiran na istinit i šalje ažuriranu listu korisnika web aplikaciji.
-				Web aplikacija otvara ponovno stranicu administratoru, ali sada blokirani korisnik kraj sebe nema gumb za blokiranje.
+				Administrator sustava putem padajućeg izbornika u zaglavlju aplikacije odabire opciju za pristupanje stranici za administratorsko upravljanje. Web aplikacija šalje upit za potrebnim elementima (svi nepotvrđeni zahtjevi i oglasi te svi korisnici) bazi podataka. Primitkom istih, web aplikacija otvara stranicu administratoru. Administrator u listi korisnika pronalazi željenog korisnika te kraj njega odabire opciju za njegovo blokiranje. Web aplikacija šalje upit za ažuriranjem korisnika bazi podataka. Baza podataka postavlja atribut kojim se označava da je korisnik blokiran na istinit i šalje ažuriranu listu korisnika web aplikaciji. Web aplikacija otvara ponovno stranicu administratoru, ali sada blokirani korisnik kraj sebe nema gumb za blokiranje.
 				
 				\begin{figure}[htb]
 					\centering
-					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC23}
-					\caption{Sekvencijski dijagram za UC23}
-					\label{fig:Sekvencijski-UC23}
+					\includegraphics[width=14cm]{slike/Sekvencijski dijagram - UC26}
+					\caption{Sekvencijski dijagram za UC26}
+					\label{fig:Sekvencijski-UC26}
 				\end{figure}
 				\eject	
 	
