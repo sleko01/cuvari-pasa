@@ -28,26 +28,233 @@
 	
 		\section{Ispitivanje programskog rješenja}
 			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			 \textit{U ovom poglavlju je potrebno opisati provedbu ispitivanja implementiranih funkcionalnosti na razini komponenti i na razini cijelog sustava s prikazom odabranih ispitnih slučajeva. Studenti trebaju ispitati temeljnu funkcionalnost i rubne uvjete.}
-	
-			
+		
 			\subsection{Ispitivanje komponenti}
-			\textit{Potrebno je provesti ispitivanje jedinica (engl. unit testing) nad razredima koji implementiraju temeljne funkcionalnosti. Razraditi \textbf{minimalno 6 ispitnih slučajeva} u kojima će se ispitati redovni slučajevi, rubni uvjeti te izazivanje pogreške (engl. exception throwing). Poželjno je stvoriti i ispitni slučaj koji koristi funkcionalnosti koje nisu implementirane. Potrebno je priložiti izvorni kôd svih ispitnih slučajeva te prikaz rezultata izvođenja ispita u razvojnom okruženju (prolaz/pad ispita). }
+			Za testiranje backenda naše aplikacije koristili smo JUnit testove. Svi su testovi bili uspješni, što se vidi na slici 5.1. U sljedećim potpoglavljima prikazani su pojedinačni testovi komponenta.
 			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=12cm]{slike/testoviKomponenti}
+				\caption{Uspješni testovi komponenata}
+				\label{fig:Testovi-komponenta}
+			\end{figure}
 			
+				\subsubsection{Test 1: Stvaranje korisnika}
+			
+				U ovom testu napravili poslali smo bazi gotovi objekt koji koristi za zapisivanje novog korisnika. Za provjeru testa dohvatili smo id iz baze i provjerili je li se taj korisnik ispravno zapisao u bazu.
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=12cm]{slike/stvaranjeKorisnika}
+					\caption{Test 1: Stvaranje korisnika}
+					\label{fig:Test-1}
+				\end{figure}
+			
+				\subsubsection{Test 2: Stvaranje postojećeg korisnika}
+				
+				U ovom testu poslali smo bazi korisnika s korisničkim imenom koje već postoji u bazi. Potom smo provjerili baca li baza dobru vrstu iznimke te je li tekst te iznimke ispravan.
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=12cm]{slike/stvaranjePostojecegKorisnika}
+					\caption{Test 2: Stvaranje postojećeg korisnika}
+					\label{fig:Test-2}
+				\end{figure}
+			
+				\subsubsection{Test 3: Registracija novog psa}
+				
+				U ovom testu poslali smo bazi gotov objekt za registraciju novog psa. Zatim smo dohvatili sve pse korisnika kojem smo dodali psa, pa smo provjerili postoji li u toj listi pasa pas s istim imenom kao onaj kojeg smo poslali.
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=12cm]{slike/registracijaNovogPsa}
+					\caption{Test 3: Registracija novog psa}
+					\label{fig:Test-3}
+				\end{figure}
+			
+				\subsubsection{Test 4: Stvaranje psa s pogrešnim datumom rođenja}
+				
+				U ovom testu poslali smo bazi gotov objekt za registraciju novog psa, ali s datumom rođenja u budućnosti. Zatim smo provjerili baca li baza dobru vrstu iznimke te je li tekst te iznimke ispravan.
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=12cm]{slike/stvaranjePsaSKrivimDatumom}
+					\caption{Test 4: Stvaranje psa s pogrešnim datumom rođenja}
+					\label{fig:Test-4}
+				\end{figure}
+			
+				\subsubsection{Test 5: Davanje uloge administratora korisniku}
+				
+				U ovom testu poslali smo bazi id korisnika kojemu želimo dati ulogu administratora. Zatim smo korisnika s tim id-om dohvatili te provjerili odgovara li mu identifikacijski broj uloge ulozi administratora.
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=12cm]{slike/davanjeAdminaKorisniku}
+					\caption{Test 5: Davanje uloge administratora korisniku}
+					\label{fig:Test-5}
+				\end{figure}
+			
+				\subsubsection{Test 6: Blokiranje korisnika}
+				
+				U ovom testu poslali smo bazi id korisnika kojega želimo blokirati. Zatim smo korisnika s tim id-om dohvatili te provjerili vrijednost atributa blocked.
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=12cm]{slike/blokiranjeKorisnika}
+					\caption{Test 6: Blokiranje korisnika}
+					\label{fig:Test-6}
+				\end{figure}
 			
 			\subsection{Ispitivanje sustava}
 			
-			 \textit{Potrebno je provesti i opisati ispitivanje sustava koristeći radni okvir Selenium\footnote{\url{https://www.seleniumhq.org/}}. Razraditi \textbf{minimalno 4 ispitna slučaja} u kojima će se ispitati redovni slučajevi, rubni uvjeti te poziv funkcionalnosti koja nije implementirana/izaziva pogrešku kako bi se vidjelo na koji način sustav reagira kada nešto nije u potpunosti ostvareno. Ispitni slučaj se treba sastojati od ulaza (npr. korisničko ime i lozinka), očekivanog izlaza ili rezultata, koraka ispitivanja i dobivenog izlaza ili rezultata.\\ }
+			 Ispitivanje sustava proveli smo pomoću Selenium ispita. Koristili smo Selenium WebDriver za preglednik Google Chrome.
 			 
-			 \textit{Izradu ispitnih slučajeva pomoću radnog okvira Selenium moguće je provesti pomoću jednog od sljedeća dva alata:}
-			 \begin{itemize}
-			 	\item \textit{dodatak za preglednik \textbf{Selenium IDE} - snimanje korisnikovih akcija radi automatskog ponavljanja ispita	}
-			 	\item \textit{\textbf{Selenium WebDriver} - podrška za pisanje ispita u jezicima Java, C\#, PHP koristeći posebno programsko sučelje.}
-			 \end{itemize}
-		 	\textit{Detalji o korištenju alata Selenium bit će prikazani na posebnom predavanju tijekom semestra.}
+			 \subsubsection{Ispitni slučaj 1: Prijavljivanje korisnika}
+			 
+			 \begin{packed_item}
+			 	
+			 	\item \textbf{Ulaz: } Korisničko ime i lozinka korisnika 
+			 	\item  \textbf{Očekivani izlaz:} Nakon prijave, nalazit ćemo se na početnoj stranici, što je u našem slučaju http://localhost:3000/, s obzirom da smo testove obavljali lokalno
+			 	\item  \textbf{Koraci:}
+			 	
+			 	\item[] \begin{packed_enum}
+			 		
+			 		\item Korisnik odabere gumb 'Prijava'
+			 		\item Korisnik unese korisničko ime
+			 		\item Korisnik unese lozinku
+			 		\item Korisnik odabere gumb 'Prijavi se'
+			 		
+			 	\end{packed_enum}
+			 \end{packed_item}
+			 
+			 \begin{figure}[H]
+			 	\centering
+			 	\includegraphics[width=12cm]{slike/prijavljivanjeKorisnika}
+			 	\caption{Ispitni slučaj 1: Prijavljivanje korisnika}
+			 	\label{fig:Ispitni-slucaj-1}
+			 \end{figure}
+		 
+		 	\subsubsection{Ispitni slučaj 2: Dodavanje novog administratora}
+		 	
+		 	\begin{packed_item}
+		 		
+		 		\item \textbf{Ulaz: } Korisničko ime i lozinka administratora 
+		 		\item  \textbf{Očekivani izlaz:} Dobit ćemo obavijest od stranice koja nas obavještava da je korisnik uspješno dodan kao administrator
+		 		\item  \textbf{Koraci:}
+		 		
+		 		\item[] \begin{packed_enum}
+		 			
+		 			\item Korisnik odabere gumb 'Prijava'
+		 			\item Korisnik unese korisničko ime
+		 			\item Korisnik unese lozinku
+		 			\item Korisnik odabere gumb 'Prijavi se'
+		 			\item Korisnik, koji se nalazi na početnoj stranici, pozicionira miš iznad svojeg korisničkog imena kako bi otkrio padajući izbornik
+		 			\item Korisnik odabire gumb 'Moderacija'
+		 			\item Korisnik odabire gumb 'Dodaj admina'
+		 			\item Korisnik provjerava tekst obavijesti
+		 			
+		 		\end{packed_enum}
+		 	\end{packed_item}
+		 	
+		 	\begin{figure}[H]
+		 		\centering
+		 		\includegraphics[width=12cm]{slike/dodavanjeAdmina}
+		 		\caption{Ispitni slučaj 2: Dodavanje novog administratora}
+		 		\label{fig:Ispitni-slucaj-2}
+		 	\end{figure}
+	 	
+	 		\subsubsection{Ispitni slučaj 3: Registracija novog psa}
+	 		
+	 		\begin{packed_item}
+	 			
+	 			\item \textbf{Ulaz: } Korisničko ime, lozinka, ime psa, datum rođenja psa, identifikacijski broj vrste psa
+	 			\item  \textbf{Očekivani izlaz:} Korisnik će se nakon izvođenja nalaziti na stranici korisnikovih pasa, gdje će ga nakon registracije preusmjeriti samo ukoliko je registracija uspješna
+	 			\item  \textbf{Koraci:}
+	 			
+	 			\item[] \begin{packed_enum}
+	 				
+	 				\item Korisnik odabere gumb 'Prijava'
+	 				\item Korisnik unese korisničko ime
+	 				\item Korisnik unese lozinku
+	 				\item Korisnik odabere gumb 'Prijavi se'
+	 				\item Korisnik, koji se nalazi na početnoj stranici, pozicionira miš iznad svojeg korisničkog imena kako bi otkrio padajući izbornik
+	 				\item Korisnik odabire gumb 'Moji psi'
+	 				\item Korisnik odabire gumb 'Dodaj psa'
+	 				\item Korisnik unosi ime i datum rođenja psa
+	 				\item Korisnik odabire vrstu psa
+	 				\item Korisnik odabire gumb 'Registracija psa'
+	 				
+	 			\end{packed_enum}
+	 		\end{packed_item}
+	 		
+	 		\begin{figure}[H]
+	 			\centering
+	 			\includegraphics[width=12cm]{slike/registracijaPsa}
+	 			\caption{Ispitni slučaj 3: Registracija novog psa}
+	 			\label{fig:Ispitni-slucaj-3}
+	 		\end{figure}
+ 		
+ 			\subsubsection{Ispitni slučaj 4: Dodavanje nove ponude}
+ 			
+ 			\begin{packed_item}
+ 				
+ 				\item \textbf{Ulaz: }
+ 				
+ 				\item[] \begin{packed_item}
+ 					
+ 					\item Korisničko ime i lozinka
+ 					\item Datum i vrijeme početka i kraja čuvanja, adresa, željeni broj pasa i željena dob psa
+ 					 					
+ 				\end{packed_item}
+ 			
+ 				\item  \textbf{Očekivani izlaz:} Korisnik će se nakon izvođenja nalaziti na stranici korisnikovih oglasa, gdje će biti preusmjeren samo ako će unos biti uspješan
+ 				\item  \textbf{Koraci:}
+ 				
+ 				\item[] \begin{packed_enum}
+ 					
+ 					\item Korisnik odabere gumb 'Prijava'
+ 					\item Korisnik unese korisničko ime
+ 					\item Korisnik unese lozinku
+ 					\item Korisnik odabere gumb 'Prijavi se'
+ 					\item Korisnik odabire gumb 'Oglasi'
+ 					\item Korisnik odabire gumb 'Dodaj novi oglas'
+ 					\item Korisnik unosi datum i vrijeme početka i kraja čuvanja, adresu, željeni broj pasa i željenu dob psa
+ 					\item Korisnik odabire gumb 'Predaj'
+ 					
+ 				\end{packed_enum}
+ 			\end{packed_item}
+ 			
+ 			\begin{figure}[H]
+ 				\centering
+ 				\includegraphics[width=12cm]{slike/dodavanjeNovePonude}
+ 				\caption{Ispitni slučaj 4: Dodavanje nove ponude}
+ 				\label{fig:Ispitni-slucaj-4}
+ 			\end{figure}
+ 		
+ 			\subsubsection{Ispitni slučaj 5: Neispravna prijava}
+ 			
+ 			\begin{packed_item}
+ 				
+ 				\item \textbf{Ulaz: } Neispravno korisničko ime i/ili lozinka
+ 				\item  \textbf{Očekivani izlaz:} Dobit ćemo obavijest od aplikacije s tekstom 'Unauthorized'
+ 				\item  \textbf{Koraci:}
+ 				
+ 				\item[] \begin{packed_enum}
+ 					
+ 					\item Korisnik odabere gumb 'Prijava'
+ 					\item Korisnik unese korisničko ime
+ 					\item Korisnik unese lozinku
+ 					\item Korisnik odabere gumb 'Prijavi se'
+ 					
+ 				\end{packed_enum}
+ 			\end{packed_item}
+ 			
+ 			\begin{figure}[H]
+ 				\centering
+ 				\includegraphics[width=12cm]{slike/neispravnaPrijava}
+ 				\caption{Ispitni slučaj 5: Neispravna prijava}
+ 				\label{fig:Ispitni-slucaj-5}
+ 			\end{figure}
 			
 			\eject 
 		
