@@ -7,16 +7,6 @@ public class RegisterUser {
     private String password;
     private String email;
     private Long roleId;
-
-    public RegisterUser(String username, String firstName, String lastName, String password, String email, Long roleId) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.email = email;
-        this.roleId = roleId;
-    }
-
     public String getUsername() {
         return username;
     }

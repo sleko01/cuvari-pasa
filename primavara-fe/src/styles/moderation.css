@@ -1,0 +1,57 @@
+.moderation-container {
+    display: flex;
+    justify-content: center;
+ }
+ 
+.user-table {
+    display: table-header-group;
+    table-layout: fixed;
+    width: 75%;
+    border: 0.5vw solid;
+    border-radius: 2vw;
+    border-color: var(--color-blackolive);
+    padding: 2vw;
+    padding-top: 0.5vw;
+    margin: 2vw;
+    background-color: var(--color-citrus);
+    font-size: 2vmin;
+
+}
+
+.request-table {
+    display: table-header-group;
+    table-layout: fixed;
+    width: 90%;
+    border: 0.5vw solid;
+    border-radius: 2vw;
+    border-color: var(--color-blackolive);
+    padding: 2vw;
+    padding-top: 0.5vw;
+    margin: 2vw;
+    color: var(--color-blackolive);
+    background-color: var(--color-citrus);
+    font-size: 2vmin;
+}
+
+
+th {
+    text-align: center;
+    font-size: 1.5vw;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    padding-bottom: 1vw;
+    border: none;
+}
+
+td {
+    text-align: center;
+    border: none;
+}
+
+.block-button {
+    padding-left: 8vw;
+}
+
+.confirm-button {
+    padding-left: 8vw;
+}

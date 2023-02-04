@@ -18,13 +18,6 @@ public class RegisterDog {
 
     private Long breedId;
 
-    public RegisterDog(String name, Date dateOfBirth, String photo, Long breedId) {
-        this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.photo = photo;
-        this.breedId = breedId;
-    }
-
     public String getName() {
         return name;
     }

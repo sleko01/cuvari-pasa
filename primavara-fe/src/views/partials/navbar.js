@@ -21,16 +21,22 @@ function Navbar(){
         var myModeration = <a href="/moderation">Moderacija</a>
         var myOffers = <a href="/users/offers">Moji oglasi</a>
         var myRequests = <a href="/users/requests">Moji zahtjevi</a>
+        var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
+        var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
     }
     else if(roleId == 3){
         var myOffers = <a href="/users/offers">Moji oglasi</a>
         var myRequests = <a href="/users/requests">Moji zahtjevi</a>
+        var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
+        var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
     }
     else if(roleId == 2){
         var myOffers = <a href="/users/offers">Moji oglasi</a>
+        var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
     }
     else if(roleId == 1){
         var myRequests = <a href="/users/requests">Moji zahtjevi</a>
+        var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
     }
 
     var myProfile = <a href="/users/profile">Moj račun</a>
@@ -40,8 +46,8 @@ function Navbar(){
     var myReceived = <a href="/users/incoming">Pristigle ponude</a>
     var myCurrent = <a href="/users/current">Čuvanja u tijeku</a>
     var myLogout = <a href="#" onClick={logout}>Odjava</a>
-    var offers = <a href="/offers" className="navbar-text navbar-link">Oglasi</a>
-    var requests =  <a href="/requests" className="navbar-text navbar-link">Zahtjevi</a>
+    
+
 
     if (isLoggedIn) {
         var dropdownMenu = <div className="dropdown">
